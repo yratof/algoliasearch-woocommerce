@@ -59,3 +59,32 @@ function aw_product_shared_attributes( array $attributes, WP_Post $post ) {
 
 add_filter( 'algolia_post_product_shared_attributes', 'aw_product_shared_attributes', 10, 2 );
 add_filter( 'algolia_searchable_post_product_shared_attributes', 'aw_product_shared_attributes', 10, 2 );
+
+/**
+ * @param bool    $should_index
+ * @param WP_Post $post
+ *
+ * @return bool
+ */
+function aw_should_index_post( $should_index, WP_Post $post ) {
+	// Only alter decision making if we are dealing with a product.
+	if ( 'product' !== $post->post_type ) {
+		return $should_index;
+	}
+
+	// This is required as `is_visible` method also checks for user_cap.
+	if( 'publish' !== $post->post_status ) {
+		return false;
+	}
+
+	$product = wc_get_product( $post );
+	// We extracted this check because `is_visible` will not detect searchable products if not in a loop.
+	if ( 'search' === $product->visibility ) {
+		return true;
+	}
+
+	return $product->is_visible();
+}
+
+add_filter( 'algolia_should_index_post', 'aw_should_index_post', 10, 2 );
+add_filter( 'algolia_should_index_searchable_post', 'aw_should_index_post', 10, 2 );
