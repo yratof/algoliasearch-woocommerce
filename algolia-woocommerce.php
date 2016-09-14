@@ -53,6 +53,7 @@ function aw_product_shared_attributes( array $attributes, WP_Post $post ) {
 	$attributes['length'] = (string) $product->get_length();
 	$attributes['review_count'] = (int) $product->get_review_count();
 	$attributes['dimensions'] = (string) $product->get_dimensions();
+	$attributes['total_sales'] = (int) get_post_meta( $post->ID, 'total_sales', true );
 
 	return $attributes;
 }
