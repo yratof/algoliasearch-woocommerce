@@ -9,10 +9,10 @@
 /**
  * If Algolia is not active, let users know.
  **/
-if ( ! in_array( 'algolia/algolia.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+if ( ! in_array( 'search-by-algolia-instant-relevant-results/algolia.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 	add_action( 'admin_notices', function() {
 		echo '<div class="error notice">
-			  	<p>' . esc_html__( 'Algolia Search for WooCommerce: Algolia Search plugin should be enabled.', 'algolia-woocommerce' ) . '</p>
+			  	<p>' . __( 'Algolia Search for WooCommerce: <a href="' . admin_url( 'plugin-install.php?s=Search+by+Algolia+–+Instant+%26+Relevant+results&tab=search&type=term' ) . '">Search by Algolia – Instant & Relevant results</a> plugin should be enabled.', 'algolia-woocommerce' ) . '</p>
 		  	  </div>';
 	} );
 }
