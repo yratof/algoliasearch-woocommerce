@@ -5,6 +5,13 @@
  * Plugin Name: Algolia Search for WooCommerce
  */
 
+// The Algolia Search FOR WooCommerce plugin version.
+define( 'ALGOLIA_WOOCOMMERCE_VERSION', '1.0.0' );
+define( 'ALGOLIA_WOOCOMMERCE_PLUGIN_BASENAME', plugin_basename(__FILE__) );
+
+if ( ! defined( 'ALGOLIA_WOOCOMMERCE_PATH' ) ) {
+	define( 'ALGOLIA_WOOCOMMERCE_PATH', plugin_dir_path( __FILE__ ) );
+}
 
 /**
  * If Algolia is not active, let users know.
@@ -89,3 +96,22 @@ function aw_should_index_post( $should_index, WP_Post $post ) {
 
 add_filter( 'algolia_should_index_post', 'aw_should_index_post', 10, 2 );
 add_filter( 'algolia_should_index_searchable_post', 'aw_should_index_post', 10, 2 );
+
+/**
+ * @return string
+ */
+function aw_plugin_path() {
+	return untrailingslashit( ALGOLIA_WOOCOMMERCE_PATH );
+}
+
+/**
+ * @param string $file
+ *
+ * @return string
+ */
+function aw_default_template( $template, $file ) {
+
+	return aw_plugin_path() . '/templates/' . $file;
+}
+
+add_filter( 'algolia_default_template', 'aw_default_template', 9, 2 );
