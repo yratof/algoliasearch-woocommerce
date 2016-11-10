@@ -112,7 +112,18 @@ function aw_plugin_path() {
  */
 function aw_default_template( $template, $file ) {
 
-	return aw_plugin_path() . '/templates/' . $file;
+	// Replace instantsearch.php template if we search for products.
+	if( 'instantsearch.php' === $file && get_query_var( 'post_type' ) === 'product' ) {
+		return aw_plugin_path() . '/templates/woocommerce-instantsearch.php';
+	}
+
+	// Provide with a store oriented autocomplete by default.
+	// Todo: we should probably de-register default autocomplete CSS.
+	if( 'autocomplete.php' === $file ) {
+		return aw_plugin_path() . '/templates/' . $file;
+	}
+
+	return $template;
 }
 
 add_filter( 'algolia_default_template', 'aw_default_template', 9, 2 );
