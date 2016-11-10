@@ -50,7 +50,7 @@ function aw_product_shared_attributes( array $attributes, WP_Post $post ) {
 	$attributes['price_excluding_tax'] = (float) $product->get_price_excluding_tax();
 	$attributes['regular_price'] = (float) $product->get_regular_price();
 	$attributes['sale_price'] = (float) $product->get_sale_price();
-	$attributes['sale_price'] = (float) $product->get_price();
+	$attributes['price'] = (float) $product->get_price();
 	$attributes['average_rating'] = (float) $product->get_average_rating();
 	$attributes['rating_count'] = (int) $product->get_rating_count();
 	$attributes['attributes'] = (array) $product->get_attributes();
@@ -61,6 +61,7 @@ function aw_product_shared_attributes( array $attributes, WP_Post $post ) {
 	$attributes['review_count'] = (int) $product->get_review_count();
 	$attributes['dimensions'] = (string) $product->get_dimensions();
 	$attributes['total_sales'] = (int) get_post_meta( $post->ID, 'total_sales', true );
+
 
 	return $attributes;
 }
