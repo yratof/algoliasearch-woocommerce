@@ -127,3 +127,19 @@ function aw_default_template( $template, $file ) {
 }
 
 add_filter( 'algolia_default_template', 'aw_default_template', 9, 2 );
+
+/**
+ * Add WooCommerce configuration to the Algolia config var
+ * So that the templates can use it more easily.
+ *
+ * @param array $config
+ *
+ * @return array
+ */
+function aw_woocommerce_config( array $config ) {
+	$config['woocommerce']['currency_symbol'] = get_woocommerce_currency_symbol();
+
+	return $config;
+}
+
+add_filter( 'algolia_config', 'aw_woocommerce_config', 5 );
