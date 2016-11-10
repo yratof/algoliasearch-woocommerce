@@ -105,6 +105,7 @@ function aw_plugin_path() {
 }
 
 /**
+ * @param string $template
  * @param string $file
  *
  * @return string
