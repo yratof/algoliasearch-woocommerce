@@ -22,36 +22,17 @@
 			<# if ( data.images.thumbnail ) { #>
 			<div class="ais-hits--thumbnail">
 				<a href="{{ data.permalink }}" title="{{ data.post_title }}">
-					<img src="{{ data.images.thumbnail.url }}" alt="{{ data.post_title }}" title="{{ data.post_title }}" itemprop="image" />
+					<img src="{{ data.images.shop_catalog.url }}" alt="{{ data.post_title }}" title="{{ data.post_title }}" itemprop="image" />
 				</a>
 			</div>
 			<# } #>
 
 			<div class="ais-hits--content">
 				<h2 itemprop="name headline"><a href="{{ data.permalink }}" title="{{ data.post_title }}" itemprop="url">{{{ data._highlightResult.post_title.value }}}</a></h2>
-				<div class="ais-hits--tags">
-					<# for (var index in data.taxonomies.post_tag) { #>
-					<span class="ais-hits--tag">{{{ data._highlightResult.taxonomies.post_tag[index].value }}}</span>
-					<# } #>
-				</div>
-				<div class="excerpt">
-					<p>
-						<#
-						var attributes = ['content', 'title6', 'title5', 'title4', 'title3', 'title2', 'title1'];
-						var attribute_name;
-						var relevant_content = '';
-						for ( var index in attributes ) {
-							attribute_name = attributes[ index ];
-							if ( data._highlightResult[ attribute_name ].matchedWords.length > 0 ) {
-								relevant_content = data._snippetResult[ attribute_name ].value;
-							}
-						}
 
-						relevant_content = data._snippetResult[ attributes[ 0 ] ].value;
-						#>
-						{{{ relevant_content }}}
-					</p>
-				</div>
+				<span class="price">
+					<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">{{{algolia.woocommerce.currency_symbol}}}</span>{{data.display_price}}</span>
+				</span>
 			</div>
 			<div class="ais-clearfix"></div>
 		</article>
@@ -128,19 +109,6 @@
 				search.addWidget(
 					instantsearch.widgets.pagination({
 						container: '#algolia-pagination'
-					})
-				);
-
-				/* Post types refinement widget */
-				search.addWidget(
-					instantsearch.widgets.menu({
-						container: '#facet-post-types',
-						attributeName: 'post_type_label',
-						sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
-						limit: 10,
-						templates: {
-							header: '<h3 class="widgettitle">Post Type</h3>'
-						},
 					})
 				);
 
