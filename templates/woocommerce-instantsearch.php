@@ -10,10 +10,8 @@
 			<div id="algolia-pagination"></div>
 		</main>
 		<aside id="ais-facets">
-			<section class="ais-facets" id="facet-post-types"></section>
 			<section class="ais-facets" id="facet-categories"></section>
-			<section class="ais-facets" id="facet-tags"></section>
-			<section class="ais-facets" id="facet-users"></section>
+			<section class="ais-facets" id="facet-colors"></section>
 		</aside>
 	</div>
 
@@ -128,13 +126,13 @@
 				/* Tags refinement widget */
 				search.addWidget(
 					instantsearch.widgets.refinementList({
-						container: '#facet-tags',
-						attributeName: 'taxonomies.product_tag',
+						container: '#facet-colors',
+						attributeName: 'taxonomies.pa_color',
 						operator: 'and',
 						limit: 15,
 						sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
 						templates: {
-							header: '<h3 class="widgettitle">Tags</h3>'
+							header: '<h3 class="widgettitle">Colors</h3>'
 						}
 					})
 				);
