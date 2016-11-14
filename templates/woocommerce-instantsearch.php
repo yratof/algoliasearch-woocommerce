@@ -10,6 +10,7 @@
 			<div id="algolia-pagination"></div>
 		</main>
 		<aside id="ais-facets">
+			<section class="ais-facets" id="facet-price"></section>
 			<section class="ais-facets" id="facet-categories"></section>
 			<section class="ais-facets" id="facet-colors"></section>
 		</aside>
@@ -31,6 +32,7 @@
 				<span class="price">
 					<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">{{{algolia.woocommerce.currency_symbol}}}</span>{{data.display_price}}</span>
 				</span>
+
 			</div>
 			<div class="ais-clearfix"></div>
 		</article>
@@ -107,6 +109,22 @@
 				search.addWidget(
 					instantsearch.widgets.pagination({
 						container: '#algolia-pagination'
+					})
+				);
+
+				/* Price range slider refinement widget */
+				search.addWidget(
+					instantsearch.widgets.rangeSlider({
+						container: '#facet-price',
+						attributeName: 'price',
+						templates: {
+							header: '<h3 class="widgettitle">Price</h3>'
+						},
+						tooltips: {
+							format: function(rawValue) {
+								return algolia.woocommerce.currency_symbol + Math.round(rawValue).toLocaleString();
+							}
+						}
 					})
 				);
 
