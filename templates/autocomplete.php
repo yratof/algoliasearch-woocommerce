@@ -5,6 +5,20 @@
 	</div>
 </script>
 
+<script type="text/html" id="tmpl-autocomplete-post-product">
+	<a class="suggestion-link" href="{{ data.permalink }}" title="{{ data.post_title }}">
+		<# if ( data.images.thumbnail ) { #>
+		<img class="suggestion-post-thumbnail" src="{{ data.images.thumbnail.url }}" alt="{{ data.post_title }}">
+		<# } #>
+		<div class="suggestion-post-attributes">
+			<span class="suggestion-post-title">{{{ data._highlightResult.post_title.value }}}</span>
+			<span class="price">
+				<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">{{{algolia.woocommerce.currency_symbol}}}</span>{{data.display_price}}</span>
+			</span>
+		</div>
+	</a>
+</script>
+
 <script type="text/html" id="tmpl-autocomplete-post-suggestion">
 	<a class="suggestion-link" href="{{ data.permalink }}" title="{{ data.post_title }}">
 		<# if ( data.images.thumbnail ) { #>
@@ -74,31 +88,19 @@
 
 		/* setup default sources */
 		var sources = [];
-		jQuery.each(algolia.autocomplete.sources, function(i, config) {
+
+
+		console.log(algolia.indices.posts_product);
+		if(algolia.indices.posts_product !== undefined) {
 			sources.push({
-				source: autocomplete.sources.hits(client.initIndex(config['index_name']), {
-					hitsPerPage: config['max_suggestions'],
-					attributesToSnippet: [
-						'content:10',
-						'title1:10',
-						'title2:10',
-						'title3:10',
-						'title4:10',
-						'title5:10',
-						'title6:10'
-					]
+				source: autocomplete.sources.hits(client.initIndex( algolia.indices.posts_product.name ), {
+					hitsPerPage: 6
 				}),
 				templates: {
-					header: function() {
-						return wp.template('autocomplete-header')({
-							label: config['label']
-						});
-					},
-					suggestion: wp.template(config['tmpl_suggestion'])
+					suggestion: wp.template('autocomplete-post-product')
 				}
 			});
-
-		});
+		}
 
 		/* Setup dropdown menus */
 		jQuery("input[name='s']:not('.no-autocomplete')").each(function(i) {

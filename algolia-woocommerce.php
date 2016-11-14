@@ -62,7 +62,6 @@ function aw_product_shared_attributes( array $attributes, WP_Post $post ) {
 	$attributes['dimensions'] = (string) $product->get_dimensions();
 	$attributes['total_sales'] = (int) get_post_meta( $post->ID, 'total_sales', true );
 
-
 	return $attributes;
 }
 
@@ -105,6 +104,17 @@ function aw_plugin_path() {
 	return untrailingslashit( ALGOLIA_WOOCOMMERCE_PATH );
 }
 
+function aw_register_assets()
+{
+	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
+	// CSS.
+	// wp_register_style( 'algolia-autocomplete', plugin_dir_url( __FILE__ ) . '../assets/css/algolia-autocomplete.css', array(), ALGOLIA_VERSION, 'screen' );
+	wp_register_style( 'algolia-woocommerce-instantsearch', plugin_dir_url( __FILE__ ) . 'assets/css/algolia-woocommerce-instantsearch.css', array(), ALGOLIA_WOOCOMMERCE_VERSION, 'screen' );
+}
+
+add_action( 'wp_enqueue_scripts', 'aw_register_assets' );
+
 /**
  * @param string $template
  * @param string $file
@@ -144,3 +154,16 @@ function aw_woocommerce_config( array $config ) {
 }
 
 add_filter( 'algolia_config', 'aw_woocommerce_config', 5 );
+
+
+function aw_instantsearch_scripts() {
+
+	// Are we on a product search page?
+	if( get_query_var( 'post_type' ) === 'product' ) {
+		// Remove the default instantsearch styles and add the WooCommerce ones.
+		wp_dequeue_style( 'algolia-instantsearch' );
+		wp_enqueue_style( 'algolia-woocommerce-instantsearch' );
+	}
+}
+
+add_action( 'algolia_instantsearch_scripts', 'aw_instantsearch_scripts' );

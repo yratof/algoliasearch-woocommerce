@@ -1,6 +1,12 @@
 <?php get_header(); ?>
 
 	<div id="ais-wrapper">
+		<aside id="ais-facets">
+			<section class="ais-facets" id="facet-price"></section>
+			<section class="ais-facets" id="facet-categories"></section>
+			<section class="ais-facets" id="facet-colors"></section>
+		</aside>
+
 		<main id="ais-main">
 			<div id="algolia-search-box">
 				<div id="algolia-stats"></div>
@@ -9,11 +15,6 @@
 			<div id="algolia-hits"></div>
 			<div id="algolia-pagination"></div>
 		</main>
-		<aside id="ais-facets">
-			<section class="ais-facets" id="facet-price"></section>
-			<section class="ais-facets" id="facet-categories"></section>
-			<section class="ais-facets" id="facet-colors"></section>
-		</aside>
 	</div>
 
 	<script type="text/html" id="tmpl-instantsearch-hit">
