@@ -43,7 +43,7 @@ if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins',
  */
 function aw_product_shared_attributes( array $attributes, WP_Post $post ) {
 	$product = wc_get_product( $post );
-
+	
 	$attributes['product_type'] = (string) $product->get_type();
 	$attributes['display_price'] = (float) $product->get_display_price();
 	$attributes['price'] = (float) $product->get_price();
