@@ -12,7 +12,9 @@
 		<main id="ais-main">
 			<div id="algolia-search-box">
 				<div id="algolia-stats"></div>
-				<svg class="search-icon" width="25" height="25" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M24.828 31.657a16.76 16.76 0 0 1-7.992 2.015C7.538 33.672 0 26.134 0 16.836 0 7.538 7.538 0 16.836 0c9.298 0 16.836 7.538 16.836 16.836 0 3.22-.905 6.23-2.475 8.79.288.18.56.395.81.645l5.985 5.986A4.54 4.54 0 0 1 38 38.673a4.535 4.535 0 0 1-6.417-.007l-5.986-5.986a4.545 4.545 0 0 1-.77-1.023zm-7.992-4.046c5.95 0 10.775-4.823 10.775-10.774 0-5.95-4.823-10.775-10.774-10.775-5.95 0-10.775 4.825-10.775 10.776 0 5.95 4.825 10.775 10.776 10.775z" fill-rule="evenodd"></path></svg>
+
+				<svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"> <style> .st0 {fill:none;stroke:#2C2C38;stroke-width:2;stroke-miterlimit:10;} </style> <ellipse transform="rotate(-45 13.78 13.938)" class="st0" cx="13.8" cy="13.9" rx="10.8" ry="10.8"/> <path class="st0" d="M26.4 26.6l-4.9-4.9"/> </svg>
+
 			</div>
 			<div id="algolia-hits"></div>
 			<div id="algolia-pagination"></div>
@@ -94,7 +96,7 @@
 				search.addWidget(
 					instantsearch.widgets.searchBox({
 						container: '#algolia-search-box',
-						placeholder: 'Search Products...',
+						placeholder: 'Search Products, Categories...',
 						wrapInput: false,
 						poweredBy: algolia.powered_by_enabled
 					})
@@ -132,7 +134,7 @@
 						container: '#facet-price',
 						attributeName: 'price',
 						templates: {
-							header: '<h3 class="widgettitle">Filter by price</h3>'
+							header: '<h4>Filter by price</h4>'
 						},
 						tooltips: {
 							format: function (rawValue) {
@@ -150,7 +152,7 @@
 						sortBy: ['count'],
 						attributes: ['taxonomies_hierarchical.product_cat.lvl0', 'taxonomies_hierarchical.product_cat.lvl1', 'taxonomies_hierarchical.product_cat.lvl2'],
 						templates: {
-							header: '<h3 class="widgettitle">Product categories</h3>'
+							header: '<h4>Product categories</h4>'
 						}
 					})
 				);
@@ -164,7 +166,7 @@
 						limit: 15,
 						sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
 						templates: {
-							header: '<h3 class="widgettitle">Filter by color</h3>'
+							header: '<h4>Filter by color</h4>'
 						}
 					})
 				);
