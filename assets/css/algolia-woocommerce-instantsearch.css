@@ -4,14 +4,11 @@
 }
 
 #ais-main {
-    padding: 1rem;
     width: 100%;
 }
 
 #ais-facets {
     width: 40%;
-    padding: 5%;
-    padding: 1rem;
 }
 
 .ais-facets {
@@ -29,7 +26,7 @@
 
 #algolia-search-box input {
     border: none;
-    border-bottom: 2px solid red;
+    border-bottom: 2px solid #AEAEAE;
     background: transparent;
     width: 100%;
     line-height: 30px;
@@ -45,7 +42,7 @@
     position: absolute;
     left: 0px;
     top: 14px;
-    fill: #21A4D7;
+    fill: #AEAEAE;
 }
 
 .ais-search-box--powered-by {
@@ -74,29 +71,39 @@
     font-size: 14px;
 }
 
-.ais-hits--item {
-    /* hit item */
-    margin-bottom: 2rem;
+.ais-hits {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
 }
+
+.ais-hits--item article {
+    width: 100%;
+}
+
+.ais-hits--item a {
+    color: #000;
+}
+.ais-hits--item {
+    margin-bottom: 2rem;
+    width: 32%;
+    min-width: 220px;
+    margin-bottom: 1.3%;
+    display: flex;
+    border-radius: 4px;
+    background: #F9F9F9;
+    overflow: hidden;
+    box-shadow 0.3s cubic-bezier(.21, .6, .35, 1);
+    color: #000;
+}
+
+
 
 .ais-hits--item h2 {
     margin: 0;
+    font-size: 18px;
 }
-
-.ais-hits--tags {
-    margin-bottom: 1rem;
-}
-
-.ais-hits--tag {
-    background: #F2F2F2;
-    padding: 0px 7px;
-    border-radius: 2px;
-    display: inline-block;
-    margin-right: .5rem;
-    margin-bottom: .5rem;
-    font-size: 14px;
-}
-
 
 .ais-hits--item em, .ais-hits--item a em {
     font-style: normal;
@@ -105,16 +112,14 @@
 }
 
 .ais-hits--thumbnail {
-    float: left;
-    margin-right: 2rem;
 }
 
 .ais-hits--content {
-    overflow: hidden;
+    padding: 1em;
 }
 
 .ais-hits--thumbnail img {
-    border-radius: 3px;
+    width: 100%;
 }
 
 .ais-pagination {
