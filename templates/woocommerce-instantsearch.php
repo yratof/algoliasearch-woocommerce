@@ -120,7 +120,7 @@
 						container: '#facet-price',
 						attributeName: 'price',
 						templates: {
-							header: '<h3 class="widgettitle">Price</h3>'
+							header: '<h3 class="widgettitle">Filter by price</h3>'
 						},
 						tooltips: {
 							format: function(rawValue) {
@@ -138,7 +138,7 @@
 						sortBy: ['count'],
 						attributes: ['taxonomies_hierarchical.product_cat.lvl0', 'taxonomies_hierarchical.product_cat.lvl1', 'taxonomies_hierarchical.product_cat.lvl2'],
 						templates: {
-							header: '<h3 class="widgettitle">Categories</h3>'
+							header: '<h3 class="widgettitle">Product categories</h3>'
 						}
 					})
 				);
@@ -152,7 +152,7 @@
 						limit: 15,
 						sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
 						templates: {
-							header: '<h3 class="widgettitle">Colors</h3>'
+							header: '<h3 class="widgettitle">Filter by color</h3>'
 						}
 					})
 				);
