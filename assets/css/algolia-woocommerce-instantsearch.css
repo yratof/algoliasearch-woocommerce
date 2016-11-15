@@ -87,6 +87,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 2em;
 
 }
 
@@ -138,24 +139,7 @@
     width: 100%;
 }
 
-.ais-pagination {
-    margin: 0;
-}
 
-.ais-pagination--item {
-    /* pagination item */
-    display: inline-block;
-    padding: 3px;
-}
-
-.ais-pagination--item__disabled {
-    /* disabled pagination item */
-    display: none;
-}
-
-.ais-pagination--item__active {
-    font-weight: bold;
-}
 
 .ais-menu--item__active {
     /* active list item */
@@ -336,7 +320,50 @@
 
 
 
-/* Facets */
+/* Pagination */
+.ais-pagination {
+    margin: 0;
+    margin-bottom: 2em;
+}
+
+.ais-pagination--item {
+    /* pagination item */
+    display: inline-block;
+}
+
+.ais-pagination--link {
+    padding: 10px 18px;
+    color: #43454b;
+    font-weight: normal;
+    display: block;
+
+}
+
+a.ais-pagination--link {
+    outline: none;
+    border: none;
+}
+
+.ais-pagination--item__disabled {
+    /* disabled pagination item */
+    display: none;
+}
+
+a.ais-pagination--link:hover {
+    color: #46AEDA;
+}
+
+.ais-pagination--item__active .ais-pagination--link{
+    background: #46AEDA;
+    color: #FFF;
+    box-shadow: 0px 5px 16px 0px rgba(27, 54, 86, 0.15);
+}
+
+.ais-pagination--item__active a.ais-pagination--link:hover {
+    color: #FFF;
+}
+
+    /* Facets */
 .ais-facets {
     padding-right: 2em;
 }
