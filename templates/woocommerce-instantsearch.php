@@ -69,8 +69,7 @@
 					apiKey: algolia.search_api_key,
 					indexName: algolia.indices.posts_product.name,
 					urlSync: {
-						mapping: {'q': 's'},
-						trackedParameters: ['query']
+						useHash: true
 					},
 					searchParameters: {
 						facetingAfterDistinct: true
