@@ -167,3 +167,23 @@ function aw_instantsearch_scripts() {
 }
 
 add_action( 'algolia_instantsearch_scripts', 'aw_instantsearch_scripts' );
+
+/**
+ * @param array         $replicas
+ * @param Algolia_Index $index
+ *
+ * @return array
+ */
+function aw_products_index_replicas( array $replicas, Algolia_Index $index ) {
+	if ( 'posts_product' === $index->get_id() ) {
+		$replicas[] = new Algolia_Index_Replica( 'price', 'asc' );
+		$replicas[] = new Algolia_Index_Replica( 'price', 'desc' );
+		$replicas[] = new Algolia_Index_Replica( 'total_sales', 'desc' );
+		$replicas[] = new Algolia_Index_Replica( 'average_rating', 'desc' );
+		// Todo: Add menu_order to the custom ranking rule.`
+		// $replicas[] = new Algolia_Index_Replica( 'menu_order', 'asc' );
+	}
+
+	return $replicas;
+}
+add_filter( 'algolia_index_replicas', 'aw_products_index_replicas', 10, 2 );
