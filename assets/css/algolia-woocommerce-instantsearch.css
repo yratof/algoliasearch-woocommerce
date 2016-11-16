@@ -385,7 +385,7 @@ a.ais-pagination--link:hover {
 .ais-refinement-list--count,
 .ais-hierarchical-menu--count {
     float: right;
-    background-color: rgba(0,0,0,0.05);
+    background-color: #F3F3F3;
     padding: 5px 8px;
     border-radius: 100px;
     font-size: 12px;
@@ -417,6 +417,29 @@ a.ais-pagination--link:hover {
     margin-right: 10px;
 }
 
+/* Range slider */
+
+.ais-range-slider--body {
+    padding: 0 10px;
+}
+.ais-range-slider--pips {
+    display: none;
+}
+
+.ais-range-slider--base {
+    border: none;
+}
+.ais-range-slider--background {
+    background-color: #F3F3F3;
+}
+.ais-range-slider--handle {
+    border: none;
+    background-color: #fff!important;
+    box-shadow: 0 3px 12px 0 rgba(43,43,49,.09), 0 5px 17px 0 rgba(43,43,49,.11)!important;
+}
+.ais-range-slider--connect {
+    background-color: #46AEDA;
+}
 
 /* Hierarchical Menu: Categories */
 .ais-hierarchical-menu--item__active > div > a {
