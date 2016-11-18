@@ -1,25 +1,24 @@
-<?php get_header(); ?>
+	<script type="text/html" id="tmpl-instantsearch">
+		<div id="ais-wrapper">
 
+			<aside id="ais-facets">
+				<section class="ais-facets" id="facet-price"></section>
+				<section class="ais-facets" id="facet-categories"></section>
+				<section class="ais-facets" id="facet-colors"></section>
+			</aside>
 
-	<div id="ais-wrapper">
+			<main id="ais-main">
+				<div id="algolia-search-box">
+					<div id="algolia-stats"></div>
 
-		<aside id="ais-facets">
-			<section class="ais-facets" id="facet-price"></section>
-			<section class="ais-facets" id="facet-categories"></section>
-			<section class="ais-facets" id="facet-colors"></section>
-		</aside>
+					<svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"> <style> .st0 {fill:none;stroke:#2C2C38;stroke-width:2;stroke-miterlimit:10;} </style> <ellipse transform="rotate(-45 13.78 13.938)" class="st0" cx="13.8" cy="13.9" rx="10.8" ry="10.8"/> <path class="st0" d="M26.4 26.6l-4.9-4.9"/> </svg>
 
-		<main id="ais-main">
-			<div id="algolia-search-box">
-				<div id="algolia-stats"></div>
-
-				<svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"> <style> .st0 {fill:none;stroke:#2C2C38;stroke-width:2;stroke-miterlimit:10;} </style> <ellipse transform="rotate(-45 13.78 13.938)" class="st0" cx="13.8" cy="13.9" rx="10.8" ry="10.8"/> <path class="st0" d="M26.4 26.6l-4.9-4.9"/> </svg>
-
-			</div>
-			<div id="algolia-hits"></div>
-			<div id="algolia-pagination"></div>
-		</main>
-	</div>
+				</div>
+				<div id="algolia-hits"></div>
+				<div id="algolia-pagination"></div>
+			</main>
+		</div>
+	</script>
 
 	<script type="text/html" id="tmpl-instantsearch-hit">
 		<article>
@@ -54,138 +53,140 @@
 		</article>
 	</script>
 
-
 	<script type="text/javascript">
 		jQuery(function() {
-			if(jQuery('#algolia-search-box').length > 0) {
+			jQuery(".woocommerce-breadcrumb").parent().html(wp.template('instantsearch'));
 
-				if (algolia.indices.posts_product === undefined && jQuery('.admin-bar').length > 0) {
-					alert('It looks like you haven\'t indexed the posts_product index. Please head to the Indexing page of the Algolia Search plugin and index it.');
-				}
-
-				/* Instantiate instantsearch.js */
-				var search = instantsearch({
-					appId: algolia.application_id,
-					apiKey: algolia.search_api_key,
-					indexName: algolia.indices.posts_product.name,
-					urlSync: {
-						useHash: true
-					},
-					searchParameters: {
-						facetingAfterDistinct: true
-					},
-					searchFunction: function (helper) {
-						/* helper does a setPage(0) on almost every method call */
-						/* see https://github.com/algolia/algoliasearch-helper-js/blob/7d9917135d4192bfbba1827fd9fbcfef61b8dd69/src/algoliasearch.helper.js#L645 */
-						/* and https://github.com/algolia/algoliasearch-helper-js/issues/121 */
-						var savedPage = helper.state.page;
-						if (search.helper.state.query === '') {
-							search.helper.setQueryParameter('distinct', false);
-							search.helper.setQueryParameter('filters', 'record_index=0');
-						} else {
-							search.helper.setQueryParameter('distinct', true);
-							search.helper.setQueryParameter('filters', '');
-						}
-						search.helper.setPage(savedPage);
-						helper.search();
-					}
-				});
-
-				/* Search box widget */
-				search.addWidget(
-					instantsearch.widgets.searchBox({
-						container: '#algolia-search-box',
-						placeholder: 'Search Products, Categories...',
-						wrapInput: false,
-						poweredBy: algolia.powered_by_enabled
-					})
-				);
-
-				/* Stats widget */
-				search.addWidget(
-					instantsearch.widgets.stats({
-						container: '#algolia-stats'
-					})
-				);
-
-				/* Hits widget */
-				search.addWidget(
-					instantsearch.widgets.hits({
-						container: '#algolia-hits',
-						hitsPerPage: 9,
-						templates: {
-							empty: 'No results were found for "<strong>{{query}}</strong>".',
-							item: wp.template('instantsearch-hit')
-						}
-					})
-				);
-
-				/* Pagination widget */
-				search.addWidget(
-					instantsearch.widgets.pagination({
-						container: '#algolia-pagination'
-					})
-				);
-
-				/* Price range slider refinement widget */
-				search.addWidget(
-					instantsearch.widgets.rangeSlider({
-						container: '#facet-price',
-						attributeName: 'price',
-						templates: {
-							header: '<h4>Filter by price</h4>'
-						},
-						tooltips: {
-							format: function (rawValue) {
-								return algolia.woocommerce.currency_symbol + Math.round(rawValue).toLocaleString();
-							}
-						}
-					})
-				);
-
-				/* Categories refinement widget */
-				search.addWidget(
-					instantsearch.widgets.hierarchicalMenu({
-						container: '#facet-categories',
-						separator: ' > ',
-						sortBy: ['count'],
-						attributes: ['taxonomies_hierarchical.product_cat.lvl0', 'taxonomies_hierarchical.product_cat.lvl1', 'taxonomies_hierarchical.product_cat.lvl2'],
-						templates: {
-							header: '<h4>Product categories</h4>'
-						}
-					})
-				);
-
-				/* Tags refinement widget */
-				search.addWidget(
-					instantsearch.widgets.refinementList({
-						container: '#facet-colors',
-						attributeName: 'taxonomies.pa_color',
-						operator: 'and',
-						limit: 15,
-						sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
-						templates: {
-							header: '<h4>Filter by color</h4>'
-						}
-					})
-				);
-
-
-				function joinHighlightedArray(items) {
-					var values = [];
-
-					for (var index in items) {
-						values.push(items[index].value);
-					}
-
-					return values.join(', ');
-				}
-
-				/* Start */
-				search.start();
-
-				jQuery('#algolia-search-box input').select();
+			if(jQuery('#algolia-search-box').length === 0) {
+				alert('Unable to find the node to add instantsearch.');
+				return;
 			}
+
+			if (algolia.indices.posts_product === undefined && jQuery('.admin-bar').length > 0) {
+				alert('It looks like you haven\'t indexed the posts_product index. Please head to the Indexing page of the Algolia Search plugin and index it.');
+			}
+
+			/* Instantiate instantsearch.js */
+			var search = instantsearch({
+				appId: algolia.application_id,
+				apiKey: algolia.search_api_key,
+				indexName: algolia.indices.posts_product.name,
+				urlSync: {
+					useHash: true
+				},
+				searchParameters: {
+					facetingAfterDistinct: true
+				},
+				searchFunction: function (helper) {
+					/* helper does a setPage(0) on almost every method call */
+					/* see https://github.com/algolia/algoliasearch-helper-js/blob/7d9917135d4192bfbba1827fd9fbcfef61b8dd69/src/algoliasearch.helper.js#L645 */
+					/* and https://github.com/algolia/algoliasearch-helper-js/issues/121 */
+					var savedPage = helper.state.page;
+					if (search.helper.state.query === '') {
+						search.helper.setQueryParameter('distinct', false);
+						search.helper.setQueryParameter('filters', 'record_index=0');
+					} else {
+						search.helper.setQueryParameter('distinct', true);
+						search.helper.setQueryParameter('filters', '');
+					}
+					search.helper.setPage(savedPage);
+					helper.search();
+				}
+			});
+
+			/* Search box widget */
+			search.addWidget(
+				instantsearch.widgets.searchBox({
+					container: '#algolia-search-box',
+					placeholder: 'Search Products, Categories...',
+					wrapInput: false,
+					poweredBy: algolia.powered_by_enabled
+				})
+			);
+
+			/* Stats widget */
+			search.addWidget(
+				instantsearch.widgets.stats({
+					container: '#algolia-stats'
+				})
+			);
+
+			/* Hits widget */
+			search.addWidget(
+				instantsearch.widgets.hits({
+					container: '#algolia-hits',
+					hitsPerPage: 9,
+					templates: {
+						empty: 'No results were found for "<strong>{{query}}</strong>".',
+						item: wp.template('instantsearch-hit')
+					}
+				})
+			);
+
+			/* Pagination widget */
+			search.addWidget(
+				instantsearch.widgets.pagination({
+					container: '#algolia-pagination'
+				})
+			);
+
+			/* Price range slider refinement widget */
+			search.addWidget(
+				instantsearch.widgets.rangeSlider({
+					container: '#facet-price',
+					attributeName: 'price',
+					templates: {
+						header: '<h4>Filter by price</h4>'
+					},
+					tooltips: {
+						format: function (rawValue) {
+							return algolia.woocommerce.currency_symbol + Math.round(rawValue).toLocaleString();
+						}
+					}
+				})
+			);
+
+			/* Categories refinement widget */
+			search.addWidget(
+				instantsearch.widgets.hierarchicalMenu({
+					container: '#facet-categories',
+					separator: ' > ',
+					sortBy: ['count'],
+					attributes: ['taxonomies_hierarchical.product_cat.lvl0', 'taxonomies_hierarchical.product_cat.lvl1', 'taxonomies_hierarchical.product_cat.lvl2'],
+					templates: {
+						header: '<h4>Product categories</h4>'
+					}
+				})
+			);
+
+			/* Tags refinement widget */
+			search.addWidget(
+				instantsearch.widgets.refinementList({
+					container: '#facet-colors',
+					attributeName: 'taxonomies.pa_color',
+					operator: 'and',
+					limit: 15,
+					sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
+					templates: {
+						header: '<h4>Filter by color</h4>'
+					}
+				})
+			);
+
+			function joinHighlightedArray(items) {
+				var values = [];
+
+				for (var index in items) {
+					values.push(items[index].value);
+				}
+
+				return values.join(', ');
+			}
+
+			/* Start */
+			search.start();
+
+			jQuery('#algolia-search-box input').select();
 		});
 	</script>
 
