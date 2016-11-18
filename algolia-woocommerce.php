@@ -113,7 +113,26 @@ function aw_register_assets()
 	wp_register_style( 'algolia-woocommerce-instantsearch', plugin_dir_url( __FILE__ ) . 'assets/css/algolia-woocommerce-instantsearch.css', array(), ALGOLIA_WOOCOMMERCE_VERSION, 'screen' );
 }
 
-add_action( 'wp_enqueue_scripts', 'aw_register_assets' );
+add_action( 'init', 'aw_register_assets' );
+
+
+function aw_enqueue_script() {
+	if ( is_product_category() || is_product_tag() ) {
+		wp_enqueue_script( 'algolia-instantsearch' );
+		wp_dequeue_style( 'algolia-instantsearch' );
+		wp_enqueue_style( 'algolia-woocommerce-instantsearch' );
+	}
+}
+
+add_action( 'wp_enqueue_scripts', 'aw_enqueue_script', 11 );
+
+
+function aw_footer() {
+	if ( is_product_category() || is_product_tag() ) {
+		include_once aw_plugin_path() . '/templates/woocommerce-instantsearch.php';
+	}
+}
+add_action( 'wp_footer', 'aw_footer' );
 
 /**
  * @param string $template
@@ -187,3 +206,14 @@ function aw_products_index_replicas( array $replicas, Algolia_Index $index ) {
 	return $replicas;
 }
 add_filter( 'algolia_index_replicas', 'aw_products_index_replicas', 10, 2 );
+
+function aw_template_loader( $file ) {
+	/*var_dump( $file );
+	exit('test');*/
+	// var_dump( is_product_category() );
+	// is_product_tag();
+
+	return $file;
+}
+
+add_filter( 'template_include', 'aw_template_loader' );

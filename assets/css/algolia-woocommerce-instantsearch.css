@@ -8,6 +8,7 @@
 
 #ais-wrapper {
     display: flex;
+    padding-top: 2em;
 }
 
 #ais-main {
@@ -32,7 +33,7 @@
 
 #algolia-search-box {
     position: relative;
-    margin-bottom: 3rem;
+    margin-bottom: 3em;
 }
 
 #algolia-search-box input {
@@ -43,7 +44,7 @@
     box-sizing: border-box;
     outline: none;
     font-weight: 200;
-
+    border: none;
     border-radius: 2px;
     background-color: rgb(249, 249, 249);
     box-shadow: 0px 5px 16px 0px rgba(27, 54, 86, 0.15);
@@ -323,6 +324,7 @@
 /* Pagination */
 .ais-pagination {
     margin: 0;
+    padding: 0;
     margin-bottom: 2em;
 }
 
@@ -370,6 +372,7 @@ a.ais-pagination--link:hover {
 
 .ais-facets .ais-header h4 {
     font-size: 14px;
+    font-weight: bold;
 }
 
 .ais-facets a {
@@ -406,6 +409,7 @@ a.ais-pagination--link:hover {
     font-weight: normal;
     cursor: pointer;
     color: #43454b;
+    display: block;
 }
 
 .ais-refinement-list--item__active label,
@@ -413,7 +417,7 @@ a.ais-pagination--link:hover {
     color: #46AEDA;
 }
 
-.ais-refinement-list--checkbox {
+.ais-refinement-list--label .ais-refinement-list--checkbox {
     margin-right: 10px;
 }
 
@@ -445,7 +449,9 @@ a.ais-pagination--link:hover {
 .ais-hierarchical-menu--item__active > div > a {
     color: #46AEDA;
 }
-
+.ais-hierarchical-menu--item {
+    line-height: 25px;
+}
 /* Product Result */
 .ais-hits--categories {
     font-size: 12px;
