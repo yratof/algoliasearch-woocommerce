@@ -14,6 +14,7 @@
 					<svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"> <style> .st0 {fill:none;stroke:#2C2C38;stroke-width:2;stroke-miterlimit:10;} </style> <ellipse transform="rotate(-45 13.78 13.938)" class="st0" cx="13.8" cy="13.9" rx="10.8" ry="10.8"/> <path class="st0" d="M26.4 26.6l-4.9-4.9"/> </svg>
 
 				</div>
+				<div id="algolia-sort-by"></div>
 				<div id="algolia-hits"></div>
 				<div id="algolia-pagination"></div>
 			</main>
@@ -93,6 +94,19 @@
 					helper.search();
 				}
 			});
+
+			search.addWidget(
+				instantsearch.widgets.sortBySelector({
+					container: '#algolia-sort-by',
+					indices: [
+						{name: algolia.indices.posts_product.name, label: 'Most relevant'},
+						{name: algolia.indices.posts_product.name + '_price_asc', label: 'Lowest price'},
+						{name: algolia.indices.posts_product.name + '_price_desc', label: 'Highest price'},
+						{name: algolia.indices.posts_product.name + '_total_sales_desc', label: 'Most popular'},
+						{name: algolia.indices.posts_product.name + '_average_rating_desc', label: 'Best rating'}
+					]
+				})
+			);
 
 			/* Search box widget */
 			search.addWidget(
