@@ -217,3 +217,17 @@ function aw_template_loader( $file ) {
 }
 
 add_filter( 'template_include', 'aw_template_loader' );
+
+/**
+ * @param array $settings
+ *
+ * @return array
+ */
+function aw_product_index_settings( array $settings ) {
+
+	$settings['attributesForFaceting'][] = 'price';
+	
+	return $settings;
+}
+
+add_filter( 'algolia_posts_product_index_settings', 'aw_product_index_settings' );
