@@ -88,9 +88,7 @@
 
 		/* setup default sources */
 		var sources = [];
-
-
-		console.log(algolia.indices.posts_product);
+		
 		if(algolia.indices.posts_product !== undefined) {
 			sources.push({
 				source: autocomplete.sources.hits(client.initIndex( algolia.indices.posts_product.name ), {

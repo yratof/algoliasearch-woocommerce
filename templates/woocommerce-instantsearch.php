@@ -55,6 +55,7 @@
 	</script>
 
 	<script type="text/javascript">
+
 		jQuery(function() {
 			jQuery(".woocommerce-breadcrumb").parent().html(wp.template('instantsearch'));
 
@@ -71,7 +72,7 @@
 			var search = instantsearch({
 				appId: algolia.application_id,
 				apiKey: algolia.search_api_key,
-				indexName: algolia.indices.posts_product.name,
+				indexName: algolia.woocommerce.default_index_name,
 				urlSync: {
 					useHash: true
 				},
@@ -95,16 +96,19 @@
 				}
 			});
 
+			var sort_by_indices = [];
+
+			for(var i in algolia.woocommerce.sort_by) {
+				sort_by_indices.push({
+					'name': algolia.woocommerce.sort_by[i].index_name,
+					'label': algolia.woocommerce.sort_by[i].display_name
+				});
+			}
+
 			search.addWidget(
 				instantsearch.widgets.sortBySelector({
 					container: '#algolia-sort-by',
-					indices: [
-						{name: algolia.indices.posts_product.name, label: 'Most relevant'},
-						{name: algolia.indices.posts_product.name + '_price_asc', label: 'Lowest price'},
-						{name: algolia.indices.posts_product.name + '_price_desc', label: 'Highest price'},
-						{name: algolia.indices.posts_product.name + '_total_sales_desc', label: 'Most popular'},
-						{name: algolia.indices.posts_product.name + '_average_rating_desc', label: 'Best rating'}
-					]
+					indices: sort_by_indices
 				})
 			);
 
