@@ -358,3 +358,8 @@ function aw_get_sort_by_mapping() {
 function aw_get_default_order_by_option() {
 	return (string) apply_filters( 'woocommerce_default_catalog_orderby', get_option( 'woocommerce_default_catalog_orderby' ) );
 }
+
+
+if ( is_admin() ) {
+	require_once dirname( __FILE__ ) . '/includes/admin/admin.php';
+}
