@@ -27,7 +27,7 @@
 		</label>
 	</div>
 	
-	<input type="hidden" name="update_pages" value="true">
+	<input type="hidden" name="submitted" value="true">
 
 	<input type="submit" value="Save" class="button button-primary button-large">
 </form>

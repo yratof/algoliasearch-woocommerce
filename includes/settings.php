@@ -2,6 +2,7 @@
 
 add_option( 'algolia_wc_pages', array() );
 add_option( 'algolia_wc_selector', '' );
+add_option( 'algolia_wc_primary_color', '#46AEDA' );
 
 /**
  * @return array
@@ -37,4 +38,20 @@ function aw_set_selector( $selector ) {
  */
 function aw_get_selector() {
 	return (string) get_option( 'algolia_wc_selector' );
+}
+
+/**
+ * @return array
+ */
+function aw_get_primary_color() {
+	return (string) get_option( 'algolia_wc_primary_color', '#46AEDA' );
+}
+
+/**
+ * @return array
+ */
+function aw_set_primary_color( $color ) {
+	// Todo: validate hexacode.
+	
+	update_option( 'algolia_wc_primary_color', $color );
 }
