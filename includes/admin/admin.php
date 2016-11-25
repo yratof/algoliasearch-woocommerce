@@ -10,7 +10,32 @@ function aw_admin_enqueue_scripts() {
 add_action( 'admin_enqueue_scripts', 'aw_admin_enqueue_scripts' );
 
 function aw_render_admin_page() {
-	require_once dirname( __FILE__ ) . '/views/admin.php';
+	$tab = get_query_var( 'tab', 'pages' );
+	
+	switch ($tab) {
+		case 'pages': 
+			aw_render_pages_tab();
+			break;
+		default:
+			wp_die();
+	}
+}
+
+function aw_render_pages_tab() {
+	
+	if ( isset( $_POST['update_pages'] ) ) {
+		if( ! isset( $_POST['pages'] ) ) {
+			aw_set_pages( array() );
+		} else {
+			aw_set_pages( $_POST['pages'] );
+		}
+		// Todo: Trigger notice.
+
+		$message = esc_html__( 'Your changes have been saved.', 'algolia-woocommerce' );
+	}
+
+	$pages = aw_get_pages();
+	require_once dirname( __FILE__ ) . '/views/pages.php';
 }
 
 add_action( 'admin_menu', function() {

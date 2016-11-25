@@ -13,6 +13,9 @@ if ( ! defined( 'ALGOLIA_WOOCOMMERCE_PATH' ) ) {
 	define( 'ALGOLIA_WOOCOMMERCE_PATH', plugin_dir_path( __FILE__ ) );
 }
 
+// Load files.
+require_once ALGOLIA_WOOCOMMERCE_PATH . '/includes/settings.php';
+
 /**
  * If Algolia is not active, let users know.
  **/
@@ -85,9 +88,6 @@ function aw_product_shared_attributes( array $attributes, WP_Post $post ) {
 add_filter( 'algolia_post_product_shared_attributes', 'aw_product_shared_attributes', 10, 2 );
 add_filter( 'algolia_searchable_post_product_shared_attributes', 'aw_product_shared_attributes', 10, 2 );
 
-
-
-
 /**
  * @param bool    $should_index
  * @param WP_Post $post
@@ -99,7 +99,7 @@ function aw_should_index_post( $should_index, WP_Post $post ) {
 	if ( 'product' !== $post->post_type ) {
 		return $should_index;
 	}
-
+	
 	// This is required as `is_visible` method also checks for user_cap.
 	if( 'publish' !== $post->post_status ) {
 		return false;
