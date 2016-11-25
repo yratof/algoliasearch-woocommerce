@@ -43,14 +43,25 @@ if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins',
  */
 function aw_product_shared_attributes( array $attributes, WP_Post $post ) {
 	$product = wc_get_product( $post );
+
+	// Extract prices.
+	if ( $product instanceof WC_Product_Variable ) {
+		$price = $product->get_variation_price( 'min', true );
+		$regular_price = $product->get_variation_regular_price( 'min', true );
+		$sale_price = $product->get_variation_sale_price( 'min', true );
+		$max_price = $product->get_variation_price( 'max', true );
+	} else {
+		$price = $max_price = $product->get_display_price();
+		$regular_price = $product->get_display_price( $product->get_regular_price() );
+		$sale_price = $product->get_display_price( $product->get_sale_price() );
+	}
 	
 	$attributes['product_type'] = (string) $product->get_type();
-	$attributes['display_price'] = (float) $product->get_display_price();
-	$attributes['price'] = (float) $product->get_price();
-	$attributes['price_excluding_tax'] = (float) $product->get_price_excluding_tax();
-	$attributes['regular_price'] = (float) $product->get_regular_price();
-	$attributes['sale_price'] = (float) $product->get_sale_price();
-	$attributes['price'] = (float) $product->get_price();
+	$attributes['price'] = (float) $price;
+	$attributes['regular_price'] = (float) $regular_price;
+	$attributes['sale_price'] = (float) $sale_price;
+	$attributes['max_price'] = (float) $max_price;
+	$attributes['is_on_sale'] = (bool) $product->is_on_sale();
 	$attributes['average_rating'] = (float) $product->get_average_rating();
 	$attributes['rating_count'] = (int) $product->get_rating_count();
 	$attributes['attributes'] = (array) $product->get_attributes();
@@ -60,6 +71,8 @@ function aw_product_shared_attributes( array $attributes, WP_Post $post ) {
 	$attributes['length'] = (string) $product->get_length();
 	$attributes['review_count'] = (int) $product->get_review_count();
 	$attributes['dimensions'] = (string) $product->get_dimensions();
+
+	// TODO: Not sure how this behaves with variants.
 	$attributes['total_sales'] = (int) get_post_meta( $post->ID, 'total_sales', true );
 
 	return $attributes;
@@ -67,6 +80,9 @@ function aw_product_shared_attributes( array $attributes, WP_Post $post ) {
 
 add_filter( 'algolia_post_product_shared_attributes', 'aw_product_shared_attributes', 10, 2 );
 add_filter( 'algolia_searchable_post_product_shared_attributes', 'aw_product_shared_attributes', 10, 2 );
+
+
+
 
 /**
  * @param bool    $should_index
@@ -133,6 +149,9 @@ function aw_footer() {
 	}
 }
 add_action( 'wp_footer', 'aw_footer' );
+
+
+
 
 /**
  * @param string $template
