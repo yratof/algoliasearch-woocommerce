@@ -45,11 +45,13 @@ function aw_product_shared_attributes( array $attributes, WP_Post $post ) {
 	$product = wc_get_product( $post );
 
 	// Extract prices.
+	$variations_count = 0;
 	if ( $product instanceof WC_Product_Variable ) {
 		$price = $product->get_variation_price( 'min', true );
 		$regular_price = $product->get_variation_regular_price( 'min', true );
 		$sale_price = $product->get_variation_sale_price( 'min', true );
 		$max_price = $product->get_variation_price( 'max', true );
+		$variations_count = count( $product->get_available_variations() );
 	} else {
 		$price = $max_price = $product->get_display_price();
 		$regular_price = $product->get_display_price( $product->get_regular_price() );
@@ -71,6 +73,7 @@ function aw_product_shared_attributes( array $attributes, WP_Post $post ) {
 	$attributes['length'] = (string) $product->get_length();
 	$attributes['review_count'] = (int) $product->get_review_count();
 	$attributes['dimensions'] = (string) $product->get_dimensions();
+	$attributes['variations_count'] = $variations_count;
 
 	// TODO: Not sure how this behaves with variants.
 	$attributes['total_sales'] = (int) get_post_meta( $post->ID, 'total_sales', true );
