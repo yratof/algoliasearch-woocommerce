@@ -57,6 +57,7 @@ function aw_product_shared_attributes( array $attributes, WP_Post $post ) {
 		$regular_price = $product->get_display_price( $product->get_regular_price() );
 		$sale_price = $product->get_display_price( $product->get_sale_price() );
 	}
+	// Todo: deal with grouped products.
 	
 	$attributes['product_type'] = (string) $product->get_type();
 	$attributes['price'] = (float) $price;
