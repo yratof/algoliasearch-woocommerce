@@ -2,6 +2,8 @@
 	<h1>WooCommerce</h1>
 </div>
 
+<?php include 'tabs.php'; ?>
+
 <?php if ( isset( $message ) ): ?>
 	<div class="updated notice is-dismissible">
 		<p><strong><?php echo $message; ?></strong></div>
