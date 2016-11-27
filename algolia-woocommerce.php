@@ -131,13 +131,16 @@ function aw_register_assets()
 	// CSS.
 	// wp_register_style( 'algolia-autocomplete', plugin_dir_url( __FILE__ ) . '../assets/css/algolia-autocomplete.css', array(), ALGOLIA_VERSION, 'screen' );
 	wp_register_style( 'algolia-woocommerce-instantsearch', plugin_dir_url( __FILE__ ) . 'assets/css/algolia-woocommerce-instantsearch.css', array(), ALGOLIA_WOOCOMMERCE_VERSION, 'screen' );
+	wp_register_style( 'algolia-woocommerce-selector', plugin_dir_url( __FILE__ ) . 'assets/css/selector.css', array(), ALGOLIA_WOOCOMMERCE_VERSION, 'screen' );
+
+	wp_register_script( 'algolia-woocommerce-selector', plugin_dir_url( __FILE__ ) . 'assets/js/selector.js', array('jquery'), ALGOLIA_WOOCOMMERCE_VERSION );
 }
 
 add_action( 'init', 'aw_register_assets' );
 
 
 function aw_enqueue_script() {
-	if ( is_product_category() || is_product_tag() ) {
+	if ( aw_should_display_instantsearch() ) {
 		wp_enqueue_script( 'algolia-instantsearch' );
 		wp_dequeue_style( 'algolia-instantsearch' );
 		wp_enqueue_style( 'algolia-woocommerce-instantsearch' );
@@ -146,16 +149,29 @@ function aw_enqueue_script() {
 
 add_action( 'wp_enqueue_scripts', 'aw_enqueue_script', 11 );
 
+/**
+ * @return bool
+ */
+function aw_should_display_instantsearch() {
+	$pages = aw_get_pages();
+	$should_display = false;
+	if ( is_product_category() && in_array( 'category', $pages ) ) {
+		$should_display = true;
+	}
+
+	if ( is_product_tag() && in_array( 'tag', $pages ) ) {
+		$should_display = true;
+	}
+
+	return (bool) apply_filters( 'algolia_wc_should_display_instantsearch', $should_display );
+}
 
 function aw_footer() {
-	if ( is_product_category() || is_product_tag() ) {
+	if ( aw_should_display_instantsearch() ) {
 		include_once aw_plugin_path() . '/templates/woocommerce-instantsearch.php';
 	}
 }
 add_action( 'wp_footer', 'aw_footer' );
-
-
-
 
 /**
  * @param string $template
@@ -191,7 +207,8 @@ add_filter( 'algolia_default_template', 'aw_default_template', 9, 2 );
  */
 function aw_woocommerce_config( array $config ) {
 	$config['woocommerce']['currency_symbol'] = get_woocommerce_currency_symbol();
-
+	$config['woocommerce']['selector'] = aw_get_selector();
+	
 	$algolia = Algolia_Plugin::get_instance();
 	$index = $algolia->get_index( 'posts_product' );
 
@@ -381,6 +398,24 @@ function aw_get_sort_by_mapping() {
 function aw_get_default_order_by_option() {
 	return (string) apply_filters( 'woocommerce_default_catalog_orderby', get_option( 'woocommerce_default_catalog_orderby' ) );
 }
+
+add_action( 'init', function() {
+	if (
+		current_user_can( 'manage_options' ) &&
+		isset( $_GET['algolia_selector'] ) &&
+		$_GET['algolia_selector'] === 'true'
+	) {
+		show_admin_bar(false);
+
+		// Make sure we don't inject instantsearch while choosing the selector.
+		add_filter( 'algolia_wc_should_display_instantsearch', '__return_false', 30 );
+
+		add_action( 'wp_enqueue_scripts', function() {
+			wp_enqueue_script( 'algolia-woocommerce-selector' );
+			wp_enqueue_style( 'algolia-woocommerce-selector' );
+		} );
+	}
+} );
 
 
 if ( is_admin() ) {

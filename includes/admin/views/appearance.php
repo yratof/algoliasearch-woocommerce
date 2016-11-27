@@ -2,6 +2,8 @@
 	<h1>WooCommerce</h1>
 </div>
 
+<?php include 'tabs.php'; ?>
+
 <?php if ( isset( $message ) ): ?>
 	<div class="updated notice is-dismissible">
 		<p><strong><?php echo $message; ?></strong></div>
@@ -31,7 +33,19 @@
 			hide: true,
 			// show a group of common colors beneath the square
 			// or, supply an array of colors to customize further
-			palettes: true
+			palettes: [
+				'#050f2c',
+				'#003666',
+				'#00aeff',
+				'#3369e7',
+				'#8e43e7',
+				'#b84592',
+				'#ff4f81',
+				'#ff6c5f',
+				'#ffc168',
+				'#2dde98',
+				'#1cc7d0'
+			]
 		};
 
 		$('.color-picker').wpColorPicker(options);
