@@ -57,7 +57,7 @@
 	<script type="text/javascript">
 
 		jQuery(function() {
-			jQuery(".woocommerce-breadcrumb").parent().html(wp.template('instantsearch'));
+			jQuery(algolia.woocommerce.selector).html(wp.template('instantsearch'));
 
 			if(jQuery('#algolia-search-box').length === 0) {
 				alert('Unable to find the node to add instantsearch.');
