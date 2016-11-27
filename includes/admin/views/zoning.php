@@ -9,15 +9,21 @@
 		<p><strong><?php echo $message; ?></strong></div>
 <?php endif; ?>
 
-<form method="post">
-	<div>
-		<input type="text" value="<?php echo esc_html( $primary_color ); ?>" name="primary_color" class="color-picker" />
-	</div>
-	
-	<input type="hidden" name="submitted" value="true">
+<div class="wrap">
+	<form method="post">
+		<div>
+			<input type="text" value="<?php echo esc_html( $selector ); ?>" name="selector" id="algolia-selector" />
+		</div>
 
-	<input type="submit" value="Save" class="button button-primary button-large">
-</form>
+		<input type="hidden" name="submitted" value="true">
+
+		<input type="submit" value="Save" class="button button-primary button-large">
+	</form>
+</div>
+
+<div class="wrap">
+	<iframe src="<?php echo esc_url( $iframe_url ); ?>" id="selector-frame"></iframe>
+</div>
 
 <script>
 	jQuery(document).ready(function($){

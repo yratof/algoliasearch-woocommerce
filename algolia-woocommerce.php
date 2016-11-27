@@ -207,7 +207,8 @@ add_filter( 'algolia_default_template', 'aw_default_template', 9, 2 );
  */
 function aw_woocommerce_config( array $config ) {
 	$config['woocommerce']['currency_symbol'] = get_woocommerce_currency_symbol();
-
+	$config['woocommerce']['selector'] = aw_get_selector();
+	
 	$algolia = Algolia_Plugin::get_instance();
 	$index = $algolia->get_index( 'posts_product' );
 
@@ -398,14 +399,14 @@ function aw_get_default_order_by_option() {
 	return (string) apply_filters( 'woocommerce_default_catalog_orderby', get_option( 'woocommerce_default_catalog_orderby' ) );
 }
 
-
-
 add_action( 'init', function() {
 	if (
 		current_user_can( 'manage_options' ) &&
 		isset( $_GET['algolia_selector'] ) &&
 		$_GET['algolia_selector'] === 'true'
 	) {
+		show_admin_bar(false);
+
 		// Make sure we don't inject instantsearch while choosing the selector.
 		add_filter( 'algolia_wc_should_display_instantsearch', '__return_false', 30 );
 

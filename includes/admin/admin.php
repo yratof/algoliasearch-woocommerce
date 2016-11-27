@@ -20,6 +20,9 @@ function aw_render_admin_page() {
 		case 'pages': 
 			aw_render_pages_tab();
 			break;
+		case 'zoning':
+			aw_render_zoning_tab();
+			break;
 		case 'appearance':
 			aw_render_appearance_tab();
 			break;
@@ -54,6 +57,36 @@ function aw_render_appearance_tab() {
 	$primary_color = aw_get_primary_color();
 
 	require_once dirname( __FILE__ ) . '/views/appearance.php';
+}
+
+function aw_render_zoning_tab() {
+	if ( isset( $_POST['submitted'] ) ) {
+		if( isset( $_POST['selector'] ) ) {
+			aw_set_selector( $_POST['selector'] );
+		}
+		$message = esc_html__( 'Your changes have been saved.', 'algolia-woocommerce' );
+	}
+
+	$selector = aw_get_selector();
+
+	// Todo: better handle the iframe URL generation.
+	// Todo: Handle no categories edge case.
+	$iframe_url = '';
+
+	$categories = get_categories( array(
+		'taxonomy'     => 'product_cat',
+		'orderby'      => 'name',
+		'empty'        => 0
+	) );
+
+	foreach ( $categories as $category ) {
+		$iframe_url = get_term_link( (int) $category->term_id, 'product_cat' );
+		break;
+	}
+
+	$iframe_url .= '&algolia_selector=true';
+
+	require_once dirname( __FILE__ ) . '/views/zoning.php';
 }
 
 add_action( 'admin_menu', function() {
