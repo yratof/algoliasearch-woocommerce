@@ -23,13 +23,18 @@
 
 	<script type="text/html" id="tmpl-instantsearch-hit">
 		<article>
-			<# if ( data.images.shop_catalog ) { #>
+
 			<div class="ais-hits--thumbnail">
 				<a href="{{ data.permalink }}" title="{{ data.post_title }}">
+					<# if ( data.is_on_sale === true ) { #>
+						<div class="ais-hits__on-sale">Sale!</div>
+					<# } #>
+					<# if ( data.images.shop_catalog ) { #>
 					<img src="{{ data.images.shop_catalog.url }}" alt="{{ data.post_title }}" title="{{ data.post_title }}" itemprop="image" />
+					<# } #>
 				</a>
 			</div>
-			<# } #>
+
 
 			<div class="ais-hits--content">
 				<h2 itemprop="name headline"><a href="{{ data.permalink }}" title="{{ data.post_title }}" itemprop="url">{{{ data._highlightResult.post_title.value }}}</a></h2>

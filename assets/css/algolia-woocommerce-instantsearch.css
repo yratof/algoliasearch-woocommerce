@@ -130,6 +130,7 @@
 }
 
 .ais-hits--thumbnail {
+    position: relative;
 }
 
 .ais-hits--content {
@@ -317,6 +318,16 @@
 
 .ais-root__collapsed .ais-body, .ais-root__collapsed .ais-footer {
     display: none;
+}
+
+/* Product */
+.ais-hits__on-sale {
+    background: #46AEDA;
+    color: #FFF;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 10px;
 }
 
 
