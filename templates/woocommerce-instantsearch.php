@@ -46,7 +46,7 @@
 					{{{product_cats}}}
 				</div>
 				<span class="price">
-					<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">{{{algolia.woocommerce.currency_symbol}}}</span>{{data.display_price}}</span>
+					<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">{{{algolia.woocommerce.currency_symbol}}}</span>{{data.price}}</span>
 				</span>
 
 			</div>
@@ -57,7 +57,14 @@
 	<script type="text/javascript">
 
 		jQuery(function() {
-			jQuery(algolia.woocommerce.selector).html(wp.template('instantsearch'));
+			var container = jQuery(algolia.woocommerce.selector);
+
+			if(container.length === 0 && jQuery('.admin-bar').length > 0) {
+				alert('You need to configure a valid selector in the "Zoning" tab of the "WooCommerce" settings inside the "Algolia" plugin.');
+				return;
+			}
+
+			container.html(wp.template('instantsearch'));
 
 			if(jQuery('#algolia-search-box').length === 0) {
 				alert('Unable to find the node to add instantsearch.');
