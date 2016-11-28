@@ -50,8 +50,30 @@
 					#>
 					{{{product_cats}}}
 				</div>
+
+
 				<span class="price">
-					<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">{{{algolia.woocommerce.currency_symbol}}}</span>{{data.price}}</span>
+
+					<# if(data.is_on_sale === true) { #>
+						<del>
+							<span class="woocommerce-Price-amount amount">
+								<span class="woocommerce-Price-currencySymbol">{{{algolia.woocommerce.currency_symbol}}}</span>
+								{{data.regular_price}}
+							</span>
+						</del>
+					<# } #>
+
+					<span class="woocommerce-Price-amount amount">
+						<span class="woocommerce-Price-currencySymbol">{{{algolia.woocommerce.currency_symbol}}}</span>
+						{{data.price}}
+					</span>
+
+					<# if(data.product_type === 'variable' && data.price !== data.max_price) { #>
+						- <span class="woocommerce-Price-amount amount">
+							<span class="woocommerce-Price-currencySymbol">{{{algolia.woocommerce.currency_symbol}}}</span>
+							{{data.max_price}}
+						</span>
+					<# } #>
 				</span>
 
 			</div>
