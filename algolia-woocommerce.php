@@ -142,6 +142,7 @@ add_action( 'init', 'aw_register_assets' );
 function aw_enqueue_script() {
 	if ( aw_should_display_instantsearch() ) {
 		wp_enqueue_script( 'algolia-instantsearch' );
+		wp_enqueue_script( 'wp-util' );
 		wp_dequeue_style( 'algolia-instantsearch' );
 		wp_enqueue_style( 'algolia-woocommerce-instantsearch' );
 	}
