@@ -3,8 +3,12 @@
 <section class="alg-main__section alg-main__section--zoning">
 	<form method="post">
 		<header class="alg-main__header">
-			<h1>Zoning position of search bar</h1>
-			<p>Lorem ipsum dolor sit amet et quantuum mergitur. Lorem ipsum dolor sit amet et quantuum mergitur.</p>
+			<h1>In what section of your website would you like to see the search?</h1>
+			<p>
+				Select the container by clicking where you would like to see your search experience.
+				<br>The background will turn blue once you confirmed your selection by clicking.
+				<br>We will inject a fully featured search experiences with filters where the background is blue.
+			</p>
 			<input type="hidden" name="submitted" value="true">
 			<button class="alg-button alg-button--green">SAVE CHANGES</button>
 		</header>
