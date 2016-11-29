@@ -196,17 +196,38 @@
 
 @include component('main','container','pages') {
 	text-align: center;	
+
+	@supports(display:flex) {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	@supports not(display:flex) {
+		display: table;
+	}
+}
+
+@include component('pageselect', 'gutter'){
+	display:none;
+	@supports not(display:flex){
+		width:8%; 
+		display:table-cell;
+	}
+
 }
 
 @include component('pageselect') {
 	width: 30%;
-	float: left;
 	padding: em(43) em(47);
 	box-shadow: 0 10px 20px rgba(24, 29, 43, 0.18);
 	text-align: center;
 	border-radius:3px;
 	overflow:hidden;
 	position: relative;
+
+	@supports not(display:flex) {
+		display: table-cell;
+	}
 
 	&:before {
 		width:100%;
@@ -219,9 +240,8 @@
 
 	@media (min-width:$bp-medium){
 		width: 28%;
-
+		
 		&:nth-child(2) {
-			margin:0 8%;
 		}
 	}
 
@@ -320,7 +340,18 @@
 		font-size: 14px;
 		line-height: em(25,14);
 		color:$font-light;
-		margin-bottom: em(35,14);
+		padding-bottom: em(75,14);
+		margin: 1em 0 0 0;
+	}
+	@include component('pageselect','content') {
+		
+	}
+
+	@include component('pageselect','button') {
+		position: absolute;
+		bottom:em(47);
+		left: 0;
+		width:100%;
 	}
 
 	input[type="checkbox"] {
