@@ -81,8 +81,7 @@
 			defaultColor: '<?php echo esc_html( $primary_color ); ?>',
 			// a callback to fire whenever the color changes to a valid color
 			change: function(event, ui){
-				setColor
-				(event.target.value);
+				setColor(event.target.value);
 			},
 			// a callback to fire when the input is emptied or an invalid color
 			clear: function() {},

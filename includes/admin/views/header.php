@@ -14,10 +14,10 @@
 				<span class="alg-sidebar__state">NOT SET</span>
 			</a>
 		</li>
-		<li class="alg-sidebar__link <?php if ( isset( $_GET['tab'] ) && $_GET['tab'] === 'zoning'): ?>alg-sidebar__link--active<?php endif; ?>">
+		<li class="alg-sidebar__link alg-sidebar__link--set<?php if ( isset( $_GET['tab'] ) && $_GET['tab'] === 'zoning'): ?>alg-sidebar__link--active<?php endif; ?>">
 			<a href="admin.php?page=algolia-woocommerce&tab=zoning">
 				Zoning
-				<span class="alg-sidebar__state alg-sidebar__state--set">OK</span>
+				<span class="alg-sidebar__state">OK</span>
 			</a>
 		</li>
 		<li class="alg-sidebar__link <?php if ( isset( $_GET['tab'] ) && $_GET['tab'] === 'appearance'): ?>alg-sidebar__link--active<?php endif; ?>">
@@ -30,3 +30,4 @@
 </aside>
 
 <main class="alg-main">
+	<div class="alg-main__wrap">
