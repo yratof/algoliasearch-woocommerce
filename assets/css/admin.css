@@ -8,8 +8,17 @@
   font-size: 1em;
   box-sizing: border-box; }
 
+.algolia-search_page_algolia-woocommerce #wpcontent {
+  padding-left: 0; }
+
+.algolia-search_page_algolia-woocommerce .error {
+  margin: 0; }
+
+.alg-wrap {
+  position: relative; }
+
 .alg-sidebar {
-  left: 15px;
+  left: 0;
   width: 250px;
   height: 100%;
   position: absolute;
@@ -17,19 +26,33 @@
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
   z-index: 10; }
   .alg-sidebar .alg-sidebar__brand {
-    padding: 1.25em 0.9375em 0.8125em;
+    padding: 1.25em 0.9375em 0.9375em 0.9375em;
     text-align: center; }
-    .alg-sidebar .alg-sidebar__brand svg {
-      width: 80%; }
+    .alg-sidebar .alg-sidebar__brand span {
+      color: #96588a;
+      font-size: 12px;
+      font-weight: 600;
+      position: absolute;
+      width: 100%;
+      text-align: left;
+      left: 49%;
+      top: 72%; }
+    .alg-sidebar .alg-sidebar__brand .alg-sidebar__brandwrapper {
+      position: relative; }
+    .alg-sidebar .alg-sidebar__brand img {
+      width: 70%; }
   .alg-sidebar .alg-sidebar__list {
+    margin: 0;
     padding-left: 0;
     list-style-type: none;
     border-top: 1px solid #394566;
     border-bottom: 1px solid #394566; }
     .alg-sidebar .alg-sidebar__list .alg-sidebar__link {
-      color: white;
+      color: rgba(255, 255, 255, 0.7);
       position: relative;
       margin-bottom: 0; }
+      .alg-sidebar .alg-sidebar__list .alg-sidebar__link:hover {
+        color: white; }
       .alg-sidebar .alg-sidebar__list .alg-sidebar__link a:focus {
         outline: none; }
       .alg-sidebar .alg-sidebar__list .alg-sidebar__link:not(:last-child) {
@@ -52,7 +75,7 @@
         border-radius: 100%;
         background-color: #ff3067; }
     .alg-sidebar .alg-sidebar__list .alg-sidebar__link--active {
-      color: #31c0f8; }
+      color: white; }
     .alg-sidebar .alg-sidebar__list .alg-sidebar__link--set .alg-sidebar__state {
       color: #13d783; }
       .alg-sidebar .alg-sidebar__list .alg-sidebar__link--set .alg-sidebar__state:after {
@@ -82,8 +105,7 @@
 
 .alg-main {
   color: #181d2b;
-  position: relative;
-  padding: 0 1.1875em; }
+  position: relative; }
   .alg-main .alg-main__wrap {
     background-color: #FFF;
     padding: 3.75em 1.5625em 20.9375em 20.9375em; }
@@ -144,10 +166,10 @@
       display: table; } }
 
 .alg-pageselect__gutter {
-  display: none; }
+  display: inherit;
+  width: 8%; }
   @supports not (display: flex) {
     .alg-pageselect__gutter {
-      width: 8%;
       display: table-cell; } }
 
 .alg-pageselect {

@@ -1,9 +1,21 @@
+.algolia-search_page_algolia-woocommerce {
 
+	#wpcontent {
+
+		padding-left: 0;
+	}
+
+	.error {
+		margin:0;
+	}
+}
   
-
+@include component('wrap') {
+	position: relative;
+}
 
 @include component('sidebar') {
-	left:15px;
+	left:0;
 	width:$sidebar-width;
 	height:100%;
 	position: absolute;
@@ -12,24 +24,44 @@
 	z-index: 10;
 
 	@include component('sidebar', 'brand') {			
-		padding:	em(20) em(15) em(13);
+		padding:	em(20) em(15) em(15) em(15);
 		text-align: center;
 
-		svg {
-			width:80%;
+		span{
+			color: #96588a;
+	    font-size: 12px;
+	    font-weight: 600;
+	    position: absolute;
+	    width: 100%;
+	    text-align: left;
+	    left: 49%;
+	    top: 72%;
+		}
+
+		@include component('sidebar','brandwrapper'){
+			position: relative;
+		}
+
+		img {
+			width:70%;
 		}			
 	}
 
 	@include component('sidebar', 'list') {
+		margin: 0;
 		padding-left: 0;
 		list-style-type: none;
 		border-top: 1px solid $sidebar-border;
 		border-bottom: 1px solid $sidebar-border;
 
 		@include component('sidebar', 'link') { 
-			color: $sidebar-normal;
+			color: rgba(255,255,255,.7);
 			position: relative;
 			margin-bottom: 0;
+
+			&:hover {
+				color: rgba(255,255,255,1);
+			}
 
 			a:focus {
 				outline: none;
@@ -61,7 +93,7 @@
 		}
 
 		@include component('sidebar', 'link', 'active') {
-			color:$sidebar-active;
+			color: rgba(255,255,255,1);
 		}
 
 		@include component('sidebar', 'link', 'set'){
@@ -111,7 +143,6 @@
 @include component('main') {
 	color:$font-dark;
 	position: relative;
-	padding: 0 em(19);
 
 	@include component('main', 'wrap') {
 		background-color: #FFF;
@@ -208,12 +239,12 @@
 }
 
 @include component('pageselect', 'gutter'){
-	display:none;
+	display:inherit;
+	width:8%; 
+
 	@supports not(display:flex){
-		width:8%; 
 		display:table-cell;
 	}
-
 }
 
 @include component('pageselect') {
