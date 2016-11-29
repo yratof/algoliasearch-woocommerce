@@ -2,8 +2,8 @@
 
 <section class="alg-main__section alg-main__section--pages">
 	<header class="alg-main__header">
-		<h1>Pages Selection</h1>
-		<p>Lorem ipsum dolor sit amet et quantuum mergitur. Lorem ipsum dolor sit amet et quantuum mergitur. </p>
+		<h1>What pages would you like to be powered by Algolia?</h1>
+		<p>The selected page content will be replaced with an instant search experience.</p>
 	</header>
 	<form method="post">
 		<div class="alg-main__container">
@@ -20,8 +20,8 @@
 					<circle class="st0" cx="132.8" cy="93.8" r="19.5" />
 					<path class="st0" d="M146.7 107.8l6.7 6.7" />
 				</svg>
-				<h2>Category page</h2>
-				<p>Lorem ipsum dolor sit amet et quantuum mergitur. Lorem ipsum dolor sit amet et quantuum mergitur. Lorem ipsum dolor sit amet et quantuum mergitur.</p>
+				<h2>Category pages</h2>
+				<p>The pages that list the products falling under a given category. The active category will be pre-refined in the search.</p>
 				<div class="alg-pageselect__button">
 					<input id="category" type="checkbox" name="pages[]" value="category" <?php if ( in_array( 'category', $pages ) ) echo 'checked'; ?> >
 					<label for="category">
@@ -52,8 +52,8 @@
 					<circle class="st01" cx="130" cy="95.4" r="19.5" />
 					<path class="st01" d="M143.9 109.4l6.7 6.7" />
 				</svg>
-				<h2>Tag page</h2>
-				<p>Lorem ipsum dolor sit amet et quantuum mergitur. Lorem ipsum dolor sit amet et quantuum mergitur. Lorem ipsum dolor sit amet et quantuum mergitur.</p>
+				<h2>Tag pages</h2>
+				<p>The pages that list the products falling under a given tag.</p>
 				<div class="alg-pageselect__button">
 					<input id="tag" type="checkbox" name="pages[]" value="tag" <?php if ( in_array( 'tag', $pages ) ) echo 'checked'; ?>>
 					<label for="tag">
@@ -84,7 +84,7 @@
 					<path class="st02" d="M158.3 112.4l6.7 6.7" />
 				</svg>
 				<h2>Search page</h2>
-				<p>Lorem ipsum dolor sit amet et quantuum mergitur. Lorem ipsum dolor sit amet et quantuum mergitur. Lorem ipsum dolor sit amet et quantuum mergitur.</p>
+				<p>Overrides the default WooCommerce search page with an instant search experience powered by Algolia.</p>
 				<div class="alg-pageselect__button">
 					<input id="search" type="checkbox" name="pages[]" value="search" <?php if ( in_array( 'search', $pages ) ) echo 'checked'; ?>>
 					<label for="search">

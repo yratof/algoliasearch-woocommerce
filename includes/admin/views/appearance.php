@@ -1,15 +1,10 @@
 
 <?php include 'header.php'; ?>
 
-<?php if ( isset( $message ) ): ?>
-	<div class="updated notice is-dismissible">
-		<p><strong><?php echo $message; ?></strong></div>
-<?php endif; ?>
-
 <section class="alg-main__section alg-main__section--appearance">
 	<header class="alg-main__header">
-		<h1>Customize result appearance</h1>
-		<p>Lorem ipsum dolor sit amet et quantuum mergitur. Lorem ipsum dolor sit amet et quantuum mergitur.</p>
+		<h1>Customize the appearance of your search experience</h1>
+		<p>Pick a color to make the search experience fit even better into your website!</p>
 	</header>
 	<div class="alg-resultscontainer">
 		<div class="alg-comparison">
