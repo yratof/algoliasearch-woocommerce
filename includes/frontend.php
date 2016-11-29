@@ -39,6 +39,10 @@ function aw_should_display_instantsearch() {
 		$should_display = true;
 	}
 
+	if ( is_search() && in_array( 'search', $pages ) && isset( $_GET['post_type'] ) && $_GET['post_type'] === 'product' ) {
+		$should_display = true;
+	}
+
 	return (bool) apply_filters( 'algolia_wc_should_display_instantsearch', $should_display );
 }
 
@@ -56,8 +60,7 @@ add_action( 'wp_footer', 'aw_footer' );
  * @return string
  */
 function aw_default_template( $template, $file ) {
-
-	// Replace instantsearch.php template if we search for products.
+	/*// Replace instantsearch.php template if we search for products.
 	if( 'instantsearch.php' === $file && get_query_var( 'post_type' ) === 'product' ) {
 		return aw_plugin_path() . '/templates/woocommerce-instantsearch.php';
 	}
@@ -66,7 +69,7 @@ function aw_default_template( $template, $file ) {
 	// Todo: we should probably de-register default autocomplete CSS.
 	if( 'autocomplete.php' === $file ) {
 		return aw_plugin_path() . '/templates/' . $file;
-	}
+	}*/
 
 	return $template;
 }
