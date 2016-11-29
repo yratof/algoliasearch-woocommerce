@@ -1,0 +1,25 @@
+//---------------------------
+//  Bem naming helper
+//---------------------------
+@mixin component($component, $element: false, $modifier: false) {
+  @if $element !=false and $modifier==false {
+    .#{$BEM_prefix}-#{$component}__#{$element} {
+      @content
+    }
+  }
+  @if $element !=false and $modifier !=false {
+    .#{$BEM_prefix}-#{$component}__#{$element}--#{$modifier} {
+      @content
+    }
+  }
+  @if $element==false and $modifier !=false {
+    .#{$BEM_prefix}-#{$component}--#{$modifier} {
+      @content
+    }
+  }
+  @else if $element==false and $modifier==false {
+    .#{$BEM_prefix}-#{$component} {
+      @content
+    }
+  }
+}

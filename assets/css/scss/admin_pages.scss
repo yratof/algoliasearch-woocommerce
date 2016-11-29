@@ -1,0 +1,637 @@
+
+  
+
+
+@include component('sidebar') {
+	left:15px;
+	width:$sidebar-width;
+	height:100%;
+	position: absolute;
+	background-color: $sidebar-color;
+	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+	z-index: 10;
+
+	@include component('sidebar', 'brand') {			
+		padding:	em(20) em(15) em(13);
+		text-align: center;
+
+		svg {
+			width:80%;
+		}			
+	}
+
+	@include component('sidebar', 'list') {
+		padding-left: 0;
+		list-style-type: none;
+		border-top: 1px solid $sidebar-border;
+		border-bottom: 1px solid $sidebar-border;
+
+		@include component('sidebar', 'link') { 
+			color: $sidebar-normal;
+			position: relative;
+			margin-bottom: 0;
+
+			a:focus {
+				outline: none;
+			}
+
+			&:not(:last-child) {
+				border-bottom: 1px solid $sidebar-border;
+			}
+		}
+
+		@include component('sidebar', 'state') {
+			position: absolute;
+			right: em(42);
+			font-size: 10px;
+			top:50%;
+			transform:translateY(-50%);
+			font-weight: 600;
+			color: $red;
+			&:after{
+				right:-12px;
+				top:5px;
+				width:8px;
+				height: 8px;
+				content:"";
+				position: absolute;
+				border-radius: 100%; 
+				background-color: $red;
+			}
+		}
+
+		@include component('sidebar', 'link', 'active') {
+			color:$sidebar-active;
+		}
+
+		@include component('sidebar', 'link', 'set'){
+			
+			@include component('sidebar','state') {
+				color:$green;
+
+				&:after {
+					background-color: $green;
+				}
+			}
+		}
+
+		a {
+			display: block;
+			color: inherit;
+			font-size: 16px;
+			text-decoration: none;
+			padding: em(24) em(15) em(24) em(20);
+		}
+	}
+}
+
+@include component('button') {
+	font-size:14px;
+	border:none;
+	font-weight: 600;
+	color:white;
+	border-radius:3px;
+	padding: em(18,14) em(45,14);
+	cursor:pointer;
+
+	&:focus {
+		outline: none;
+	}
+
+	&--small {
+		padding: em(13) em(30);
+		font-size: 14px;
+	}
+
+	&--green {
+		background-color: $green;
+	}
+}
+
+@include component('main') {
+	color:$font-dark;
+	position: relative;
+	padding: 0 em(19);
+
+	@include component('main', 'wrap') {
+		background-color: #FFF;
+		padding: em(60) em(25) em(335) em(335);
+	}
+
+	@include component('main', 'section') {
+		&--pages {
+			text-align: center;
+
+			.alg-main__header {
+	  		p {
+					margin-bottom: em(70);
+				}
+	  	}
+
+			.alg-main__container{
+				margin-bottom: em(67);
+			}
+		}
+		&--zoning {
+
+			.alg-main__header {
+				p{
+					margin: 0;
+				}
+				.alg-button--green {
+					margin:em(39) 0;
+				}
+			}
+		}
+	}
+}
+
+@include component('main','chrome') {
+	margin-top: em(25);
+	box-shadow: 0 10px 20px rgba(24, 29, 43, 0.18);
+	position: relative;
+	overflow:hidden;
+
+	@include component('main','chromeimage') {
+		width:100%;
+	}
+
+	@include component('main','iframe') {
+		width:100%;
+		height:auto;
+		border:none;
+		position: absolute;
+		top:82px;
+		height:100%;
+	}
+}
+	
+@include component('main','header') {
+	text-align: center;
+
+	h1{
+		font-weight:300;
+		font-size: 36px;
+		margin-top: 0;
+		line-height: em(45,36);
+
+		& + p {
+			color:$font-light;
+			font-size:18px;
+			font-weight: 400;
+		}
+	}
+}
+
+@include component('main','container') {
+	max-width: 1200px;
+	margin:0 auto;
+
+	&:after {
+		content:"";
+    display:block;
+    clear:both;
+  }
+}
+
+@include component('main','container','pages') {
+	text-align: center;	
+}
+
+@include component('pageselect') {
+	width: 30%;
+	float: left;
+	padding: em(43) em(47);
+	box-shadow: 0 10px 20px rgba(24, 29, 43, 0.18);
+	text-align: center;
+	border-radius:3px;
+	overflow:hidden;
+	position: relative;
+
+	&:before {
+		width:100%;
+		height: 5px;
+		position: absolute;
+		top:0;
+		left: 0;
+		content:"";
+	}
+
+	@media (min-width:$bp-medium){
+		width: 28%;
+
+		&:nth-child(2) {
+			margin:0 8%;
+		}
+	}
+
+	svg {
+		transform: translateY(2px);
+		margin-right: 2px;
+
+		.checkmark__mark {
+			opacity: 0;
+		}
+
+	}
+
+	&--red {
+
+		input[type="checkbox"] {
+			color:$red;
+
+			&:checked + label {
+				background-color: $red;
+				color:white;
+
+				.checkmark__mark {
+					opacity: 1;
+				}
+			}
+		}
+
+		label {
+			border-color: $red;
+			color: $red;
+		}
+
+		&:before{
+			background-color: $red;
+		}
+	}
+
+	&--blue {
+
+		input[type="checkbox"] {
+			color:$blue;
+
+			&:checked + label {
+				color:white;
+				background-color: $blue;
+
+				.checkmark__mark {
+					opacity: 1;
+				}
+			}
+		}
+
+		label {
+			color:$blue;
+			border-color: $blue;
+		}
+
+		&:before{
+			background-color: $blue;
+		}
+	}
+
+	&--purple {
+
+		input[type="checkbox"] {
+			color:$purple;
+
+			&:checked + label {
+				color:white;
+				background-color: $purple;
+
+				.checkmark__mark {
+					opacity: 1;
+				}
+			}
+		}
+
+		label {
+			color:$purple;
+			border-color: $purple;
+		}
+
+		&:before {
+			background-color: $purple;
+		}
+	}
+
+	h2 {
+		font-size: 24px;
+		line-height: em(30,24);
+		font-weight: 300;
+	}
+
+	p {
+		font-size: 14px;
+		line-height: em(25,14);
+		color:$font-light;
+		margin-bottom: em(35,14);
+	}
+
+	input[type="checkbox"] {
+		display: none;
+	}
+
+	label {
+		background-color: transparent;
+		border-width: 1px;
+		border-style:solid;
+		padding: em(18,14) em(30,14);
+		font-weight: 600;
+		font-size: 14px;
+		border-radius:3px;
+		display: inline-block;
+		cursor: pointer;
+		transition: .2s;
+	}
+}
+
+@include component('main','container','zoning') {
+
+	@include component('zoninginput') {
+		width:100%;
+		color: $font-input;
+		font-size: 14px;
+		font-weight: 600;
+		padding: em(15,14);
+		border:1px solid #c4c4c4;
+
+		&:focus {
+			outline:none;
+		}
+	}
+}
+
+@include component('resultscontainer') {
+	max-width:530px;
+	margin:0 auto;
+	text-align: center;
+
+	@include component('hitwrapper'){	
+		width:46%;
+		float: left;
+
+		&:first-child{
+			margin-right: 8%;
+		}
+
+		&:nth-child(2){
+			.alg-hit {
+				box-shadow: 0 6px 20px rgba(24, 29, 43, 0.3);
+			}
+		}
+
+		@include component('hitwrapper', 'result'){
+			color: $font-light;
+			font-size: 12px;
+			font-weight: 400;
+			text-align: left; 
+		}
+	}
+
+	@include component('comparison') {
+		&:after {
+			content:"";
+    	display:block;
+    	clear:both;
+  	}
+	}
+
+	@include component('resultcolors') {
+		margin: em(42) 0 em(57) 0;
+
+		&:after{
+			content:"";
+    	display:block;
+    	clear:both;
+		}
+
+		input[type="text"].wp-color-picker {
+			font-size: 14px;
+			font-weight: 600;
+			width: 100%;
+			padding: em(10.4) em(30);
+			color: #7b7b7b;
+			float: left;
+			background-color: #FFF;
+
+			&:focus{
+				outline:none;
+			}
+		}
+		
+		// Force display none to prevent flashing
+		input[type="text"].wp-color-picker,
+		input[type="button"].wp-picker-default {
+			display: none !important;
+		}
+
+		button {
+			color:white;
+			background-color: #5c5c5c;
+			border:none;
+			float: right;
+			border-radius:3px; 
+			font-weight: 600;
+
+			&:focus {
+				outline:none;
+			}
+		}
+
+		.wp-picker-container{
+			display: block;
+			position: relative;
+
+			.wp-picker-input-wrap{
+				position: absolute;
+			}
+
+			.wp-picker-holder {
+				position: absolute;
+				left: 0;
+				top: 35px;
+				opacity:0;
+				transform:translateY(15px);
+				transition: .25s;
+			}
+
+			&.wp-picker-active {
+
+				.wp-picker-holder {
+					opacity:1;
+					transform: translateY(0);
+				}
+			}
+
+			.wp-color-result {
+				padding-left:40px;
+				box-shadow:none;
+				border-radius: 0;
+				height:auto;
+				margin:0;
+				border:none;
+				display: block;
+				border: 1px solid #c4c4c4;
+
+				&:after{
+					padding: em(10) em(15);
+					border-radius:0;
+					font-size: 14px;
+					background-color: #FFF;
+					border:none;
+					text-align: left; 
+				}
+			}
+		}
+	}
+}	
+
+
+//---------------------------
+// 	Hit styling
+//---------------------------
+@include component('hit') {
+	border-radius: 3px;
+	max-width:244px;
+	box-shadow: 0 3px 10px rgba(24, 29, 43, 0.2);
+	border:none;
+	color:white;
+	border-radius:3px;
+	overflow:hidden;
+	
+	figure {
+		height:265px;
+		margin:0;
+		position: relative;
+		overflow:hidden;
+
+		img {
+			width:100%;
+			height:100%;
+			object-fit: cover;
+		}
+	}
+
+	@include component('hit', 'ribbon') {
+		position: absolute;
+		top:0;
+		right: -50%;
+		transform: translate(em(-20),em(-10)) rotate(45deg);
+		transform-origin: 50% 50%;
+		background-color: $blue;
+		width:100%;
+		font-weight: 600;
+		font-size:16px;
+		padding: em(30) 0 em(5);
+		transition:.1s ease;
+	}
+
+	@include component('hit', 'overlay') {
+		position: absolute;
+		width:100%;
+		height:100%;
+		left: 0;
+		top: 0;
+		opacity:0;
+		background-color: rgba(0,0,0,0.4);
+		pointer-events:none;
+		transition: .1s ease;
+		display: table;
+
+		@include component('hit', 'actions'){
+			display: table-cell;
+			vertical-align: middle;
+		}
+
+		button {
+			transition: opacity 300ms, translate 300ms;
+			cursor: pointer;
+			opacity:0;
+			padding: em(13) 0;
+			width:70%;
+		}
+
+		button:first-child {
+			color:white;
+			border:1px solid white;
+			background-color: transparent;
+			font-weight: 600;
+			margin-bottom:em(13);
+			transform:translateY(25px);
+		}
+
+		button:nth-child(2) {
+			color:white;
+			border:1px solid $blue;
+			background-color: $blue;
+			font-weight: 600;
+			transform:translateY(25px);
+		}
+	}
+
+	@include component('hit','details') {
+		text-align: center;
+		padding: em(25) em(28);
+		
+		@include component('hit','title') {
+			color: $font-dark;
+			font-size: 24px;
+			font-weight: 300;
+			margin:0 0 em(15,24) 0;
+		}
+
+		@include component('hit','description') {
+			color: #9fa5b8;
+			font-size: 12px;
+			font-weight: 600;
+			margin: 0 0 em(15,24);
+		}
+
+		@include component('hit','priceholder') {
+			margin: 0;
+		}
+
+		@include component('hit','previousprice') {
+			color: $font-dark;
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 24px;
+			text-decoration: line-through;
+			margin-right: 8px;
+		}
+
+		@include component('hit','currentprice') {
+			color: #31c0f8;
+			font-size: 24px;
+			font-weight: 600;
+		}
+
+		p {
+			white-space: nowrap;
+		}
+	}
+
+	//---------------------------
+	//	On hover styles
+	//---------------------------
+	&:hover,
+	&.forcehover {
+
+		@include component('hit', 'ribbon') {
+			opacity:0;
+		}
+
+		@include component('hit', 'overlay') {
+			opacity: 1;
+			pointer-events: auto;
+
+			button {
+				opacity:1;
+				transform:translateY(0);	
+			}
+		}
+	}
+
+	&.nohover {
+		@include component('hit', 'ribbon') {
+			opacity:1;
+		}
+	}
+}
+

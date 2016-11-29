@@ -1,0 +1,48 @@
+
+//---------------------------
+//  Font stack
+//---------------------------
+
+$browser-context: 16; // <-- Used for px to em conversion
+$font-stack: 'Open Sans',open sans,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
+//---------------------------
+// 	Responsive breakpoints
+//---------------------------
+$bp-huge: 2000px;
+$bp-big: 1440px;
+$bp-medium: 960px;
+$bp-small: 768px;
+
+
+//---------------------------
+// 	BEM Pref
+//---------------------------
+$BEM_prefix: "alg";
+
+//---------------------------
+// 	Element dimensions
+//---------------------------
+$sidebar-width: 250px;
+
+//---------------------------
+// 	General colors
+//---------------------------
+$font-dark: #181d2b;
+$font-light: #7d8291;
+$font-input: #7b7b7b;
+
+$blue: #31c0f8;
+$purple: #8022e1;
+$red: #ff3067;
+$green: #13d783;
+
+//---------------------------
+// 	Component specific colors
+//---------------------------
+$sidebar-color: #181d2b;
+$sidebar-active: #31c0f8;
+$sidebar-border: #394566;
+$sidebar-normal: white;
+
+
