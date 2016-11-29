@@ -6,7 +6,7 @@
 		<p>The selected page content will be replaced with an instant search experience.</p>
 	</header>
 	<form method="post">
-		<div class="alg-main__container">
+		<div class="alg-main__container alg-main__container--pages">
 			<article class="alg-pageselect alg-pageselect--blue">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171.3 134.3">
 					<style>
@@ -20,24 +20,27 @@
 					<circle class="st0" cx="132.8" cy="93.8" r="19.5" />
 					<path class="st0" d="M146.7 107.8l6.7 6.7" />
 				</svg>
-				<h2>Category pages</h2>
-				<p>The pages that list the products falling under a given category. The active category will be pre-refined in the search.</p>
-				<div class="alg-pageselect__button">
-					<input id="category" type="checkbox" name="pages[]" value="category" <?php if ( in_array( 'category', $pages ) ) echo 'checked'; ?> >
-					<label for="category">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.8 16.8" width="14" height="14">
-							<style>
-								.alg-checkmarkstyles {
-									stroke-miterlimit: 10;
-									fill:transparent;
-								}
-							</style>
-							<path class="alg-checkmarkstyles checkmark__frame" stroke="currentColor" d="M14.9 6.9v6.6c0 .9-.7 1.6-1.6 1.6H3.4c-.9 0-1.6-.7-1.6-1.6V3.7c0-.9.7-1.7 1.6-1.7h7.4" />
-							<path class="alg-checkmarkstyles checkmark__mark" stroke="currentColor" d="M4.3 9.3l2.6 2.6 7.7-9.5" />
-						</svg>
-						CATEGORY PAGE</label>
+				<div class="alg-pageselect__content">
+					<h2>Category pages</h2>
+					<p>The pages that list the products falling under a given category. The active category will be pre-refined in the search.</p>
+					<div class="alg-pageselect__button">
+						<input id="category" type="checkbox" name="pages[]" value="category" <?php if ( in_array( 'category', $pages ) ) echo 'checked'; ?> >
+						<label for="category">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.8 16.8" width="14" height="14">
+								<style>
+									.alg-checkmarkstyles {
+										stroke-miterlimit: 10;
+										fill:transparent;
+									}
+								</style>
+								<path class="alg-checkmarkstyles checkmark__frame" stroke="currentColor" d="M14.9 6.9v6.6c0 .9-.7 1.6-1.6 1.6H3.4c-.9 0-1.6-.7-1.6-1.6V3.7c0-.9.7-1.7 1.6-1.7h7.4" />
+								<path class="alg-checkmarkstyles checkmark__mark" stroke="currentColor" d="M4.3 9.3l2.6 2.6 7.7-9.5" />
+							</svg>
+							CATEGORY PAGE</label>
+						</div>
 				</div>
 			</article>
+			<div class="alg-pageselect__gutter"></div>
 			<article class="alg-pageselect alg-pageselect--purple">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171.3 134.3">
 					<style>
@@ -52,24 +55,27 @@
 					<circle class="st01" cx="130" cy="95.4" r="19.5" />
 					<path class="st01" d="M143.9 109.4l6.7 6.7" />
 				</svg>
-				<h2>Tag pages</h2>
-				<p>The pages that list the products falling under a given tag.</p>
-				<div class="alg-pageselect__button">
-					<input id="tag" type="checkbox" name="pages[]" value="tag" <?php if ( in_array( 'tag', $pages ) ) echo 'checked'; ?>>
-					<label for="tag">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.8 16.8" width="14" height="14">
-							<style>
-								.alg-checkmarkstyles {
-									stroke-miterlimit: 10;
-									fill:transparent;
-								}
-							</style>
-							<path class="alg-checkmarkstyles checkmark__frame" stroke="currentColor" d="M14.9 6.9v6.6c0 .9-.7 1.6-1.6 1.6H3.4c-.9 0-1.6-.7-1.6-1.6V3.7c0-.9.7-1.7 1.6-1.7h7.4" />
-							<path class="alg-checkmarkstyles checkmark__mark" stroke="currentColor" d="M4.3 9.3l2.6 2.6 7.7-9.5" />
-						</svg>
-						TAG PAGE</label>
+				<div class="alg-pageselect__content">
+					<h2>Tag pages</h2>
+					<p>The pages that list the products falling under a given tag.</p>
+					<div class="alg-pageselect__button">
+						<input id="tag" type="checkbox" name="pages[]" value="tag" <?php if ( in_array( 'tag', $pages ) ) echo 'checked'; ?>>
+						<label for="tag">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.8 16.8" width="14" height="14">
+								<style>
+									.alg-checkmarkstyles {
+										stroke-miterlimit: 10;
+										fill:transparent;
+									}
+								</style>
+								<path class="alg-checkmarkstyles checkmark__frame" stroke="currentColor" d="M14.9 6.9v6.6c0 .9-.7 1.6-1.6 1.6H3.4c-.9 0-1.6-.7-1.6-1.6V3.7c0-.9.7-1.7 1.6-1.7h7.4" />
+								<path class="alg-checkmarkstyles checkmark__mark" stroke="currentColor" d="M4.3 9.3l2.6 2.6 7.7-9.5" />
+							</svg>
+							TAG PAGE</label>
+						</div>
 				</div>
 			</article>
+			<div class="alg-pageselect__gutter"></div>
 			<article class="alg-pageselect alg-pageselect--red">
 				<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171.3 134.3">
 					<style>
@@ -83,22 +89,24 @@
 					<circle class="st02" cx="144.4" cy="98.5" r="19.5" />
 					<path class="st02" d="M158.3 112.4l6.7 6.7" />
 				</svg>
-				<h2>Search page</h2>
-				<p>Overrides the default WooCommerce search page with an instant search experience powered by Algolia.</p>
-				<div class="alg-pageselect__button">
-					<input id="search" type="checkbox" name="pages[]" value="search" <?php if ( in_array( 'search', $pages ) ) echo 'checked'; ?>>
-					<label for="search">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.8 16.8" width="14" height="14">
-							<style>
-								.alg-checkmarkstyles {
-									stroke-miterlimit: 10;
-									fill:transparent;
-								}
-							</style>
-							<path class="alg-checkmarkstyles checkmark__frame" stroke="currentColor" d="M14.9 6.9v6.6c0 .9-.7 1.6-1.6 1.6H3.4c-.9 0-1.6-.7-1.6-1.6V3.7c0-.9.7-1.7 1.6-1.7h7.4" />
-							<path class="alg-checkmarkstyles checkmark__mark" stroke="currentColor" d="M4.3 9.3l2.6 2.6 7.7-9.5" />
-						</svg>
-						SEARCH PAGE</label>
+				<div class="alg-pageselect__content">
+					<h2>Search page</h2>
+					<p>Overrides the default WooCommerce search page with an instant search experience powered by Algolia.</p>
+					<div class="alg-pageselect__button">
+						<input id="search" type="checkbox" name="pages[]" value="search" <?php if ( in_array( 'search', $pages ) ) echo 'checked'; ?>>
+						<label for="search">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.8 16.8" width="14" height="14">
+								<style>
+									.alg-checkmarkstyles {
+										stroke-miterlimit: 10;
+										fill:transparent;
+									}
+								</style>
+								<path class="alg-checkmarkstyles checkmark__frame" stroke="currentColor" d="M14.9 6.9v6.6c0 .9-.7 1.6-1.6 1.6H3.4c-.9 0-1.6-.7-1.6-1.6V3.7c0-.9.7-1.7 1.6-1.7h7.4" />
+								<path class="alg-checkmarkstyles checkmark__mark" stroke="currentColor" d="M4.3 9.3l2.6 2.6 7.7-9.5" />
+							</svg>
+							SEARCH PAGE</label>
+					</div>
 				</div>
 			</article>
 		</div>
