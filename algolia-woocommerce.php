@@ -6,7 +6,7 @@
  */
 
 // The Algolia Search FOR WooCommerce plugin version.
-define( 'ALGOLIA_WOOCOMMERCE_VERSION', '1.0.0' );
+define( 'ALGOLIA_WOOCOMMERCE_VERSION', '0.0.1' );
 define( 'ALGOLIA_WOOCOMMERCE_PLUGIN_BASENAME', plugin_basename(__FILE__) );
 
 if ( ! defined( 'ALGOLIA_WOOCOMMERCE_PATH' ) ) {
@@ -23,6 +23,15 @@ if ( ! defined( 'ALGOLIA_WOOCOMMERCE_URL' ) ) {
 function aw_plugin_path() {
 	return untrailingslashit( ALGOLIA_WOOCOMMERCE_PATH );
 }
+
+add_filter( 'algolia_ua_integration_name', function() {
+	return 'Woocommerce';
+} );
+
+add_filter( 'algolia_ua_integration_version', function() {
+	return ALGOLIA_WOOCOMMERCE_VERSION;
+} );
+
 
 /**
  * If Algolia is not active, let users know.
