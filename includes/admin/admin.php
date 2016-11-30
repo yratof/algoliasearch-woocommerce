@@ -100,6 +100,17 @@ add_action( 'admin_menu', function() {
 	);
 }, 11 );
 
+function aw_admin_notices() {
+	$products_index = Algolia_Plugin::get_instance()->get_index( 'posts_product' );
+
+	if ( ! $products_index->is_enabled() ) {
+		echo '<div class="error notice is-dismissible"><p>' .
+			 sprintf( __( 'For the Algolia plugin for WooCommerce to work you should index the <b>`Products [posts_product]`</b> index on the <a href="%s">indexing page</a>.', 'algolia' ), admin_url( 'admin.php?page=algolia-indexing' ) ) .
+			 '</p></div>';
+	}
+}
+
+add_action( 'admin_notices', 'aw_admin_notices' );
 
 
 
