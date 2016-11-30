@@ -5,6 +5,7 @@
 				<section class="ais-facets" id="facet-price"></section>
 				<section class="ais-facets" id="facet-categories"></section>
 				<section class="ais-facets" id="facet-colors"></section>
+				<section class="ais-facets" id="facet-tags"></section>
 			</aside>
 
 			<main id="ais-main">
@@ -82,7 +83,6 @@
 	</script>
 
 	<script type="text/javascript">
-
 		jQuery(function() {
 			var container = jQuery(algolia.woocommerce.selector);
 
@@ -211,7 +211,7 @@
 				})
 			);
 
-			/* Tags refinement widget */
+			/* Colors refinement widget */
 			search.addWidget(
 				instantsearch.widgets.refinementList({
 					container: '#facet-colors',
@@ -224,6 +224,43 @@
 					}
 				})
 			);
+
+			/* Tags refinement widget */
+			search.addWidget(
+				instantsearch.widgets.refinementList({
+					container: '#facet-tags',
+					attributeName: 'taxonomies.product_tag',
+					operator: 'and',
+					limit: 15,
+					sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
+					templates: {
+						header: '<h4>Filter by tag</h4>'
+					}
+				})
+			);
+
+			search.addWidget({
+				init: function(options) {
+					if(window.location.hash.length > 0) {
+						return;
+					}
+
+					// Get the initial from the query string "s" parameter if no hash is present.
+					if (algolia.query.length > 0) {
+						options.helper.setQuery(algolia.query);
+					}
+
+					// Set the current category if no anchor is already present.
+					if(algolia.woocommerce.page === 'category') {
+						options.helper.toggleRefine('taxonomies_hierarchical.product_cat.lvl0', algolia.woocommerce.category);
+					}
+
+					// Set the current tag if no anchor is already present.
+					if(algolia.woocommerce.page === 'tag') {
+						options.helper.toggleRefine('taxonomies.product_tag', algolia.woocommerce.tag);
+					}
+				}
+			});
 
 			function joinHighlightedArray(items) {
 				var values = [];
