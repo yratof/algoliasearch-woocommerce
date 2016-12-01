@@ -14,17 +14,29 @@ function aw_register_assets() {
 add_action( 'init', 'aw_register_assets' );
 
 
+function aw_template_loader( $template ) {
+	if ( ! aw_should_display_instantsearch() ) {
+		return $template;
+	}
+
+	// Avoid injecting instantsearch 2 times.
+	add_filter( 'algolia_should_override_search_with_instantsearch', '__return_false' );
+}
+
+// Make sure this is called before the Algolia plugin for WordPress one so that we can disable the template overriding.
+add_filter( 'template_include', 'aw_template_loader', 9 );
+
 function aw_enqueue_script() {
 	if ( aw_should_display_instantsearch() ) {
+		wp_enqueue_script( 'jquery' );
 		wp_enqueue_script( 'algolia-instantsearch' );
 		wp_enqueue_script( 'wp-util' );
-		wp_dequeue_style( 'algolia-instantsearch' );
 		wp_enqueue_style( 'algolia-woocommerce-instantsearch' );
 		wp_add_inline_style( 'algolia-woocommerce-instantsearch', aw_get_user_styles() );
 	}
 }
 
-add_action( 'wp_enqueue_scripts', 'aw_enqueue_script', 11 );
+add_action( 'wp_enqueue_scripts', 'aw_enqueue_script', 15 );
 
 /**
  * Returns the user styles configured in the admin panel.
@@ -177,19 +189,6 @@ function aw_woocommerce_config( array $config ) {
 }
 
 add_filter( 'algolia_config', 'aw_woocommerce_config', 5 );
-
-
-function aw_instantsearch_scripts() {
-
-	// Are we on a product search page?
-	if( get_query_var( 'post_type' ) === 'product' ) {
-		// Remove the default instantsearch styles and add the WooCommerce ones.
-		wp_dequeue_style( 'algolia-instantsearch' );
-		wp_enqueue_style( 'algolia-woocommerce-instantsearch' );
-	}
-}
-
-add_action( 'algolia_instantsearch_scripts', 'aw_instantsearch_scripts' );
 
 /**
  * @param array         $replicas
