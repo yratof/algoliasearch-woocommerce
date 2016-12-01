@@ -32,17 +32,39 @@ add_filter( 'algolia_ua_integration_version', function() {
 	return ALGOLIA_WOOCOMMERCE_VERSION;
 } );
 
+function aw_is_algolia_plugin_active() {
+	$active_plugins = apply_filters( 'active_plugins', get_option( 'active_plugins' ) );
+	// Check for both the official dir name and the GitHub repository name.
+	return in_array( 'search-by-algolia-instant-relevant-results/algolia.php', $active_plugins ) ||
+		   in_array( 'algoliasearch-wordpress/algolia.php', $active_plugins );
+}
 
 /**
  * If Algolia is not active, let users know.
  **/
-if ( ! in_array( 'search-by-algolia-instant-relevant-results/algolia.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+if ( ! aw_is_algolia_plugin_active() ) {
 	add_action( 'admin_notices', function() {
 		echo '<div class="error notice">
 			  	<p>' . __( 'Algolia Search for WooCommerce: <a href="' . admin_url( 'plugin-install.php?s=Search+by+Algolia+–+Instant+%26+Relevant+results&tab=search&type=term' ) . '">Search by Algolia – Instant & Relevant results</a> plugin should be enabled.', 'algolia-woocommerce' ) . '</p>
 		  	  </div>';
 	} );
 }
+
+/**
+ * If Algolia version is lower than what is expected invite users to update.
+ **/
+add_action( 'plugins_loaded', function() {
+	if ( defined( 'ALGOLIA_VERSION' ) && version_compare( ALGOLIA_VERSION, '1.5.0', '<' ) ) {
+		add_action( 'admin_notices', function () {
+				echo '<div class="error notice">
+					<p>' . __(
+						'Algolia Search for WooCommerce: Search by Algolia – Instant & Relevant should be updated to at least version 1.5.0.',
+						'algolia-woocommerce'
+					) . '</p>
+				</div>';
+		} );
+	}
+} );
 
 /**
  * If WooCommerce is not active, let users know.
