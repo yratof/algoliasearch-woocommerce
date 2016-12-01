@@ -23,7 +23,53 @@
 	</script>
 
 	<script type="text/html" id="tmpl-instantsearch-hit">
-		<article>
+
+			<article class="alg-hit">
+				<figure>
+					<img src="http://rlv.zcache.com/i_code_developer_hoodie-r4a6b7efb45ca40568e6aea25a6725725_jg5fo_324.jpg">
+					<# if ( data.is_on_sale === true ) { #>
+						<div class="alg-hit__ribbon">
+							SALE
+						</div>
+					<# } #>
+					<div class="alg-hit__overlay">
+						<div class="alg-hit__actions">
+							<button class="alg-button--small">VIEW DETAILS</button>
+							<button class="alg-button--small alg-button--themebutton">ADD TO CART</button>
+						</div>
+					</div>
+				</figure>
+				<div class="alg-hit__details">
+					<h2 class="alg-hit__title" itemprop="name headline">
+						<a href="{{ data.permalink }}" title="{{ data.post_title }}" itemprop="url">{{{ data._highlightResult.post_title.value }}}
+						</a>
+					</h2>
+					<p class="alg-hit__description">
+						<#
+						var product_cats = [];
+						for (var index in data._highlightResult.taxonomies.product_cat) {
+							product_cats.push(data._highlightResult.taxonomies.product_cat[index].value);
+						}
+						product_cats = product_cats.join(', ').toUpperCase();
+					#>
+					{{{product_cats}}}
+					</p>
+					<p class="alg-hit__priceholder">
+						<# if(data.is_on_sale === true) { #>
+							<span class="alg-hit__previousprice">
+								{{{algolia.woocommerce.currency_symbol}}}{{data.regular_price}}
+							</span>
+						<# } #>
+						<span class="alg-hit__currentprice">
+							{{{algolia.woocommerce.currency_symbol}}}{{data.price}}
+							<# if(data.product_type === 'variable' && data.price !== data.max_price) { #>
+								{{data.max_price}}
+							<# } #>
+						</span>
+					</p>
+				</div>
+			</article>
+<!-- 		<article>
 
 			<div class="ais-hits--thumbnail">
 				<a href="{{ data.permalink }}" title="{{ data.post_title }}">
@@ -79,7 +125,7 @@
 
 			</div>
 			<div class="ais-clearfix"></div>
-		</article>
+		</article> -->
 	</script>
 
 	<script type="text/javascript">

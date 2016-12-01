@@ -1,0 +1,48 @@
+#algolia-search-box {
+  position: relative;
+  margin-bottom: 3em;
+}
+
+#algolia-search-box input {
+  width: 100%;
+  line-height: 52px;
+  font-size: 22px;
+  padding: 10px 0 10px 70px;
+  box-sizing: border-box;
+  outline: none;
+  font-weight: 200;
+  border: none;
+  border-radius: 2px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 5px 16px 0px rgba(27, 54, 86, 0.15);
+}
+
+#algolia-search-box .search-icon {
+  position: absolute;
+  left: 21px;
+  top: 21px;
+  fill: #46AEDA;
+  width: 30px;
+  height: 30px;
+}
+
+.ais-search-box--powered-by {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  font-size: 14px;
+  text-align: right;
+}
+
+.ais-search-box--powered-by-link {
+  display: inline-block;
+  width: 45px;
+  height: 16px;
+  text-indent: 101%;
+  overflow: hidden;
+  white-space: nowrap;
+  background-repeat: no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+

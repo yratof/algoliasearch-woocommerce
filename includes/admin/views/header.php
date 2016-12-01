@@ -1,6 +1,10 @@
 
 
 <div class="alg-wrap">
+	<?php if ( isset( $message ) ): ?>
+		<div class="updated notice is-dismissible">
+		<p><strong><?php echo $message; ?></strong></div>
+	<?php endif; ?>
 
 	<aside class="alg-sidebar">
 		<div class="alg-sidebar__brand">
@@ -33,8 +37,3 @@
 
 	<main class="alg-main">
 		<div class="alg-main__wrap">
-
-			<?php if ( isset( $message ) ): ?>
-				<div class="updated notice is-dismissible">
-					<p><strong><?php echo $message; ?></strong></div>
-			<?php endif; ?>

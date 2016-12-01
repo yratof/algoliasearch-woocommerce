@@ -11,8 +11,9 @@
 .algolia-search_page_algolia-woocommerce #wpcontent {
   padding-left: 0; }
 
-.algolia-search_page_algolia-woocommerce .error {
-  margin: 0; }
+.algolia-search_page_algolia-woocommerce .notice, .algolia-search_page_algolia-woocommerce div.error, .algolia-search_page_algolia-woocommerce div.updated {
+  margin: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
 
 .alg-wrap {
   position: relative; }
@@ -263,6 +264,54 @@
     cursor: pointer;
     transition: .2s; }
 
+.alg-main__container--zoning .alg-zoning__container {
+  position: relative;
+  z-index: 10; }
+
+.alg-main__container--zoning .alg-zoning__zoningtooltip {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  cursor: pointer; }
+  .alg-main__container--zoning .alg-zoning__zoningtooltip path {
+    fill: rgba(0, 0, 0, 0.4); }
+  .alg-main__container--zoning .alg-zoning__zoningtooltip svg:hover + .alg-zoning__tip {
+    opacity: 1;
+    transform: translate(0, 10px); }
+
+.alg-main__container--zoning .alg-zoning__tip {
+  padding: 0.9375em 0.9375em;
+  font-size: 16px;
+  color: white;
+  background-color: #999999;
+  border-radius: 4px;
+  width: 200px;
+  position: absolute;
+  top: 100%;
+  right: -5px;
+  transform: translate(0, 30px);
+  opacity: 0;
+  transition: .25s; }
+  .alg-main__container--zoning .alg-zoning__tip:hover {
+    opacity: 1;
+    transform: translate(0, 10px); }
+  .alg-main__container--zoning .alg-zoning__tip:before {
+    width: 20px;
+    height: 20px;
+    right: 5px;
+    top: -19px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #999999;
+    content: "";
+    position: absolute; }
+  .alg-main__container--zoning .alg-zoning__tip p {
+    font-size: inherit;
+    margin: 0; }
+
 .alg-main__container--zoning .alg-zoninginput {
   width: 100%;
   color: #7b7b7b;
@@ -277,6 +326,16 @@
   max-width: 530px;
   margin: 0 auto;
   text-align: center; }
+  .alg-resultscontainer .alg-hit.forcehover .alg-hit__ribbon {
+    opacity: 0; }
+  .alg-resultscontainer .alg-hit.forcehover .alg-hit__overlay {
+    opacity: 1;
+    pointer-events: auto; }
+    .alg-resultscontainer .alg-hit.forcehover .alg-hit__overlay button {
+      opacity: 1;
+      transform: translateY(0); }
+  .alg-resultscontainer .alg-hit.nohover .alg-hit__ribbon {
+    opacity: 1; }
   .alg-resultscontainer .alg-hitwrapper {
     width: 46%;
     float: left; }
@@ -355,12 +414,15 @@
 
 .alg-hit {
   border-radius: 3px;
-  max-width: 244px;
   box-shadow: 0 3px 10px rgba(24, 29, 43, 0.2);
   border: none;
   color: white;
   border-radius: 3px;
-  overflow: hidden; }
+  overflow: hidden;
+  text-align: center;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  text-align: center; }
   .alg-hit figure {
     height: 265px;
     margin: 0;
@@ -397,7 +459,7 @@
       display: table-cell;
       vertical-align: middle; }
     .alg-hit .alg-hit__overlay button {
-      transition: opacity 300ms, translate 300ms;
+      transition: opacity 300ms, transform 300ms;
       cursor: pointer;
       opacity: 0;
       padding: 0.8125em 0;
@@ -422,12 +484,22 @@
       color: #181d2b;
       font-size: 24px;
       font-weight: 300;
-      margin: 0 0 0.625em 0; }
+      margin: 0 0 0.625em 0;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden; }
+      .alg-hit .alg-hit__details .alg-hit__title a {
+        color: inherit; }
+        .alg-hit .alg-hit__details .alg-hit__title a:hover {
+          color: inherit; }
     .alg-hit .alg-hit__details .alg-hit__description {
       color: #9fa5b8;
       font-size: 12px;
       font-weight: 600;
-      margin: 0 0 0.625em; }
+      margin: 0 0 0.625em;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden; }
     .alg-hit .alg-hit__details .alg-hit__priceholder {
       margin: 0; }
     .alg-hit .alg-hit__details .alg-hit__previousprice {
@@ -443,13 +515,11 @@
       font-weight: 600; }
     .alg-hit .alg-hit__details p {
       white-space: nowrap; }
-  .alg-hit:hover .alg-hit__ribbon, .alg-hit.forcehover .alg-hit__ribbon {
+  .alg-hit:hover .alg-hit__ribbon {
     opacity: 0; }
-  .alg-hit:hover .alg-hit__overlay, .alg-hit.forcehover .alg-hit__overlay {
+  .alg-hit:hover .alg-hit__overlay {
     opacity: 1;
     pointer-events: auto; }
-    .alg-hit:hover .alg-hit__overlay button, .alg-hit.forcehover .alg-hit__overlay button {
+    .alg-hit:hover .alg-hit__overlay button {
       opacity: 1;
       transform: translateY(0); }
-  .alg-hit.nohover .alg-hit__ribbon {
-    opacity: 1; }

@@ -6,6 +6,11 @@
   @return #{$pixels/$context}em;
 }
 
+@mixin preventFontBreak(){
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
 // ------------------------------------
 // Current main font applied to the 
 // entire html is Raleway
