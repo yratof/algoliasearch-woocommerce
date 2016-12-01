@@ -20,10 +20,29 @@ function aw_enqueue_script() {
 		wp_enqueue_script( 'wp-util' );
 		wp_dequeue_style( 'algolia-instantsearch' );
 		wp_enqueue_style( 'algolia-woocommerce-instantsearch' );
+		wp_add_inline_style( 'algolia-woocommerce-instantsearch', aw_get_user_styles() );
 	}
 }
 
 add_action( 'wp_enqueue_scripts', 'aw_enqueue_script', 11 );
+
+/**
+ * Returns the user styles configured in the admin panel.
+ *
+ * @return string
+ */
+function aw_get_user_styles() {
+	$primary_color = aw_get_primary_color();
+	if ( empty( $primary_color ) ) {
+		return '';
+	}
+
+	$styles = '.ais-range-slider--connect { background-color : ' .  $primary_color . '}';
+
+	// Todo: add all the styles here.
+
+	return $styles;
+}
 
 /**
  * @return bool
