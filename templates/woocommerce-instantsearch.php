@@ -50,8 +50,10 @@
 						<p class="alg-hit__description">
 							<#
 							var product_cats = [];
-							for (var index in data._highlightResult.taxonomies.product_cat) {
-								product_cats.push(data._highlightResult.taxonomies.product_cat[index].value);
+							if(data._highlightResult !== undefined && data._highlightResult.taxonomies !== undefined && data._highlightResult.taxonomies.product_cat !== undefined) {
+								for (var index in data._highlightResult.taxonomies.product_cat) {
+									product_cats.push(data._highlightResult.taxonomies.product_cat[index].value);
+								}
 							}
 							product_cats = product_cats.join(', ').toUpperCase();
 						#>
