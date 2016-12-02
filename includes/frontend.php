@@ -146,7 +146,7 @@ function aw_woocommerce_config( array $config ) {
 
 	$mapping = aw_get_sort_by_mapping();
 
-	$default_option = aw_get_default_order_by_option();
+	$default_option = aw_get_current_order_by_option();
 
 	foreach ( $replicas as $replica ) {
 		/** @var Algolia_Index_Replica $replica */
@@ -308,7 +308,23 @@ function aw_get_sort_by_mapping() {
  * @return string
  */
 function aw_get_default_order_by_option() {
+
 	return (string) apply_filters( 'woocommerce_default_catalog_orderby', get_option( 'woocommerce_default_catalog_orderby' ) );
+}
+
+/**
+ * @return string
+ */
+function aw_get_current_order_by_option() {
+	if ( isset( $_GET['orderby'] ) ) {
+		$default_order = (string) $_GET['orderby'];
+		$available_options = aw_get_catalog_order_by_options();
+		if ( isset( $available_options[ $default_order ] ) ) {
+			return $default_order;
+		}
+	}
+
+	return aw_get_default_order_by_option();
 }
 
 add_action( 'init', function() {
