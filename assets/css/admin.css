@@ -479,7 +479,8 @@
     .alg-hit .alg-hit__overlay .alg-hit__actions {
       display: table-cell;
       vertical-align: middle; }
-    .alg-hit .alg-hit__overlay button {
+    .alg-hit .alg-hit__overlay a {
+      display: inline-block;
       transition: opacity 300ms, transform 300ms;
       cursor: pointer;
       opacity: 0;
@@ -558,6 +559,6 @@
   .alg-hit:hover .alg-hit__overlay {
     opacity: 1;
     pointer-events: auto; }
-    .alg-hit:hover .alg-hit__overlay button {
+    .alg-hit:hover .alg-hit__overlay a {
       opacity: 1;
       transform: translateY(0); }
