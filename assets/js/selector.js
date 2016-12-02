@@ -9,6 +9,7 @@ jQuery(function($) {
     var guess = $('.woocommerce-breadcrumb').parent();
     if(guess.length > 0) {
       activate(guess);
+      updateInputValue(guess);
     }
   }
   
@@ -33,13 +34,17 @@ jQuery(function($) {
   
   $(document).on('click', '.algolia-selector', function(e) {
     e.preventDefault();
-    activate($(e.target));
+    var target = $(e.target);
+    activate(target);
+    updateInputValue(target);
   })
 
   function activate(target) {
     clearActiveSelectors();
     target.addClass('algolia-active-selector');
+  }
 
+  function updateInputValue(target) {
     window.top.jQuery('#algolia-selector').val(computeSelectorPath(target));
   }
 
