@@ -248,7 +248,8 @@
     box-shadow: 0px 2px 8px 0px rgba(27, 54, 86, 0.07);
     transition: 300ms ease;
     font-weight: 300;
-    font-family: "Open Sans", sans-serif; }
+    font-family: "Open Sans", sans-serif;
+    height: inherit; }
     #algolia-search-box input::-webkit-input-placeholder {
       font-family: "Open Sans", sans-serif;
       font-weight: 300; }
