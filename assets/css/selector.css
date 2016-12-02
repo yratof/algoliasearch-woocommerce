@@ -1,14 +1,14 @@
 .algolia-selector {
-    -webkit-box-shadow:inset 0px 0px 0px 3px #46AEDA;
-    -moz-box-shadow:inset 0px 0px 0px 3px #46AEDA;
-    box-shadow:inset 0px 0px 0px 3px #46AEDA;
+    -webkit-box-shadow:inset 0px 0px 0px 3px #46AEDA !important;
+    -moz-box-shadow:inset 0px 0px 0px 3px #46AEDA !important;
+    box-shadow:inset 0px 0px 0px 3px #46AEDA !important;
 
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
 .algolia-active-selector {
-    -webkit-box-shadow:inset 0px 0px 0px 3px #46AEDA;
-    -moz-box-shadow:inset 0px 0px 0px 3px #46AEDA;
-    box-shadow:inset 0px 0px 0px 3px #46AEDA;
-    background-color: rgba(70, 174, 218, 0.3);
+    -webkit-box-shadow:inset 0px 0px 0px 3px #46AEDA !important;
+    -moz-box-shadow:inset 0px 0px 0px 3px #46AEDA !important;
+    box-shadow:inset 0px 0px 0px 3px #46AEDA !important;
+    background-color: rgba(70, 174, 218, 0.3) !important;
 }
