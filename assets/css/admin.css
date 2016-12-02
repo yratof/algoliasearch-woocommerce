@@ -193,7 +193,9 @@
     content: ""; }
   @media (min-width: 960px) {
     .alg-pageselect {
-      width: 28%; } }
+      width: 50%; } }
+  .alg-pageselect .alg-pageselect__icon {
+    width: 50%; }
   .alg-pageselect svg {
     transform: translateY(2px);
     margin-right: 2px; }

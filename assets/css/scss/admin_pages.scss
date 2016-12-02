@@ -271,10 +271,14 @@
 	}
 
 	@media (min-width:$bp-medium){
-		width: 28%;
+		width: 50%;
 		
 		&:nth-child(2) {
 		}
+	}
+
+	@include component('pageselect', 'icon' ) {
+		width: 50%;
 	}
 
 	svg {
