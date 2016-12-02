@@ -81,6 +81,7 @@
 			transform:translateY(-50%);
 			font-weight: 600;
 			color: $red;
+			
 			&:after{
 				right:-12px;
 				top:5px;
@@ -93,19 +94,16 @@
 			}
 		}
 
-		@include component('sidebar', 'link', 'active') {
-			color: rgba(255,255,255,1);
+		@include component('sidebar', 'state', 'set') {
+			color:$green;
+
+			&:after {
+				background-color: $green;
+			}
 		}
 
-		@include component('sidebar', 'link', 'set'){
-			
-			@include component('sidebar','state') {
-				color:$green;
-
-				&:after {
-					background-color: $green;
-				}
-			}
+		@include component('sidebar', 'link', 'active') {
+			color: rgba(255,255,255,1);
 		}
 
 		a {

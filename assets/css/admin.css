@@ -75,12 +75,12 @@
         position: absolute;
         border-radius: 100%;
         background-color: #ff3067; }
+    .alg-sidebar .alg-sidebar__list .alg-sidebar__state--set {
+      color: #13d783; }
+      .alg-sidebar .alg-sidebar__list .alg-sidebar__state--set:after {
+        background-color: #13d783; }
     .alg-sidebar .alg-sidebar__list .alg-sidebar__link--active {
       color: white; }
-    .alg-sidebar .alg-sidebar__list .alg-sidebar__link--set .alg-sidebar__state {
-      color: #13d783; }
-      .alg-sidebar .alg-sidebar__list .alg-sidebar__link--set .alg-sidebar__state:after {
-        background-color: #13d783; }
     .alg-sidebar .alg-sidebar__list a {
       display: block;
       color: inherit;
