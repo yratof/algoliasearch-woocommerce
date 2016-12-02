@@ -12,10 +12,6 @@
   box-shadow: 0 3px 12px 0 rgba(43, 43, 49, 0.09), 0 5px 17px 0 rgba(43, 43, 49, 0.11) !important;
 }
 
-.ais-range-slider--connect {
-  background-color: $blue;
-}
-
 .ais-range-slider--target {
   position: relative;
   direction: ltr;
@@ -41,7 +37,7 @@
 }
 
 .ais-range-slider--connect {
-  background: $blue;
+  background: $blue !important;
 }
 
 .ais-range-slider--background {

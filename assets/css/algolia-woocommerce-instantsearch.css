@@ -106,7 +106,7 @@
     font-weight: 600;
     font-size: 16px;
     padding: 1.875em 0 0.3125em;
-    transition: .1s ease; }
+    transition: .3s ease; }
   .alg-hit .alg-hit__overlay {
     position: absolute;
     width: 100%;
@@ -116,7 +116,7 @@
     opacity: 0;
     background-color: rgba(0, 0, 0, 0.4);
     pointer-events: none;
-    transition: .1s ease;
+    transition: .3s ease;
     /**
 		 * @TODO -> Implement fallback to display table?
 		 */
@@ -328,9 +328,6 @@
   background-color: #fff !important;
   box-shadow: 0 3px 12px 0 rgba(43, 43, 49, 0.09), 0 5px 17px 0 rgba(43, 43, 49, 0.11) !important; }
 
-.ais-range-slider--connect {
-  background-color: #31c0f8; }
-
 .ais-range-slider--target {
   position: relative;
   direction: ltr;
@@ -353,7 +350,7 @@
   bottom: 0; }
 
 .ais-range-slider--connect {
-  background: #31c0f8; }
+  background: #31c0f8 !important; }
 
 .ais-range-slider--background {
   background: #F3F4F7; }

@@ -458,7 +458,7 @@
     font-weight: 600;
     font-size: 16px;
     padding: 1.875em 0 0.3125em;
-    transition: .1s ease; }
+    transition: .3s ease; }
   .alg-hit .alg-hit__overlay {
     position: absolute;
     width: 100%;
@@ -468,7 +468,7 @@
     opacity: 0;
     background-color: rgba(0, 0, 0, 0.4);
     pointer-events: none;
-    transition: .1s ease;
+    transition: .3s ease;
     /**
 		 * @TODO -> Implement fallback to display table?
 		 */
