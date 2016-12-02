@@ -413,16 +413,29 @@
           text-align: left; }
 
 .alg-hit {
-  border-radius: 3px;
-  box-shadow: 0 3px 10px rgba(24, 29, 43, 0.2);
   border: none;
-  color: white;
-  border-radius: 3px;
-  overflow: hidden;
   text-align: center;
   color: white;
   font-family: "Open Sans", sans-serif;
-  text-align: center; }
+  position: relative;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(24, 29, 43, 0.2); }
+  .alg-hit .alg-hit__content {
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1; }
+  .alg-hit:before {
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: "";
+    opacity: 0;
+    background-color: transparent;
+    transition: all 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
   .alg-hit figure {
     height: 265px;
     margin: 0;
@@ -431,7 +444,9 @@
     .alg-hit figure img {
       width: 100%;
       height: 100%;
-      object-fit: cover; }
+      object-fit: cover;
+      transform-origin: 50% 50%;
+      transition: 800ms ease; }
   .alg-hit .alg-hit__ribbon {
     position: absolute;
     top: 0;
@@ -454,7 +469,13 @@
     background-color: rgba(0, 0, 0, 0.4);
     pointer-events: none;
     transition: .1s ease;
-    display: table; }
+    /**
+		 * @TODO -> Implement fallback to display table?
+		 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; }
     .alg-hit .alg-hit__overlay .alg-hit__actions {
       display: table-cell;
       vertical-align: middle; }
@@ -464,19 +485,23 @@
       opacity: 0;
       padding: 0.8125em 0;
       width: 70%; }
-    .alg-hit .alg-hit__overlay button:first-child {
+    .alg-hit .alg-hit__overlay .alg-cta--transparent {
       color: white;
       border: 1px solid white;
       background-color: transparent;
       font-weight: 600;
       margin-bottom: 0.8125em;
       transform: translateY(25px); }
-    .alg-hit .alg-hit__overlay button:nth-child(2) {
+      .alg-hit .alg-hit__overlay .alg-cta--transparent:hover {
+        background-color: rgba(255, 255, 255, 0.2); }
+    .alg-hit .alg-hit__overlay .alg-cta--blue {
       color: white;
       border: 1px solid #31c0f8;
       background-color: #31c0f8;
       font-weight: 600;
       transform: translateY(25px); }
+      .alg-hit .alg-hit__overlay .alg-cta--blue:hover {
+        background-color: #4ac8f9; }
   .alg-hit .alg-hit__details {
     text-align: center;
     padding: 1.5625em 1.75em; }
@@ -492,6 +517,11 @@
         color: inherit; }
         .alg-hit .alg-hit__details .alg-hit__title a:hover {
           color: inherit; }
+        .alg-hit .alg-hit__details .alg-hit__title a em {
+          border-radius: 2px;
+          font-style: normal;
+          color: #31c0f8;
+          background-color: rgba(49, 192, 248, 0.2); }
     .alg-hit .alg-hit__details .alg-hit__description {
       color: #9fa5b8;
       font-size: 12px;
@@ -500,6 +530,9 @@
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden; }
+      .alg-hit .alg-hit__details .alg-hit__description em {
+        box-shadow: inset 0px -1px 0px 0px #31c0f8;
+        font-style: normal; }
     .alg-hit .alg-hit__details .alg-hit__priceholder {
       margin: 0; }
     .alg-hit .alg-hit__details .alg-hit__previousprice {
@@ -515,6 +548,11 @@
       font-weight: 600; }
     .alg-hit .alg-hit__details p {
       white-space: nowrap; }
+  .alg-hit:hover:before {
+    opacity: 1; }
+  .alg-hit:hover img {
+    transition: 10s cubic-bezier(0.04, 0.74, 0, 1);
+    transform: scale(1.1); }
   .alg-hit:hover .alg-hit__ribbon {
     opacity: 0; }
   .alg-hit:hover .alg-hit__overlay {

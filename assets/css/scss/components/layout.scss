@@ -1,18 +1,79 @@
-
 #ais-wrapper {
-	display: flex;
+  padding: 0 20px;
+
 }
 
-#algolia-hits {
+.site{
+	margin: 0 !important;
+}
 
-	.ais-hits {
+#ais-wrapper{
+	
+	//-----------------------------
+	//	Display < 960 px
+	//-----------------------------
+	&.algolia-hits--wide {
 		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
 
-		.ais-hits--item {
-			width:30%;
-			padding-bottom: 5%;
+		#algolia-hits {
+		  .ais-hits {
+		    display: flex;
+		    flex-wrap: wrap;
+
+		    .ais-hits--item {
+		      width: 31%;
+		      padding-bottom: 3.5%;
+		      margin-right:3.5%;
+		      &:nth-child(3n){
+	      		margin-right:0;
+	      	}
+		    }
+		  }
+		}
+	}
+	//-----------------------------
+	//	Tablet display - 768px
+	//-----------------------------
+	&.algolia-hits--tablet {
+		display: flex;
+
+		#algolia-hits {
+			.ais-hits {
+	    	display: flex;
+	    	flex-wrap: wrap;
+
+	    	.ais-hits--item {
+	      	flex: 0 1 22%;
+	      	margin-right: 4%;
+	      	padding-bottom: 3.5%;
+	      	&:nth-child(4n){
+	      		margin-right:0;
+	      	}
+	    	}
+	  	}
+			
+			.alg-hit{
+				figure{
+					height:185px;
+				}
+
+				@include component('hit', 'details') {
+					padding: em(10) em(15);
+				}
+
+				@include component('hit', 'title') {
+					font-size: 20px;
+					margin: 0 0 em(5,20) 0;
+				}
+
+				@include component('hit', 'description') {
+					margin: 0;
+				}
+
+				@include component('hit', 'ribbon') {
+					font-size: 12px;
+				}
+			}
 		}
 	}
 }

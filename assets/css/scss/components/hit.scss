@@ -1,14 +1,39 @@
+// .ais-hits--item:nth-last-child(2):first-child,
+// .ais-hits--item:nth-last-child(2):first-child ~ .ais-hits--item{
+// 	width:48% !important;
+
+// 	.alg-hit {
+// 		width:100%;
+// 	}
+// }
 @include component('hit') {
-	border-radius: 3px;
-	box-shadow: 0 3px 10px rgba(24, 29, 43, 0.2);
 	border:none;
-	color:white;
-	border-radius:3px;
-	overflow:hidden;
 	text-align: center;
 	color:white;
 	font-family: "Open Sans", sans-serif;
+	position: relative;
 	text-align: center;
+	box-shadow: 0 3px 10px rgba(24, 29, 43, 0.2);
+
+	@include component('hit', 'content'){
+		border-radius: 3px;
+		overflow:hidden;
+		position: relative;
+		z-index: 1;
+	}
+
+	&:before{
+		left: 0;
+		top: 0;
+		position: absolute;
+		width:100%;
+		height:100%;
+		content:"";
+		opacity:0;
+		background-color: transparent;
+		transition: all 0.7s cubic-bezier(.25,.8,.25,1);
+		box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	}
 	
 	figure {
 		height:265px;
@@ -20,6 +45,8 @@
 			width:100%;
 			height:100%;
 			object-fit: cover;
+			transform-origin: 50% 50%;
+			transition: 800ms ease;
 		}
 	}
 
@@ -47,7 +74,14 @@
 		background-color: rgba(0,0,0,0.4);
 		pointer-events:none;
 		transition: .1s ease;
-		display: table;
+
+		/**
+		 * @TODO -> Implement fallback to display table?
+		 */
+		display: flex;
+		align-items:center;
+		justify-content: center;
+		flex-direction: column;
 
 		@include component('hit', 'actions'){
 			display: table-cell;
@@ -62,21 +96,29 @@
 			width:70%;
 		}
 
-		button:first-child {
+		.alg-cta--transparent {
 			color:white;
 			border:1px solid white;
 			background-color: transparent;
 			font-weight: 600;
 			margin-bottom:em(13);
 			transform:translateY(25px);
+
+			&:hover {
+				background-color: rgba(white,.2);
+			}
 		}
 
-		button:nth-child(2) {
+		.alg-cta--blue {
 			color:white;
 			border:1px solid $blue;
 			background-color: $blue;
 			font-weight: 600;
 			transform:translateY(25px);
+
+			&:hover {
+				background-color: lighten($blue,5%);
+			}
 		}
 	}
 
@@ -90,12 +132,19 @@
 			font-weight: 300;
 			margin:0 0 em(15,24) 0;
 			@include preventFontBreak();
-
+			
 			a{
 				color:inherit;
 
 				&:hover {
 					color: inherit;
+				}
+
+				em {
+					border-radius:2px;
+					font-style: normal;
+					color:$blue;
+					background-color: rgba($blue,.2);
 				}
 			}
 		}
@@ -106,6 +155,13 @@
 			font-weight: 600;
 			margin: 0 0 em(15,24);
 			@include preventFontBreak();
+
+			em {
+				box-shadow: inset 0px -1px 0px 0px $blue;
+				font-style: normal;
+				// color:$blue;
+				// background-color: rgba($blue,.2);
+			}
 		}
 
 		@include component('hit','priceholder') {
@@ -136,6 +192,16 @@
 	//	On hover styles
 	//---------------------------
 	&:hover{
+
+		&:before {
+			opacity:1;
+		}
+
+		img{
+			transition: 10s cubic-bezier(.04,.74,0,1);
+			transform:scale(1.1);
+		}
+
 		@include component('hit', 'ribbon') {
 			opacity:0;
 		}

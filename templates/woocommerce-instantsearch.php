@@ -1,5 +1,5 @@
 	<script type="text/html" id="tmpl-instantsearch">
-		<div id="ais-wrapper">
+		<div id="ais-wrapper" class="algolia-hits--wide">
 
 			<aside id="ais-facets">
 				<section class="ais-facets" id="facet-price"></section>
@@ -12,7 +12,7 @@
 				<div id="algolia-search-box">
 					<div id="algolia-stats"></div>
 
-					<svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"> <style> .st0 {fill:none;stroke:#2C2C38;stroke-width:2;stroke-miterlimit:10;} </style> <ellipse transform="rotate(-45 13.78 13.938)" class="st0" cx="13.8" cy="13.9" rx="10.8" ry="10.8"/> <path class="st0" d="M26.4 26.6l-4.9-4.9"/> </svg>
+					<svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"> <style> .st0 {fill:none;stroke:#2C2C38;stroke-width:2;stroke-miterlimit:10;} </style> <ellipse transform="rotate(-45 13.78 13.938)" class="st0" cx="13.8" cy="13.9" rx="10.8" ry="10.8"/> <path class="st0" d="M26.4 26.6l-4.9-4.9"/></svg>
 
 				</div>
 				<div id="algolia-sort-by"></div>
@@ -25,107 +25,53 @@
 	<script type="text/html" id="tmpl-instantsearch-hit">
 
 			<article class="alg-hit">
-				<figure>
-					<img src="http://rlv.zcache.com/i_code_developer_hoodie-r4a6b7efb45ca40568e6aea25a6725725_jg5fo_324.jpg">
-					<# if ( data.is_on_sale === true ) { #>
-						<div class="alg-hit__ribbon">
-							SALE
-						</div>
-					<# } #>
-					<div class="alg-hit__overlay">
-						<div class="alg-hit__actions">
-							<button class="alg-button--small">VIEW DETAILS</button>
-							<button class="alg-button--small alg-button--themebutton">ADD TO CART</button>
-						</div>
-					</div>
-				</figure>
-				<div class="alg-hit__details">
-					<h2 class="alg-hit__title" itemprop="name headline">
-						<a href="{{ data.permalink }}" title="{{ data.post_title }}" itemprop="url">{{{ data._highlightResult.post_title.value }}}
-						</a>
-					</h2>
-					<p class="alg-hit__description">
-						<#
-						var product_cats = [];
-						for (var index in data._highlightResult.taxonomies.product_cat) {
-							product_cats.push(data._highlightResult.taxonomies.product_cat[index].value);
-						}
-						product_cats = product_cats.join(', ').toUpperCase();
-					#>
-					{{{product_cats}}}
-					</p>
-					<p class="alg-hit__priceholder">
-						<# if(data.is_on_sale === true) { #>
-							<span class="alg-hit__previousprice">
-								{{{algolia.woocommerce.currency_symbol}}}{{data.regular_price}}
-							</span>
+				<div class="alg-hit__content">
+					<figure>
+						<# if ( data.images.shop_catalog ) { #>
+						<img src="{{ data.images.shop_catalog.url }}" alt="{{ data.post_title }}" title="{{ data.post_title }}" itemprop="image" />
 						<# } #>
-						<span class="alg-hit__currentprice">
-							{{{algolia.woocommerce.currency_symbol}}}{{data.price}}
-							<# if(data.product_type === 'variable' && data.price !== data.max_price) { #>
-								{{data.max_price}}
+
+						<# if ( data.is_on_sale === true ) { #>
+							<div class="alg-hit__ribbon">
+								SALE
+							</div>
+						<# } #>
+						<div class="alg-hit__overlay">
+							<div class="alg-hit__actions">
+								<button class="alg-cta--transparent alg-button--small">VIEW DETAILS</button>
+								<button class="alg-cta--blue alg-button--small alg-button--themebutton">ADD TO CART</button>
+							</div>
+						</div>
+					</figure>
+					<div class="alg-hit__details">
+						<h2 class="alg-hit__title" itemprop="name headline">
+							<a href="{{ data.permalink }}" title="{{ data.post_title }}" itemprop="url">{{{ data._highlightResult.post_title.value }}}
+							</a>
+						</h2>
+						<p class="alg-hit__description">
+							<#
+							var product_cats = [];
+							for (var index in data._highlightResult.taxonomies.product_cat) {
+								product_cats.push(data._highlightResult.taxonomies.product_cat[index].value);
+							}
+							product_cats = product_cats.join(', ').toUpperCase();
+						#>
+						{{{product_cats}}}
+						</p>
+						<p class="alg-hit__priceholder">
+							<# if(data.is_on_sale === true) { #>
+								<span class="alg-hit__previousprice">
+									{{{algolia.woocommerce.currency_symbol}}}{{data.regular_price}}
+								</span>
 							<# } #>
-						</span>
-					</p>
+							<span class="alg-hit__currentprice">
+								{{{algolia.woocommerce.currency_symbol}}}{{data.price}}<# if(data.product_type === 'variable' && data.price !== data.max_price) { #>-{{data.max_price}}
+								<# } #>
+							</span>
+						</p>
+					</div>
 				</div>
 			</article>
-<!-- 		<article>
-
-			<div class="ais-hits--thumbnail">
-				<a href="{{ data.permalink }}" title="{{ data.post_title }}">
-					<# if ( data.is_on_sale === true ) { #>
-						<div class="ais-hits__on-sale">Sale!</div>
-					<# } #>
-					<# if ( data.images.shop_catalog ) { #>
-					<img src="{{ data.images.shop_catalog.url }}" alt="{{ data.post_title }}" title="{{ data.post_title }}" itemprop="image" />
-					<# } #>
-				</a>
-			</div>
-
-
-			<div class="ais-hits--content">
-				<h2 itemprop="name headline"><a href="{{ data.permalink }}" title="{{ data.post_title }}" itemprop="url">{{{ data._highlightResult.post_title.value }}}</a></h2>
-
-				<div class="ais-hits--categories">
-					in
-					<#
-						var product_cats = [];
-						for (var index in data._highlightResult.taxonomies.product_cat) {
-							product_cats.push(data._highlightResult.taxonomies.product_cat[index].value);
-						}
-						product_cats = product_cats.join(', ');
-					#>
-					{{{product_cats}}}
-				</div>
-
-
-				<span class="price">
-
-					<# if(data.is_on_sale === true) { #>
-						<del>
-							<span class="woocommerce-Price-amount amount">
-								<span class="woocommerce-Price-currencySymbol">{{{algolia.woocommerce.currency_symbol}}}</span>
-								{{data.regular_price}}
-							</span>
-						</del>
-					<# } #>
-
-					<span class="woocommerce-Price-amount amount">
-						<span class="woocommerce-Price-currencySymbol">{{{algolia.woocommerce.currency_symbol}}}</span>
-						{{data.price}}
-					</span>
-
-					<# if(data.product_type === 'variable' && data.price !== data.max_price) { #>
-						- <span class="woocommerce-Price-amount amount">
-							<span class="woocommerce-Price-currencySymbol">{{{algolia.woocommerce.currency_symbol}}}</span>
-							{{data.max_price}}
-						</span>
-					<# } #>
-				</span>
-
-			</div>
-			<div class="ais-clearfix"></div>
-		</article> -->
 	</script>
 
 	<script type="text/javascript">
