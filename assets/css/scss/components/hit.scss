@@ -61,7 +61,7 @@
 		font-weight: 600;
 		font-size:16px;
 		padding: em(30) 0 em(5);
-		transition:.1s ease;
+		transition:.3s ease;
 	}
 
 	@include component('hit', 'overlay') {
@@ -73,7 +73,7 @@
 		opacity:0;
 		background-color: rgba(0,0,0,0.4);
 		pointer-events:none;
-		transition: .1s ease;
+		transition: .3s ease;
 
 		/**
 		 * @TODO -> Implement fallback to display table?

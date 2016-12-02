@@ -1,5 +1,5 @@
 	<script type="text/html" id="tmpl-instantsearch">
-		<div id="ais-wrapper" class="algolia-hits--wide">
+		<div id="ais-wrapper" class="algolia-hits--3-column">
 
 			<aside id="ais-facets">
 				<section class="ais-facets" id="facet-price"></section>
