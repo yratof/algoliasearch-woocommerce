@@ -12,49 +12,53 @@
 				<p class="alg-hitwrapper__result">REGULAR RESULT</p>
 				<!-- IMPORTANT -->
 				<!-- Remove nohover class for production from alg-hit element-->
-				<div class="alg-hit nohover">
-					<figure>
-						<img src="http://rlv.zcache.com/i_code_developer_hoodie-r4a6b7efb45ca40568e6aea25a6725725_jg5fo_324.jpg">
-						<div class="alg-hit__ribbon">
-							SALE
+				<article class="alg-hit nohover">
+					<div class="alg-hit__content">
+						<figure>
+							<img src="http://rlv.zcache.com/i_code_developer_hoodie-r4a6b7efb45ca40568e6aea25a6725725_jg5fo_324.jpg">
+							<div class="alg-hit__ribbon">
+								SALE
+							</div>
+						</figure>
+						<div class="alg-hit__details">
+							<h2 class="alg-hit__title" itemprop="name headline">Ninja Silhouette</h2>
+							<p class="alg-hit__description">CLOTHING, HOODIES</p>
+							<p class="alg-hit__priceholder">
+								<span class="alg-hit__previousprice">$50</span>
+								<span class="alg-hit__currentprice">$35-45</span>
+							</p>
 						</div>
-					</figure>
-					<div class="alg-hit__details">
-						<p class="alg-hit__title">Ninja Silhouette</p>
-						<p class="alg-hit__description">CLOTHING, HOODIES</p>
-						<p class="alg-hit__priceholder">
-							<span class="alg-hit__previousprice">$50</span>
-							<span class="alg-hit__currentprice">$35-45</span>
-						</p>
 					</div>
-				</div>
+				</article>
 			</div>
 			<div class="alg-hitwrapper">
 				<p class="alg-hitwrapper__result">HOVER RESULT</p>
 				<!-- IMPORTANT -->
 				<!-- Remove forcehover class for production from alg-hit element-->
-				<div class="alg-hit forcehover">
-					<figure>
-						<img src="http://rlv.zcache.com/i_code_developer_hoodie-r4a6b7efb45ca40568e6aea25a6725725_jg5fo_324.jpg">
-						<div class="alg-hit__ribbon">
-							SALE
-						</div>
-						<div class="alg-hit__overlay">
-							<div class="alg-hit__actions">
-								<button class="alg-button--small">VIEW DETAILS</button>
-								<button class="alg-button--small alg-button--themebutton">ADD TO CART</button>
+				<article class="alg-hit forcehover">
+					<div class="alg-hit__content">
+						<figure>
+							<img src="http://rlv.zcache.com/i_code_developer_hoodie-r4a6b7efb45ca40568e6aea25a6725725_jg5fo_324.jpg">
+							<div class="alg-hit__ribbon">
+								SALE
 							</div>
+							<div class="alg-hit__overlay">
+								<div class="alg-hit__actions">
+									<a href="#" class="alg-cta--transparent alg-button--small">VIEW DETAILS</a>
+									<a href="#" class="alg-cta--blue alg-button--small alg-button--themebutton">ADD TO CART</a>
+								</div>
+							</div>
+						</figure>
+						<div class="alg-hit__details">
+							<h2 class="alg-hit__title" itemprop="name headline">Ninja Silhouette</h2>
+							<p class="alg-hit__description">CLOTHING, HOODIES</p>
+							<p class="alg-hit__priceholder">
+								<span class="alg-hit__previousprice">$50</span>
+								<span class="alg-hit__currentprice">$35-45</span>
+							</p>
 						</div>
-					</figure>
-					<div class="alg-hit__details">
-						<p class="alg-hit__title">Ninja Silhouette</p>
-						<p class="alg-hit__description">CLOTHING, HOODIES</p>
-						<p class="alg-hit__priceholder">
-							<span class="alg-hit__previousprice">$50</span>
-							<span class="alg-hit__currentprice">$35-45</span>
-						</p>
 					</div>
-				</div>
+				</article>
 			</div>
 		</div>
 		<form method="post">

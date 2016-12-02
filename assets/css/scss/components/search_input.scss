@@ -16,6 +16,7 @@
     transition: 300ms ease;
     font-weight: 300;
     font-family: "Open Sans", sans-serif;
+    height: inherit;
 
     @include placeholder(){
       font-family: "Open Sans", sans-serif;

@@ -81,6 +81,7 @@
 
 .alg-hit {
   border: none;
+  border-radius: 3px;
   text-align: center;
   color: white;
   font-family: "Open Sans", sans-serif;
@@ -102,7 +103,8 @@
     opacity: 0;
     background-color: transparent;
     transition: all 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    border-radius: 3px; }
   .alg-hit figure {
     height: 265px;
     margin: 0;
@@ -146,9 +148,10 @@
     .alg-hit .alg-hit__overlay .alg-hit__actions {
       display: table-cell;
       vertical-align: middle; }
-    .alg-hit .alg-hit__overlay button {
+    .alg-hit .alg-hit__overlay a {
+      display: inline-block;
+      text-decoration: none;
       transition: opacity 300ms, transform 300ms;
-      cursor: pointer;
       opacity: 0;
       padding: 0.8125em 0;
       width: 70%; }
@@ -225,7 +228,7 @@
   .alg-hit:hover .alg-hit__overlay {
     opacity: 1;
     pointer-events: auto; }
-    .alg-hit:hover .alg-hit__overlay button {
+    .alg-hit:hover .alg-hit__overlay a {
       opacity: 1;
       transform: translateY(0); }
 
@@ -245,7 +248,8 @@
     box-shadow: 0px 2px 8px 0px rgba(27, 54, 86, 0.07);
     transition: 300ms ease;
     font-weight: 300;
-    font-family: "Open Sans", sans-serif; }
+    font-family: "Open Sans", sans-serif;
+    height: inherit; }
     #algolia-search-box input::-webkit-input-placeholder {
       font-family: "Open Sans", sans-serif;
       font-weight: 300; }
@@ -369,7 +373,7 @@
   bottom: 0; }
 
 .ais-range-slider--connect {
-  background: #31c0f8 !important; }
+  background: #31c0f8; }
 
 .ais-range-slider--background {
   background: #F3F4F7; }
@@ -565,8 +569,11 @@
 .ais-refinement-list label:hover {
   color: #31c0f8; }
 
+.ais-refinement-list--label {
+  margin-bottom: 0; }
+
 .ais-refinement-list--label .ais-refinement-list--checkbox {
-  margin-right: 10px; }
+  margin: 0 10px 0 0; }
 
 /* Product Result */
 .ais-hits--categories {

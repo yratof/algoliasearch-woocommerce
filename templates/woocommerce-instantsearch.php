@@ -38,21 +38,22 @@
 						<# } #>
 						<div class="alg-hit__overlay">
 							<div class="alg-hit__actions">
-								<button class="alg-cta--transparent alg-button--small">VIEW DETAILS</button>
-								<button class="alg-cta--blue alg-button--small alg-button--themebutton">ADD TO CART</button>
+								<a href="{{ data.permalink }}" class="alg-cta--transparent alg-button--small">VIEW DETAILS</a>
+								<a href="?add-to-cart={{ data.post_id }}" class="alg-cta--blue alg-button--small alg-button--themebutton">ADD TO CART</a>
 							</div>
 						</div>
 					</figure>
 					<div class="alg-hit__details">
 						<h2 class="alg-hit__title" itemprop="name headline">
-							<a href="{{ data.permalink }}" title="{{ data.post_title }}" itemprop="url">{{{ data._highlightResult.post_title.value }}}
-							</a>
+							<a href="{{ data.permalink }}" title="{{ data.post_title }}" itemprop="url">{{{ data._highlightResult.post_title.value }}}</a>
 						</h2>
 						<p class="alg-hit__description">
 							<#
 							var product_cats = [];
-							for (var index in data._highlightResult.taxonomies.product_cat) {
-								product_cats.push(data._highlightResult.taxonomies.product_cat[index].value);
+							if(data._highlightResult !== undefined && data._highlightResult.taxonomies !== undefined && data._highlightResult.taxonomies.product_cat !== undefined) {
+								for (var index in data._highlightResult.taxonomies.product_cat) {
+									product_cats.push(data._highlightResult.taxonomies.product_cat[index].value);
+								}
 							}
 							product_cats = product_cats.join(', ').toUpperCase();
 						#>
