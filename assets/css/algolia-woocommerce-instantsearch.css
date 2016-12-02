@@ -16,22 +16,18 @@
 
 #ais-wrapper {
   display: flex; }
-  #ais-wrapper .ais-hits {
-    display: flex;
-    flex-wrap: wrap; }
   #ais-wrapper.algolia-hits--1-column .ais-hits--item {
-    width: 98%;
-    margin-right: 2%;
-    margin-bottom: 2%; }
+    float: left;
+    width: 100%;
+    margin-right: 0%;
+    margin-bottom: 0%; }
     #ais-wrapper.algolia-hits--1-column .ais-hits--item:nth-child(1n) {
       margin-right: 0; }
 
 #ais-wrapper {
   display: flex; }
-  #ais-wrapper .ais-hits {
-    display: flex;
-    flex-wrap: wrap; }
   #ais-wrapper.algolia-hits--2-column .ais-hits--item {
+    float: left;
     width: 48%;
     margin-right: 4%;
     margin-bottom: 4%; }
@@ -40,10 +36,8 @@
 
 #ais-wrapper {
   display: flex; }
-  #ais-wrapper .ais-hits {
-    display: flex;
-    flex-wrap: wrap; }
   #ais-wrapper.algolia-hits--3-column .ais-hits--item {
+    float: left;
     width: 31.33333%;
     margin-right: 3%;
     margin-bottom: 3%; }
@@ -52,10 +46,8 @@
 
 #ais-wrapper {
   display: flex; }
-  #ais-wrapper .ais-hits {
-    display: flex;
-    flex-wrap: wrap; }
   #ais-wrapper.algolia-hits--4-column .ais-hits--item {
+    float: left;
     width: 23%;
     margin-right: 2.66667%;
     margin-bottom: 2.66667%; }

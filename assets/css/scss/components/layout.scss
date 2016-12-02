@@ -9,7 +9,7 @@
 
 
 $layoutMap : (
-	('--1-column', 1, 2),
+	('--1-column', 1, 0),
 	('--2-column', 2, 2),
 	('--3-column', 3, 2),
 	('--4-column', 4, 2)
@@ -32,13 +32,14 @@ $layoutMap : (
 		display: flex;
 
 		.ais-hits {
-			display: flex;
-			flex-wrap: wrap;
+			// display: flex;
+			// flex-wrap: wrap;
 		}
 
 		&.algolia-hits#{ nth($layout, 1) }{
 
 			.ais-hits--item{
+				float: left;
 				width: getItemWidth( nth($layout, 2), nth($layout, 3))#{%};
 				margin-right: getPreciseGutter( nth($layout, 2), nth($layout, 3))#{%};
 				margin-bottom: getPreciseGutter( nth($layout, 2), nth($layout, 3))#{%};
