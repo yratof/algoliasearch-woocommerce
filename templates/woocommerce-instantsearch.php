@@ -76,22 +76,22 @@
 	</script>
 
 	<script type="text/javascript">
-		jQuery(function() {
-			var container = jQuery(algolia.woocommerce.selector);
+		jQuery(function($) {
+			var container = $(algolia.woocommerce.selector);
 
-			if(container.length === 0 && jQuery('.admin-bar').length > 0) {
+			if(container.length === 0 && $('.admin-bar').length > 0) {
 				alert('You need to configure a valid selector in the "Zoning" tab of the "WooCommerce" settings inside the "Algolia" plugin.');
 				return;
 			}
 
 			container.html(wp.template('instantsearch'));
 
-			if(jQuery('#algolia-search-box').length === 0) {
+			if($('#algolia-search-box').length === 0) {
 				alert('Unable to find the node to add instantsearch.');
 				return;
 			}
 
-			if (algolia.indices.posts_product === undefined && jQuery('.admin-bar').length > 0) {
+			if (algolia.indices.posts_product === undefined && $('.admin-bar').length > 0) {
 				alert('It looks like you haven\'t indexed the posts_product index. Please head to the Indexing page of the Algolia Search plugin and index it.');
 			}
 
@@ -268,7 +268,19 @@
 			/* Start */
 			search.start();
 
-			jQuery('#algolia-search-box input').select();
+			$('#algolia-search-box input').select();
+
+			/* Make the bottom of the product card all clickable */
+			/* We do this in JS to not mess up the HTML. */
+			$('#algolia-hits').on('click', '.alg-hit__details', function(e) {
+				var $target = $(e.currentTarget);
+				var link = $target.find('a:first');
+
+				if(link.length === 1) {
+					var href = link.attr('href');
+					window.location = href;
+				}
+			});
 		});
 	</script>
 
