@@ -9,21 +9,46 @@
 
 
 $layoutMap : (
-	('--1-column', 1, 0),
-	('--2-column', 2, 2),
-	('--3-column', 3, 2),
-	('--4-column', 4, 2)
+	('--1-column', 1, 0, false),
+	('--2-column', 2, 2, true),
+	('--3-column', 3, 2, false),
+	('--4-column', 4, 2, false)
 );
 
 @function getItemWidth($items, $gutter){
 	@return (100 - ($items * $gutter)) / $items;
 }
 
-@function getPreciseGutter($items,$gutter){
+@function getPreciseGutter($items,$gutter) {
 	@if($items > 2){
 		@return (100 - (getItemWidth($items, $gutter) * $items)) / ($items - 1);
 	} @else {
 		@return 100 - (getItemWidth($items, $gutter) * $items);
+	}
+}
+
+@mixin smallHit(){
+	.alg-hit{
+		figure{
+			height:185px;
+		}
+
+		@include component('hit', 'details') {
+			padding: em(10) em(15);
+		}
+
+		@include component('hit', 'title') {
+			font-size: 20px;
+			margin: 0 0 em(5,20) 0;
+		}
+
+		@include component('hit', 'description') {
+			margin: 0;
+		}
+
+		@include component('hit', 'ribbon') {
+			font-size: 12px;
+		}
 	}
 }
 
@@ -32,20 +57,23 @@ $layoutMap : (
 		display: flex;
 
 		.ais-hits {
-			// display: flex;
-			// flex-wrap: wrap;
+			display: flex;
+			flex-wrap: wrap;
 		}
 
 		&.algolia-hits#{ nth($layout, 1) }{
 
-			.ais-hits--item{
-				float: left;
+			.ais-hits--item {
 				width: getItemWidth( nth($layout, 2), nth($layout, 3))#{%};
 				margin-right: getPreciseGutter( nth($layout, 2), nth($layout, 3))#{%};
 				margin-bottom: getPreciseGutter( nth($layout, 2), nth($layout, 3))#{%};
 
-				&:nth-child(#{nth($layout, 2)}n){
+				&:nth-child(#{nth($layout, 2)}n) {
 					margin-right: 0;
+				}
+
+				@if(nth($layout,4)){
+					@include smallHit();
 				}
 			}
 		}
@@ -96,29 +124,6 @@ $layoutMap : (
 	//       	}
 	//     	}
 	//   	}
-			
-	// 		.alg-hit{
-	// 			figure{
-	// 				height:185px;
-	// 			}
-
-	// 			@include component('hit', 'details') {
-	// 				padding: em(10) em(15);
-	// 			}
-
-	// 			@include component('hit', 'title') {
-	// 				font-size: 20px;
-	// 				margin: 0 0 em(5,20) 0;
-	// 			}
-
-	// 			@include component('hit', 'description') {
-	// 				margin: 0;
-	// 			}
-
-	// 			@include component('hit', 'ribbon') {
-	// 				font-size: 12px;
-	// 			}
-	// 		}
 	// 	}
 	// }
 }
