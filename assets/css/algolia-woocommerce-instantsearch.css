@@ -150,8 +150,8 @@
       vertical-align: middle; }
     .alg-hit .alg-hit__overlay a {
       display: inline-block;
+      text-decoration: none;
       transition: opacity 300ms, transform 300ms;
-      cursor: pointer;
       opacity: 0;
       padding: 0.8125em 0;
       width: 70%; }
