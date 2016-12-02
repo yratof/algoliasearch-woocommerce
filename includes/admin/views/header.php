@@ -17,19 +17,32 @@
 			<li class="alg-sidebar__link <?php if ( ! isset( $_GET['tab'] ) || $_GET['tab'] === 'pages'): ?>alg-sidebar__link--active<?php endif; ?>">
 				<a href="admin.php?page=algolia-woocommerce">
 					Pages
-					<span class="alg-sidebar__state">NOT SET</span>
+					<?php if ( aw_is_configured_pages() ): ?>
+						<span class="alg-sidebar__state alg-sidebar__state--set">OK</span>
+					<?php else: ?>
+						<span class="alg-sidebar__state">NOT SET</span>
+					<?php endif; ?>
 				</a>
 			</li>
-			<li class="alg-sidebar__link alg-sidebar__link--set <?php if ( isset( $_GET['tab'] ) && $_GET['tab'] === 'zoning'): ?>alg-sidebar__link--active<?php endif; ?>">
+			<li class="alg-sidebar__link <?php if ( isset( $_GET['tab'] ) && $_GET['tab'] === 'zoning'): ?>alg-sidebar__link--active<?php endif; ?>">
 				<a href="admin.php?page=algolia-woocommerce&tab=zoning">
 					Zoning
-					<span class="alg-sidebar__state">OK</span>
+					<?php if ( aw_is_configured_zoning() ): ?>
+						<span class="alg-sidebar__state alg-sidebar__state--set">OK</span>
+					<?php else: ?>
+						<span class="alg-sidebar__state">NOT SET</span>
+					<?php endif; ?>
 				</a>
 			</li>
 			<li class="alg-sidebar__link <?php if ( isset( $_GET['tab'] ) && $_GET['tab'] === 'appearance'): ?>alg-sidebar__link--active<?php endif; ?>">
 				<a href="admin.php?page=algolia-woocommerce&tab=appearance">
 					Appearance
-					<span class="alg-sidebar__state">NOT SET</span>
+					<?php if ( aw_is_configured_appearance() ): ?>
+						<span class="alg-sidebar__state alg-sidebar__state--set">OK</span>
+					<?php else: ?>
+						<span class="alg-sidebar__state">NOT SET</span>
+					<?php endif; ?>
+
 				</a>
 			</li>
 		</ul>
