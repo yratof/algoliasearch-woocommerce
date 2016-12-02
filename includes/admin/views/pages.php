@@ -8,7 +8,7 @@
 	<form method="post">
 		<div class="alg-main__container alg-main__container--pages">
 			<article class="alg-pageselect alg-pageselect--blue">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171.3 134.3">
+				<svg class="alg-pageselect__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171.3 134.3">
 					<style>
 						.st0 {
 							fill: none;
@@ -42,7 +42,7 @@
 			</article>
 			<div class="alg-pageselect__gutter"></div>
 			<article class="alg-pageselect alg-pageselect--purple">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171.3 134.3">
+				<svg class="alg-pageselect__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171.3 134.3">
 					<style>
 						.st01 {
 							fill: none;
@@ -77,7 +77,7 @@
 			</article>
 			<div class="alg-pageselect__gutter"></div>
 			<article class="alg-pageselect alg-pageselect--red">
-				<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171.3 134.3">
+				<svg class="alg-pageselect__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171.3 134.3">
 					<style>
 						.st02 {
 							fill: none;
