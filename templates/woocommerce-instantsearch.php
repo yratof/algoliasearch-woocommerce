@@ -322,15 +322,15 @@
 				var width = container.outerWidth();
 				var containerClass = '';
 				if ( width < 768 ) {
-					containerClass = 'alg-size-xsmall';
+					containerClass = 'alg-container-xsmall';
 				} else if( width < 992 ) {
-					containerClass = 'alg-size-small';
+					containerClass = 'alg-container-small';
 				} else if( width < 1200 ) {
-					containerClass = 'alg-size-medium';
+					containerClass = 'alg-container-medium';
 				} else {
-					containerClass = 'alg-size-large';
+					containerClass = 'alg-container-large';
 				}
-				container.removeClass('alg-size-xsmall alg-size-small alg-size-medium alg-size-large');
+				container.removeClass('alg-container-xsmall alg-container-small alg-container-medium alg-container-large');
 				container.addClass(containerClass);
 			});
 		});
