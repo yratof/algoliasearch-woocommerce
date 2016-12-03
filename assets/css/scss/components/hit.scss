@@ -1,11 +1,3 @@
-// .ais-hits--item:nth-last-child(2):first-child,
-// .ais-hits--item:nth-last-child(2):first-child ~ .ais-hits--item{
-// 	width:48% !important;
-
-// 	.alg-hit {
-// 		width:100%;
-// 	}
-// }
 @include component('hit') {
 	border:none;
 	border-radius: 3px;
