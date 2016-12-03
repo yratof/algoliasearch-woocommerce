@@ -92,6 +92,8 @@ jQuery(function($) {
       pieces.splice(index, 1);
     }
 
+    $.grep(pieces,function(n){ return n === "" });
+
     if(pieces.length === 0) {
       return '';
     }
