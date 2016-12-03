@@ -49,12 +49,82 @@ function aw_get_user_styles() {
 		return '';
 	}
 
-	$styles  = '.ais-range-slider--connect { background-color : ' .  $primary_color . '}';
-	$styles .= '.alg-primary-color { color : ' .  $primary_color . '}';
+	$background_colors = array(
+		'.ais-hierarchical-menu--item.ais-hierarchical-menu--item__active > div > a .ais-hierarchical-menu--count',
+		'.ais-refinement-list--item.ais-refinement-list--item__active .ais-refinement-list--count',
+		'.ais-range-slider--connect',
+		'.alg-hit .alg-hit__ribbon',
+		'.alg-hit .alg-hit__overlay .alg-cta--blue',
+		'.ais-pagination .ais-pagination--item__active .ais-pagination--link',
+	);
 
-	// Todo: add all the styles here.
+	$styles  = implode( ', ', $background_colors ) . ' { background-color : ' .  $primary_color . '}';
+
+	$color_selectors = array(
+		'.alg-primary-color',
+		'.ais-hierarchical-menu--item.ais-hierarchical-menu--item__active > div > a',
+		'.ais-facets a:hover',
+		'.ais-refinement-list--item__active label',
+		'.ais-refinement-list label:hover',
+		'.alg-hit .alg-hit__details .alg-hit__currentprice',
+		'.ais-pagination .ais-pagination--link:hover',
+		'.alg-hit .alg-hit__details .alg-hit__title a em',
+
+	);
+
+	$styles .= implode( ', ', $color_selectors ) . ' { color : ' .  $primary_color . '}';
+
+	$styles .= '.alg-hit .alg-hit__overlay .alg-cta--blue { border-color: ' . $primary_color . '}';
+
+	$styles .= '.alg-hit .alg-hit__details .alg-hit__description em {
+    box-shadow: inset 0px -1px 0px 0px ' . $primary_color . ';
+    font-style: normal;
+}';
+	$styles .= '.alg-hit .alg-hit__details .alg-hit__title a em { background-color: ' . aw_hexadecimal_to_rgba( $primary_color, 0.1 ) . '}';
+	$styles .= '.alg-hit .alg-hit__overlay .alg-cta--blue:hover { background-color: ' . aw_color_luminance( $primary_color, 0.1 ) . '}';
 
 	return $styles;
+}
+
+function aw_hexadecimal_to_rgba( $color, $opacity = 1 ){
+	$color = trim( $color, "#" );
+
+	if( strlen( $color ) == 6 ){
+		$r = hexdec( substr( $color, 0, 2 ) );
+		$g = hexdec( substr( $color, 2, 2 ) );
+		$b = hexdec( substr( $color, 4, 2 ) );
+	} else {
+		return '';
+	}
+
+	return 'rgba(' . $r . ", " . $g . ", " . $b . ", " . $opacity . ')';
+}
+
+/**
+ * Lightens/darkens a given colour (hex format), returning the altered colour in hex format.7
+ * @param str $hex Colour as hexadecimal (with or without hash);
+ * @percent float $percent Decimal ( 0.2 = lighten by 20%(), -0.4 = darken by 40%() )
+ * @return str Lightened/Darkend colour as hexadecimal (with hash);
+ */
+function aw_color_luminance( $hex, $percent ) {
+
+	// validate hex string
+
+	$hex = preg_replace( '/[^0-9a-f]/i', '', $hex );
+	$new_hex = '#';
+
+	if ( strlen( $hex ) < 6 ) {
+		$hex = $hex[0] + $hex[0] + $hex[1] + $hex[1] + $hex[2] + $hex[2];
+	}
+
+	// convert to decimal and change luminosity
+	for ($i = 0; $i < 3; $i++) {
+		$dec = hexdec( substr( $hex, $i*2, 2 ) );
+		$dec = min( max( 0, $dec + $dec * $percent ), 255 );
+		$new_hex .= str_pad( dechex( $dec ) , 2, 0, STR_PAD_LEFT );
+	}
+
+	return $new_hex;
 }
 
 /**
