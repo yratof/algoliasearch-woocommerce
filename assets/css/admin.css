@@ -370,7 +370,6 @@
       background-color: #FFF; }
       .alg-resultscontainer .alg-resultcolors input[type="text"].wp-color-picker:focus {
         outline: none; }
-    .alg-resultscontainer .alg-resultcolors input[type="text"].wp-color-picker,
     .alg-resultscontainer .alg-resultcolors input[type="button"].wp-picker-default {
       display: none !important; }
     .alg-resultscontainer .alg-resultcolors button {
