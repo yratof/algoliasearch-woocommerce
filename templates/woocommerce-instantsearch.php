@@ -11,6 +11,7 @@
 			<main id="ais-main">
 				<div id="algolia-search-box">
 					<svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"> <style> .st0 {fill:none;stroke:#2C2C38;stroke-width:2;stroke-miterlimit:10;} </style> <ellipse transform="rotate(-45 13.78 13.938)" class="st0" cx="13.8" cy="13.9" rx="10.8" ry="10.8"/> <path class="st0" d="M26.4 26.6l-4.9-4.9"/></svg>
+					<svg class="clear-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"> <style> .st0 { fill:none;stroke:#2C2C38;stroke-width:2;stroke-miterlimit:10;} </style> <path class="st0" d="M25.4 25.6l-20-20M5.4 25.6l20-20"/></svg>
 				</div>
 				
 				<div id="algolia-stats"></div>
@@ -259,6 +260,23 @@
 			);
 
 			search.addWidget({
+				init: function() {
+					$('.clear-search-icon').on('click', function() {
+						search.helper.setQuery('');
+						search.helper.search();
+					});
+				},
+				render: function(results) {
+					var clearIcon = $('.clear-search-icon');
+					if(results.state.query.length === 0) {
+						clearIcon.hide();
+					} else {
+						clearIcon.show();
+					}
+				}
+			});
+
+			search.addWidget({
 				init: function(options) {
 					if(window.location.hash.length > 0) {
 						return;
@@ -280,16 +298,6 @@
 					}
 				}
 			});
-
-			function joinHighlightedArray(items) {
-				var values = [];
-
-				for (var index in items) {
-					values.push(items[index].value);
-				}
-
-				return values.join(', ');
-			}
 
 			/* Start */
 			search.start();
