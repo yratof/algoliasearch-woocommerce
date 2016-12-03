@@ -75,6 +75,23 @@
 			</article>
 	</script>
 
+	<script type="text/html" id="tmpl-stats">
+		<div class="alg-stats">
+			We found {{ data.nbHits }} products
+			<# if(data.query.length > 0) { #>
+			matching "<span class="alg-primary-color">{{ data.query }}</span>"
+			<# } #>
+
+			in <span class="alg-primary-color">{{ data.processingTimeMS }} ms</span>
+
+			<# if(algolia.powered_by_enabled === true) { #>
+			with <span class="alg-powered-by">Algolia</span>
+			<# } #>
+
+		</div>
+
+	</script>
+
 	<script type="text/javascript">
 		jQuery(function($) {
 			var container = $(algolia.woocommerce.selector);
@@ -144,15 +161,18 @@
 				instantsearch.widgets.searchBox({
 					container: '#algolia-search-box',
 					placeholder: 'Search Products, Categories...',
-					wrapInput: false,
-					poweredBy: algolia.powered_by_enabled
+					wrapInput: false
 				})
 			);
+
 
 			/* Stats widget */
 			search.addWidget(
 				instantsearch.widgets.stats({
-					container: '#algolia-stats'
+					container: '#algolia-stats',
+					templates: {
+						body: wp.template('stats')
+					}
 				})
 			);
 
@@ -280,6 +300,15 @@
 					var href = link.attr('href');
 					window.location = href;
 				}
+			});
+
+
+			$('#algolia-stats').on('click', '.alg-powered-by', function() {
+				window.location = 'https://www.algolia.com/?' +
+					'utm_source=instantsearch_woocommerce&' +
+					'utm_medium=website&' +
+					'utm_content=' + location.hostname + '&' +
+					'utm_campaign=poweredby';
 			});
 		});
 	</script>
