@@ -1,12 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:400,500,600");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
-*, *:before, *:after {
-  box-sizing: inherit; }
-
 .alg-main {
   font-family: "Open Sans","Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1em;
   box-sizing: border-box; }
+  .alg-main *, .alg-main *:before, .alg-main *:after {
+    box-sizing: inherit; }
 
 .algolia-search_page_algolia-woocommerce #wpcontent {
   padding-left: 0; }
