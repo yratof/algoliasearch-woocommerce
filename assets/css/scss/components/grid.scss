@@ -1,0 +1,88 @@
+
+$normal : "algolia-hits--n-column";
+$gridColumns: 5;
+
+$smallBreakpoint: (0, 768px, "small");
+$mediumBreakpoint: (768px, 992px, "medium");
+$largeBreakpoint: (992px, 1240, "large");
+$XlargeBreakpoint: (1240px, 0, "xl");
+
+$layoutMap : ($smallBreakpoint, $mediumBreakpoint, $largeBreakpoint, $XlargeBreakpoint);
+
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  @return $string;
+}
+
+@mixin breakpoint($min,$max){
+	@if $min == 0 {
+		@media (max-width: $max) { @content ; }
+	} @else if $max == 0 {
+		@media (min-width: $min) { @content ; }
+	} @else {
+		@media (min-width:$min) and (max-width: $max) { @content ; }
+	}
+}
+
+@function getItemWidth($items, $gutter){
+	@if $items == 1{
+		@return 100;
+	} @else {
+		@return (100 - ($items * $gutter)) / $items;
+	}
+}
+
+@function getPreciseGutter($items,$gutter) {
+	@if($items > 2){
+		@return (100 - (getItemWidth($items, $gutter) * $items)) / ($items - 1);
+	} @else {
+		@return 100 - (getItemWidth($items, $gutter) * $items);
+	}
+}
+
+
+//---------------------------
+// 	Generate normal --n-column clases
+// 	without breakpoints
+//---------------------------
+@for $i from 1 through $gridColumns{
+
+  .#{str-replace($normal, "--n-column", "--#{$i}-column")} {
+		.ais-hits--item {
+			width: getItemWidth($i, 2)#{"%"};
+			margin-right: getPreciseGutter($i, 2)#{"%"};
+			margin-bottom: getPreciseGutter($i, 2)#{"%"};
+
+			&:nth-child(#{$i}n) {
+				margin-right: 0;
+			}
+		}
+	}
+}
+
+//---------------------------
+// 	Generate breakpoint --n-column-<breakpoint> clases
+//---------------------------
+@for $i from 1 through length($layoutMap) {
+  $map: nth($layoutMap, $i);
+
+	@include breakpoint(nth($map,1),nth($map,2)) {
+
+		@for $j from 1 through $gridColumns {  
+			.#{str-replace($normal, "--n-column", "--#{$j}-column-#{nth($map,3)}")} {
+
+				.ais-hits--item {
+					width: getItemWidth($j, 2)#{"%"};
+					margin-right: getPreciseGutter($j, 2)#{"%"};
+					margin-bottom: getPreciseGutter($j, 2)#{"%"};
+				}
+			}
+		}
+	}
+}
+
+
