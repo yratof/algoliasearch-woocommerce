@@ -59,7 +59,7 @@ function aw_is_configured_zoning() {
  * @return array
  */
 function aw_get_primary_color() {
-	return (string) get_option( 'algolia_wc_primary_color', '#46AEDA' );
+	return (string) get_option( 'algolia_wc_primary_color', '#31c0f8' );
 }
 
 /**

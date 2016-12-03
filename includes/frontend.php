@@ -49,7 +49,8 @@ function aw_get_user_styles() {
 		return '';
 	}
 
-	$styles = '.ais-range-slider--connect { background-color : ' .  $primary_color . '}';
+	$styles  = '.ais-range-slider--connect { background-color : ' .  $primary_color . '}';
+	$styles .= '.alg-primary-color { color : ' .  $primary_color . '}';
 
 	// Todo: add all the styles here.
 
