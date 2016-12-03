@@ -316,6 +316,23 @@
 					'utm_content=' + location.hostname + '&' +
 					'utm_campaign=poweredby';
 			});
+
+			/* Handle responsivness. */
+			$(window).resize(function() {
+				var width = container.outerWidth();
+				var containerClass = '';
+				if ( width < 768 ) {
+					containerClass = 'alg-size-xsmall';
+				} else if( width < 992 ) {
+					containerClass = 'alg-size-small';
+				} else if( width < 1200 ) {
+					containerClass = 'alg-size-medium';
+				} else {
+					containerClass = 'alg-size-large';
+				}
+				container.removeClass('alg-size-xsmall alg-size-small alg-size-medium alg-size-large');
+				container.addClass(containerClass);
+			});
 		});
 	</script>
 
