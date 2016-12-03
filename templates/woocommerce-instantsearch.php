@@ -10,12 +10,18 @@
 
 			<main id="ais-main">
 				<div id="algolia-search-box">
-					<div id="algolia-stats"></div>
-
 					<svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"> <style> .st0 {fill:none;stroke:#2C2C38;stroke-width:2;stroke-miterlimit:10;} </style> <ellipse transform="rotate(-45 13.78 13.938)" class="st0" cx="13.8" cy="13.9" rx="10.8" ry="10.8"/> <path class="st0" d="M26.4 26.6l-4.9-4.9"/></svg>
-
 				</div>
-				<div id="algolia-sort-by"></div>
+				
+				<div id="algolia-stats"></div>
+
+				<div id="algolia-selectors">
+					<div id="algolia-sort-by"></div>
+					<div id="algolia-mobile-filters">
+						<button>Filter by</button>
+					</div>
+				</div>
+
 				<div id="algolia-hits"></div>
 				<div id="algolia-pagination"></div>
 			</main>
@@ -309,6 +315,23 @@
 					'utm_medium=website&' +
 					'utm_content=' + location.hostname + '&' +
 					'utm_campaign=poweredby';
+			});
+
+			/* Handle responsivness. */
+			$(window).resize(function() {
+				var width = container.outerWidth();
+				var containerClass = '';
+				if ( width < 768 ) {
+					containerClass = 'alg-container-xsmall';
+				} else if( width < 992 ) {
+					containerClass = 'alg-container-small';
+				} else if( width < 1200 ) {
+					containerClass = 'alg-container-medium';
+				} else {
+					containerClass = 'alg-container-large';
+				}
+				container.removeClass('alg-container-xsmall alg-container-small alg-container-medium alg-container-large');
+				container.addClass(containerClass);
 			});
 		});
 	</script>

@@ -236,7 +236,7 @@
 
 #algolia-search-box {
   position: relative;
-  margin-bottom: 3em; }
+  margin-bottom: .5em; }
   #algolia-search-box input {
     width: 100%;
     line-height: 52px;
@@ -399,7 +399,6 @@
 
 .ais-range-slider--tooltip {
   position: absolute;
-  background: #FFFFFF;
   top: -22px;
   font-size: .8em; }
 
@@ -485,9 +484,23 @@
   cursor: pointer; }
 
 .ais-stats {
-  position: absolute;
-  top: 80px;
-  font-size: 14px; }
+  font-size: 14px;
+  margin-bottom: .5em; }
+
+#algolia-selectors {
+  margin-bottom: .5em; }
+
+.ais-sort-by-selector, #algolia-mobile-filters button {
+  border-width: 0;
+  color: #43454b;
+  background: #F9F9F9;
+  box-shadow: 0px 2px 8px 0px rgba(27, 54, 86, 0.07);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 10px;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased; }
 
 .ais-hits--thumbnail img {
   width: 100%; }
