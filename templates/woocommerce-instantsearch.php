@@ -46,7 +46,9 @@
 						<div class="alg-hit__overlay">
 							<div class="alg-hit__actions">
 								<a href="{{ data.permalink }}" class="alg-cta--transparent alg-button--small">VIEW DETAILS</a>
+								<# if(data.product_type !== 'variable') { #>
 								<a href="?add-to-cart={{ data.post_id }}" class="alg-cta--blue alg-button--small alg-button--themebutton">ADD TO CART</a>
+								<# } #>
 							</div>
 						</div>
 					</figure>
