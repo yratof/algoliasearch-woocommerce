@@ -49,67 +49,67 @@
     margin-right: 0; }
 
 @media (max-width: 768px) {
-  .algolia-hits--1-column-small .ais-hits--item {
+  .algolia-hits--1-column-sm .ais-hits--item {
     width: 100%;
     margin-right: 0%;
     margin-bottom: 0%; }
-  .algolia-hits--2-column-small .ais-hits--item {
+  .algolia-hits--2-column-sm .ais-hits--item {
     width: 48%;
     margin-right: 4%;
     margin-bottom: 4%; }
-  .algolia-hits--3-column-small .ais-hits--item {
+  .algolia-hits--3-column-sm .ais-hits--item {
     width: 31.33333%;
     margin-right: 3%;
     margin-bottom: 3%; }
-  .algolia-hits--4-column-small .ais-hits--item {
+  .algolia-hits--4-column-sm .ais-hits--item {
     width: 23%;
     margin-right: 2.66667%;
     margin-bottom: 2.66667%; }
-  .algolia-hits--5-column-small .ais-hits--item {
+  .algolia-hits--5-column-sm .ais-hits--item {
     width: 18%;
     margin-right: 2.5%;
     margin-bottom: 2.5%; } }
 
 @media (min-width: 768px) and (max-width: 992px) {
-  .algolia-hits--1-column-medium .ais-hits--item {
+  .algolia-hits--1-column-md .ais-hits--item {
     width: 100%;
     margin-right: 0%;
     margin-bottom: 0%; }
-  .algolia-hits--2-column-medium .ais-hits--item {
+  .algolia-hits--2-column-md .ais-hits--item {
     width: 48%;
     margin-right: 4%;
     margin-bottom: 4%; }
-  .algolia-hits--3-column-medium .ais-hits--item {
+  .algolia-hits--3-column-md .ais-hits--item {
     width: 31.33333%;
     margin-right: 3%;
     margin-bottom: 3%; }
-  .algolia-hits--4-column-medium .ais-hits--item {
+  .algolia-hits--4-column-md .ais-hits--item {
     width: 23%;
     margin-right: 2.66667%;
     margin-bottom: 2.66667%; }
-  .algolia-hits--5-column-medium .ais-hits--item {
+  .algolia-hits--5-column-md .ais-hits--item {
     width: 18%;
     margin-right: 2.5%;
     margin-bottom: 2.5%; } }
 
 @media (min-width: 992px) and (max-width: 1240) {
-  .algolia-hits--1-column-large .ais-hits--item {
+  .algolia-hits--1-column-lg .ais-hits--item {
     width: 100%;
     margin-right: 0%;
     margin-bottom: 0%; }
-  .algolia-hits--2-column-large .ais-hits--item {
+  .algolia-hits--2-column-lg .ais-hits--item {
     width: 48%;
     margin-right: 4%;
     margin-bottom: 4%; }
-  .algolia-hits--3-column-large .ais-hits--item {
+  .algolia-hits--3-column-lg .ais-hits--item {
     width: 31.33333%;
     margin-right: 3%;
     margin-bottom: 3%; }
-  .algolia-hits--4-column-large .ais-hits--item {
+  .algolia-hits--4-column-lg .ais-hits--item {
     width: 23%;
     margin-right: 2.66667%;
     margin-bottom: 2.66667%; }
-  .algolia-hits--5-column-large .ais-hits--item {
+  .algolia-hits--5-column-lg .ais-hits--item {
     width: 18%;
     margin-right: 2.5%;
     margin-bottom: 2.5%; } }

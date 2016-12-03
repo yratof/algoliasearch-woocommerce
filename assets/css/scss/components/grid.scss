@@ -2,9 +2,9 @@
 $normal : "algolia-hits--n-column";
 $gridColumns: 5;
 
-$smallBreakpoint: (0, 768px, "small");
-$mediumBreakpoint: (768px, 992px, "medium");
-$largeBreakpoint: (992px, 1240, "large");
+$smallBreakpoint: (0, 768px, "sm");
+$mediumBreakpoint: (768px, 992px, "md");
+$largeBreakpoint: (992px, 1240, "lg");
 $XlargeBreakpoint: (1240px, 0, "xl");
 
 $layoutMap : ($smallBreakpoint, $mediumBreakpoint, $largeBreakpoint, $XlargeBreakpoint);
