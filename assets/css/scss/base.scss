@@ -1,10 +1,9 @@
-
-*, *:before, *:after{
-	box-sizing:inherit;
-}
-
 @include component('main') {
   font-family: "Open Sans","Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1em;
   box-sizing: border-box;
+
+  *, *:before, *:after{
+    box-sizing:inherit;
+  }
 }
