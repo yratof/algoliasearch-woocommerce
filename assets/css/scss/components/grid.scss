@@ -60,8 +60,8 @@ $layoutMap : (
 	// @include breakpoint(nth($map,1),nth($map,2)) {
 	.#{nth($map,4)} {
 		@for $j from 1 through $gridColumns {  
-			
-		&.#{str-replace($normal, "--n-column", "--#{$j}-column-#{nth($map,3)}")} {
+
+		.#{str-replace($normal, "--n-column", "--#{$j}-column-#{nth($map,3)}")} {
 
 				.ais-hits--item {
 					width: getItemWidth($j, 2)#{"%"};

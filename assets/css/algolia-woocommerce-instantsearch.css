@@ -433,179 +433,179 @@
 .algolia-only-mobile {
   display: none !important; }
 
-.algolia-container--mob.algolia-hits--1-column-mob .ais-hits--item {
+.algolia-container--mob .algolia-hits--1-column-mob .ais-hits--item {
   width: 100%;
   margin-right: 0%;
   margin-bottom: 0%; }
-  .algolia-container--mob.algolia-hits--1-column-mob .ais-hits--item:nth-child(1n) {
+  .algolia-container--mob .algolia-hits--1-column-mob .ais-hits--item:nth-child(1n) {
     margin-right: 0; }
 
-.algolia-container--mob.algolia-hits--2-column-mob .ais-hits--item {
+.algolia-container--mob .algolia-hits--2-column-mob .ais-hits--item {
   width: 48%;
   margin-right: 4%;
   margin-bottom: 4%; }
-  .algolia-container--mob.algolia-hits--2-column-mob .ais-hits--item:nth-child(2n) {
+  .algolia-container--mob .algolia-hits--2-column-mob .ais-hits--item:nth-child(2n) {
     margin-right: 0; }
 
-.algolia-container--mob.algolia-hits--3-column-mob .ais-hits--item {
+.algolia-container--mob .algolia-hits--3-column-mob .ais-hits--item {
   width: 31.33333%;
   margin-right: 3%;
   margin-bottom: 3%; }
-  .algolia-container--mob.algolia-hits--3-column-mob .ais-hits--item:nth-child(3n) {
+  .algolia-container--mob .algolia-hits--3-column-mob .ais-hits--item:nth-child(3n) {
     margin-right: 0; }
 
-.algolia-container--mob.algolia-hits--4-column-mob .ais-hits--item {
+.algolia-container--mob .algolia-hits--4-column-mob .ais-hits--item {
   width: 23%;
   margin-right: 2.66667%;
   margin-bottom: 2.66667%; }
-  .algolia-container--mob.algolia-hits--4-column-mob .ais-hits--item:nth-child(4n) {
+  .algolia-container--mob .algolia-hits--4-column-mob .ais-hits--item:nth-child(4n) {
     margin-right: 0; }
 
-.algolia-container--mob.algolia-hits--5-column-mob .ais-hits--item {
+.algolia-container--mob .algolia-hits--5-column-mob .ais-hits--item {
   width: 18%;
   margin-right: 2.5%;
   margin-bottom: 2.5%; }
-  .algolia-container--mob.algolia-hits--5-column-mob .ais-hits--item:nth-child(5n) {
+  .algolia-container--mob .algolia-hits--5-column-mob .ais-hits--item:nth-child(5n) {
     margin-right: 0; }
 
-.algolia-container--sm.algolia-hits--1-column-sm .ais-hits--item {
+.algolia-container--sm .algolia-hits--1-column-sm .ais-hits--item {
   width: 100%;
   margin-right: 0%;
   margin-bottom: 0%; }
-  .algolia-container--sm.algolia-hits--1-column-sm .ais-hits--item:nth-child(1n) {
+  .algolia-container--sm .algolia-hits--1-column-sm .ais-hits--item:nth-child(1n) {
     margin-right: 0; }
 
-.algolia-container--sm.algolia-hits--2-column-sm .ais-hits--item {
+.algolia-container--sm .algolia-hits--2-column-sm .ais-hits--item {
   width: 48%;
   margin-right: 4%;
   margin-bottom: 4%; }
-  .algolia-container--sm.algolia-hits--2-column-sm .ais-hits--item:nth-child(2n) {
+  .algolia-container--sm .algolia-hits--2-column-sm .ais-hits--item:nth-child(2n) {
     margin-right: 0; }
 
-.algolia-container--sm.algolia-hits--3-column-sm .ais-hits--item {
+.algolia-container--sm .algolia-hits--3-column-sm .ais-hits--item {
   width: 31.33333%;
   margin-right: 3%;
   margin-bottom: 3%; }
-  .algolia-container--sm.algolia-hits--3-column-sm .ais-hits--item:nth-child(3n) {
+  .algolia-container--sm .algolia-hits--3-column-sm .ais-hits--item:nth-child(3n) {
     margin-right: 0; }
 
-.algolia-container--sm.algolia-hits--4-column-sm .ais-hits--item {
+.algolia-container--sm .algolia-hits--4-column-sm .ais-hits--item {
   width: 23%;
   margin-right: 2.66667%;
   margin-bottom: 2.66667%; }
-  .algolia-container--sm.algolia-hits--4-column-sm .ais-hits--item:nth-child(4n) {
+  .algolia-container--sm .algolia-hits--4-column-sm .ais-hits--item:nth-child(4n) {
     margin-right: 0; }
 
-.algolia-container--sm.algolia-hits--5-column-sm .ais-hits--item {
+.algolia-container--sm .algolia-hits--5-column-sm .ais-hits--item {
   width: 18%;
   margin-right: 2.5%;
   margin-bottom: 2.5%; }
-  .algolia-container--sm.algolia-hits--5-column-sm .ais-hits--item:nth-child(5n) {
+  .algolia-container--sm .algolia-hits--5-column-sm .ais-hits--item:nth-child(5n) {
     margin-right: 0; }
 
-.algolia-container--md.algolia-hits--1-column-md .ais-hits--item {
+.algolia-container--md .algolia-hits--1-column-md .ais-hits--item {
   width: 100%;
   margin-right: 0%;
   margin-bottom: 0%; }
-  .algolia-container--md.algolia-hits--1-column-md .ais-hits--item:nth-child(1n) {
+  .algolia-container--md .algolia-hits--1-column-md .ais-hits--item:nth-child(1n) {
     margin-right: 0; }
 
-.algolia-container--md.algolia-hits--2-column-md .ais-hits--item {
+.algolia-container--md .algolia-hits--2-column-md .ais-hits--item {
   width: 48%;
   margin-right: 4%;
   margin-bottom: 4%; }
-  .algolia-container--md.algolia-hits--2-column-md .ais-hits--item:nth-child(2n) {
+  .algolia-container--md .algolia-hits--2-column-md .ais-hits--item:nth-child(2n) {
     margin-right: 0; }
 
-.algolia-container--md.algolia-hits--3-column-md .ais-hits--item {
+.algolia-container--md .algolia-hits--3-column-md .ais-hits--item {
   width: 31.33333%;
   margin-right: 3%;
   margin-bottom: 3%; }
-  .algolia-container--md.algolia-hits--3-column-md .ais-hits--item:nth-child(3n) {
+  .algolia-container--md .algolia-hits--3-column-md .ais-hits--item:nth-child(3n) {
     margin-right: 0; }
 
-.algolia-container--md.algolia-hits--4-column-md .ais-hits--item {
+.algolia-container--md .algolia-hits--4-column-md .ais-hits--item {
   width: 23%;
   margin-right: 2.66667%;
   margin-bottom: 2.66667%; }
-  .algolia-container--md.algolia-hits--4-column-md .ais-hits--item:nth-child(4n) {
+  .algolia-container--md .algolia-hits--4-column-md .ais-hits--item:nth-child(4n) {
     margin-right: 0; }
 
-.algolia-container--md.algolia-hits--5-column-md .ais-hits--item {
+.algolia-container--md .algolia-hits--5-column-md .ais-hits--item {
   width: 18%;
   margin-right: 2.5%;
   margin-bottom: 2.5%; }
-  .algolia-container--md.algolia-hits--5-column-md .ais-hits--item:nth-child(5n) {
+  .algolia-container--md .algolia-hits--5-column-md .ais-hits--item:nth-child(5n) {
     margin-right: 0; }
 
-.algolia-container--lg.algolia-hits--1-column-lg .ais-hits--item {
+.algolia-container--lg .algolia-hits--1-column-lg .ais-hits--item {
   width: 100%;
   margin-right: 0%;
   margin-bottom: 0%; }
-  .algolia-container--lg.algolia-hits--1-column-lg .ais-hits--item:nth-child(1n) {
+  .algolia-container--lg .algolia-hits--1-column-lg .ais-hits--item:nth-child(1n) {
     margin-right: 0; }
 
-.algolia-container--lg.algolia-hits--2-column-lg .ais-hits--item {
+.algolia-container--lg .algolia-hits--2-column-lg .ais-hits--item {
   width: 48%;
   margin-right: 4%;
   margin-bottom: 4%; }
-  .algolia-container--lg.algolia-hits--2-column-lg .ais-hits--item:nth-child(2n) {
+  .algolia-container--lg .algolia-hits--2-column-lg .ais-hits--item:nth-child(2n) {
     margin-right: 0; }
 
-.algolia-container--lg.algolia-hits--3-column-lg .ais-hits--item {
+.algolia-container--lg .algolia-hits--3-column-lg .ais-hits--item {
   width: 31.33333%;
   margin-right: 3%;
   margin-bottom: 3%; }
-  .algolia-container--lg.algolia-hits--3-column-lg .ais-hits--item:nth-child(3n) {
+  .algolia-container--lg .algolia-hits--3-column-lg .ais-hits--item:nth-child(3n) {
     margin-right: 0; }
 
-.algolia-container--lg.algolia-hits--4-column-lg .ais-hits--item {
+.algolia-container--lg .algolia-hits--4-column-lg .ais-hits--item {
   width: 23%;
   margin-right: 2.66667%;
   margin-bottom: 2.66667%; }
-  .algolia-container--lg.algolia-hits--4-column-lg .ais-hits--item:nth-child(4n) {
+  .algolia-container--lg .algolia-hits--4-column-lg .ais-hits--item:nth-child(4n) {
     margin-right: 0; }
 
-.algolia-container--lg.algolia-hits--5-column-lg .ais-hits--item {
+.algolia-container--lg .algolia-hits--5-column-lg .ais-hits--item {
   width: 18%;
   margin-right: 2.5%;
   margin-bottom: 2.5%; }
-  .algolia-container--lg.algolia-hits--5-column-lg .ais-hits--item:nth-child(5n) {
+  .algolia-container--lg .algolia-hits--5-column-lg .ais-hits--item:nth-child(5n) {
     margin-right: 0; }
 
-.algolia-container--xl.algolia-hits--1-column-xl .ais-hits--item {
+.algolia-container--xl .algolia-hits--1-column-xl .ais-hits--item {
   width: 100%;
   margin-right: 0%;
   margin-bottom: 0%; }
-  .algolia-container--xl.algolia-hits--1-column-xl .ais-hits--item:nth-child(1n) {
+  .algolia-container--xl .algolia-hits--1-column-xl .ais-hits--item:nth-child(1n) {
     margin-right: 0; }
 
-.algolia-container--xl.algolia-hits--2-column-xl .ais-hits--item {
+.algolia-container--xl .algolia-hits--2-column-xl .ais-hits--item {
   width: 48%;
   margin-right: 4%;
   margin-bottom: 4%; }
-  .algolia-container--xl.algolia-hits--2-column-xl .ais-hits--item:nth-child(2n) {
+  .algolia-container--xl .algolia-hits--2-column-xl .ais-hits--item:nth-child(2n) {
     margin-right: 0; }
 
-.algolia-container--xl.algolia-hits--3-column-xl .ais-hits--item {
+.algolia-container--xl .algolia-hits--3-column-xl .ais-hits--item {
   width: 31.33333%;
   margin-right: 3%;
   margin-bottom: 3%; }
-  .algolia-container--xl.algolia-hits--3-column-xl .ais-hits--item:nth-child(3n) {
+  .algolia-container--xl .algolia-hits--3-column-xl .ais-hits--item:nth-child(3n) {
     margin-right: 0; }
 
-.algolia-container--xl.algolia-hits--4-column-xl .ais-hits--item {
+.algolia-container--xl .algolia-hits--4-column-xl .ais-hits--item {
   width: 23%;
   margin-right: 2.66667%;
   margin-bottom: 2.66667%; }
-  .algolia-container--xl.algolia-hits--4-column-xl .ais-hits--item:nth-child(4n) {
+  .algolia-container--xl .algolia-hits--4-column-xl .ais-hits--item:nth-child(4n) {
     margin-right: 0; }
 
-.algolia-container--xl.algolia-hits--5-column-xl .ais-hits--item {
+.algolia-container--xl .algolia-hits--5-column-xl .ais-hits--item {
   width: 18%;
   margin-right: 2.5%;
   margin-bottom: 2.5%; }
-  .algolia-container--xl.algolia-hits--5-column-xl .ais-hits--item:nth-child(5n) {
+  .algolia-container--xl .algolia-hits--5-column-xl .ais-hits--item:nth-child(5n) {
     margin-right: 0; }
 
 @media (max-width: 550px) {
