@@ -5,7 +5,7 @@
 		 algolia-hits--3-column-lg
 		 algolia-hits--4-column-xl">
 
-			<aside id="ais-facets">
+			<aside id="ais-facets" class="hide-on-sm hide-on-mob">
 				<div class="ais-facets__wrapper">
 					<section class="ais-facets" id="facet-categories"></section>
 					<section class="ais-facets" id="facet-colors"></section>
