@@ -1,11 +1,11 @@
 	<script type="text/html" id="tmpl-instantsearch">
-		<div id="ais-wrapper" class="algolia-hits--2-column-mob
-		 algolia-hits--2-column-sm
-		 algolia-hits--3-column-md
-		 algolia-hits--3-column-lg
-		 algolia-hits--4-column-xl">
+		<div id="ais-wrapper" class="alg-hits--2-col-xs
+		 alg-hits--2-col-sm
+		 alg-hits--3-col-md
+		 alg-hits--3-col-lg
+		 alg-hits--4-col-xl">
 
-			<aside id="ais-facets" class="alg-hide-on-sm alg-hide-on-mob">
+			<aside id="ais-facets" class="alg-hide-on-sm alg-hide-on-xs">
 				<div class="ais-facets__wrapper">
 					<section class="ais-facets" id="facet-categories"></section>
 					<section class="ais-facets" id="facet-colors"></section>
@@ -24,7 +24,7 @@
 				<div id="algolia-stats"></div>
 
 				<div id="algolia-selectors">
-					<div id="algolia-mobile-filters" class="alg-show-on-mob alg-show-on-sm algolia-filters">
+					<div id="algolia-mobile-filters" class="alg-show-on-xs alg-show-on-sm algolia-filters">
 						<button>Filter by</button>
 					</div>
 					<div id="algolia-sort-by" class="algolia-filters"></div>
@@ -357,17 +357,17 @@
 				var width = container.outerWidth();
 				var containerClass = '';
 				if ( width < 550 ) {
-					containerClass = 'algolia-container--mob';
+					containerClass = 'alg-container--xs';
 				} else if( width < 768 ) {
-					containerClass = 'algolia-container--sm';
+					containerClass = 'alg-container--sm';
 				} else if( width < 992 ) {
-					containerClass = 'algolia-container--md';
+					containerClass = 'alg-container--md';
 				} else if( width < 1240 ) {
-					containerClass = "algolia-container--lg";
+					containerClass = "alg-container--lg";
 				}	else {
-					containerClass = 'algolia-container--xl';
+					containerClass = 'alg-container--xl';
 				}
-				container.removeClass('algolia-container--mob algolia-container--sm algolia-container--md algolia-container--lg algolia-container--xl');
+				container.removeClass('alg-container--xs alg-container--sm alg-container--md alg-container--lg alg-container--xl');
 				container.addClass(containerClass);
 			}
 			update_container_class();
