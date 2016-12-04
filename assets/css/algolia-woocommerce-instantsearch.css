@@ -625,10 +625,13 @@
     font-size: 16px;
     line-height: 36px;
     padding: 10px 0 10px 50px; }
-  #algolia-search-box .search-icon {
-    left: 15px;
+  #algolia-search-box .search-icon, #algolia-search-box .clear-search-icon {
     width: 20px;
     height: 20px; }
+  #algolia-search-box .search-icon {
+    left: 15px; }
+  #algolia-search-box .clear-search-icon {
+    right: 15px; }
   #ais-wrapper {
     display: block; }
   .algolia-only-mobile {

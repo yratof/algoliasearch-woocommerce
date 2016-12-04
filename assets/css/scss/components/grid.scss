@@ -114,10 +114,17 @@ $layoutMap : (
 			padding:10px 0 10px 50px
 		}
 
-		.search-icon {
-			left: 15px;
+		.search-icon, .clear-search-icon {
 			width:20px;
 			height: 20px;
+		}
+
+		.search-icon {
+			left: 15px;
+		}
+
+		.clear-search-icon {
+			right: 15px;
 		}
 	}
 
