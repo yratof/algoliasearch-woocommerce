@@ -68,9 +68,18 @@ function aw_get_primary_color() {
  * @return array
  */
 function aw_set_primary_color( $color ) {
-	// Todo: validate hexacode.
-	
+	aw_assert_valid_hexadecimal_color( $color );
 	update_option( 'algolia_wc_primary_color', $color );
+}
+
+/**
+ * @param string $color
+ * @throws InvalidArgumentException
+ */
+function aw_assert_valid_hexadecimal_color ( $color ) {
+	if ( ! preg_match( '/^#[a-f0-9]{6}$/i', $color ) ) {
+		throw new InvalidArgumentException( 'Invalid hexadecimal color.' );
+	}
 }
 
 /**
