@@ -1,8 +1,9 @@
 	<script type="text/html" id="tmpl-instantsearch">
 		<div id="ais-wrapper" class="algolia-hits--2-column-mob
-		algolia-hits--3-column-sm
-		algolia-hits--4-column-md
-		algolia-hits--5-column-lg">
+		 algolia-hits--2-column-sm
+		 algolia-hits--3-column-md
+		 algolia-hits--3-column-lg
+		 algolia-hits--4-column-xl">
 
 			<aside id="ais-facets">
 				<div class="ais-facets__wrapper">
