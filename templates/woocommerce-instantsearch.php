@@ -350,7 +350,9 @@
 			});
 
 			/* Handle responsivness. */
-			$(window).resize(function() {
+			$(window).resize(update_container_class);
+
+			function update_container_class() {
 				var width = container.outerWidth();
 				var containerClass = '';
 				if ( width < 550 ) {
@@ -366,7 +368,8 @@
 				}
 				container.removeClass('algolia-container--mob algolia-container--sm algolia-container--md algolia-container--lg algolia-container--xl');
 				container.addClass(containerClass);
-			});
+			}
+			update_container_class();
 		});
 	</script>
 
