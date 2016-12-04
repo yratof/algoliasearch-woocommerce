@@ -190,7 +190,7 @@ function aw_woocommerce_config( array $config ) {
 	global $wp_query;
 
 	$config['woocommerce']['products_per_page'] = $wp_query->get( 'posts_per_page' );
-	$config['woocommerce']['currency_symbol'] = get_woocommerce_currency_symbol();
+	$config['woocommerce']['currency_symbol'] = html_entity_decode( get_woocommerce_currency_symbol() );
 	$config['woocommerce']['selector'] = aw_get_selector();
 
 	if(is_product_category()) {

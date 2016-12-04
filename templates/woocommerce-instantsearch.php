@@ -2,10 +2,12 @@
 		<div id="ais-wrapper" class="algolia-hits--3-column">
 
 			<aside id="ais-facets">
-				<section class="ais-facets" id="facet-price"></section>
+				<section class="ais-facets" id="facet-active-refinements"></section>
 				<section class="ais-facets" id="facet-categories"></section>
 				<section class="ais-facets" id="facet-colors"></section>
 				<section class="ais-facets" id="facet-tags"></section>
+				<section class="ais-facets" id="facet-price"></section>
+				<section class="ais-facets" id="facet-price-ranges"></section>
 			</aside>
 
 			<main id="ais-main">
@@ -204,21 +206,17 @@
 				})
 			);
 
-			/* Price range slider refinement widget */
+			/* Active refinements widget */
 			search.addWidget(
-				instantsearch.widgets.rangeSlider({
-					container: '#facet-price',
-					attributeName: 'price',
+				instantsearch.widgets.currentRefinedValues({
+					container: '#facet-active-refinements',
+					clearAll: 'after',
 					templates: {
-						header: '<h4>Filter by price</h4>'
-					},
-					tooltips: {
-						format: function (rawValue) {
-							return algolia.woocommerce.currency_symbol + Math.round(rawValue).toLocaleString();
-						}
+						header: '<h4>Current selection</h4>'
 					}
 				})
 			);
+
 
 			/* Categories refinement widget */
 			search.addWidget(
@@ -241,6 +239,7 @@
 					attributeName: 'taxonomies.pa_color',
 					operator: 'and',
 					limit: 10,
+					showMore: true,
 					sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
 					templates: {
 						header: '<h4>Filter by color</h4>'
@@ -255,12 +254,42 @@
 					attributeName: 'taxonomies.product_tag',
 					operator: 'and',
 					limit: 10,
+					showMore: true,
 					sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
 					templates: {
 						header: '<h4>Filter by tag</h4>'
 					}
 				})
 			);
+
+			/* Price range slider refinement widget */
+			search.addWidget(
+				instantsearch.widgets.rangeSlider({
+					container: '#facet-price',
+					attributeName: 'price',
+					templates: {
+						header: '<h4>Filter by price</h4>'
+					},
+					tooltips: {
+						format: function (rawValue) {
+							return algolia.woocommerce.currency_symbol + Math.round(rawValue).toLocaleString();
+						}
+					}
+				})
+			);
+
+			/* Price ranges widget */
+			/*search.addWidget(
+				instantsearch.widgets.priceRanges({
+					container: '#facet-price-ranges',
+					attributeName: 'price',
+					labels: {
+						currency: algolia.woocommerce.currency_symbol,
+						separator: 'to',
+						button: 'Go'
+					}
+				})
+			);*/
 
 			search.addWidget({
 				init: function() {
