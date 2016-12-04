@@ -2,11 +2,11 @@
 $normal : "algolia-hits--n-column";
 $gridColumns: 5;
 
-$mobileBreakpoint: (0, 550px, "mob");
-$smallBreakpoint: (550px, 768px, "sm");
-$mediumBreakpoint: (768px, 992px, "md");
-$largeBreakpoint: (992px, 1240px, "lg");
-$XlargeBreakpoint: (1240px, 0, "xl");
+$mobileBreakpoint: (0, 550px, "mob", "algolia-container--mob");
+$smallBreakpoint: (550px, 768px, "sm", "algolia-container--sm");
+$mediumBreakpoint: (768px, 992px, "md", "algolia-container--md");
+$largeBreakpoint: (992px, 1240px, "lg", "algolia-container--lg");
+$XlargeBreakpoint: (1240px, 0, "xl", "algolia-container--xl");
 
 $layoutMap : (
 	$mobileBreakpoint, 
@@ -57,10 +57,10 @@ $layoutMap : (
 @for $i from 1 through length($layoutMap) {
   $map: nth($layoutMap, $i);
 
-	@include breakpoint(nth($map,1),nth($map,2)) {
-
+	// @include breakpoint(nth($map,1),nth($map,2)) {
+	.#{nth($map,4)} {
 		@for $j from 1 through $gridColumns {  
-			.#{str-replace($normal, "--n-column", "--#{$j}-column-#{nth($map,3)}")} {
+		&.#{str-replace($normal, "--n-column", "--#{$j}-column-#{nth($map,3)}")} {
 
 				.ais-hits--item {
 					width: getItemWidth($j, 2)#{"%"};
@@ -74,6 +74,7 @@ $layoutMap : (
 			}
 		}
 	}
+	// }
 }
 
 @mixin smallHit(){
