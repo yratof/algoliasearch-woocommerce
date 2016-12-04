@@ -2,7 +2,6 @@
 		<div id="ais-wrapper" class="algolia-hits--3-column">
 
 			<aside id="ais-facets">
-				<section class="ais-facets" id="facet-active-refinements"></section>
 				<section class="ais-facets" id="facet-categories"></section>
 				<section class="ais-facets" id="facet-colors"></section>
 				<section class="ais-facets" id="facet-tags"></section>
