@@ -226,6 +226,7 @@
 					container: '#facet-categories',
 					separator: ' > ',
 					sortBy: ['count'],
+					limit: 10,
 					attributes: ['taxonomies_hierarchical.product_cat.lvl0', 'taxonomies_hierarchical.product_cat.lvl1', 'taxonomies_hierarchical.product_cat.lvl2'],
 					templates: {
 						header: '<h4>Product categories</h4>'
@@ -239,7 +240,7 @@
 					container: '#facet-colors',
 					attributeName: 'taxonomies.pa_color',
 					operator: 'and',
-					limit: 15,
+					limit: 10,
 					sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
 					templates: {
 						header: '<h4>Filter by color</h4>'
@@ -253,7 +254,7 @@
 					container: '#facet-tags',
 					attributeName: 'taxonomies.product_tag',
 					operator: 'and',
-					limit: 15,
+					limit: 10,
 					sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
 					templates: {
 						header: '<h4>Filter by tag</h4>'
