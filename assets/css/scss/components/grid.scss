@@ -57,12 +57,20 @@ $layoutMap : (
 @for $i from 1 through length($layoutMap) {
   $map: nth($layoutMap, $i);
 
+	.alg-show-on-#{nth($map,3)} {
+		display: none !important;
+	}
+
 	// @include breakpoint(nth($map,1),nth($map,2)) {
 	.#{nth($map,4)} {
 		@for $j from 1 through $gridColumns {
 
-		.hide-on-#{nth($map,3)} {
+		.alg-hide-on-#{nth($map,3)} {
 			display: none;
+		}
+
+		.alg-show-on-#{nth($map,3)} {
+			display: initial !important;
 		}
 
 		.#{str-replace($normal, "--n-column", "--#{$j}-column-#{nth($map,3)}")} {

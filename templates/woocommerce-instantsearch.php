@@ -5,7 +5,7 @@
 		 algolia-hits--3-column-lg
 		 algolia-hits--4-column-xl">
 
-			<aside id="ais-facets" class="hide-on-sm hide-on-mob">
+			<aside id="ais-facets" class="alg-hide-on-sm alg-hide-on-mob">
 				<div class="ais-facets__wrapper">
 					<section class="ais-facets" id="facet-categories"></section>
 					<section class="ais-facets" id="facet-colors"></section>
@@ -24,7 +24,7 @@
 				<div id="algolia-stats"></div>
 
 				<div id="algolia-selectors">
-					<div id="algolia-mobile-filters" class="algolia-only-mobile algolia-filters">
+					<div id="algolia-mobile-filters" class="alg-show-on-mob alg-show-on-sm algolia-filters">
 						<button>Filter by</button>
 					</div>
 					<div id="algolia-sort-by" class="algolia-filters"></div>

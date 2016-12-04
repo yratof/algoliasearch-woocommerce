@@ -271,8 +271,7 @@
 
 #algolia-sort-by,
 #algolia-mobile-filters {
-  display: inline-block;
-  float: right; }
+  display: inline-block; }
 
 #algolia-selectors {
   overflow: auto; }
@@ -434,8 +433,14 @@
 .algolia-only-mobile {
   display: none !important; }
 
-.algolia-container--mob .hide-on-mob {
+.alg-show-on-mob {
+  display: none !important; }
+
+.algolia-container--mob .alg-hide-on-mob {
   display: none; }
+
+.algolia-container--mob .alg-show-on-mob {
+  display: initial !important; }
 
 .algolia-container--mob .algolia-hits--1-column-mob .ais-hits--item {
   width: 100%;
@@ -444,8 +449,11 @@
   .algolia-container--mob .algolia-hits--1-column-mob .ais-hits--item:nth-child(1n) {
     margin-right: 0; }
 
-.algolia-container--mob .hide-on-mob {
+.algolia-container--mob .alg-hide-on-mob {
   display: none; }
+
+.algolia-container--mob .alg-show-on-mob {
+  display: initial !important; }
 
 .algolia-container--mob .algolia-hits--2-column-mob .ais-hits--item {
   width: 48%;
@@ -454,8 +462,11 @@
   .algolia-container--mob .algolia-hits--2-column-mob .ais-hits--item:nth-child(2n) {
     margin-right: 0; }
 
-.algolia-container--mob .hide-on-mob {
+.algolia-container--mob .alg-hide-on-mob {
   display: none; }
+
+.algolia-container--mob .alg-show-on-mob {
+  display: initial !important; }
 
 .algolia-container--mob .algolia-hits--3-column-mob .ais-hits--item {
   width: 31.33333%;
@@ -464,8 +475,11 @@
   .algolia-container--mob .algolia-hits--3-column-mob .ais-hits--item:nth-child(3n) {
     margin-right: 0; }
 
-.algolia-container--mob .hide-on-mob {
+.algolia-container--mob .alg-hide-on-mob {
   display: none; }
+
+.algolia-container--mob .alg-show-on-mob {
+  display: initial !important; }
 
 .algolia-container--mob .algolia-hits--4-column-mob .ais-hits--item {
   width: 23%;
@@ -474,8 +488,11 @@
   .algolia-container--mob .algolia-hits--4-column-mob .ais-hits--item:nth-child(4n) {
     margin-right: 0; }
 
-.algolia-container--mob .hide-on-mob {
+.algolia-container--mob .alg-hide-on-mob {
   display: none; }
+
+.algolia-container--mob .alg-show-on-mob {
+  display: initial !important; }
 
 .algolia-container--mob .algolia-hits--5-column-mob .ais-hits--item {
   width: 18%;
@@ -484,8 +501,14 @@
   .algolia-container--mob .algolia-hits--5-column-mob .ais-hits--item:nth-child(5n) {
     margin-right: 0; }
 
-.algolia-container--sm .hide-on-sm {
+.alg-show-on-sm {
+  display: none !important; }
+
+.algolia-container--sm .alg-hide-on-sm {
   display: none; }
+
+.algolia-container--sm .alg-show-on-sm {
+  display: initial !important; }
 
 .algolia-container--sm .algolia-hits--1-column-sm .ais-hits--item {
   width: 100%;
@@ -494,8 +517,11 @@
   .algolia-container--sm .algolia-hits--1-column-sm .ais-hits--item:nth-child(1n) {
     margin-right: 0; }
 
-.algolia-container--sm .hide-on-sm {
+.algolia-container--sm .alg-hide-on-sm {
   display: none; }
+
+.algolia-container--sm .alg-show-on-sm {
+  display: initial !important; }
 
 .algolia-container--sm .algolia-hits--2-column-sm .ais-hits--item {
   width: 48%;
@@ -504,8 +530,11 @@
   .algolia-container--sm .algolia-hits--2-column-sm .ais-hits--item:nth-child(2n) {
     margin-right: 0; }
 
-.algolia-container--sm .hide-on-sm {
+.algolia-container--sm .alg-hide-on-sm {
   display: none; }
+
+.algolia-container--sm .alg-show-on-sm {
+  display: initial !important; }
 
 .algolia-container--sm .algolia-hits--3-column-sm .ais-hits--item {
   width: 31.33333%;
@@ -514,8 +543,11 @@
   .algolia-container--sm .algolia-hits--3-column-sm .ais-hits--item:nth-child(3n) {
     margin-right: 0; }
 
-.algolia-container--sm .hide-on-sm {
+.algolia-container--sm .alg-hide-on-sm {
   display: none; }
+
+.algolia-container--sm .alg-show-on-sm {
+  display: initial !important; }
 
 .algolia-container--sm .algolia-hits--4-column-sm .ais-hits--item {
   width: 23%;
@@ -524,8 +556,11 @@
   .algolia-container--sm .algolia-hits--4-column-sm .ais-hits--item:nth-child(4n) {
     margin-right: 0; }
 
-.algolia-container--sm .hide-on-sm {
+.algolia-container--sm .alg-hide-on-sm {
   display: none; }
+
+.algolia-container--sm .alg-show-on-sm {
+  display: initial !important; }
 
 .algolia-container--sm .algolia-hits--5-column-sm .ais-hits--item {
   width: 18%;
@@ -534,8 +569,14 @@
   .algolia-container--sm .algolia-hits--5-column-sm .ais-hits--item:nth-child(5n) {
     margin-right: 0; }
 
-.algolia-container--md .hide-on-md {
+.alg-show-on-md {
+  display: none !important; }
+
+.algolia-container--md .alg-hide-on-md {
   display: none; }
+
+.algolia-container--md .alg-show-on-md {
+  display: initial !important; }
 
 .algolia-container--md .algolia-hits--1-column-md .ais-hits--item {
   width: 100%;
@@ -544,8 +585,11 @@
   .algolia-container--md .algolia-hits--1-column-md .ais-hits--item:nth-child(1n) {
     margin-right: 0; }
 
-.algolia-container--md .hide-on-md {
+.algolia-container--md .alg-hide-on-md {
   display: none; }
+
+.algolia-container--md .alg-show-on-md {
+  display: initial !important; }
 
 .algolia-container--md .algolia-hits--2-column-md .ais-hits--item {
   width: 48%;
@@ -554,8 +598,11 @@
   .algolia-container--md .algolia-hits--2-column-md .ais-hits--item:nth-child(2n) {
     margin-right: 0; }
 
-.algolia-container--md .hide-on-md {
+.algolia-container--md .alg-hide-on-md {
   display: none; }
+
+.algolia-container--md .alg-show-on-md {
+  display: initial !important; }
 
 .algolia-container--md .algolia-hits--3-column-md .ais-hits--item {
   width: 31.33333%;
@@ -564,8 +611,11 @@
   .algolia-container--md .algolia-hits--3-column-md .ais-hits--item:nth-child(3n) {
     margin-right: 0; }
 
-.algolia-container--md .hide-on-md {
+.algolia-container--md .alg-hide-on-md {
   display: none; }
+
+.algolia-container--md .alg-show-on-md {
+  display: initial !important; }
 
 .algolia-container--md .algolia-hits--4-column-md .ais-hits--item {
   width: 23%;
@@ -574,8 +624,11 @@
   .algolia-container--md .algolia-hits--4-column-md .ais-hits--item:nth-child(4n) {
     margin-right: 0; }
 
-.algolia-container--md .hide-on-md {
+.algolia-container--md .alg-hide-on-md {
   display: none; }
+
+.algolia-container--md .alg-show-on-md {
+  display: initial !important; }
 
 .algolia-container--md .algolia-hits--5-column-md .ais-hits--item {
   width: 18%;
@@ -584,8 +637,14 @@
   .algolia-container--md .algolia-hits--5-column-md .ais-hits--item:nth-child(5n) {
     margin-right: 0; }
 
-.algolia-container--lg .hide-on-lg {
+.alg-show-on-lg {
+  display: none !important; }
+
+.algolia-container--lg .alg-hide-on-lg {
   display: none; }
+
+.algolia-container--lg .alg-show-on-lg {
+  display: initial !important; }
 
 .algolia-container--lg .algolia-hits--1-column-lg .ais-hits--item {
   width: 100%;
@@ -594,8 +653,11 @@
   .algolia-container--lg .algolia-hits--1-column-lg .ais-hits--item:nth-child(1n) {
     margin-right: 0; }
 
-.algolia-container--lg .hide-on-lg {
+.algolia-container--lg .alg-hide-on-lg {
   display: none; }
+
+.algolia-container--lg .alg-show-on-lg {
+  display: initial !important; }
 
 .algolia-container--lg .algolia-hits--2-column-lg .ais-hits--item {
   width: 48%;
@@ -604,8 +666,11 @@
   .algolia-container--lg .algolia-hits--2-column-lg .ais-hits--item:nth-child(2n) {
     margin-right: 0; }
 
-.algolia-container--lg .hide-on-lg {
+.algolia-container--lg .alg-hide-on-lg {
   display: none; }
+
+.algolia-container--lg .alg-show-on-lg {
+  display: initial !important; }
 
 .algolia-container--lg .algolia-hits--3-column-lg .ais-hits--item {
   width: 31.33333%;
@@ -614,8 +679,11 @@
   .algolia-container--lg .algolia-hits--3-column-lg .ais-hits--item:nth-child(3n) {
     margin-right: 0; }
 
-.algolia-container--lg .hide-on-lg {
+.algolia-container--lg .alg-hide-on-lg {
   display: none; }
+
+.algolia-container--lg .alg-show-on-lg {
+  display: initial !important; }
 
 .algolia-container--lg .algolia-hits--4-column-lg .ais-hits--item {
   width: 23%;
@@ -624,8 +692,11 @@
   .algolia-container--lg .algolia-hits--4-column-lg .ais-hits--item:nth-child(4n) {
     margin-right: 0; }
 
-.algolia-container--lg .hide-on-lg {
+.algolia-container--lg .alg-hide-on-lg {
   display: none; }
+
+.algolia-container--lg .alg-show-on-lg {
+  display: initial !important; }
 
 .algolia-container--lg .algolia-hits--5-column-lg .ais-hits--item {
   width: 18%;
@@ -634,8 +705,14 @@
   .algolia-container--lg .algolia-hits--5-column-lg .ais-hits--item:nth-child(5n) {
     margin-right: 0; }
 
-.algolia-container--xl .hide-on-xl {
+.alg-show-on-xl {
+  display: none !important; }
+
+.algolia-container--xl .alg-hide-on-xl {
   display: none; }
+
+.algolia-container--xl .alg-show-on-xl {
+  display: initial !important; }
 
 .algolia-container--xl .algolia-hits--1-column-xl .ais-hits--item {
   width: 100%;
@@ -644,8 +721,11 @@
   .algolia-container--xl .algolia-hits--1-column-xl .ais-hits--item:nth-child(1n) {
     margin-right: 0; }
 
-.algolia-container--xl .hide-on-xl {
+.algolia-container--xl .alg-hide-on-xl {
   display: none; }
+
+.algolia-container--xl .alg-show-on-xl {
+  display: initial !important; }
 
 .algolia-container--xl .algolia-hits--2-column-xl .ais-hits--item {
   width: 48%;
@@ -654,8 +734,11 @@
   .algolia-container--xl .algolia-hits--2-column-xl .ais-hits--item:nth-child(2n) {
     margin-right: 0; }
 
-.algolia-container--xl .hide-on-xl {
+.algolia-container--xl .alg-hide-on-xl {
   display: none; }
+
+.algolia-container--xl .alg-show-on-xl {
+  display: initial !important; }
 
 .algolia-container--xl .algolia-hits--3-column-xl .ais-hits--item {
   width: 31.33333%;
@@ -664,8 +747,11 @@
   .algolia-container--xl .algolia-hits--3-column-xl .ais-hits--item:nth-child(3n) {
     margin-right: 0; }
 
-.algolia-container--xl .hide-on-xl {
+.algolia-container--xl .alg-hide-on-xl {
   display: none; }
+
+.algolia-container--xl .alg-show-on-xl {
+  display: initial !important; }
 
 .algolia-container--xl .algolia-hits--4-column-xl .ais-hits--item {
   width: 23%;
@@ -674,8 +760,11 @@
   .algolia-container--xl .algolia-hits--4-column-xl .ais-hits--item:nth-child(4n) {
     margin-right: 0; }
 
-.algolia-container--xl .hide-on-xl {
+.algolia-container--xl .alg-hide-on-xl {
   display: none; }
+
+.algolia-container--xl .alg-show-on-xl {
+  display: initial !important; }
 
 .algolia-container--xl .algolia-hits--5-column-xl .ais-hits--item {
   width: 18%;
