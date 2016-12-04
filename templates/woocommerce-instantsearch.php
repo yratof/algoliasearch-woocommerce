@@ -1,9 +1,8 @@
 	<script type="text/html" id="tmpl-instantsearch">
 		<div id="ais-wrapper" class="algolia-hits--2-column-mob
-		 algolia-hits--2-column-sm
-		 algolia-hits--3-column-md
-		 algolia-hits--4-column-lg
-		 algolia-hits--4-column-xl">
+		algolia-hits--3-column-sm
+		algolia-hits--4-column-md
+		algolia-hits--5-column-lg">
 
 			<aside id="ais-facets">
 				<div class="ais-facets__wrapper">
@@ -351,21 +350,26 @@
 			});
 
 			/* Handle responsivness. */
-			$(window).resize(function() {
+			$(window).resize(update_container_class);
+
+			function update_container_class() {
 				var width = container.outerWidth();
 				var containerClass = '';
-				if ( width < 768 ) {
-					containerClass = 'alg-container-xsmall';
+				if ( width < 550 ) {
+					containerClass = 'algolia-container--mob';
+				} else if( width < 768 ) {
+					containerClass = 'algolia-container--sm';
 				} else if( width < 992 ) {
-					containerClass = 'alg-container-small';
-				} else if( width < 1200 ) {
-					containerClass = 'alg-container-medium';
-				} else {
-					containerClass = 'alg-container-large';
+					containerClass = 'algolia-container--md';
+				} else if( width < 1240 ) {
+					containerClass = "algolia-container--lg";
+				}	else {
+					containerClass = 'algolia-container--xl';
 				}
-				container.removeClass('alg-container-xsmall alg-container-small alg-container-medium alg-container-large');
+				container.removeClass('algolia-container--mob algolia-container--sm algolia-container--md algolia-container--lg algolia-container--xl');
 				container.addClass(containerClass);
-			});
+			}
+			update_container_class();
 		});
 	</script>
 
