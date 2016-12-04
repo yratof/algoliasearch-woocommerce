@@ -1,4 +1,16 @@
+#ais-facets{
+  width:30%;
+}
 
+.algolia-filters {
+
+  &:not(:first-child) {
+    padding-right: 10px;
+  }
+  &:first-child{
+    padding-left: 10px;
+  }
+}
 
 .ais-hierarchical-menu--item {
   line-height: 25px;
@@ -34,4 +46,32 @@
   font-size: 12px;
   line-height: 12px;
   display: inline-block;
+}
+
+#algolia-sort-by,
+#algolia-mobile-filters {
+  display: inline-block;
+  float: right;
+}
+
+#algolia-selectors {
+  overflow:auto;
+}
+
+.ais-sort-by-selector, #algolia-mobile-filters button {
+  display: inline-block;
+  border-width: 0;
+  color: #43454b;
+  background: #F9F9F9;
+  font-size: 1rem;
+  line-height: 1.75;
+  padding: em(10) em(15);
+  box-shadow: 0px 2px 8px 0px rgba(27, 54, 86, 0.07);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-weight: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Open Sans", sans-serif;
 }

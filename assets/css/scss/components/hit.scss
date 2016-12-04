@@ -8,14 +8,14 @@
 	text-align: center;
 	box-shadow: 0 3px 10px rgba(24, 29, 43, 0.2);
 
-	@include component('hit', 'content'){
+	@include component('hit', 'content') {
 		border-radius: 3px;
 		overflow:hidden;
 		position: relative;
 		z-index: 1;
 	}
 
-	&:before{
+	&:before {
 		left: 0;
 		top: 0;
 		position: absolute;
