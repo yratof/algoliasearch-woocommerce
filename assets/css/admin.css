@@ -392,9 +392,15 @@
         opacity: 0;
         transform: translateY(15px);
         transition: .25s; }
+      .alg-resultscontainer .alg-resultcolors .wp-picker-container .wp-picker-input-wrap {
+        right: 0;
+        opacity: 0;
+        transition: .25s; }
       .alg-resultscontainer .alg-resultcolors .wp-picker-container.wp-picker-active .wp-picker-holder {
         opacity: 1;
         transform: translateY(0); }
+      .alg-resultscontainer .alg-resultcolors .wp-picker-container.wp-picker-active .wp-picker-input-wrap {
+        opacity: 1; }
       .alg-resultscontainer .alg-resultcolors .wp-picker-container .wp-color-result {
         padding-left: 40px;
         box-shadow: none;
