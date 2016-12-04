@@ -2,12 +2,19 @@
 $normal : "algolia-hits--n-column";
 $gridColumns: 5;
 
-$smallBreakpoint: (0, 768px, "small");
-$mediumBreakpoint: (768px, 992px, "medium");
-$largeBreakpoint: (992px, 1240, "large");
+$mobileBreakpoint: (0, 550px, "mob");
+$smallBreakpoint: (550px, 768px, "sm");
+$mediumBreakpoint: (768px, 992px, "md");
+$largeBreakpoint: (992px, 1240px, "lg");
 $XlargeBreakpoint: (1240px, 0, "xl");
 
-$layoutMap : ($smallBreakpoint, $mediumBreakpoint, $largeBreakpoint, $XlargeBreakpoint);
+$layoutMap : (
+	$mobileBreakpoint, 
+	$smallBreakpoint, 
+	$mediumBreakpoint, 
+	$largeBreakpoint, 
+	$XlargeBreakpoint
+);
 
 
 @function str-replace($string, $search, $replace: '') {
@@ -44,26 +51,6 @@ $layoutMap : ($smallBreakpoint, $mediumBreakpoint, $largeBreakpoint, $XlargeBrea
 	}
 }
 
-
-//---------------------------
-// 	Generate normal --n-column clases
-// 	without breakpoints
-//---------------------------
-@for $i from 1 through $gridColumns{
-
-  .#{str-replace($normal, "--n-column", "--#{$i}-column")} {
-		.ais-hits--item {
-			width: getItemWidth($i, 2)#{"%"};
-			margin-right: getPreciseGutter($i, 2)#{"%"};
-			margin-bottom: getPreciseGutter($i, 2)#{"%"};
-
-			&:nth-child(#{$i}n) {
-				margin-right: 0;
-			}
-		}
-	}
-}
-
 //---------------------------
 // 	Generate breakpoint --n-column-<breakpoint> clases
 //---------------------------
@@ -79,8 +66,132 @@ $layoutMap : ($smallBreakpoint, $mediumBreakpoint, $largeBreakpoint, $XlargeBrea
 					width: getItemWidth($j, 2)#{"%"};
 					margin-right: getPreciseGutter($j, 2)#{"%"};
 					margin-bottom: getPreciseGutter($j, 2)#{"%"};
+
+					&:nth-child(#{$j}n) {
+						margin-right: 0;
+					}
 				}
 			}
+		}
+	}
+}
+
+@mixin smallHit(){
+	.alg-hit{
+		figure{
+			height:185px;
+		}
+
+		@include component('hit', 'details') {
+			padding: em(10) em(15);
+		}
+
+		@include component('hit', 'title') {
+			font-size: 20px;
+			margin: 0 0 em(5,20) 0;
+		}
+
+		@include component('hit', 'description') {
+			margin: 0;
+		}
+
+		@include component('hit', 'ribbon') {
+			font-size: 12px;
+		}
+	}
+}
+
+@include breakpoint(nth($mobileBreakpoint, 1), nth($mobileBreakpoint, 2)) {
+
+	@include smallHit()
+
+	#algolia-search-box{
+	 	input {
+			font-size:16px;
+			line-height: 36px;
+			padding:10px 0 10px 50px
+		}
+
+		.search-icon {
+			left: 15px;
+			width:20px;
+			height: 20px;
+		}
+	}
+
+	#ais-wrapper {
+		display: block;
+	}
+
+	.algolia-only-mobile {
+		display: initial !important;
+	}
+
+	.algolia-filters {
+		width:50%;
+		float: left;
+
+		button, select {
+			width: 100%;
+		}
+	}
+
+	#ais-facets {
+		position: fixed;
+		width: 100%;
+		height: 50%;
+		left: 0;
+		right: 0;
+		bottom:0;
+		background-color: #FFF;
+		z-index: 10;
+		overflow: auto;
+		transform:translate(0,100%);
+		transition:all 400ms cubic-bezier(.4,0,.2,1);
+
+		&:before {
+				background: -moz-linear-gradient(top,  rgba(255,255,255,1) 30%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+				background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 30%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(to bottom,  rgba(255,255,255,1) 30%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+				content:"";
+				width:100%;
+				height:em(22);
+				position: absolute;
+				left: 0;
+				top:0;
+				z-index: 10;
+		}
+
+		&:after {
+				background: -moz-linear-gradient(top,  rgba(255,255,255,0) 30%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+				background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 30%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(to bottom,  rgba(255,255,255,0) 30%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+				background: linear-gradient(bottom, rgba(255,255,255,1), rgba(255,255,255,1));
+				content:"";
+				width:100%;
+				height:em(22);
+				position: absolute;
+				left: 0;
+				bottom:0;
+				z-index: 10px;
+		}
+
+		.ais-facets {
+			padding-right: 0;
+		}
+
+		.ais-facets__wrapper{
+			max-height: 100%;
+    	overflow: auto;
+			position: relative;
+			padding: em(22);
+		}
+
+		&.ais-facets__visible{
+			box-shadow: 0 -7px 40px rgba(0,0,0,0.25), 0 -10px 26px rgba(0,0,0,0.22);
+			transform:translate(0,0);
 		}
 	}
 }

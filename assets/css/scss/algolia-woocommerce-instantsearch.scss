@@ -20,15 +20,15 @@
 //---------------------------
 @import "fonts";
 
-@import "./components/layout";
-@import "./components/grid";
-
 @import "./components/general";
 @import "./components/hit";
 @import "./components/search_input";
 @import "./components/refinementLists";
 @import "./components/pagination";
 @import "./components/sliders";
+
+@import "./components/layout";
+@import "./components/grid";
 
 .alg-main {
   font-family: "Open Sans", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -38,10 +38,6 @@
 
 #ais-main {
   width: 100%;
-}
-
-#ais-facets {
-  width: 30%;
 }
 
 .ais-facets {
@@ -78,23 +74,11 @@
 .ais-stats {
   font-size: 14px;
   margin-bottom: .5em;
+  text-align: right;
 }
 
 #algolia-selectors {
   margin-bottom: .5em;
-}
-
-.ais-sort-by-selector, #algolia-mobile-filters button {
-  border-width: 0;
-  color: #43454b;
-  background: #F9F9F9;
-  box-shadow: 0px 2px 8px 0px rgba(27, 54, 86, 0.07);
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  padding: 10px;
-  font-weight: normal;
-  -webkit-font-smoothing: antialiased;
 }
 
 .ais-hits--thumbnail img {

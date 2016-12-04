@@ -1,12 +1,18 @@
 	<script type="text/html" id="tmpl-instantsearch">
-		<div id="ais-wrapper" class="algolia-hits--3-column">
+		<div id="ais-wrapper" class="algolia-hits--2-column-mob
+		 algolia-hits--2-column-sm
+		 algolia-hits--3-column-md
+		 algolia-hits--4-column-lg
+		 algolia-hits--4-column-xl">
 
 			<aside id="ais-facets">
-				<section class="ais-facets" id="facet-categories"></section>
-				<section class="ais-facets" id="facet-colors"></section>
-				<section class="ais-facets" id="facet-tags"></section>
-				<section class="ais-facets" id="facet-price"></section>
-				<section class="ais-facets" id="facet-price-ranges"></section>
+				<div class="ais-facets__wrapper">
+					<section class="ais-facets" id="facet-categories"></section>
+					<section class="ais-facets" id="facet-colors"></section>
+					<section class="ais-facets" id="facet-tags"></section>
+					<section class="ais-facets" id="facet-price"></section>
+					<section class="ais-facets" id="facet-price-ranges"></section>
+				</div>
 			</aside>
 
 			<main id="ais-main">
@@ -18,10 +24,10 @@
 				<div id="algolia-stats"></div>
 
 				<div id="algolia-selectors">
-					<div id="algolia-sort-by"></div>
-					<div id="algolia-mobile-filters">
+					<div id="algolia-mobile-filters" class="algolia-only-mobile algolia-filters">
 						<button>Filter by</button>
 					</div>
+					<div id="algolia-sort-by" class="algolia-filters"></div>
 				</div>
 
 				<div id="algolia-hits"></div>
