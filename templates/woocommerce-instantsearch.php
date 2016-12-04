@@ -189,7 +189,7 @@
 			search.addWidget(
 				instantsearch.widgets.hits({
 					container: '#algolia-hits',
-					hitsPerPage: 9,
+					hitsPerPage: algolia.woocommerce.products_per_page,
 					templates: {
 						empty: 'No results were found for "<strong>{{query}}</strong>".',
 						item: wp.template('instantsearch-hit')
