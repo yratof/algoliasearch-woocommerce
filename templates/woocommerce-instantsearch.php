@@ -206,18 +206,6 @@
 				})
 			);
 
-			/* Active refinements widget */
-			search.addWidget(
-				instantsearch.widgets.currentRefinedValues({
-					container: '#facet-active-refinements',
-					clearAll: 'after',
-					templates: {
-						header: '<h4>Current selection</h4>'
-					}
-				})
-			);
-
-
 			/* Categories refinement widget */
 			search.addWidget(
 				instantsearch.widgets.hierarchicalMenu({
