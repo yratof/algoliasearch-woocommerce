@@ -187,6 +187,9 @@ add_filter( 'algolia_default_template', 'aw_default_template', 9, 2 );
  * @return array
  */
 function aw_woocommerce_config( array $config ) {
+	global $wp_query;
+
+	$config['woocommerce']['products_per_page'] = $wp_query->get( 'posts_per_page' );
 	$config['woocommerce']['currency_symbol'] = get_woocommerce_currency_symbol();
 	$config['woocommerce']['selector'] = aw_get_selector();
 
