@@ -14,6 +14,7 @@
 
 .ais-hierarchical-menu--item {
   line-height: 25px;
+  position: relative;
 
   &.ais-hierarchical-menu--item__active{
   	> div > a{
@@ -28,6 +29,8 @@
 }
 
 .ais-refinement-list--item {
+  position: relative;
+  line-height: 25px;
 
 	&.ais-refinement-list--item__active {
 		.ais-refinement-list--count {
@@ -37,9 +40,19 @@
 	}
 }
 
+.ais-hierarchical-menu--link,
+.ais-refinement-list--label{
+  max-width: 80%;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .ais-refinement-list--count,
 .ais-hierarchical-menu--count {
-  float: right;
+  position: absolute;
+  right: 0;
   background-color: #F3F3F3;
   padding: 5px 8px;
   border-radius: 100px;
