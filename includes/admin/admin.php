@@ -68,10 +68,14 @@ function aw_render_zoning_tab() {
 	}
 
 	$selector = aw_get_selector();
+	$iframe_url = aw_get_zoning_test_page_url();
+	require_once dirname( __FILE__ ) . '/views/zoning.php';
+}
 
+function aw_get_zoning_test_page_url() {
 	// Todo: better handle the iframe URL generation.
 	// Todo: Handle no categories edge case.
-	$iframe_url = '';
+	$page_url = '';
 
 	$categories = get_categories( array(
 		'taxonomy'     => 'product_cat',
@@ -80,13 +84,13 @@ function aw_render_zoning_tab() {
 	) );
 
 	foreach ( $categories as $category ) {
-		$iframe_url = get_term_link( (int) $category->term_id, 'product_cat' );
+		$page_url = get_term_link( (int) $category->term_id, 'product_cat' );
 		break;
 	}
 
-	$iframe_url .= '&algolia_selector=true';
+	$page_url .= '&algolia_selector=true';
 
-	require_once dirname( __FILE__ ) . '/views/zoning.php';
+	return $page_url;
 }
 
 add_action( 'admin_menu', function() {
