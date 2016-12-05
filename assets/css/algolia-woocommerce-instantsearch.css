@@ -27,7 +27,8 @@
   font-family: "Open Sans", sans-serif;
   position: relative;
   text-align: center;
-  box-shadow: 0 3px 10px rgba(24, 29, 43, 0.2); }
+  box-shadow: 0 3px 10px rgba(24, 29, 43, 0.2);
+  background: #FFF; }
   .alg-hit .alg-hit__content {
     border-radius: 3px;
     overflow: hidden;
