@@ -78,7 +78,11 @@ $layoutMap : (
 				.ais-hits--item {
 					width: getItemWidth($j, 2)#{"%"};
 					margin-right: getPreciseGutter($j, 2)#{"%"};
-					margin-bottom: getPreciseGutter($j, 2)#{"%"};
+					@if $j > 1 {
+						margin-bottom: getPreciseGutter($j, 2)#{"%"};
+					} @else {
+						margin-bottom: 15px;
+					}
 
 					&:nth-child(#{$j}n) {
 						margin-right: 0;
