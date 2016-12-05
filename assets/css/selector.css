@@ -2,7 +2,6 @@
     -webkit-box-shadow:inset 0px 0px 0px 3px #46AEDA !important;
     -moz-box-shadow:inset 0px 0px 0px 3px #46AEDA !important;
     box-shadow:inset 0px 0px 0px 3px #46AEDA !important;
-
     cursor: pointer !important;
 }
 
@@ -11,4 +10,5 @@
     -moz-box-shadow:inset 0px 0px 0px 3px #46AEDA !important;
     box-shadow:inset 0px 0px 0px 3px #46AEDA !important;
     background-color: rgba(70, 174, 218, 0.3) !important;
+    background-image: none !important;
 }
