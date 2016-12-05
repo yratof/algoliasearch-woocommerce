@@ -457,7 +457,7 @@
 .alg-container--xs .alg-hits--1-col-xs .ais-hits--item {
   width: 100%;
   margin-right: 0%;
-  margin-bottom: 0%; }
+  margin-bottom: 15px; }
   .alg-container--xs .alg-hits--1-col-xs .ais-hits--item:nth-child(1n) {
     margin-right: 0; }
 
@@ -525,7 +525,7 @@
 .alg-container--sm .alg-hits--1-col-sm .ais-hits--item {
   width: 100%;
   margin-right: 0%;
-  margin-bottom: 0%; }
+  margin-bottom: 15px; }
   .alg-container--sm .alg-hits--1-col-sm .ais-hits--item:nth-child(1n) {
     margin-right: 0; }
 
@@ -593,7 +593,7 @@
 .alg-container--md .alg-hits--1-col-md .ais-hits--item {
   width: 100%;
   margin-right: 0%;
-  margin-bottom: 0%; }
+  margin-bottom: 15px; }
   .alg-container--md .alg-hits--1-col-md .ais-hits--item:nth-child(1n) {
     margin-right: 0; }
 
@@ -661,7 +661,7 @@
 .alg-container--lg .alg-hits--1-col-lg .ais-hits--item {
   width: 100%;
   margin-right: 0%;
-  margin-bottom: 0%; }
+  margin-bottom: 15px; }
   .alg-container--lg .alg-hits--1-col-lg .ais-hits--item:nth-child(1n) {
     margin-right: 0; }
 
@@ -729,7 +729,7 @@
 .alg-container--xl .alg-hits--1-col-xl .ais-hits--item {
   width: 100%;
   margin-right: 0%;
-  margin-bottom: 0%; }
+  margin-bottom: 15px; }
   .alg-container--xl .alg-hits--1-col-xl .ais-hits--item:nth-child(1n) {
     margin-right: 0; }
 
