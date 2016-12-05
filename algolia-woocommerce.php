@@ -1,8 +1,15 @@
 <?php
-
 /**
  * @wordpress-plugin
  * Plugin Name: Algolia Search for WooCommerce
+ * Plugin URI: https://community.algolia.com/woocommerce
+ * Description: Todo
+ * Version: 0.0.1
+ * Author: Algolia
+ * Author URI: https://www.algolia.com
+ *
+ * Text Domain: algolia-woocommerce
+ * Domain Path: /languages/
  */
 
 // The Algolia Search FOR WooCommerce plugin version.
@@ -31,6 +38,23 @@ add_filter( 'algolia_ua_integration_name', function() {
 add_filter( 'algolia_ua_integration_version', function() {
 	return ALGOLIA_WOOCOMMERCE_VERSION;
 } );
+
+/**
+ * Load Localisation files.
+ *
+ * Note: the first-loaded translation file overrides any following ones if the same translation is present.
+ *
+ * Locales found in:
+ *      - WP_LANG_DIR/algolia-woocommerce/algolia-woocommerce-LOCALE.mo
+ *      - WP_LANG_DIR/plugins/algolia-woocommerce-LOCALE.mo
+ */
+function aw_load_plugin_textdomain() {
+	$locale = apply_filters( 'plugin_locale', get_locale(), 'algolia-woocommerce' );
+	load_textdomain( 'algolia-woocommerce', WP_LANG_DIR . '/algolia-woocommerce/algolia-woocommerce-' . $locale . '.mo' );
+	load_plugin_textdomain( 'algolia-woocommerce', false, plugin_basename( dirname( __FILE__ ) ) . '/languages' );
+}
+
+add_action( 'init', 'aw_load_plugin_textdomain' );
 
 function aw_is_algolia_plugin_active() {
 	$active_plugins = apply_filters( 'active_plugins', get_option( 'active_plugins' ) );
