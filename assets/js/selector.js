@@ -53,14 +53,15 @@ jQuery(function($) {
 
     var selectorId = target.attr('id');
     if(selectorId) {
-      path += '#' + selectorId;
-    } else {
-      var selectorclass = target.attr('class');
-      if(selectorclass) {
-        path += formatClasses(selectorclass);
-      }
+      // No need to go further if we got an ID.
+      return '#' + selectorId;
     }
 
+    var selectorclass = target.attr('class');
+    path += target.prop("tagName").toLowerCase();
+    if(selectorclass) {
+      path += formatClasses(selectorclass);
+    }
 
     var parent = target.parent();
 
@@ -68,12 +69,12 @@ jQuery(function($) {
       var selectorId = parent.attr('id');
 
       if(selectorId) {
-        path = '#' + selectorId + ' ' + path;
-      } else {
-        var selectorclass = parent.attr('class');
-        if(selectorclass) {
-          path = formatClasses(selectorclass) + ' ' + path;
-        }
+        return '#' + selectorId + ' > ' + path;
+      }
+
+      var selectorclass = parent.attr('class');
+      if(selectorclass) {
+        path = parent.prop("tagName").toLowerCase() + formatClasses(selectorclass) + ' > ' + path;
       }
     }
 
