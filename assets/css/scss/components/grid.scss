@@ -1,12 +1,12 @@
 
-$normal : "algolia-hits--n-column";
+$normal : "alg-hits--n-col";
 $gridColumns: 5;
 
-$mobileBreakpoint: (0, 550px, "mob", "algolia-container--mob");
-$smallBreakpoint: (550px, 768px, "sm", "algolia-container--sm");
-$mediumBreakpoint: (768px, 992px, "md", "algolia-container--md");
-$largeBreakpoint: (992px, 1240px, "lg", "algolia-container--lg");
-$XlargeBreakpoint: (1240px, 0, "xl", "algolia-container--xl");
+$mobileBreakpoint: (0, 550px, "xs", "alg-container--xs");
+$smallBreakpoint: (550px, 768px, "sm", "alg-container--sm");
+$mediumBreakpoint: (768px, 992px, "md", "alg-container--md");
+$largeBreakpoint: (992px, 1240px, "lg", "alg-container--lg");
+$XlargeBreakpoint: (1240px, 0, "xl", "alg-container--xl");
 
 $layoutMap : (
 	$mobileBreakpoint, 
@@ -57,11 +57,23 @@ $layoutMap : (
 @for $i from 1 through length($layoutMap) {
   $map: nth($layoutMap, $i);
 
+	.alg-show-on-#{nth($map,3)} {
+		display: none !important;
+	}
+
 	// @include breakpoint(nth($map,1),nth($map,2)) {
 	.#{nth($map,4)} {
-		@for $j from 1 through $gridColumns {  
+		@for $j from 1 through $gridColumns {
 
-		.#{str-replace($normal, "--n-column", "--#{$j}-column-#{nth($map,3)}")} {
+		.alg-hide-on-#{nth($map,3)} {
+			display: none;
+		}
+
+		.alg-show-on-#{nth($map,3)} {
+			display: initial !important;
+		}
+
+		.#{str-replace($normal, "--n-col", "--#{$j}-col-#{nth($map,3)}")} {
 
 				.ais-hits--item {
 					width: getItemWidth($j, 2)#{"%"};
@@ -109,9 +121,9 @@ $layoutMap : (
 
 	#algolia-search-box{
 	 	input {
-			font-size:16px;
+			font-size: 16px;
 			line-height: 36px;
-			padding:10px 0 10px 50px
+			padding: 10px 0 10px 50px
 		}
 
 		.search-icon, .clear-search-icon {
@@ -128,9 +140,7 @@ $layoutMap : (
 		}
 	}
 
-	#ais-wrapper {
-		display: block;
-	}
+
 
 	.algolia-only-mobile {
 		display: initial !important;
@@ -145,7 +155,11 @@ $layoutMap : (
 		}
 	}
 
-	#ais-facets {
+	/*#ais-wrapper {
+		display: block;
+	}*/
+
+	/*#ais-facets {
 		position: fixed;
 		width: 100%;
 		height: 50%;
@@ -159,10 +173,10 @@ $layoutMap : (
 		transition:all 400ms cubic-bezier(.4,0,.2,1);
 
 		&:before {
-				background: -moz-linear-gradient(top,  rgba(255,255,255,1) 30%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-				background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 30%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-				background: linear-gradient(to bottom,  rgba(255,255,255,1) 30%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+				background: -moz-linear-gradient(top,  rgba(255,255,255,1) 30%, rgba(255,255,255,0) 100%); !* FF3.6-15 *!
+				background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 30%,rgba(255,255,255,0) 100%); !* Chrome10-25,Safari5.1-6 *!
+				background: linear-gradient(to bottom,  rgba(255,255,255,1) 30%,rgba(255,255,255,0) 100%); !* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); !* IE6-9 *!
 				content:"";
 				width:100%;
 				height:em(22);
@@ -173,10 +187,10 @@ $layoutMap : (
 		}
 
 		&:after {
-				background: -moz-linear-gradient(top,  rgba(255,255,255,0) 30%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
-				background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 30%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
-				background: linear-gradient(to bottom,  rgba(255,255,255,0) 30%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+				background: -moz-linear-gradient(top,  rgba(255,255,255,0) 30%, rgba(255,255,255,1) 100%); !* FF3.6-15 *!
+				background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 30%,rgba(255,255,255,1) 100%); !* Chrome10-25,Safari5.1-6 *!
+				background: linear-gradient(to bottom,  rgba(255,255,255,0) 30%,rgba(255,255,255,1) 100%); !* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); !* IE6-9 *!
 				background: linear-gradient(bottom, rgba(255,255,255,1), rgba(255,255,255,1));
 				content:"";
 				width:100%;
@@ -193,7 +207,7 @@ $layoutMap : (
 
 		.ais-facets__wrapper{
 			max-height: 100%;
-    	overflow: auto;
+    		overflow: auto;
 			position: relative;
 			padding: em(22);
 		}
@@ -202,7 +216,7 @@ $layoutMap : (
 			box-shadow: 0 -7px 40px rgba(0,0,0,0.25), 0 -10px 26px rgba(0,0,0,0.22);
 			transform:translate(0,0);
 		}
-	}
+	}*/
 }
 
 
