@@ -11,4 +11,10 @@
     box-shadow:inset 0px 0px 0px 3px #46AEDA !important;
     background-color: rgba(70, 174, 218, 0.3) !important;
     background-image: none !important;
+
+}
+
+
+div, main, section, article, aside, header, nav {
+    margin-top: 30px !important;
 }
