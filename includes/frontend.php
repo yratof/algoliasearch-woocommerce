@@ -199,11 +199,11 @@ function aw_woocommerce_config( array $config ) {
 		$category = get_queried_object();
 		$category_full_path = Algolia_Utils::get_taxonomy_tree( array( $category ), 'product_cat' );
 		$deepest_level = array_pop( $category_full_path );
-		$config['woocommerce']['category'] = $deepest_level[0];
+		$config['woocommerce']['category'] = html_entity_decode( $deepest_level[0] );
 	} elseif(is_product_tag()) {
 		$config['woocommerce']['page'] = 'tag';
 		$tag = get_queried_object();
-		$config['woocommerce']['tag'] = $tag->name;
+		$config['woocommerce']['tag'] = html_entity_decode( $tag->name );
 	} elseif(is_search()) {
 		$config['woocommerce']['page'] = 'search';
 	}

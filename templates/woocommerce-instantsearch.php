@@ -23,7 +23,7 @@
 				
 				<div id="algolia-stats"></div>
 
-				<div id="algolia-selectors">
+				<div id="algolia-selectors" class="alg-show-on-xl">
 					<div id="algolia-mobile-filters" class="alg-show-on-xs alg-show-on-sm algolia-filters">
 						<button>Filter by</button>
 					</div>
@@ -216,7 +216,7 @@
 				instantsearch.widgets.hierarchicalMenu({
 					container: '#facet-categories',
 					separator: ' > ',
-					sortBy: ['count'],
+					sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
 					limit: 10,
 					attributes: ['taxonomies_hierarchical.product_cat.lvl0', 'taxonomies_hierarchical.product_cat.lvl1', 'taxonomies_hierarchical.product_cat.lvl2'],
 					templates: {
