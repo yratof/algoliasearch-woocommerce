@@ -11,7 +11,6 @@
   font-family: "Open Sans", sans-serif;
   max-width: 1440px;
   margin: 0 auto;
-  padding-top: 20px;
   display: flex; }
   #ais-wrapper .ais-hits {
     display: flex;
@@ -438,7 +437,7 @@
   margin-left: 0; }
 
 #ais-wrapper {
-  padding: 0 20px; }
+  padding: 20px 20px 0; }
 
 .site {
   margin: 0 !important; }
