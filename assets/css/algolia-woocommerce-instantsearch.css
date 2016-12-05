@@ -239,7 +239,8 @@
   vertical-align: middle; }
 
 #ais-facets {
-  width: 30%; }
+  width: 30%;
+  text-align: left; }
 
 .algolia-filters:not(:first-child) {
   padding-right: 10px; }
