@@ -1,7 +1,20 @@
 ## Development
 
+**Install dev deps**
+
 ```
 $ npm install
+```
+
+**Compile sass**
+
+```
 $ gulp sass
-$ gulp saas:watch
+$ gulp sass:watch
+```
+
+**Update I18n .pot file**
+
+```
+$ gulp makepot
 ```
