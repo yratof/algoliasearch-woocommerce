@@ -13,7 +13,7 @@ jQuery(function($) {
     }
   }
   
-  $(document).on('mouseover', 'div, main', function(e) {
+  $(document).on('mouseover', 'div, main, section, article, aside, header', function(e) {
     var target = $(e.target);
     clearSelectors();
     clearSelectorPaths();
