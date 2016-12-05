@@ -1,6 +1,6 @@
 jQuery(function ($) {
   var current_selector = algolia.woocommerce.selector;
-  var validat_tag_names = ['div', 'main', 'section', 'article', 'aside', 'header', 'nav'];
+  var valid_tag_names = ['div', 'main', 'section', 'article', 'aside', 'header', 'nav'];
 
   if (current_selector.length > 0) {
     activate($(current_selector));
@@ -14,12 +14,10 @@ jQuery(function ($) {
     }
   }
 
-  $(document).on('mouseover', validat_tag_names.join(', '), function (e) {
-    var target = $(e.target);
-    var tag_name = target.prop("tagName").toLowerCase();
-    if (validat_tag_names.indexOf(tag_name) === -1) {
-      return;
-    }
+  $(document).on('mouseover', valid_tag_names.join(', '), function (e) {
+    e.stopPropagation();
+    var target = $(e.currentTarget);
+
     clearSelectors();
     clearSelectorPaths();
     target.addClass('algolia-selector');
@@ -39,11 +37,8 @@ jQuery(function ($) {
 
   $(document).on('click', '.algolia-selector', function (e) {
     e.preventDefault();
-    var target = $(e.target);
-    var tag_name = target.prop("tagName").toLowerCase();
-    if (validat_tag_names.indexOf(tag_name) === -1) {
-      return;
-    }
+
+    var target = $(e.currentTarget);
 
     activate(target);
     updateInputValue(target);
