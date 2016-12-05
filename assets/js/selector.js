@@ -1,20 +1,25 @@
-jQuery(function($) {
+jQuery(function ($) {
   var current_selector = algolia.woocommerce.selector;
+  var validat_tag_names = ['div', 'main', 'section', 'article', 'aside', 'header', 'nav'];
 
-  if(current_selector.length > 0) {
+  if (current_selector.length > 0) {
     activate($(current_selector));
-  } else if(current_selector.length === 0){
+  } else if (current_selector.length === 0) {
     // Only guess if no selector is set.
     // We can't presume what manual selector the user might enter.
     var guess = $('.woocommerce-breadcrumb').parent();
-    if(guess.length > 0) {
+    if (guess.length > 0) {
       activate(guess);
       updateInputValue(guess);
     }
   }
-  
-  $(document).on('mouseover', 'div, main, section, article, aside, header', function(e) {
+
+  $(document).on('mouseover', validat_tag_names.join(', '), function (e) {
     var target = $(e.target);
+    var tag_name = target.prop("tagName").toLowerCase();
+    if (validat_tag_names.indexOf(tag_name) === -1) {
+      return;
+    }
     clearSelectors();
     clearSelectorPaths();
     target.addClass('algolia-selector');
@@ -31,10 +36,15 @@ jQuery(function($) {
   function clearActiveSelectors() {
     $('.algolia-active-selector').removeClass('algolia-active-selector');
   }
-  
-  $(document).on('click', '.algolia-selector', function(e) {
+
+  $(document).on('click', '.algolia-selector', function (e) {
     e.preventDefault();
     var target = $(e.target);
+    var tag_name = target.prop("tagName").toLowerCase();
+    if (validat_tag_names.indexOf(tag_name) === -1) {
+      return;
+    }
+
     activate(target);
     updateInputValue(target);
   })
@@ -52,29 +62,45 @@ jQuery(function($) {
     var path = '';
 
     var selectorId = target.attr('id');
-    if(selectorId) {
+    if (selectorId) {
       // No need to go further if we got an ID.
       return '#' + selectorId;
     }
 
     var selectorclass = target.attr('class');
     path += target.prop("tagName").toLowerCase();
-    if(selectorclass) {
+    if (selectorclass) {
       path += formatClasses(selectorclass);
     }
 
     var parent = target.parent();
 
-    if(parent) {
+    if (parent) {
       var selectorId = parent.attr('id');
-
-      if(selectorId) {
+      if (selectorId) {
         return '#' + selectorId + ' > ' + path;
       }
 
-      var selectorclass = parent.attr('class');
-      if(selectorclass) {
+      selectorclass = parent.attr('class');
+      if (selectorclass) {
         path = parent.prop("tagName").toLowerCase() + formatClasses(selectorclass) + ' > ' + path;
+      } else {
+        path = parent.prop("tagName").toLowerCase() + ' > ' + path;
+      }
+
+      parent = parent.parent();
+      if (parent) {
+        var selectorId = parent.attr('id');
+        if (selectorId) {
+          return '#' + selectorId + ' > ' + path;
+        }
+
+        selectorclass = parent.attr('class');
+        if (selectorclass) {
+          path = parent.prop("tagName").toLowerCase() + formatClasses(selectorclass) + ' > ' + path;
+        } else {
+          path = parent.prop("tagName").toLowerCase() + ' > ' + path;
+        }
       }
     }
 
@@ -83,19 +109,21 @@ jQuery(function($) {
 
   function formatClasses(classes) {
     var pieces = classes.split(' ');
-    
+
     var index = pieces.indexOf('algolia-selector');
-    if(index !== -1) {
+    if (index !== -1) {
       pieces.splice(index, 1);
     }
     index = pieces.indexOf('algolia-active-selector');
-    if(index !== -1) {
+    if (index !== -1) {
       pieces.splice(index, 1);
     }
 
-    $.grep(pieces,function(n){ return n === "" });
+    $.grep(pieces, function (n) {
+      return n === ""
+    });
 
-    if(pieces.length === 0) {
+    if (pieces.length === 0) {
       return '';
     }
 
