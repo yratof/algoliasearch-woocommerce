@@ -208,6 +208,8 @@ function aw_woocommerce_config( array $config ) {
 		$config['woocommerce']['page'] = 'search';
 	}
 
+	$config['woocommerce']['attributes'] = wc_get_attribute_taxonomies();
+
 	$algolia = Algolia_Plugin::get_instance();
 	$index = $algolia->get_index( 'posts_product' );
 

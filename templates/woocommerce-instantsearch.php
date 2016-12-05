@@ -8,7 +8,7 @@
 			<aside id="ais-facets" class="alg-hide-on-sm alg-hide-on-xs">
 				<div class="ais-facets__wrapper">
 					<section class="ais-facets" id="facet-categories"></section>
-					<section class="ais-facets" id="facet-colors"></section>
+					<div id="ais-wc-attributes"></div>
 					<section class="ais-facets" id="facet-tags"></section>
 					<section class="ais-facets" id="facet-price"></section>
 					<section class="ais-facets" id="facet-price-ranges"></section>
@@ -225,20 +225,32 @@
 				})
 			);
 
-			/* Colors refinement widget */
-			search.addWidget(
-				instantsearch.widgets.refinementList({
-					container: '#facet-colors',
-					attributeName: 'taxonomies.pa_color',
-					operator: 'and',
-					limit: 10,
-					showMore: true,
-					sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
-					templates: {
-						header: '<h4>Filter by color</h4>'
-					}
-				})
-			);
+			var $attributes_container = $('#ais-wc-attributes');
+			for ( var i in algolia.woocommerce.attributes ) {
+				var attribute_name = algolia.woocommerce.attributes[i]['attribute_name'];
+				var attribute_label = algolia.woocommerce.attributes[i]['attribute_label'];
+				var attribute_type = algolia.woocommerce.attributes[i]['attribute_type'];
+
+				if ( attribute_type !== 'select' ) {
+					continue;
+				}
+
+				$attributes_container.append( '<section class="ais-facets" id="facet-attribute-' + attribute_name + '"></section>' );
+
+				search.addWidget(
+					instantsearch.widgets.refinementList({
+						container: '#facet-attribute-' + attribute_name,
+						attributeName: 'taxonomies.pa_' + attribute_name,
+						operator: 'and',
+						limit: 10,
+						showMore: true,
+						sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
+						templates: {
+							header: '<h4>Filter by ' + attribute_label + '</h4>'
+						}
+					})
+				);
+			}
 
 			/* Tags refinement widget */
 			search.addWidget(
