@@ -121,7 +121,7 @@ $layoutMap : (
 
 @include breakpoint(nth($mobileBreakpoint, 1), nth($mobileBreakpoint, 2)) {
 
-	@include smallHit()
+	@include smallHit();
 
 	#algolia-search-box{
 	 	input {
