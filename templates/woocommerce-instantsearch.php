@@ -1,5 +1,5 @@
 	<script type="text/html" id="tmpl-instantsearch">
-		<div id="ais-wrapper" class="float alg-hits--1-col-xs
+		<div id="ais-wrapper" class="alg-hits--1-col-xs
 		 alg-hits--2-col-sm
 		 alg-hits--3-col-md
 		 alg-hits--3-col-lg
