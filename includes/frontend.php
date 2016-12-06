@@ -21,6 +21,8 @@ function aw_template_loader( $template ) {
 
 	// Avoid injecting instantsearch 2 times.
 	add_filter( 'algolia_should_override_search_with_instantsearch', '__return_false' );
+
+	return $template;
 }
 
 // Make sure this is called before the Algolia plugin for WordPress one so that we can disable the template overriding.
