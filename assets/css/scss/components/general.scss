@@ -44,3 +44,10 @@
   color: $blue;
 }
 
+.ais-hits{
+  &__empty{
+    padding: em(150) 0;
+    text-align: center;
+  }
+}
+
