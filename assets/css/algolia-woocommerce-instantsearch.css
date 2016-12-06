@@ -191,7 +191,7 @@
       color: #181d2b;
       font-size: 14px;
       font-weight: 400;
-      line-height: 24px;
+      line-height: 100%;
       margin: 0 8px 0 0;
       padding: 0;
       text-decoration: line-through; }
