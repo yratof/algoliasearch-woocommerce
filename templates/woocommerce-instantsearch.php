@@ -369,8 +369,6 @@
 			var $facets = $('#ais-facets');
 			var $wrapper = $('.ais-facets__wrapper');
 
-			console.log($facets);
-
 			var start = 0;
 			var current = 0;
 			var cardPos = 0;
