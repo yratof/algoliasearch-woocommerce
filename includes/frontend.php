@@ -208,6 +208,8 @@ function aw_woocommerce_config( array $config ) {
 		$config['woocommerce']['tag'] = html_entity_decode( $tag->name );
 	} elseif(is_search()) {
 		$config['woocommerce']['page'] = 'search';
+	} else {
+		$config['woocommerce']['page'] = 'other';
 	}
 
 	$config['woocommerce']['attributes'] = wc_get_attribute_taxonomies();
@@ -259,9 +261,6 @@ function aw_woocommerce_config( array $config ) {
 			}
 		}
 	}
-
-	// Todo: get the default index from the WC config.
-	// loop over all and add 'default' as boolean
 
 	return $config;
 }

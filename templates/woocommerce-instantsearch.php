@@ -116,7 +116,15 @@
 				return;
 			}
 
-			container.html(wp.template('instantsearch'));
+			if (algolia.woocommerce.page === 'other') {
+				/* Search will not be displayed by default so we need to keep a reference to the original content. */
+				var search_container = container.clone().html(wp.template('instantsearch'));
+				search_container.hide();
+				search_container.insertAfter(container);
+			} else {
+				var search_container = container.html(wp.template('instantsearch'));
+			}
+
 
 			if($('#algolia-search-box').length === 0) {
 				alert('Unable to find the node to add instantsearch.');
@@ -202,6 +210,17 @@
 					render: function(results) {
 						/* Synchronize all search inputs. */
 						$theme_search_inputs.val(results.state.query);
+						if(algolia.woocommerce.page === 'other') {
+							if(results.state.query.length > 0) {
+								container.hide();
+								search_container.show();
+								update_container_class();
+							} else {
+								search_container.hide();
+								container.show();
+								update_container_class();
+							}
+						}
 					}
 				});
 			}
@@ -342,17 +361,17 @@
 						return;
 					}
 
-					// Get the initial from the query string "s" parameter if no hash is present.
+					/* Get the initial from the query string "s" parameter if no hash is present. */
 					if (algolia.query.length > 0) {
 						options.helper.setQuery(algolia.query);
 					}
 
-					// Set the current category if no anchor is already present.
+					/* Set the current category if no anchor is already present. */
 					if(algolia.woocommerce.page === 'category') {
 						options.helper.toggleRefine('taxonomies_hierarchical.product_cat.lvl0', algolia.woocommerce.category);
 					}
 
-					// Set the current tag if no anchor is already present.
+					/* Set the current tag if no anchor is already present. */
 					if(algolia.woocommerce.page === 'tag') {
 						options.helper.toggleRefine('taxonomies.product_tag', algolia.woocommerce.tag);
 					}
@@ -453,7 +472,7 @@
 			$(window).resize(update_container_class);
 
 			function update_container_class() {
-				var width = container.outerWidth();
+				var width = search_container.outerWidth();
 				var containerClass = '';
 				if ( width < 550 ) {
 					containerClass = 'alg-container--xs';
@@ -466,8 +485,8 @@
 				}	else {
 					containerClass = 'alg-container--xl';
 				}
-				container.removeClass('alg-container--xs alg-container--sm alg-container--md alg-container--lg alg-container--xl');
-				container.addClass(containerClass);
+				search_container.removeClass('alg-container--xs alg-container--sm alg-container--md alg-container--lg alg-container--xl');
+				search_container.addClass(containerClass);
 			}
 			update_container_class();
 		});
