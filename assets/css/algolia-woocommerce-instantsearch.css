@@ -182,7 +182,8 @@
       overflow: hidden; }
       .alg-hit .alg-hit__details .alg-hit__description em {
         box-shadow: inset 0px -1px 0px 0px #31c0f8;
-        font-style: normal; }
+        font-style: normal;
+        line-height: initial; }
     .alg-hit .alg-hit__details .alg-hit__priceholder {
       margin: 0.875em 0 0 0;
       padding: 0; }
