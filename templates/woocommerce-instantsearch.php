@@ -383,6 +383,21 @@
 				container.addClass(containerClass);
 			}
 			update_container_class();
+
+			/* Bind existing search inputs. */
+			var $theme_search_inputs = $('input[name="s"]');
+			$theme_search_inputs.on('keyup', handleSearchInputKeyUp);
+
+			function handleSearchInputKeyUp(e) {
+				if (e.keyCode === 13) {
+					e.preventDefault();
+					return;
+				}
+
+				var $target = $(e.currentTarget);
+				search.helper.setQuery($target.val());
+				search.helper.search();
+			}
 		});
 	</script>
 
