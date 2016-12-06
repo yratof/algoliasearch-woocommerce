@@ -92,15 +92,15 @@
 
 	<script type="text/html" id="tmpl-stats">
 		<div class="alg-stats">
-			We found {{ data.nbHits }} products
+			<span class="alg-hide-on-xs">We found </span>{{ data.nbHits }} products
 			<# if(data.query.length > 0) { #>
-			matching "<span class="alg-primary-color">{{ data.query }}</span>"
+			<span class="alg-hide-on-xs">matching "<span class="alg-primary-color">{{ data.query }}</span>"</span>
 			<# } #>
 
-			in <span class="alg-primary-color">{{ data.processingTimeMS }} ms</span>
+			<span class="alg-hide-on-xs">in <span class="alg-primary-color">{{ data.processingTimeMS }} ms</span></span>
 
 			<# if(algolia.powered_by_enabled === true) { #>
-			with <span class="alg-powered-by">Algolia</span>
+			<span class="alg-hide-on-xs">with <span class="alg-powered-by">Algolia</span></span>
 			<# } #>
 
 		</div>
