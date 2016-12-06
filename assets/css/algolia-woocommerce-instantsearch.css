@@ -484,7 +484,7 @@
   margin-left: 0; }
 
 #ais-wrapper {
-  padding: 20px 20px 0; }
+  /*padding: 20px 20px 0;*/ }
 
 .site {
   margin: 0 !important; }
@@ -989,7 +989,8 @@
 
 .ais-facets .ais-header h4 {
   font-size: 14px;
-  font-weight: bold; }
+  font-weight: bold;
+  margin-top: 0; }
 
 .ais-facets a {
   color: #43454b;
