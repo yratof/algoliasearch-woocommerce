@@ -10,12 +10,11 @@
 #ais-wrapper {
   font-family: "Open Sans", sans-serif;
   max-width: 1440px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  position: relative; }
   @supports (display: flex) {
     #ais-wrapper {
       display: flex; }
-      #ais-wrapper #ais-facets {
-        width: 30%; }
       #ais-wrapper #ais-main {
         width: 100%; }
       #ais-wrapper .ais-hits:after {
@@ -24,8 +23,7 @@
         clear: both; } }
   @supports not (display: flex) {
     #ais-wrapper #ais-facets {
-      float: left;
-      width: 30%; }
+      float: left; }
     #ais-wrapper #ais-main {
       float: left;
       width: 70%; }
@@ -43,6 +41,90 @@
 .ais-hits__empty {
   padding: 9.375em 0;
   text-align: center; }
+
+#ais-facets {
+  width: 30%; }
+  @media (max-width: 768px) {
+    #ais-facets {
+      right: 0;
+      top: 0;
+      width: 60%;
+      height: 100%;
+      opacity: 0;
+      transform: translate(100%, 0);
+      transition: opacity 220ms 100ms ease, transform 300ms cubic-bezier(0.4, 0, 0, 1), outline 400ms ease;
+      background-color: #FFF;
+      position: fixed;
+      z-index: 100;
+      outline: 9999px solid rgba(0, 0, 0, 0.5); }
+      #ais-facets.ais-facets--visible {
+        transform: translate(0, 0);
+        transition: outline 400ms ease, transform 700ms cubic-bezier(0.4, 0, 0, 1);
+        opacity: 1; }
+      #ais-facets .ais-facets__wrapper {
+        height: 100%;
+        position: relative; }
+        #ais-facets .ais-facets__wrapper .ais-facets {
+          padding-right: 0;
+          margin: 0; }
+        #ais-facets .ais-facets__wrapper .ais-facets__wrapper {
+          background-color: #FFF;
+          position: relative;
+          height: 100%; }
+        #ais-facets .ais-facets__wrapper .ais-hierarchical-menu--header {
+          padding: 0.625em;
+          background-color: #ededed; }
+        #ais-facets .ais-facets__wrapper .ais-hierarchical-menu--item {
+          font-size: 14px;
+          max-height: 42px;
+          transition: 1200ms linear;
+          overflow: hidden; }
+          #ais-facets .ais-facets__wrapper .ais-hierarchical-menu--item > div > a {
+            padding: 8px 10px; }
+          #ais-facets .ais-facets__wrapper .ais-hierarchical-menu--item__active {
+            max-height: 400px; }
+            #ais-facets .ais-facets__wrapper .ais-hierarchical-menu--item__active > div > a {
+              color: black; }
+              #ais-facets .ais-facets__wrapper .ais-hierarchical-menu--item__active > div > a .ais-hierarchical-menu--count {
+                color: #43454b;
+                background-color: whitesmoke; }
+          #ais-facets .ais-facets__wrapper .ais-hierarchical-menu--item .ais-hierarchical-menu--count {
+            line-height: 14px;
+            right: 10px; }
+          #ais-facets .ais-facets__wrapper .ais-hierarchical-menu--item:not(:last-child) {
+            border-bottom: 1px solid #ededed; }
+        #ais-facets .ais-facets__wrapper .ais-hierarchical-menu--list__lvl1 {
+          margin-left: 0; }
+          #ais-facets .ais-facets__wrapper .ais-hierarchical-menu--list__lvl1 .ais-hierarchical-menu--item > div > a {
+            background-color: whitesmoke; }
+            #ais-facets .ais-facets__wrapper .ais-hierarchical-menu--list__lvl1 .ais-hierarchical-menu--item > div > a .ais-hierarchical-menu--count {
+              background-color: #FFF;
+              color: #43454b; }
+          #ais-facets .ais-facets__wrapper .ais-hierarchical-menu--list__lvl1 .ais-hierarchical-menu--item__active > div > a .ais-hierarchical-menu--count {
+            background-color: black;
+            color: white; }
+        #ais-facets .ais-facets__wrapper .ais-hierarchical-menu--link {
+          position: relative;
+          max-width: 100%; }
+        #ais-facets .ais-facets__wrapper .ais-refinement-list .ais-refinement-list--header {
+          padding: 0.625em;
+          background-color: #ededed; }
+        #ais-facets .ais-facets__wrapper .ais-refinement-list .ais-refinement-list--count {
+          right: 10px; }
+        #ais-facets .ais-facets__wrapper .ais-refinement-list .ais-refinement-list--item > div > label {
+          font-size: 14px;
+          padding: 8px 10px; }
+        #ais-facets .ais-facets__wrapper .ais-refinement-list .ais-refinement-list--item__active > div > label {
+          color: #43454b; }
+          #ais-facets .ais-facets__wrapper .ais-refinement-list .ais-refinement-list--item__active > div > label .ais-refinement-list--count {
+            background-color: black;
+            color: white; }
+        #ais-facets .ais-facets__wrapper .ais-range-slider--header {
+          padding: 0.625em;
+          background-color: #ededed; }
+        #ais-facets .ais-facets__wrapper .ais-range-slider--body {
+          margin-top: 4px;
+          padding: 0 40px 1px 40px; } }
 
 .alg-hit {
   border: none;
@@ -223,8 +305,7 @@
       transform: translateY(0); }
 
 #algolia-search-box {
-  position: relative;
-  margin-bottom: .5em; }
+  position: relative; }
   #algolia-search-box input {
     width: 100%;
     line-height: 52px;
@@ -287,11 +368,26 @@
   background-size: contain;
   vertical-align: middle; }
 
-.algolia-filters:not(:first-child) {
-  padding-right: 10px; }
-
-.algolia-filters:first-child {
-  padding-left: 10px; }
+#algolia-selectors {
+  margin: 0.625em 0; }
+  #algolia-selectors .algolia-filters:not(:last-child) {
+    padding-right: 10px; }
+  #algolia-selectors:after {
+    content: "";
+    display: block;
+    clear: both; }
+  @media (max-width: 768px) {
+    #algolia-selectors {
+      text-align: right; } }
+  #algolia-selectors #algolia-stats {
+    line-height: 48px;
+    float: right; }
+    @media (max-width: 768px) {
+      #algolia-selectors #algolia-stats {
+        float: left; } }
+  #algolia-selectors .ais-sort-by-selector {
+    background-color: #FFF;
+    box-shadow: 0px 2px 7px 0px rgba(24, 29, 43, 0.1); }
 
 .ais-hierarchical-menu--item {
   line-height: 25px;
@@ -335,9 +431,6 @@
 #algolia-sort-by,
 #algolia-mobile-filters {
   display: inline-block; }
-
-#algolia-selectors {
-  overflow: auto; }
 
 .ais-sort-by-selector, #algolia-mobile-filters button {
   display: inline-block;
@@ -925,11 +1018,7 @@
   cursor: pointer; }
 
 .ais-stats {
-  font-size: 14px;
-  margin-bottom: .5em; }
-
-#algolia-selectors {
-  margin-bottom: .5em; }
+  font-size: 14px; }
 
 .ais-hits--thumbnail img {
   width: 100%; }

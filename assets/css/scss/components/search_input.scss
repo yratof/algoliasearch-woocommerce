@@ -1,6 +1,5 @@
 #algolia-search-box{ 
   position: relative;
-  margin-bottom: .5em;
 
   input {
     width: 100%;
@@ -65,5 +64,33 @@
   background-repeat: no-repeat;
   background-size: contain;
   vertical-align: middle;
+}
+
+#algolia-selectors {
+  margin: em(10) 0;
+
+  .algolia-filters:not(:last-child){
+    padding-right: 10px;
+  }
+
+  @include clearfix();
+  
+  @media (max-width:768px) {
+    text-align: right;
+  }
+
+  #algolia-stats {
+    line-height: 48px;
+    float: right;
+
+    @media (max-width:768px) {
+      float: left;
+    }
+  }
+
+  .ais-sort-by-selector {
+    background-color: #FFF;
+    box-shadow: 0px 2px 7px 0px rgba(24, 29, 43, 0.1);
+  }
 }
 
