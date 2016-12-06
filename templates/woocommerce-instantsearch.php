@@ -216,8 +216,7 @@
 				instantsearch.widgets.hierarchicalMenu({
 					container: '#facet-categories',
 					separator: ' > ',
-					sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
-					limit: 10,
+					sortBy: ['count:desc', 'name:asc'],
 					attributes: ['taxonomies_hierarchical.product_cat.lvl0', 'taxonomies_hierarchical.product_cat.lvl1', 'taxonomies_hierarchical.product_cat.lvl2'],
 					templates: {
 						header: '<h4>Product categories</h4>'
@@ -242,7 +241,7 @@
 						container: '#facet-attribute-' + attribute_name,
 						attributeName: 'taxonomies.pa_' + attribute_name,
 						operator: 'and',
-						limit: 10,
+						limit: 8,
 						showMore: true,
 						sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
 						templates: {
@@ -258,7 +257,7 @@
 					container: '#facet-tags',
 					attributeName: 'taxonomies.product_tag',
 					operator: 'and',
-					limit: 10,
+					limit: 8,
 					showMore: true,
 					sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
 					templates: {
