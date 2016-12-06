@@ -5,7 +5,7 @@
 		 alg-hits--3-col-lg
 		 alg-hits--4-col-xl">
 
-			<aside id="ais-facets" class="alg-hide-on-sm alg-hide-on-xs">
+			<aside id="ais-facets">
 				<div class="ais-facets__wrapper">
 					<section class="ais-facets" id="facet-categories"></section>
 					<div id="ais-wc-attributes"></div>
@@ -20,14 +20,13 @@
 					<svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"> <style> .st0 {fill:none;stroke:#2C2C38;stroke-width:2;stroke-miterlimit:10;} </style> <ellipse transform="rotate(-45 13.78 13.938)" class="st0" cx="13.8" cy="13.9" rx="10.8" ry="10.8"/> <path class="st0" d="M26.4 26.6l-4.9-4.9"/></svg>
 					<svg class="clear-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"> <style> .st0 { fill:none;stroke:#2C2C38;stroke-width:2;stroke-miterlimit:10;} </style> <path class="st0" d="M25.4 25.6l-20-20M5.4 25.6l20-20"/></svg>
 				</div>
-				
-				<div id="algolia-stats"></div>
 
-				<div id="algolia-selectors" class="alg-show-on-xl">
+				<div id="algolia-selectors">
+					<div id="algolia-stats"></div>
+					<div id="algolia-sort-by" class="algolia-filters"></div>
 					<div id="algolia-mobile-filters" class="alg-show-on-xs alg-show-on-sm algolia-filters">
 						<button>Filter by</button>
 					</div>
-					<div id="algolia-sort-by" class="algolia-filters"></div>
 				</div>
 
 				<div id="algolia-hits"></div>
@@ -362,6 +361,70 @@
 
 			/* Start */
 			search.start();
+
+
+			//-------------------------------
+			// Handle swipe
+			//-------------------------------
+			var $facets = $('#ais-facets');
+			var $wrapper = $('.ais-facets__wrapper');
+
+			var start = 0;
+			var current = 0;
+			var cardPos = 0;
+			var delta;
+			var dragging = true;
+
+			function onTouchStart(event){
+				var event = event.originalEvent;
+				start = event.pageX || event.touches[0].pageX;
+			}
+
+			function onTouchMove(event){
+				var event = event.originalEvent;
+				current = event.pageX || event.touches[0].pageX;
+				cardPos = current - start;
+				if(cardPos >= 0){
+					$facets.css({
+						"will-change": "transform",
+						"transition": "none",
+						"transform": "translate("+cardPos+"px,0)"
+					});
+				}
+			}
+
+			function onTouchEnd(event){
+				if(cardPos >= 90){
+					$facets.removeAttr("style");
+					$facets.removeClass('ais-facets--visible');
+				}
+				$facets.removeAttr("style");
+			}
+
+			$facets.on('touchstart', onTouchStart);
+			$facets.on('touchmove', onTouchMove);
+			$facets.on('touchend', onTouchEnd);
+
+
+			//-------------------------------
+			//  Stop Handle swipe
+			//-------------------------------
+
+
+			
+
+			$('#algolia-mobile-filters button').on('click',function(e) {
+				e.stopPropagation();
+				$facets.addClass('ais-facets--visible')
+			});
+
+			$wrapper.on('click',function(e){
+				e.stopPropagation();
+			});
+
+			$(document).on('click',function(event){
+				$facets.removeClass('ais-facets--visible');
+			});
 
 			$('#algolia-search-box input').select();
 

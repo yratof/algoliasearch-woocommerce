@@ -1,13 +1,3 @@
-.algolia-filters {
-
-  &:not(:first-child) {
-    padding-right: 10px;
-  }
-  &:first-child{
-    padding-left: 10px;
-  }
-}
-
 .ais-hierarchical-menu--item {
   line-height: 25px;
   position: relative;
@@ -65,10 +55,6 @@
 #algolia-sort-by,
 #algolia-mobile-filters {
   display: inline-block;
-}
-
-#algolia-selectors {
-  overflow:auto;
 }
 
 .ais-sort-by-selector, #algolia-mobile-filters button {
