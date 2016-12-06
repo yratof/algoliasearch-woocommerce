@@ -172,15 +172,40 @@
 				})
 			);
 
-			/* Search box widget */
-			search.addWidget(
-				instantsearch.widgets.searchBox({
-					container: '#algolia-search-box',
-					placeholder: 'Search Products, Categories...',
-					wrapInput: false
-				})
-			);
+			/* Bind existing search inputs. */
+			var $theme_search_inputs = $('input[name="s"]');
+			$theme_search_inputs.on('keyup', handleSearchInputKeyUp);
 
+			function handleSearchInputKeyUp(e) {
+				if (e.keyCode === 13) {
+					e.preventDefault();
+					return;
+				}
+
+				var $target = $(e.currentTarget);
+				search.helper.setQuery($target.val());
+				search.helper.search();
+			}
+
+			/* Search box widget */
+			if ( $theme_search_inputs.length === 0 ) {
+				search.addWidget(
+					instantsearch.widgets.searchBox({
+						container: '#algolia-search-box',
+						placeholder: 'Search Products, Categories...',
+						wrapInput: false
+					})
+				);
+			} else {
+				$('#algolia-search-box').hide();
+				search.addWidget({
+					init: function() {},
+					render: function(results) {
+						/* Synchronize all search inputs. */
+						$theme_search_inputs.val(results.state.query);
+					}
+				});
+			}
 
 			/* Stats widget */
 			search.addWidget(
@@ -382,21 +407,6 @@
 				container.addClass(containerClass);
 			}
 			update_container_class();
-
-			/* Bind existing search inputs. */
-			var $theme_search_inputs = $('input[name="s"]');
-			$theme_search_inputs.on('keyup', handleSearchInputKeyUp);
-
-			function handleSearchInputKeyUp(e) {
-				if (e.keyCode === 13) {
-					e.preventDefault();
-					return;
-				}
-
-				var $target = $(e.currentTarget);
-				search.helper.setQuery($target.val());
-				search.helper.search();
-			}
 		});
 	</script>
 
