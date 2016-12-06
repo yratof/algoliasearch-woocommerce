@@ -14,14 +14,11 @@
     }
 
     .ais-hits {
-      overflow: auto;
-      zoom:1;
+      @include clearfix();
     }
   }
 
   @supports not(display:flex) {
-		overflow: auto;
-    zoom: 1;
 
 		#ais-facets {
 			float: left;
@@ -37,8 +34,7 @@
 			}
 
       .ais-hits {
-        overflow: auto;
-        zoom: 1;
+        @include clearfix();
       }
 		}
   }
