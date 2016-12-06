@@ -76,6 +76,7 @@ $layoutMap : (
 		.#{str-replace($normal, "--n-col", "--#{$j}-col-#{nth($map,3)}")} {
 
 				.ais-hits--item {
+					float: left;
 					width: getItemWidth($j, 2)#{"%"};
 					margin-right: getPreciseGutter($j, 2)#{"%"};
 					@if $j > 1 {
@@ -158,69 +159,6 @@ $layoutMap : (
 			width: 100%;
 		}
 	}
-
-	/*#ais-wrapper {
-		display: block;
-	}*/
-
-	/*#ais-facets {
-		position: fixed;
-		width: 100%;
-		height: 50%;
-		left: 0;
-		right: 0;
-		bottom:0;
-		background-color: #FFF;
-		z-index: 10;
-		overflow: auto;
-		transform:translate(0,100%);
-		transition:all 400ms cubic-bezier(.4,0,.2,1);
-
-		&:before {
-				background: -moz-linear-gradient(top,  rgba(255,255,255,1) 30%, rgba(255,255,255,0) 100%); !* FF3.6-15 *!
-				background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 30%,rgba(255,255,255,0) 100%); !* Chrome10-25,Safari5.1-6 *!
-				background: linear-gradient(to bottom,  rgba(255,255,255,1) 30%,rgba(255,255,255,0) 100%); !* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!
-				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); !* IE6-9 *!
-				content:"";
-				width:100%;
-				height:em(22);
-				position: absolute;
-				left: 0;
-				top:0;
-				z-index: 10;
-		}
-
-		&:after {
-				background: -moz-linear-gradient(top,  rgba(255,255,255,0) 30%, rgba(255,255,255,1) 100%); !* FF3.6-15 *!
-				background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 30%,rgba(255,255,255,1) 100%); !* Chrome10-25,Safari5.1-6 *!
-				background: linear-gradient(to bottom,  rgba(255,255,255,0) 30%,rgba(255,255,255,1) 100%); !* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!
-				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); !* IE6-9 *!
-				background: linear-gradient(bottom, rgba(255,255,255,1), rgba(255,255,255,1));
-				content:"";
-				width:100%;
-				height:em(22);
-				position: absolute;
-				left: 0;
-				bottom:0;
-				z-index: 10px;
-		}
-
-		.ais-facets {
-			padding-right: 0;
-		}
-
-		.ais-facets__wrapper{
-			max-height: 100%;
-    		overflow: auto;
-			position: relative;
-			padding: em(22);
-		}
-
-		&.ais-facets__visible{
-			box-shadow: 0 -7px 40px rgba(0,0,0,0.25), 0 -10px 26px rgba(0,0,0,0.22);
-			transform:translate(0,0);
-		}
-	}*/
 }
 
 

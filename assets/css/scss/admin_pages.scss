@@ -24,6 +24,10 @@
 	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
 	z-index: 10;
 
+	@media (max-width:1240px){
+		width:170px;
+	}
+
 	@include component('sidebar', 'brand') {			
 		padding:	em(20) em(15) em(15) em(15);
 		text-align: center;
@@ -37,6 +41,10 @@
 	    text-align: left;
 	    left: 49%;
 	    top: 72%;
+	    @media (max-width:1240px){
+	    	font-size: 7px;
+	    	top: 60%;
+	    }
 		}
 
 		@include component('sidebar','brandwrapper'){
@@ -146,6 +154,10 @@
 	@include component('main', 'wrap') {
 		background-color: #FFF;
 		padding: em(60) em(25) em(335) em(335);
+
+		@media (max-width:1240px){
+			padding: em(60) em(25) em(335) em(235);
+		}
 	}
 
 	@include component('main', 'section') {

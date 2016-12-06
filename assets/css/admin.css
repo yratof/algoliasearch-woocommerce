@@ -25,6 +25,9 @@
   background-color: #181d2b;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
   z-index: 10; }
+  @media (max-width: 1240px) {
+    .alg-sidebar {
+      width: 170px; } }
   .alg-sidebar .alg-sidebar__brand {
     padding: 1.25em 0.9375em 0.9375em 0.9375em;
     text-align: center; }
@@ -37,6 +40,10 @@
       text-align: left;
       left: 49%;
       top: 72%; }
+      @media (max-width: 1240px) {
+        .alg-sidebar .alg-sidebar__brand span {
+          font-size: 7px;
+          top: 60%; } }
     .alg-sidebar .alg-sidebar__brand .alg-sidebar__brandwrapper {
       position: relative; }
     .alg-sidebar .alg-sidebar__brand img {
@@ -109,6 +116,9 @@
   .alg-main .alg-main__wrap {
     background-color: #FFF;
     padding: 3.75em 1.5625em 20.9375em 20.9375em; }
+    @media (max-width: 1240px) {
+      .alg-main .alg-main__wrap {
+        padding: 3.75em 1.5625em 20.9375em 14.6875em; } }
   .alg-main .alg-main__section--pages {
     text-align: center; }
     .alg-main .alg-main__section--pages .alg-main__header p {
@@ -477,17 +487,20 @@
     opacity: 0;
     background-color: rgba(0, 0, 0, 0.4);
     pointer-events: none;
-    transition: .3s ease;
-    /**
-		 * @TODO -> Implement fallback to display table?
-		 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column; }
-    .alg-hit .alg-hit__overlay .alg-hit__actions {
-      display: table-cell;
-      vertical-align: middle; }
+    transition: .3s ease; }
+    @supports (display: flex) {
+      .alg-hit .alg-hit__overlay {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column; } }
+    @supports not (display: flex) {
+      .alg-hit .alg-hit__overlay {
+        display: table; } }
+    @supports not (display: flex) {
+      .alg-hit .alg-hit__overlay .alg-hit__actions {
+        display: table-cell;
+        vertical-align: middle; } }
     .alg-hit .alg-hit__overlay a {
       display: inline-block;
       text-decoration: none;
