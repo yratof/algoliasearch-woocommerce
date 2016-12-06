@@ -117,3 +117,11 @@
     @content;
   }
 }
+
+@mixin clearfix() {
+  &:after{
+    content:"";
+    display:block;
+    clear:both;
+  }
+}

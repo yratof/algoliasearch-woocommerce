@@ -1,16 +1,46 @@
 #ais-wrapper {
-	font-family: "Open Sans", sans-serif;
-	max-width:1440px;
-	margin:0 auto;
+  font-family: "Open Sans", sans-serif;
+  max-width: 1440px;
+  margin: 0 auto;
 
-	display: flex;
+  @supports (display: flex) {
+    display: flex;
 
-	.ais-hits {
-		display: flex;
-		flex-wrap: wrap;
-	}
+    #ais-facets {
+    	width:30%;
+    }
+    #ais-main {
+    	width:100%;
+    }
+
+    .ais-hits {
+      @include clearfix();
+    }
+  }
+
+  @supports not(display:flex) {
+
+		#ais-facets {
+			float: left;
+			width: 30%;
+
+		}
+		#ais-main {
+			float: left;
+			width: 70%;
+
+			@media (max-width:768px) {
+				width: 100%;
+			}
+
+      .ais-hits {
+        @include clearfix();
+      }
+		}
+  }
 }
 
-.alg-primary-color{
-	color: $blue;
+.alg-primary-color {
+  color: $blue;
 }
+
