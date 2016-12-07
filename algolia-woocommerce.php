@@ -78,11 +78,11 @@ if ( ! aw_is_algolia_plugin_active() ) {
  * If Algolia version is lower than what is expected invite users to update.
  **/
 add_action( 'plugins_loaded', function() {
-	if ( defined( 'ALGOLIA_VERSION' ) && version_compare( ALGOLIA_VERSION, '1.5.0', '<' ) ) {
+	if ( defined( 'ALGOLIA_VERSION' ) && version_compare( ALGOLIA_VERSION, '1.6.0', '<' ) ) {
 		add_action( 'admin_notices', function () {
 				echo '<div class="error notice">
 					<p>' . __(
-						'Algolia Search for WooCommerce: Search by Algolia – Instant & Relevant should be updated to at least version 1.5.0.',
+						'Algolia Search for WooCommerce: Search by Algolia – Instant & Relevant should be updated to at least version 1.6.0.',
 						'algolia-woocommerce'
 					) . '</p>
 				</div>';
