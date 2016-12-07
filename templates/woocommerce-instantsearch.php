@@ -393,6 +393,7 @@
 			var cardPos = 0;
 			var delta;
 			var dragging = true;
+ 			var BCR = $facets[0].getBoundingClientRect();
 
 			function onTouchStart(event){
 				var event = event.originalEvent;
@@ -403,11 +404,14 @@
 				var event = event.originalEvent;
 				current = event.pageX || event.touches[0].pageX;
 				cardPos = current - start;
+				var opacity = 1 - (cardPos / BCR.width);
+
 				if(cardPos >= 0){
 					$facets.css({
 						"will-change": "transform",
 						"transition": "none",
-						"transform": "translate("+cardPos+"px,0)"
+						"transform": "translate("+cardPos+"px,0)",
+						"opacity": opacity
 					});
 				}
 			}
@@ -430,7 +434,9 @@
 			//-------------------------------
 
 
-			
+			$('.ais-facets__wrapper').on('click',function(e){
+				e.stopPropagation();
+			})
 
 			$('#algolia-mobile-filters button').on('click',function(e) {
 				e.stopPropagation();
