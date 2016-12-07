@@ -154,23 +154,6 @@ $layoutMap : (
 	.algolia-stats {
 		text-align: right;
 	}
-
-	.algolia-filters {
-		width:50%;
-		float: left;
-		
-		&:not(:last-child){
-			padding-right: 10px;
-		}
-
-		&:last-child {
-			padding-left: 10px;
-		}
-
-		button, select {
-			width: 100%;
-		}
-	}
 }
 
 
