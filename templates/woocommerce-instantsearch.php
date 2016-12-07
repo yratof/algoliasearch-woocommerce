@@ -182,6 +182,7 @@
 			/* Bind existing search inputs. */
 			var $theme_search_inputs = $('input[name="s"]');
 			$theme_search_inputs.on('keyup', handleSearchInputKeyUp);
+			$theme_search_inputs.attr('autocomplete', 'off');
 
 			function handleSearchInputKeyUp(e) {
 				if (e.keyCode === 13) {
