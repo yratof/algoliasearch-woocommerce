@@ -69,23 +69,36 @@
 #algolia-selectors {
   margin: em(10) 0;
 
-  .algolia-filters:not(:last-child){
-    padding-right: 10px;
-  }
-
   @include clearfix();
   
   @media (max-width:768px) {
     text-align: right;
+
+    #algolia-stats {
+      line-height: 26px;
+    }
+
+    .algolia-sort-by {
+      width: 50%;
+    }
+
+    .algolia-mobile-filter {
+      width:50%;
+    }
+  }
+
+  @media (max-width:420px) {
+
+    button,select {
+      font-size: 14px;
+    }
   }
 
   #algolia-stats {
     line-height: 48px;
     float: right;
-
-    @media (max-width:768px) {
-      float: left;
-    }
+    width: 100%;
+    font-size: 10px;
   }
 
   .ais-sort-by-selector {
