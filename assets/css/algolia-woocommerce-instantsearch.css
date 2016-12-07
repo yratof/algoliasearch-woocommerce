@@ -290,23 +290,30 @@
     content: "";
     display: block;
     clear: both; }
+  #algolia-selectors #algolia-stats {
+    line-height: 48px;
+    float: left;
+    font-size: 10px; }
+  #algolia-selectors #algolia-sort-by {
+    float: right; }
   @media (max-width: 768px) {
     #algolia-selectors {
       text-align: right; }
       #algolia-selectors #algolia-stats {
-        line-height: 26px; }
-      #algolia-selectors .algolia-sort-by {
-        width: 50%; }
-      #algolia-selectors .algolia-mobile-filter {
-        width: 50%; } }
+        line-height: 26px;
+        width: 100%; }
+      #algolia-selectors .algolia-filters {
+        width: 50%;
+        float: right; }
+        #algolia-selectors .algolia-filters:last-child {
+          padding-right: 10px; }
+        #algolia-selectors .algolia-filters:not(:last-child) {
+          padding-left: 10px; }
+        #algolia-selectors .algolia-filters button, #algolia-selectors .algolia-filters select {
+          width: 100%; } }
   @media (max-width: 420px) {
     #algolia-selectors button, #algolia-selectors select {
       font-size: 14px; } }
-  #algolia-selectors #algolia-stats {
-    line-height: 48px;
-    float: right;
-    width: 100%;
-    font-size: 10px; }
   #algolia-selectors .ais-sort-by-selector {
     background-color: #FFF;
     box-shadow: 0px 2px 7px 0px rgba(24, 29, 43, 0.1); }
@@ -1022,16 +1029,7 @@
   .algolia-only-mobile {
     display: initial !important; }
   .algolia-stats {
-    text-align: right; }
-  .algolia-filters {
-    width: 50%;
-    float: left; }
-    .algolia-filters:not(:last-child) {
-      padding-right: 10px; }
-    .algolia-filters:last-child {
-      padding-left: 10px; }
-    .algolia-filters button, .algolia-filters select {
-      width: 100%; } }
+    text-align: right; } }
 
 .alg-main {
   font-family: "Open Sans", "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
