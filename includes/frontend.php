@@ -52,12 +52,14 @@ function aw_get_user_styles() {
 	}
 
 	$background_colors = array(
-		'.ais-hierarchical-menu--item.ais-hierarchical-menu--item__active > div > a .ais-hierarchical-menu--count',
 		'.ais-refinement-list--item.ais-refinement-list--item__active .ais-refinement-list--count',
 		'.ais-range-slider--connect',
 		'.alg-hit .alg-hit__ribbon',
 		'.alg-hit .alg-hit__overlay .alg-cta--blue',
 		'.ais-pagination .ais-pagination--item__active .ais-pagination--link',
+		'.ais-hierarchical-menu--item.ais-hierarchical-menu--item__active > div > a .ais-hierarchical-menu--count',
+		'#ais-facets .ais-facets__wrapper .ais-hierarchical-menu--item__active > div > a .ais-hierarchical-menu--count',
+		'#ais-facets .ais-facets__wrapper .ais-hierarchical-menu--list__lvl1 .ais-hierarchical-menu--item__active > div > a .ais-hierarchical-menu--count',
 	);
 
 	$styles  = implode( ', ', $background_colors ) . ' { background-color : ' .  $primary_color . '}';

@@ -430,7 +430,9 @@
 			//-------------------------------
 
 
-			
+			$('.ais-facets__wrapper').on('click',function(e){
+				e.stopPropagation();
+			})
 
 			$('#algolia-mobile-filters button').on('click',function(e) {
 				e.stopPropagation();
