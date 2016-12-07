@@ -105,6 +105,9 @@ add_action( 'admin_menu', function() {
 }, 11 );
 
 function aw_admin_notices() {
+	if ( ! class_exists('Algolia_Plugin') ) {
+		return;
+	}
 	$products_index = Algolia_Plugin::get_instance()->get_index( 'posts_product' );
 
 	if ( ! $products_index->is_enabled() ) {
