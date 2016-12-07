@@ -3,6 +3,7 @@
   position: relative;
 
   &.ais-hierarchical-menu--item__active{
+    
   	> div > a{
   		color:$blue;
 
@@ -18,7 +19,12 @@
   position: relative;
   line-height: 25px;
 
+  input[type="checkbox"]{
+    cursor: pointer;
+  }
+
 	&.ais-refinement-list--item__active {
+
 		.ais-refinement-list--count {
 			background-color: $blue;
 			color:white;
@@ -74,3 +80,160 @@
   -webkit-font-smoothing: antialiased;
   font-family: "Open Sans", sans-serif;
 }
+
+
+$facetMenuColor: #ededed;
+$listPadding: 8px 10px;
+$caretPosition: 10px;
+$listFontSize: 14px;
+
+@mixin facetHeader(){
+  padding: em(10);
+  background-color: $facetMenuColor;
+}
+
+#ais-facets {
+  width:30%;
+  
+  @media (max-width:768px) {
+    right:0;
+    top:0;
+    width:60%;
+    height:100%;
+    opacity: 0;
+    transform:translate(100%,0);
+    transition: opacity 220ms 100ms ease, transform 300ms cubic-bezier(.4,0,0,1), outline 400ms ease;
+    background-color: #FFF;
+    position: fixed;
+    z-index: 100;
+    outline: 9999px solid rgba(0,0,0,0.5);
+
+    &.ais-facets--visible {
+      transform:translate(0,0);
+      transition: outline 400ms ease, transform 700ms cubic-bezier(.4,0,0,1);
+      opacity: 1;
+    }
+
+    .ais-facets__wrapper {
+      height: 100%;
+      position: relative;
+      
+      .ais-facets {
+        padding-right: 0;
+        margin: 0;
+      }
+
+      .ais-facets__wrapper {
+        background-color: #FFF;
+        position: relative;
+        height: 100%;
+      }
+
+      .ais-hierarchical-menu--header{
+        @include facetHeader();
+      }
+
+      .ais-hierarchical-menu--item {
+        font-size: $listFontSize;
+        max-height:42px;
+        transition:1200ms linear;
+        overflow:hidden; 
+
+        > div > a {
+          padding: $listPadding;
+        }
+
+        &__active {
+          max-height: 400px;
+
+          > div > a {
+            color:black;
+
+            .ais-hierarchical-menu--count {
+              color: #43454b;
+              background-color: lighten(black,96%);
+            }
+          }
+        }
+
+        .ais-hierarchical-menu--count {
+          line-height: 14px;
+          right: $caretPosition;
+        }
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $facetMenuColor;
+        }
+      }
+
+      .ais-hierarchical-menu--list__lvl1 {
+        margin-left: 0;
+
+        .ais-hierarchical-menu--item > div > a {
+          background-color: lighten(black, 96%);
+          
+          .ais-hierarchical-menu--count {
+            background-color: #FFF;
+            color:#43454b;
+          }
+        }
+        .ais-hierarchical-menu--item__active > div > a {
+
+          .ais-hierarchical-menu--count {
+            background-color: black;
+            color:white;
+          }
+        }
+      }
+
+      .ais-hierarchical-menu--link {
+        position: relative;
+        max-width: 100%;
+      }
+
+      .ais-hierarchical-menu--list__lvl0{
+
+      }
+      .ais-refinement-list {
+
+        .ais-refinement-list--header {
+          @include facetHeader();
+        }
+
+        .ais-refinement-list--count {
+          right:$caretPosition;
+        }
+
+        .ais-refinement-list--item{
+
+          > div > label {
+            font-size: $listFontSize;
+            padding: $listPadding;
+          }
+
+          &__active {
+            > div > label {
+              color: #43454b;
+
+              .ais-refinement-list--count {
+                background-color: black;
+                color:white;
+              }
+            }
+          }
+        }
+      }
+
+      .ais-range-slider--header{
+        @include facetHeader();
+      }
+
+      .ais-range-slider--body{
+        margin-top: 4px;
+        padding: 0 40px 1px 40px;
+      }
+    }
+  }
+}
+
+
