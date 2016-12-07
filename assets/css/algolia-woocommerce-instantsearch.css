@@ -302,13 +302,15 @@
       #algolia-selectors #algolia-stats {
         line-height: 26px;
         width: 100%; }
+      #algolia-selectors #algolia-sort-by {
+        float: left; }
       #algolia-selectors .algolia-filters {
         width: 50%;
-        float: right; }
+        float: left; }
         #algolia-selectors .algolia-filters:last-child {
-          padding-right: 10px; }
-        #algolia-selectors .algolia-filters:not(:last-child) {
           padding-left: 10px; }
+        #algolia-selectors .algolia-filters:not(:last-child) {
+          padding-right: 10px; }
         #algolia-selectors .algolia-filters button, #algolia-selectors .algolia-filters select {
           width: 100%; } }
   @media (max-width: 420px) {
