@@ -67,16 +67,39 @@
   background-image:url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' id=\'Layer_1\' baseProfile=\'basic\' viewBox=\'0 20 400 400\'><style>.st0{fill:%23bcbcbc;}</style><path d=\'M314.3 201.4l-107.5 85.2c-2.4 1.9-5.8 1.9-8.3 0L91 201.4c-4.9-3.9-2.2-11.9 4.1-11.9h215.1c6.3 0 9.1 8 4.1 11.9z\' class=\'st0\'/></svg>");
   background-repeat: no-repeat;
   background-position: right 8px center;
-  background-size: 33px;
+  background-size: 24px;
 }
 #algolia-mobile-filters button {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><style>.st0{fill:%23bcbcbc;}</style><path d=\'M376.5 46.1H29.7c-9.4 0-14.2 11.4-7.5 18.1L160.1 202c2 2 3.1 4.7 3.1 7.5v156.2c0 8.8 10.1 13.8 17.1 8.4l58.6-45.5c2.6-2 4.1-5.1 4.1-8.4V209.5c0-2.8 1.1-5.5 3.1-7.5L383.9 64.2c6.7-6.7 2-18.1-7.4-18.1z\' class=\'st0\'/></svg>");
   background-repeat: no-repeat;
   background-position: right 16px center;
-  background-size: 20px;
+  background-size: 12px;
 }
 
-.ais-sort-by-selector, #algolia-mobile-filters button {
+#algolia-mobile-filters button {
+  background-color: #FFF;
+  display: inline-block;
+  border-width: 0;
+  color: #43454b;
+  font-size: 1rem;
+  line-height: 1.75em;
+  padding: em(10) em(42) em(10) em(15);
+  box-shadow: 0px 2px 8px 0px rgba(27, 54, 86, 0.07);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-weight: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Open Sans", sans-serif;
+  text-align: left;
+  height:47px;
+
+  &:focus{
+    outline: none;
+  }
+}
+.ais-sort-by-selector{
   background-color: #FFF;
   display: inline-block;
   border-width: 0;
@@ -93,6 +116,11 @@
   -webkit-font-smoothing: antialiased;
   font-family: "Open Sans", sans-serif;
   text-align: left;
+  height:47px;
+
+  &:focus{
+    outline: none;
+  }
 }
 
 $facetMenuColor: #ededed;
@@ -123,7 +151,7 @@ $listFontSize: 14px;
 
     &.ais-facets--visible {
       transform:translate(0,0);
-      transition: outline 400ms ease, transform 700ms cubic-bezier(.4,0,0,1);
+      transition: outline 900ms ease, transform 400ms cubic-bezier(.4,0,0,1);
       opacity: 1;
     }
 
