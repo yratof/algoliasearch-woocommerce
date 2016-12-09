@@ -176,15 +176,26 @@
       font-size: 12px;
       font-weight: 600;
       padding: 0;
-      line-height: 100%;
+      line-height: 135%;
       margin: 0 0 0.625em;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden; }
       .alg-hit .alg-hit__details .alg-hit__description em {
-        box-shadow: inset 0px -1px 0px 0px #31c0f8;
+        font-size: 12px;
+        line-height: 100%;
         font-style: normal;
-        line-height: initial; }
+        display: inline-block;
+        position: relative; }
+        .alg-hit .alg-hit__details .alg-hit__description em:after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 100%;
+          width: 100%;
+          height: 1px;
+          background-color: red; }
     .alg-hit .alg-hit__details .alg-hit__priceholder {
       margin: 0.875em 0 0 0;
       padding: 0; }

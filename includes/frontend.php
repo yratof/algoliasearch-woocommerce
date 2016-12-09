@@ -73,16 +73,14 @@ function aw_get_user_styles() {
 		'.alg-hit .alg-hit__details .alg-hit__currentprice',
 		'.ais-pagination .ais-pagination--link:hover',
 		'.alg-hit .alg-hit__details .alg-hit__title a em',
-
 	);
 
 	$styles .= implode( ', ', $color_selectors ) . ' { color : ' .  $primary_color . '}';
 
 	$styles .= '.alg-hit .alg-hit__overlay .alg-cta--blue { border-color: ' . $primary_color . '}';
 
-	$styles .= '.alg-hit .alg-hit__details .alg-hit__description em {
-    box-shadow: inset 0px -1px 0px 0px ' . $primary_color . ';
-    font-style: normal;
+	$styles .= '.alg-hit .alg-hit__details .alg-hit__description em:after {
+    background: ' . $primary_color . ';
 }';
 	$styles .= '.alg-hit .alg-hit__details .alg-hit__title a em { background-color: ' . aw_hexadecimal_to_rgba( $primary_color, 0.1 ) . '}';
 	$styles .= '.alg-hit .alg-hit__overlay .alg-cta--blue:hover { background-color: ' . aw_color_luminance( $primary_color, 0.1 ) . '}';
