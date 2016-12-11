@@ -29,6 +29,8 @@
 					</div>
 				</div>
 
+				<div id="alg-current-refinements"></div>
+
 				<div id="algolia-hits"></div>
 				<div id="algolia-pagination"></div>
 			</main>
@@ -284,7 +286,7 @@
 					instantsearch.widgets.refinementList({
 						container: '#facet-attribute-' + attribute_name,
 						attributeName: 'taxonomies.pa_' + attribute_name,
-						operator: 'and',
+						operator: 'or',
 						limit: 8,
 						showMore: true,
 						sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
@@ -378,6 +380,13 @@
 					}
 				}
 			});
+
+			search.addWidget(
+				instantsearch.widgets.currentRefinedValues({
+					container: '#alg-current-refinements',
+					clearAll: 'after'
+				})
+			);
 
 			/* Start */
 			search.start();

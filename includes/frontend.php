@@ -60,6 +60,7 @@ function aw_get_user_styles() {
 		'.ais-hierarchical-menu--item.ais-hierarchical-menu--item__active > div > a .ais-hierarchical-menu--count',
 		'#ais-facets .ais-facets__wrapper .ais-hierarchical-menu--item__active > div > a .ais-hierarchical-menu--count',
 		'#ais-facets .ais-facets__wrapper .ais-hierarchical-menu--list__lvl1 .ais-hierarchical-menu--item__active > div > a .ais-hierarchical-menu--count',
+		'.ais-current-refined-values--item a',
 	);
 
 	$styles  = implode( ', ', $background_colors ) . ' { background-color : ' .  $primary_color . '}';
