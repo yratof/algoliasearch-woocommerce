@@ -1,0 +1,30 @@
+.ais-current-refined-values {
+  margin-bottom: 1em;
+}
+.ais-current-refined-values--item {
+  display: inline-block;
+  margin-right: 7px;
+
+
+  a {
+    color: #FFF;
+    background: $blue;
+    border-radius: 100px;
+    display: block;
+    padding: 0 15px;
+    line-height: 30px;
+
+    &:hover {
+      color: #FFF;
+    }
+  }
+
+  .ais-current-refined-values--count {
+    display: none;
+  }
+}
+
+.ais-current-refined-values--list,
+.ais-current-refined-values--clear-all {
+  display: inline-block;
+}

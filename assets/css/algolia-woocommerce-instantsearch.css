@@ -510,6 +510,28 @@
           margin-top: 4px;
           padding: 0 40px 1px 40px; } }
 
+.ais-current-refined-values {
+  margin-bottom: 1em; }
+
+.ais-current-refined-values--item {
+  display: inline-block;
+  margin-right: 7px; }
+  .ais-current-refined-values--item a {
+    color: #FFF;
+    background: #31c0f8;
+    border-radius: 100px;
+    display: block;
+    padding: 0 15px;
+    line-height: 30px; }
+    .ais-current-refined-values--item a:hover {
+      color: #FFF; }
+  .ais-current-refined-values--item .ais-current-refined-values--count {
+    display: none; }
+
+.ais-current-refined-values--list,
+.ais-current-refined-values--clear-all {
+  display: inline-block; }
+
 #algolia-pagination {
   text-align: center; }
 
