@@ -1,17 +1,33 @@
 .ais-current-refined-values {
   margin-bottom: 1em;
 }
+
+.ais-current-refined-values--link {
+
+  &:active {
+    transform:scale(.96);
+  }
+}
 .ais-current-refined-values--item {
   display: inline-block;
   margin-right: 7px;
+  position: relative;
 
+  svg {
+    position: absolute;
+    right: 8px;
+    top:50%;
+    transform:translate(0,-50%);
+    width: 10px;
+    height: 10px;  
+  }
 
   a {
     color: #FFF;
     background: $blue;
     border-radius: 100px;
     display: block;
-    padding: 0 15px;
+    padding: 0 25px 0 15px;
     line-height: 30px;
 
     &:hover {
