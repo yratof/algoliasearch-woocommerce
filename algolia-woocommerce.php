@@ -4,7 +4,7 @@
  * Plugin Name: Algolia Search for WooCommerce
  * Plugin URI: https://community.algolia.com/woocommerce
  * Description: Todo
- * Version: 0.0.2
+ * Version: 0.3.0
  * Author: Algolia
  * Author URI: https://www.algolia.com
  *
@@ -12,8 +12,8 @@
  * Domain Path: /languages/
  */
 
-// The Algolia Search FOR WooCommerce plugin version.
-define( 'ALGOLIA_WOOCOMMERCE_VERSION', '0.0.2' );
+// The Algolia Search for WooCommerce plugin version.
+define( 'ALGOLIA_WOOCOMMERCE_VERSION', '0.3.0' );
 define( 'ALGOLIA_WOOCOMMERCE_PLUGIN_BASENAME', plugin_basename(__FILE__) );
 
 if ( ! defined( 'ALGOLIA_WOOCOMMERCE_PATH' ) ) {
