@@ -211,8 +211,6 @@
 				search.addWidget({
 					init: function() {},
 					render: function(results) {
-						/* Synchronize all search inputs. */
-						$theme_search_inputs.val(results.state.query);
 						if(algolia.woocommerce.page === 'other') {
 							if(results.state.query.length > 0) {
 								container.hide();
