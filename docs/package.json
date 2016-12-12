@@ -1,5 +1,5 @@
 {
-  "name": "algoliasearch-wordpress-plugin-docs",
+  "name": "algoliasearch-woocommerce-plugin-docs",
   "private": true,
   "dependencies": {
     "babel-runtime": "^6.11.6",
