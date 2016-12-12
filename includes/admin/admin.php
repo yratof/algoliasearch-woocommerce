@@ -73,7 +73,6 @@ function aw_render_zoning_tab() {
 }
 
 function aw_get_zoning_test_page_url() {
-	// Todo: better handle the iframe URL generation.
 	// Todo: Handle no categories edge case.
 	$page_url = '';
 
@@ -88,7 +87,11 @@ function aw_get_zoning_test_page_url() {
 		break;
 	}
 
-	$page_url .= '&algolia_selector=true';
+	if ( strpos( $page_url, '?' ) === false ) {
+		$page_url .= '?algolia_selector=true';
+	} else {
+		$page_url .= '&algolia_selector=true';
+	}
 
 	return $page_url;
 }
