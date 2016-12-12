@@ -446,13 +446,15 @@
 			//  Stop Handle swipe
 			//-------------------------------
 
+			var overflow;
 
 			$('.ais-facets__wrapper').on('click',function(e){
 				e.stopPropagation();
-			})
+			});
 
 			$('#algolia-mobile-filters button').on('click',function(e) {
 				e.stopPropagation();
+				overflow = document.body.style.overflow;
 				$facets.addClass('ais-facets--visible');
 				document.body.style.overflow = "hidden";
 			});
@@ -463,7 +465,7 @@
 
 			$(document).on('click',function(event){
 				$facets.removeClass('ais-facets--visible');
-				document.body.style.overflow = "auto";
+				document.body.style.overflow = overflow;
 			});
 
 			$('#algolia-search-box input').select();
