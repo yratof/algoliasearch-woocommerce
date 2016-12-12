@@ -384,7 +384,10 @@
 			search.addWidget(
 				instantsearch.widgets.currentRefinedValues({
 					container: '#alg-current-refinements',
-					clearAll: 'after'
+					clearAll: 'after',
+					templates: {
+						item: '<div class="ais-current-value">{{name}}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.971 47.971"><path fill="currentColor" d="M28.228 23.986L47.092 5.122c1.172-1.17 1.172-3.07 0-4.242-1.172-1.172-3.07-1.172-4.242 0L23.986 19.744 5.12.88C3.95-.292 2.05-.292.88.88-.294 2.05-.294 3.95.88 5.122l18.864 18.864L.88 42.85c-1.173 1.17-1.173 3.07 0 4.242.585.585 1.353.878 2.12.878s1.535-.293 2.12-.88l18.866-18.863L42.85 47.09c.586.587 1.354.88 2.12.88s1.536-.293 2.122-.88c1.172-1.17 1.172-3.07 0-4.24L28.228 23.985z"/></svg></div>'
+					}
 				})
 			);
 
@@ -450,7 +453,8 @@
 
 			$('#algolia-mobile-filters button').on('click',function(e) {
 				e.stopPropagation();
-				$facets.addClass('ais-facets--visible')
+				$facets.addClass('ais-facets--visible');
+				document.body.style.overflow = "hidden";
 			});
 
 			$wrapper.on('click',function(e){
@@ -459,6 +463,7 @@
 
 			$(document).on('click',function(event){
 				$facets.removeClass('ais-facets--visible');
+				document.body.style.overflow = "auto";
 			});
 
 			$('#algolia-search-box input').select();
