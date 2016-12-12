@@ -522,7 +522,7 @@
   position: relative; }
   .ais-current-refined-values--item svg {
     position: absolute;
-    right: 8px;
+    right: 12px;
     top: 50%;
     transform: translate(0, -50%);
     width: 10px;
@@ -532,7 +532,7 @@
     background: #31c0f8;
     border-radius: 100px;
     display: block;
-    padding: 0 25px 0 15px;
+    padding: 0 30px 0 15px;
     line-height: 30px; }
     .ais-current-refined-values--item a:hover {
       color: #FFF; }
