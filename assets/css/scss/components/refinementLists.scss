@@ -37,6 +37,10 @@ $listFontSize: 14px;
     }
   }
 
+  &:not(:last-child) {
+    border-bottom: 1px solid $facetMenuColor;
+  }
+
   input[type="checkbox"] {
     cursor: pointer;
   }
