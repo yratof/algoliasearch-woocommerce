@@ -153,12 +153,12 @@ $listFontSize: 14px;
   height:36px;
   text-overflow: ellipsis;
   overflow:hidden;
-
   color:#697782;
   background-color: #FFF;
   font-weight: 600;
   font-size: 14px;
   border:1px solid $element-border;
+  border-radius: 4px;
   box-shadow: 0 1px 1px 0 rgba(85, 95, 110, 0.2);
 
   &:focus{
