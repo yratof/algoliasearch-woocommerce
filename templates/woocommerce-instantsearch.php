@@ -17,13 +17,14 @@
 
 			<main id="ais-main">
 				<div id="algolia-search-box">
-					<svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"> <style> .st0 {fill:none;stroke:#2C2C38;stroke-width:2;stroke-miterlimit:10;} </style> <ellipse transform="rotate(-45 13.78 13.938)" class="st0" cx="13.8" cy="13.9" rx="10.8" ry="10.8"/> <path class="st0" d="M26.4 26.6l-4.9-4.9"/></svg>
+					<svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"> <style> .st01 {fill:none;stroke:#bfc7d8;stroke-width:2;stroke-miterlimit:10;} </style> <ellipse transform="rotate(-45 13.78 13.938)" class="st01" cx="13.8" cy="13.9" rx="10.8" ry="10.8"/> <path class="st01" d="M26.4 26.6l-4.9-4.9"/></svg>
 					<svg class="clear-search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"> <style> .st0 { fill:none;stroke:#2C2C38;stroke-width:2;stroke-miterlimit:10;} </style> <path class="st0" d="M25.4 25.6l-20-20M5.4 25.6l20-20"/></svg>
 				</div>
 
 				<div id="algolia-selectors">
 					<div id="algolia-stats"></div>
-					<div id="algolia-sort-by" class="algolia-filters"></div>
+					<div id="algolia-sort-by" class="algolia-filters">
+					</div>
 					<div id="algolia-mobile-filters" class="alg-show-on-xs alg-show-on-sm algolia-filters">
 						<button>Filter by</button>
 					</div>
@@ -72,7 +73,7 @@
 									product_cats.push(data._highlightResult.taxonomies.product_cat[index].value);
 								}
 							}
-							product_cats = product_cats.join(', ').toUpperCase();
+							product_cats = product_cats.join(', ');
 						#>
 						{{{product_cats}}}
 						</p>

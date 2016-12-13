@@ -68,10 +68,6 @@
   cursor: pointer;
 }
 
-.ais-stats {
-  font-size: 14px;
-}
-
 .ais-hits--thumbnail img {
   width: 100%;
 }
@@ -142,54 +138,7 @@
   display: none;
 }
 
-/* Facets */
 
-.ais-facets {
-  padding-right: 2em;
-}
-
-.ais-facets .ais-header h4 {
-  font-size: 14px;
-  font-weight: bold;
-  margin-top: 0;
-}
-
-.ais-facets a {
-  color: #43454b;
-  font-weight: normal;
-}
-
-.ais-facets a:hover {
-  color: $blue;
-}
-
-/* Refinement list: Colors */
-
-.ais-refinement-list label {
-  font-weight: normal;
-  cursor: pointer;
-  color: #43454b;
-  display: block;
-}
-
-.ais-refinement-list--item__active label,
-.ais-refinement-list label:hover {
-  color: #31c0f8;
-}
-
-.ais-refinement-list--label {
-  margin-bottom: 0;
-}
-
-.ais-refinement-list--label .ais-refinement-list--checkbox {
-  margin: 0 10px 0 0;
-}
-
-/* Product Result */
-
-.ais-hits--categories {
-  font-size: 12px;
-}
 
 @media only screen and (max-width: 500px) {
   .ais-hits--thumbnail {

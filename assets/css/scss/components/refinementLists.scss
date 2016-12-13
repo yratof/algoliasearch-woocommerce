@@ -2,14 +2,20 @@
   line-height: 25px;
   position: relative;
 
-  &.ais-hierarchical-menu--item__active{
-    
-  	> div > a{
-  		color:$blue;
+  > div > a {
+    color:#55606e;
+  }
 
-  		.ais-hierarchical-menu--count{
+  &.ais-hierarchical-menu--item__active {
+    
+  	> div > a {
+  		color:$blue;
+      font-weight: 600;
+
+  		.ais-hierarchical-menu--count {
 				background-color: $blue;
 				color:white;
+        font-weight: 300;
   		}
   	}
   }
@@ -19,7 +25,7 @@
   position: relative;
   line-height: 25px;
 
-  input[type="checkbox"]{
+  input[type="checkbox"] {
     cursor: pointer;
   }
 
@@ -38,24 +44,32 @@
 }
 
 .ais-hierarchical-menu--link,
-.ais-refinement-list--label{
-  max-width: 80%;
+.ais-refinement-list--label {
+  margin-bottom: 6px;
+  padding-right: 20px;
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: 14px;
+  color: #55606e;
+  position: relative;
 }
 
 .ais-refinement-list--count,
 .ais-hierarchical-menu--count {
   position: absolute;
   right: 0;
+  top:50%;
   background-color: #F3F3F3;
-  padding: 5px 8px;
+  padding: 5px 11px;
   border-radius: 100px;
   font-size: 12px;
   line-height: 12px;
   display: inline-block;
+  min-width: 30px;
+  text-align: center;
+  transform:translate(0,-50%);
 }
 
 #algolia-sort-by,
@@ -64,10 +78,10 @@
 }
 
 .ais-sort-by-selector {
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' id=\'Layer_1\' baseProfile=\'basic\' viewBox=\'0 20 400 400\'><style>.st0{fill:%23bcbcbc;}</style><path d=\'M314.3 201.4l-107.5 85.2c-2.4 1.9-5.8 1.9-8.3 0L91 201.4c-4.9-3.9-2.2-11.9 4.1-11.9h215.1c6.3 0 9.1 8 4.1 11.9z\' class=\'st0\'/></svg>");
+  background-image:url("data:image/svg+xml;utf8,<svg width=\'12\' height=\'7\' viewBox=\'0 0 12 7\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M11 1L6.02 6 1 1\' stroke-width=\'1.5\' stroke=\'%23BFC7D8\' fill=\'none\' fill-rule=\'evenodd\' stroke-linecap=\'round\'/></svg>");
   background-repeat: no-repeat;
-  background-position: right 8px center;
-  background-size: 24px;
+  background-position: right 13px center;
+  background-size: 12px;
 }
 #algolia-mobile-filters button {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><style>.st0{fill:%23bcbcbc;}</style><path d=\'M376.5 46.1H29.7c-9.4 0-14.2 11.4-7.5 18.1L160.1 202c2 2 3.1 4.7 3.1 7.5v156.2c0 8.8 10.1 13.8 17.1 8.4l58.6-45.5c2.6-2 4.1-5.1 4.1-8.4V209.5c0-2.8 1.1-5.5 3.1-7.5L383.9 64.2c6.7-6.7 2-18.1-7.4-18.1z\' class=\'st0\'/></svg>");
@@ -77,14 +91,11 @@
 }
 
 #algolia-mobile-filters button {
-  background-color: #FFF;
   display: inline-block;
   border-width: 0;
-  color: #43454b;
   font-size: 1rem;
   line-height: 1.75em;
-  padding: em(10) em(42) em(10) em(15);
-  box-shadow: 0px 2px 8px 0px rgba(27, 54, 86, 0.07);
+  padding: em(4) em(40) em(4) em(15);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -93,7 +104,15 @@
   -webkit-font-smoothing: antialiased;
   font-family: "Open Sans", sans-serif;
   text-align: left;
-  height:47px;
+  height:36px;
+  border-radius: 4px;
+
+  color:#697782;
+  background-color: #FFF;
+  font-weight: 600;
+  font-size: 14px;
+  border:1px solid $element-border;
+  box-shadow: 0 1px 1px 0 rgba(85, 95, 110, 0.2);
 
   &:focus{
     outline: none;
@@ -103,11 +122,9 @@
   background-color: #FFF;
   display: inline-block;
   border-width: 0;
-  color: #43454b;
   font-size: 1rem;
   line-height: 1.75em;
-  padding: em(10) em(15);
-  box-shadow: 0px 2px 8px 0px rgba(27, 54, 86, 0.07);
+  padding: em(4) em(40) em(4) em(15);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -116,7 +133,16 @@
   -webkit-font-smoothing: antialiased;
   font-family: "Open Sans", sans-serif;
   text-align: left;
-  height:47px;
+  height:36px;
+  text-overflow: ellipsis;
+  overflow:hidden;
+
+  color:#697782;
+  background-color: #FFF;
+  font-weight: 600;
+  font-size: 14px;
+  border:1px solid $element-border;
+  box-shadow: 0 1px 1px 0 rgba(85, 95, 110, 0.2);
 
   &:focus{
     outline: none;
@@ -249,7 +275,6 @@ $listFontSize: 14px;
 
           &__active {
             > div > label {
-              color: #43454b;
 
               .ais-refinement-list--count {
                 background-color: black;
@@ -270,6 +295,54 @@ $listFontSize: 14px;
       }
     }
   }
+}
+
+
+/* Facets */
+
+.ais-facets {
+  padding-right: 2em;
+
+  .ais-header h4 {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgba(0,0,0,.85);
+
+    @media (min-width:768px){
+      margin: 0 0 12px 0;
+    }
+  }
+
+  a {
+    color: #43454b;
+    font-weight: normal;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+}
+
+.ais-refinement-list label {
+  font-weight: normal;
+  cursor: pointer;
+  display: block;
+}
+
+.ais-refinement-list--item__active label,
+.ais-refinement-list label:hover {
+  color: #31c0f8;
+}
+
+.ais-refinement-list--label .ais-refinement-list--checkbox {
+  background-color: #FFF;
+  margin: 0 10px 0 0;
+}
+
+/* Product Result */
+
+.ais-hits--categories {
+  font-size: 12px;
 }
 
 
