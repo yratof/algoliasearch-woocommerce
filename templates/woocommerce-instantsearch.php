@@ -232,15 +232,14 @@
 			} else {
 				$('#algolia-search-box').hide();
 			}
-			if ( $theme_search_inputs.length === 0 ) {
-
+			if ( $theme_search_inputs.length > 0 ) {
 				search.addWidget({
 					init: function() {
 						$theme_search_inputs.val(search.helper.state.query);
 					},
 					render: function(results) {
 						if(algolia.woocommerce.page === 'other') {
-							if(results.state.query.length > 0) {
+;							if(results.state.query.length > 0) {
 								container.hide();
 								search_container.show();
 								update_container_class();
