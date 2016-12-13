@@ -1,3 +1,8 @@
+$facetMenuColor: #ededed;
+$listPadding: 8px 10px;
+$caretPosition: 10px;
+$listFontSize: 14px;
+
 .ais-hierarchical-menu--item {
   line-height: 25px;
   position: relative;
@@ -25,6 +30,10 @@
   position: relative;
   line-height: 25px;
 
+  &:not(:last-child) {
+    border-bottom: 1px solid $facetMenuColor;
+  }
+
   input[type="checkbox"] {
     cursor: pointer;
   }
@@ -41,6 +50,8 @@
 .ais-show-more {
   font-size: 14px;
   cursor: pointer;
+  padding: 8px 10px;
+  display: block;
 }
 
 .ais-hierarchical-menu--link,
@@ -151,11 +162,6 @@
     outline: none;
   }
 }
-
-$facetMenuColor: #ededed;
-$listPadding: 8px 10px;
-$caretPosition: 10px;
-$listFontSize: 14px;
 
 @mixin facetHeader(){
   padding: em(10);
@@ -280,7 +286,6 @@ $listFontSize: 14px;
             > div > label {
 
               .ais-refinement-list--count {
-                background-color: black;
                 color:white;
               }
             }
