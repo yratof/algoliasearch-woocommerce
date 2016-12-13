@@ -330,7 +330,7 @@
 					},
 					tooltips: {
 						format: function (rawValue) {
-							return algolia.woocommerce.currency_symbol + Math.round(rawValue).toLocaleString();
+							return format_price(rawValue);
 						}
 					}
 				})
