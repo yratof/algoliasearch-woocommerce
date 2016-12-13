@@ -28,7 +28,8 @@
     border-radius: 100px;
     display: block;
     padding: 0 30px 0 15px;
-    line-height: 30px;
+    line-height: 26px;
+    font-size: 12px;
 
     &:hover {
       color: #FFF;
@@ -38,6 +39,11 @@
   .ais-current-refined-values--count {
     display: none;
   }
+}
+.ais-current-refined-values--clear-all{
+  color: #55606e;
+  font-size: 14px;
+  line-height: 26px;
 }
 
 .ais-current-refined-values--list,

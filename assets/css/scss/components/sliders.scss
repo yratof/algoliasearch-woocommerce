@@ -9,7 +9,8 @@
 .ais-range-slider--handle {
   border: none;
   background-color: #fff !important;
-  box-shadow: 0 3px 12px 0 rgba(43, 43, 49, 0.09), 0 5px 17px 0 rgba(43, 43, 49, 0.11) !important;
+  box-shadow: 0 1px 1px 0 rgba(85, 95, 110, 0.2);
+  border: solid 0.8px #d4d8e3;
 }
 
 .ais-range-slider--target {
@@ -17,7 +18,7 @@
   direction: ltr;
   background: #F3F4F7;
   height: 6px;
-  margin-top: 2em;
+  margin-top: 1.5em;
   margin-bottom: 2em;
 }
 
@@ -66,8 +67,9 @@
 
 .ais-range-slider--tooltip {
   position: absolute;
-  top: -22px;
+  top: 22px;
   font-size: .8em;
+  color:#697782;
 }
 
 .ais-range-slider--pips {

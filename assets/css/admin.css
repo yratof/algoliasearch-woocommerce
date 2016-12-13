@@ -429,34 +429,15 @@
           text-align: left; }
 
 .alg-hit {
-  border: none;
-  border-radius: 3px;
-  text-align: center;
   color: white;
   font-family: "Open Sans", sans-serif;
   position: relative;
-  text-align: center;
   background: #FFF;
-  box-shadow: 0px 3px 10px 0px rgba(24, 29, 43, 0.2); }
-  .alg-hit .alg-hit__content {
-    border-radius: 3px;
-    overflow: hidden;
-    position: relative;
-    z-index: 1; }
-  .alg-hit:before {
-    left: 0;
-    top: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    content: "";
-    opacity: 0;
-    background-color: transparent;
-    transition: all 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
-    box-shadow: 0px 6px 20px 0px rgba(24, 29, 43, 0.3);
-    border-radius: 3px; }
+  box-shadow: 0 1px 1px 0 rgba(85, 95, 110, 0.2);
+  border-radius: 3px;
+  border: solid 1px #d4d8e3; }
   .alg-hit figure {
-    height: 265px;
+    height: 200px;
     margin: 0;
     padding: 0;
     position: relative;
@@ -470,6 +451,7 @@
       transform-origin: 50% 50%;
       transition: 800ms ease; }
   .alg-hit .alg-hit__ribbon {
+    text-align: center;
     position: absolute;
     top: 0;
     right: -50%;
@@ -481,7 +463,8 @@
     transform: translate(-1.25em, -0.625em) rotate(45deg);
     transform-origin: 50% 50%;
     background-color: #31c0f8;
-    will-change: transform; }
+    will-change: transform;
+    color: white; }
   .alg-hit .alg-hit__overlay {
     position: absolute;
     width: 100%;
@@ -491,7 +474,8 @@
     opacity: 0;
     background-color: rgba(0, 0, 0, 0.4);
     pointer-events: none;
-    transition: .3s ease; }
+    transition: .3s ease;
+    text-align: center; }
     @supports (display: flex) {
       .alg-hit .alg-hit__overlay {
         display: flex;
@@ -532,10 +516,8 @@
       .alg-hit .alg-hit__overlay .alg-cta--blue:hover {
         background-color: #4ac8f9; }
   .alg-hit .alg-hit__details {
-    text-align: center;
     padding: 1.5625em 1.75em; }
     .alg-hit .alg-hit__details .alg-hit__title {
-      color: #181d2b;
       font-size: 20px;
       font-weight: 300;
       line-height: 1.7em;
@@ -543,24 +525,24 @@
       .alg-hit .alg-hit__details .alg-hit__title a {
         margin: 0;
         padding: 0;
-        font-size: 20px;
+        font-size: 16px;
         line-height: 120%;
-        font-weight: 300;
-        color: inherit;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.85);
         display: inline-block;
         height: 2.4em;
         overflow: hidden; }
         .alg-hit .alg-hit__details .alg-hit__title a:hover {
-          color: inherit; }
+          color: rgba(0, 0, 0, 0.85); }
         .alg-hit .alg-hit__details .alg-hit__title a em {
           border-radius: 2px;
           font-style: normal;
           color: #31c0f8;
           background-color: rgba(49, 192, 248, 0.2); }
     .alg-hit .alg-hit__details .alg-hit__description {
-      color: #9fa5b8;
-      font-size: 12px;
-      font-weight: 600;
+      color: #55606e;
+      font-size: 14px;
+      font-weight: 400;
       padding: 0;
       line-height: 135%;
       margin: 0 0 0.625em;
@@ -580,8 +562,7 @@
           right: 0;
           top: 100%;
           width: 100%;
-          height: 1px;
-          background-color: red; }
+          height: 1px; }
     .alg-hit .alg-hit__details .alg-hit__priceholder {
       margin: 0.875em 0 0 0;
       padding: 0; }
@@ -595,15 +576,13 @@
       text-decoration: line-through; }
     .alg-hit .alg-hit__details .alg-hit__currentprice {
       color: #31c0f8;
-      font-size: 24px;
+      font-size: 18px;
       font-weight: 600;
       line-height: 100%;
       margin: 0;
       padding: 0; }
     .alg-hit .alg-hit__details p {
       white-space: nowrap; }
-  .alg-hit:hover:before {
-    opacity: 1; }
   .alg-hit:hover img {
     transition: 10s cubic-bezier(0.04, 0.74, 0, 1);
     transform: scale(1.1); }

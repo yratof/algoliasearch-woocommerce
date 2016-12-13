@@ -3,38 +3,35 @@
 
   input {
     width: 100%;
-    line-height: 52px;
-    font-size: 22px;
-    padding: 10px 0 10px 70px;
+    line-height: 30px;
+    font-size: 14px;
+    padding: 6px 0 6px 44px;
     box-sizing: border-box;
     outline: none;
-    border: none;
-    border-radius: 2px;
-    background-color: #f9f9f9;
-    box-shadow: 0px 2px 8px 0px rgba(27, 54, 86, 0.07);
+    border-radius: 4px;
+    background-color: #FFF;
     transition: 300ms ease;
     font-weight: 300;
     font-family: "Open Sans", sans-serif;
     height: inherit;
     margin: 0;
+    border:1px solid $element-border;
 
     @include placeholder(){
       font-family: "Open Sans", sans-serif;
-      font-weight: 300;
-    }
-
-    &:focus {
-      box-shadow: 0px 5px 16px 0px rgba(27, 54, 86, 0.15);
+      font-weight: 400;
+      font-size: 14px;
+      color: darken($element-border,10%);
     }
   }
 
   .search-icon, .clear-search-icon {
     position: absolute;
-    left: 21px;
+    left: 13px;
     top: 50%;
     fill: #46AEDA;
-    width: 30px;
-    height: 30px;
+    width: 18px;
+    height: 18px;
     transform:translate(0,-50%);
   }
 
@@ -67,14 +64,15 @@
 }
 
 #algolia-selectors {
-  margin: em(10) 0;
+  margin: em(20) 0;
 
   @include clearfix();
 
   #algolia-stats {
-    line-height: 48px;
+    line-height: 36px;
     float: left;
-    font-size: 10px;
+    font-size: 12px;
+    color:#55606e;
   }
 
   #algolia-sort-by {
@@ -82,11 +80,13 @@
   }
   
   @media (max-width:768px) {
-    text-align: right;
+    text-align: left;
+    margin: em(5) 0 em(10) 0;
 
     #algolia-stats {
       line-height: 26px;
       width: 100%;
+      margin-bottom: 3px;
     }
 
     #algolia-sort-by {
@@ -114,11 +114,6 @@
     button,select {
       font-size: 14px;
     }
-  }
-
-  .ais-sort-by-selector {
-    background-color: #FFF;
-    box-shadow: 0px 2px 7px 0px rgba(24, 29, 43, 0.1);
   }
 }
 
