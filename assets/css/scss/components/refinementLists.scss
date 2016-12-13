@@ -29,9 +29,12 @@ $listFontSize: 14px;
 .ais-refinement-list--item {
   position: relative;
   line-height: 25px;
-
-  &:not(:last-child) {
-    border-bottom: 1px solid $facetMenuColor;
+  
+  @media (max-width:768px){
+    
+    &:not(:last-child) {
+      border-bottom: 1px solid $facetMenuColor;
+    }
   }
 
   input[type="checkbox"] {

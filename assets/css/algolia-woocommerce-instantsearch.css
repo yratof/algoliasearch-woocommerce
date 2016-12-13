@@ -330,8 +330,9 @@
 .ais-refinement-list--item {
   position: relative;
   line-height: 25px; }
-  .ais-refinement-list--item:not(:last-child) {
-    border-bottom: 1px solid #ededed; }
+  @media (max-width: 768px) {
+    .ais-refinement-list--item:not(:last-child) {
+      border-bottom: 1px solid #ededed; } }
   .ais-refinement-list--item input[type="checkbox"] {
     cursor: pointer; }
   .ais-refinement-list--item.ais-refinement-list--item__active .ais-refinement-list--count {
