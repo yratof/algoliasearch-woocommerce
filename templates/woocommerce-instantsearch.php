@@ -23,8 +23,7 @@
 
 				<div id="algolia-selectors">
 					<div id="algolia-stats"></div>
-					<div id="algolia-sort-by" class="algolia-filters">
-					</div>
+					<div id="algolia-sort-by" class="algolia-filters"></div>
 					<div id="algolia-mobile-filters" class="alg-show-on-xs alg-show-on-sm algolia-filters">
 						<button>Filter by</button>
 					</div>
@@ -95,15 +94,15 @@
 
 	<script type="text/html" id="tmpl-stats">
 		<div class="alg-stats">
-			<span class="alg-hide-on-xs">We found </span>{{ data.nbHits }} products
+			We found {{ data.nbHits }} products
 			<# if(data.query.length > 0) { #>
-			<span class="alg-hide-on-xs">matching "<span class="alg-primary-color">{{ data.query }}</span>"</span>
+			matching "<span class="alg-primary-color">{{ data.query }}</span>"
 			<# } #>
 
-			<span class="alg-hide-on-xs">in <span class="alg-primary-color">{{ data.processingTimeMS }} ms</span></span>
+			in <span class="alg-primary-color">{{ data.processingTimeMS }} ms</span>
 
 			<# if(algolia.powered_by_enabled === true) { #>
-			<span class="alg-hide-on-xs">with <span class="alg-powered-by">Algolia</span></span>
+			with <span class="alg-powered-by">Algolia</span>
 			<# } #>
 
 		</div>
