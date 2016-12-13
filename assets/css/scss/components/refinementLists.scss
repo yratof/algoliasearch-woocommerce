@@ -184,7 +184,7 @@ $listFontSize: 14px;
     transition: opacity 220ms 100ms ease, transform 300ms cubic-bezier(.4,0,0,1), outline 400ms ease;
     background-color: #FFF;
     position: fixed;
-    z-index: 100;
+    z-index: 999999;
     outline: 9999px solid rgba(0,0,0,0.5);
 
     &.ais-facets--visible {
