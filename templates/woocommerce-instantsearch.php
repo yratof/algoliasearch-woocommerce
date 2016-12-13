@@ -83,7 +83,7 @@
 								</span>
 							<# } #>
 							<span class="alg-hit__currentprice">
-								{{{algolia.woocommerce.currency_symbol}}}{{data.price}}<# if(data.product_type === 'variable' && data.price !== data.max_price) { #>-{{data.max_price}}
+								{{{algolia.woocommerce.currency_symbol}}}{{data.price}}<# if(data.product_type === 'variable' && data.price !== data.max_price) { #>-{{{algolia.woocommerce.currency_symbol}}}{{data.max_price}}
 								<# } #>
 							</span>
 						</p>
