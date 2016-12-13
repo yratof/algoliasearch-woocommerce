@@ -173,6 +173,7 @@ $listFontSize: 14px;
 
 #ais-facets {
   width:30%;
+  overflow: hidden;
   
   @media (max-width:768px) {
     right:0;

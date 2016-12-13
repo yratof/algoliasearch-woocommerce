@@ -446,7 +446,8 @@
     outline: none; }
 
 #ais-facets {
-  width: 30%; }
+  width: 30%;
+  overflow: hidden; }
   @media (max-width: 768px) {
     #ais-facets {
       right: 0;
