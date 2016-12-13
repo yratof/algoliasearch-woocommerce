@@ -182,6 +182,29 @@
 				})
 			);
 
+			search.addWidget({
+				init: function(options) {
+					if(window.location.hash.length > 0) {
+						return;
+					}
+
+					/* Get the initial from the query string "s" parameter if no hash is present. */
+					if (algolia.query.length > 0) {
+						options.helper.setQuery(algolia.query);
+					}
+
+					/* Set the current category if no anchor is already present. */
+					if(algolia.woocommerce.page === 'category') {
+						options.helper.toggleRefine('taxonomies_hierarchical.product_cat.lvl0', algolia.woocommerce.category);
+					}
+
+					/* Set the current tag if no anchor is already present. */
+					if(algolia.woocommerce.page === 'tag') {
+						options.helper.toggleRefine('taxonomies.product_tag', algolia.woocommerce.tag);
+					}
+				}
+			});
+
 			/* Bind existing search inputs. */
 			var $theme_search_inputs = $('input[name="s"]');
 			$theme_search_inputs.on('keyup', handleSearchInputKeyUp);
@@ -210,7 +233,9 @@
 			} else {
 				$('#algolia-search-box').hide();
 				search.addWidget({
-					init: function() {},
+					init: function() {
+						$theme_search_inputs.val(search.helper.state.query);
+					},
 					render: function(results) {
 						if(algolia.woocommerce.page === 'other') {
 							if(results.state.query.length > 0) {
@@ -362,29 +387,6 @@
 						clearIcon.hide();
 					} else {
 						clearIcon.show();
-					}
-				}
-			});
-
-			search.addWidget({
-				init: function(options) {
-					if(window.location.hash.length > 0) {
-						return;
-					}
-
-					/* Get the initial from the query string "s" parameter if no hash is present. */
-					if (algolia.query.length > 0) {
-						options.helper.setQuery(algolia.query);
-					}
-
-					/* Set the current category if no anchor is already present. */
-					if(algolia.woocommerce.page === 'category') {
-						options.helper.toggleRefine('taxonomies_hierarchical.product_cat.lvl0', algolia.woocommerce.category);
-					}
-
-					/* Set the current tag if no anchor is already present. */
-					if(algolia.woocommerce.page === 'tag') {
-						options.helper.toggleRefine('taxonomies.product_tag', algolia.woocommerce.tag);
 					}
 				}
 			});
