@@ -331,6 +331,9 @@
 .ais-refinement-list--item {
   position: relative;
   line-height: 25px; }
+  @media (max-width: 768px) {
+    .ais-refinement-list--item:not(:last-child) {
+      border-bottom: 1px solid #ededed; } }
   .ais-refinement-list--item input[type="checkbox"] {
     cursor: pointer; }
   .ais-refinement-list--item.ais-refinement-list--item__active .ais-refinement-list--count {
@@ -339,11 +342,12 @@
 
 .ais-show-more {
   font-size: 14px;
-  cursor: pointer; }
+  cursor: pointer;
+  padding: 8px 10px;
+  display: block; }
 
 .ais-hierarchical-menu--link,
 .ais-refinement-list--label {
-  margin-bottom: 6px;
   padding-right: 20px;
   display: block;
   overflow: hidden;
@@ -352,6 +356,10 @@
   font-size: 14px;
   color: #55606e;
   position: relative; }
+  @media (min-width: 768px) {
+    .ais-hierarchical-menu--link,
+    .ais-refinement-list--label {
+      margin-bottom: 6px; } }
 
 .ais-refinement-list--count,
 .ais-hierarchical-menu--count {
@@ -506,7 +514,6 @@
           font-size: 14px;
           padding: 8px 10px; }
         #ais-facets .ais-facets__wrapper .ais-refinement-list .ais-refinement-list--item__active > div > label .ais-refinement-list--count {
-          background-color: black;
           color: white; }
         #ais-facets .ais-facets__wrapper .ais-range-slider--header {
           padding: 0.625em;
