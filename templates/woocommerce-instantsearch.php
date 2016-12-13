@@ -79,11 +79,11 @@
 						<p class="alg-hit__priceholder">
 							<# if(data.is_on_sale === true) { #>
 								<span class="alg-hit__previousprice">
-									{{{algolia.woocommerce.currency_symbol}}}{{data.regular_price}}
+									{{data.formatted_regular_price}}
 								</span>
 							<# } #>
 							<span class="alg-hit__currentprice">
-								{{{algolia.woocommerce.currency_symbol}}}{{data.price}}<# if(data.product_type === 'variable' && data.price !== data.max_price) { #>-{{data.max_price}}
+								{{data.formatted_price}}<# if(data.product_type === 'variable' && data.price !== data.max_price) { #>-{{data.formatted_max_price}}
 								<# } #>
 							</span>
 						</p>
@@ -244,6 +244,15 @@
 					templates: {
 						empty: 'No results were found for "<strong>{{query}}</strong>".',
 						item: wp.template('instantsearch-hit')
+					},
+					transformData: {
+						item: function(data) {
+							data.formatted_price = format_price(data.price);
+							data.formatted_max_price = format_price(data.max_price);
+							data.formatted_regular_price = format_price(data.regular_price);
+
+							return data;
+						}
 					}
 				})
 			);
@@ -511,6 +520,47 @@
 			}
 			update_container_class();
 		});
+
+		/* Format price */
+		function format_price(number) {
+			var decimals = algolia.woocommerce.number_decimals;
+			var dec_point = algolia.woocommerce.decimal_separator;
+			var thousands_sep = algolia.woocommerce.thousands_separator;
+			var currency_symbol = algolia.woocommerce.currency_symbol;
+			var currency_position = algolia.woocommerce.currency_position;
+			
+			var n = !isFinite(+number) ? 0 : +number,
+				prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+				sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+				dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+				toFixedFix = function (n, prec) {
+					// Fix for IE parseFloat(0.55).toFixed(0) = 0;
+					var k = Math.pow(10, prec);
+					return Math.round(n * k) / k;
+				},
+				s = (prec ? toFixedFix(n, prec) : Math.round(n)).toString().split('.');
+			if (s[0].length > 3) {
+				s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+			}
+			if ((s[1] || '').length < prec) {
+				s[1] = s[1] || '';
+				s[1] += new Array(prec - s[1].length + 1).join('0');
+			}
+			var formatted = s.join(dec);
+
+			if(currency_position === 'left') {
+				return currency_symbol + formatted;
+			}
+			if(currency_position === 'left_space') {
+				return currency_symbol + " " + formatted;
+			}
+			if(currency_position === 'right') {
+				return formatted + currency_symbol;
+			}
+
+			return formatted + " " + currency_symbol;
+		}
+
 	</script>
 
 <?php get_footer(); ?>

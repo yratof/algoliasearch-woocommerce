@@ -193,8 +193,17 @@ function aw_woocommerce_config( array $config ) {
 	global $wp_query;
 
 	$config['woocommerce']['products_per_page'] = $wp_query->get( 'posts_per_page' );
-	$config['woocommerce']['currency_symbol'] = html_entity_decode( get_woocommerce_currency_symbol() );
+
+
 	$config['woocommerce']['selector'] = aw_get_selector();
+
+	// WooCommerce settings.
+	$config['woocommerce']['currency'] = get_woocommerce_currency();
+	$config['woocommerce']['currency_symbol'] = html_entity_decode( get_woocommerce_currency_symbol() );
+	$config['woocommerce']['currency_position'] = get_option( 'woocommerce_currency_pos', 'left' );
+	$config['woocommerce']['decimal_separator'] = get_option( 'woocommerce_price_decimal_sep', '.' );
+	$config['woocommerce']['number_decimals'] = (int) get_option( 'woocommerce_price_num_decimals', '2' );
+	$config['woocommerce']['thousands_separator'] = get_option( 'woocommerce_price_thousand_sep', ',' );
 
 	if(is_product_category()) {
 		$config['woocommerce']['page'] = 'category';
