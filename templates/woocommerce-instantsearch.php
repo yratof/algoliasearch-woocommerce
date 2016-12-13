@@ -78,7 +78,7 @@
 						{{{product_cats}}}
 						</p>
 						<p class="alg-hit__priceholder">
-							<# if(data.is_on_sale === true) { #>
+							<# if(data.is_on_sale === true && data.product_type !== 'variable') { #>
 								<span class="alg-hit__previousprice">
 									{{data.formatted_regular_price}}
 								</span>
