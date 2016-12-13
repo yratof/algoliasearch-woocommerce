@@ -519,6 +519,7 @@
 .ais-current-refined-values--item {
   display: inline-block;
   margin-right: 7px;
+  margin-bottom: 7px;
   position: relative; }
   .ais-current-refined-values--item svg {
     position: absolute;
