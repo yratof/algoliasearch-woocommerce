@@ -110,8 +110,9 @@
       text-decoration: none;
       transition: opacity 300ms, transform 300ms;
       opacity: 0;
-      padding: 0.8125em 0;
-      width: 70%; }
+      padding: 0.5625em 0;
+      width: 70%;
+      font-size: 15px; }
     .alg-hit .alg-hit__overlay .alg-cta--transparent {
       color: white;
       border: 1px solid white;
@@ -164,7 +165,6 @@
       text-overflow: ellipsis;
       overflow: hidden; }
       .alg-hit .alg-hit__details .alg-hit__description em {
-        font-size: 12px;
         line-height: 100%;
         font-style: normal;
         display: inline-block;
