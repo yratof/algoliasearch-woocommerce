@@ -342,7 +342,6 @@
 
 .ais-hierarchical-menu--link,
 .ais-refinement-list--label {
-  margin-bottom: 6px;
   padding-right: 20px;
   display: block;
   overflow: hidden;
@@ -351,6 +350,10 @@
   font-size: 14px;
   color: #55606e;
   position: relative; }
+  @media (min-width: 768px) {
+    .ais-hierarchical-menu--link,
+    .ais-refinement-list--label {
+      margin-bottom: 6px; } }
 
 .ais-refinement-list--count,
 .ais-hierarchical-menu--count {
