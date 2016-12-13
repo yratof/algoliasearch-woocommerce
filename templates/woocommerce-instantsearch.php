@@ -221,7 +221,7 @@
 			}
 
 			/* Search box widget */
-			if ( $theme_search_inputs.length === 0 ) {
+			if ( $theme_search_inputs.length === 0 || algolia.woocommerce.page !== 'other' ) {
 				search.addWidget(
 					instantsearch.widgets.searchBox({
 						container: '#algolia-search-box',
@@ -231,6 +231,9 @@
 				);
 			} else {
 				$('#algolia-search-box').hide();
+			}
+			if ( $theme_search_inputs.length === 0 ) {
+
 				search.addWidget({
 					init: function() {
 						$theme_search_inputs.val(search.helper.state.query);
