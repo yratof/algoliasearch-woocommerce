@@ -1,5 +1,6 @@
 #algolia-search-box{ 
   position: relative;
+  margin-bottom: em(20);
 
   input {
     width: 100%;
@@ -64,7 +65,7 @@
 }
 
 #algolia-selectors {
-  margin: em(20) 0;
+  margin: 0 0 em(20);
 
   @include clearfix();
 

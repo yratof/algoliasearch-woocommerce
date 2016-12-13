@@ -84,17 +84,11 @@
   background-size: 12px;
 }
 #algolia-mobile-filters button {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><style>.st0{fill:%23bcbcbc;}</style><path d=\'M376.5 46.1H29.7c-9.4 0-14.2 11.4-7.5 18.1L160.1 202c2 2 3.1 4.7 3.1 7.5v156.2c0 8.8 10.1 13.8 17.1 8.4l58.6-45.5c2.6-2 4.1-5.1 4.1-8.4V209.5c0-2.8 1.1-5.5 3.1-7.5L383.9 64.2c6.7-6.7 2-18.1-7.4-18.1z\' class=\'st0\'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 16px center;
-  background-size: 12px;
-}
-
-#algolia-mobile-filters button {
   display: inline-block;
   border-width: 0;
   font-size: 1rem;
   line-height: 1.75em;
+  margin: 0;
   padding: em(4) em(40) em(4) em(15);
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -109,6 +103,11 @@
 
   color:#697782;
   background-color: #FFF;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 400\'><style>.st0{fill:%23bcbcbc;}</style><path d=\'M376.5 46.1H29.7c-9.4 0-14.2 11.4-7.5 18.1L160.1 202c2 2 3.1 4.7 3.1 7.5v156.2c0 8.8 10.1 13.8 17.1 8.4l58.6-45.5c2.6-2 4.1-5.1 4.1-8.4V209.5c0-2.8 1.1-5.5 3.1-7.5L383.9 64.2c6.7-6.7 2-18.1-7.4-18.1z\' class=\'st0\'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 12px;
+
   font-weight: 600;
   font-size: 14px;
   border:1px solid $element-border;
@@ -124,6 +123,7 @@
   border-width: 0;
   font-size: 1rem;
   line-height: 1.75em;
+  margin: 0;
   padding: em(4) em(40) em(4) em(15);
   -webkit-appearance: none;
   -moz-appearance: none;

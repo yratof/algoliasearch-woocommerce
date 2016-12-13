@@ -405,9 +405,7 @@
 			search.start();
 
 
-			//-------------------------------
-			// Handle swipe
-			//-------------------------------
+			/* Handle swipe */
 			var $facets = $('#ais-facets');
 			var $wrapper = $('.ais-facets__wrapper');
 
