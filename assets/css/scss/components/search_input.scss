@@ -80,36 +80,6 @@
     float: right;
   }
   
-  @media (max-width:768px) {
-    text-align: left;
-    margin: em(5) 0 em(10) 0;
-
-    #algolia-stats {
-      line-height: 26px;
-      width: 100%;
-      margin-bottom: 3px;
-    }
-
-    #algolia-sort-by {
-      float: left;
-    }
-
-    .algolia-filters {
-      width: 50%;
-      float: left;
-      &:last-child{
-        padding-left: 10px;
-      }
-      &:not(:last-child){
-        padding-right: 10px;
-      }
-
-      button, select {
-        width: 100%;
-      }
-    }
-  }
-
   @media (max-width:420px) {
 
     button,select {
