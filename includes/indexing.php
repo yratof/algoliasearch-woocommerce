@@ -41,6 +41,7 @@ function aw_product_shared_attributes( array $attributes, WP_Post $post ) {
 	$attributes['review_count'] = (int) $product->get_review_count();
 	$attributes['dimensions'] = (string) $product->get_dimensions();
 	$attributes['variations_count'] = $variations_count;
+	$attributes['is_featured'] = $product->is_featured() ? 1 : 0;
 
 	// TODO: Not sure how this behaves with variants.
 	$attributes['total_sales'] = (int) get_post_meta( $post->ID, 'total_sales', true );
@@ -79,3 +80,17 @@ function aw_should_index_post( $should_index, WP_Post $post ) {
 
 add_filter( 'algolia_should_index_post', 'aw_should_index_post', 10, 2 );
 add_filter( 'algolia_should_index_searchable_post', 'aw_should_index_post', 10, 2 );
+
+
+// Customize the default settings for the products index.
+function aw_products_settings( array $settings ) {
+	$custom_ranking = $settings['customRanking'];
+	array_unshift( $custom_ranking, 'desc(is_featured)' );
+	$custom_ranking = array_unique( $custom_ranking );
+
+	$settings['customRanking'] = $custom_ranking;
+
+	return $settings;
+}
+
+add_filter( 'algolia_posts_product_index_settings', 'aw_products_settings' );
