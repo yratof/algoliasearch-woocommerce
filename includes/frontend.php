@@ -35,6 +35,9 @@ function aw_enqueue_script() {
 		wp_enqueue_script( 'wp-util' );
 		wp_enqueue_style( 'algolia-woocommerce-instantsearch' );
 		wp_add_inline_style( 'algolia-woocommerce-instantsearch', aw_get_user_styles() );
+
+		// Avoid flickering. In JS so that if JS is turned off, page displays nicely.
+		wp_add_inline_script( 'algolia-instantsearch', 'document.write(\'<style type="text/css"> ' . aw_get_selector() . '{display:none}</style>\');' );
 	}
 }
 

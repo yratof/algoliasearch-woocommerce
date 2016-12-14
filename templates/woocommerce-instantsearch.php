@@ -404,6 +404,9 @@
 
 			/* Start */
 			search.start();
+			if (algolia.woocommerce.page !== 'other') {
+				container.show();
+			}
 
 
 			/* Handle swipe */
