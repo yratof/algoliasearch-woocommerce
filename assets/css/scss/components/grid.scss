@@ -2,11 +2,11 @@
 $normal : "alg-hits--n-col";
 $gridColumns: 5;
 
-$mobileBreakpoint: (0, 550px, "xs", "alg-container--xs");
-$smallBreakpoint: (550px, 768px, "sm", "alg-container--sm");
-$mediumBreakpoint: (768px, 992px, "md", "alg-container--md");
-$largeBreakpoint: (992px, 1240px, "lg", "alg-container--lg");
-$XlargeBreakpoint: (1240px, 0, "xl", "alg-container--xl");
+$mobileBreakpoint: (0, 550px, "xs", "alg-container--xs", true);
+$smallBreakpoint: (550px, 768px, "sm", "alg-container--sm", true);
+$mediumBreakpoint: (768px, 992px, "md", "alg-container--md", false);
+$largeBreakpoint: (992px, 1240px, "lg", "alg-container--lg", false);
+$XlargeBreakpoint: (1240px, 0, "xl", "alg-container--xl", false);
 
 $layoutMap : (
 	$mobileBreakpoint, 
@@ -49,50 +49,6 @@ $layoutMap : (
 	} @else {
 		@return 100 - (getItemWidth($items, $gutter) * $items);
 	}
-}
-
-//---------------------------
-// 	Generate breakpoint --n-column-<breakpoint> clases
-//---------------------------
-@for $i from 1 through length($layoutMap) {
-  $map: nth($layoutMap, $i);
-
-	.alg-show-on-#{nth($map,3)} {
-		display: none !important;
-	}
-
-	// @include breakpoint(nth($map,1),nth($map,2)) {
-	.#{nth($map,4)} {
-		@for $j from 1 through $gridColumns {
-
-		.alg-hide-on-#{nth($map,3)} {
-			display: none;
-		}
-
-		.alg-show-on-#{nth($map,3)} {
-			display: initial !important;
-		}
-
-		.#{str-replace($normal, "--n-col", "--#{$j}-col-#{nth($map,3)}")} {
-
-				.ais-hits--item {
-					float: left;
-					width: getItemWidth($j, 2)#{"%"};
-					margin-right: getPreciseGutter($j, 2)#{"%"};
-					@if $j > 1 {
-						margin-bottom: getPreciseGutter($j, 2)#{"%"};
-					} @else {
-						margin-bottom: 15px;
-					}
-
-					&:nth-child(#{$j}n) {
-						margin-right: 0;
-					}
-				}
-			}
-		}
-	}
-	// }
 }
 
 @mixin smallHit(){
@@ -153,6 +109,228 @@ $layoutMap : (
 
 	.algolia-stats {
 		text-align: right;
+	}
+}
+
+@mixin mobileFilters() {
+	#ais-main {
+		
+		#algolia-search-box {
+			margin-bottom: em(4);
+		}
+	}
+
+	#algolia-selectors {
+	  text-align: left;
+	  margin: em(5) 0 em(10) 0;
+
+	  #algolia-stats {
+	    line-height: 26px;
+	    width: 100%;
+	    margin-bottom: 3px;
+	  }
+
+	  #algolia-sort-by {
+	    float: left;
+	  }
+
+	  .algolia-filters {
+	    width: 50%;
+	    float: left;
+
+	    &:last-child {
+	      padding-left: 10px;
+	    }
+
+	    &:not(:last-child) {
+	      padding-right: 10px;
+	    }
+
+	    button, select {
+	      width: 100%;
+			}
+	  }
+  }
+	#ais-facets{
+	  right:0;
+    top:0;
+    width:60%;
+    height:100%;
+    opacity: 0;
+    transform:translate(100%,0);
+    transition: opacity 220ms 100ms ease, transform 300ms cubic-bezier(.4,0,0,1), outline 400ms ease;
+    background-color: #FFF;
+    position: fixed;
+    z-index: 999999;
+    outline: 9999px solid rgba(0,0,0,0.5);
+
+    .ais-hierarchical-menu--link,
+		.ais-refinement-list--label{
+			margin-bottom: 0;
+		}
+
+    &.ais-facets--visible {
+      transform:translate(0,0);
+      transition: outline 900ms ease, transform 400ms cubic-bezier(.4,0,0,1);
+      opacity: 1;
+    }
+
+    .ais-facets__wrapper {
+      height: 100%;
+      position: relative;
+      overflow:auto;
+      
+      .ais-facets {
+        padding-right: 0;
+        margin: 0;
+      }
+
+      .ais-hierarchical-menu--header{
+        @include facetHeader();
+      }
+
+      .ais-hierarchical-menu--item {
+        font-size: $listFontSize;
+        max-height:42px;
+        transition:1200ms linear;
+        overflow:hidden; 
+
+        > div > a {
+          padding: $listPadding;
+        }
+
+        &__active {
+          max-height: 400px;
+
+          > div > a {
+            color:black;
+
+            .ais-hierarchical-menu--count {
+              color: white;
+            }
+          }
+        }
+
+        .ais-hierarchical-menu--count {
+          line-height: 14px;
+          right: $caretPosition;
+        }
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $facetMenuColor;
+        }
+      }
+
+      .ais-hierarchical-menu--list__lvl1 {
+        margin-left: 0;
+
+        .ais-hierarchical-menu--item > div > a {
+          background-color: lighten(black, 96%);
+          
+          .ais-hierarchical-menu--count {
+            color:#43454b;
+          }
+        }
+        .ais-hierarchical-menu--item__active > div > a {
+
+          .ais-hierarchical-menu--count {
+            color:white;
+          }
+        }
+      }
+
+      .ais-hierarchical-menu--link {
+        position: relative;
+        max-width: 100%;
+      }
+
+      .ais-hierarchical-menu--list__lvl0{
+
+      }
+      .ais-refinement-list {
+
+        .ais-refinement-list--header {
+          @include facetHeader();
+        }
+
+        .ais-refinement-list--count {
+          right:$caretPosition;
+        }
+
+        .ais-refinement-list--item{
+
+          > div > label {
+            font-size: $listFontSize;
+            padding: $listPadding;
+          }
+
+          &__active {
+            > div > label {
+
+              .ais-refinement-list--count {
+                color:white;
+              }
+            }
+          }
+        }
+      }
+
+      .ais-range-slider--header{
+        @include facetHeader();
+      }
+
+      .ais-range-slider--body{
+        margin-top: 4px;
+        padding: 0 40px 1px 40px;
+      }
+    }
+  }
+}
+
+
+//---------------------------
+// 	Generate breakpoint --n-column-<breakpoint> clases
+//---------------------------
+@for $i from 1 through length($layoutMap) {
+  $map: nth($layoutMap, $i);
+
+	.alg-show-on-#{nth($map,3)} {
+		display: none !important;
+	}
+
+	.#{nth($map,4)} {
+		@for $j from 1 through $gridColumns {
+
+		.alg-hide-on-#{nth($map,3)} {
+			display: none;
+		}
+
+		@if(nth($map,5)){
+			@include mobileFilters();
+		}
+
+		.alg-show-on-#{nth($map,3)} {
+			display: initial !important;
+		}
+
+		.#{str-replace($normal, "--n-col", "--#{$j}-col-#{nth($map,3)}")} {
+
+				.ais-hits--item {
+					float: left;
+					width: getItemWidth($j, 2)#{"%"};
+					margin-right: getPreciseGutter($j, 2)#{"%"};
+					@if $j > 1 {
+						margin-bottom: getPreciseGutter($j, 2)#{"%"};
+					} @else {
+						margin-bottom: 15px;
+					}
+
+					&:nth-child(#{$j}n) {
+						margin-right: 0;
+					}
+				}
+			}
+		}
 	}
 }
 
