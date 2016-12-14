@@ -1,3 +1,7 @@
+## Documentation
+
+[Follow this link to access the documentation](https://community.algolia.com/woocommerce/quick-start.html)
+
 ## Development
 
 **Install dev deps**
