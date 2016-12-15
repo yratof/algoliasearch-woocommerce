@@ -221,7 +221,43 @@ function aw_woocommerce_config( array $config ) {
 		$config['woocommerce']['page'] = 'other';
 	}
 
-	$config['woocommerce']['attributes'] = wc_get_attribute_taxonomies();
+	$attributes = wc_get_attribute_taxonomies();
+	
+	$attributes_for_faceting = array();
+	foreach ( $attributes as $attribute ) {
+		$attribute = (array) $attribute;
+		if ( $attribute['attribute_type'] !== 'select' ) {
+			continue;
+		}
+
+		$attribute['attribute_id'] = (int) $attribute['attribute_id'];
+		$attribute['attribute_public'] = (bool) $attribute['attribute_public'];
+
+		$attributes_for_faceting[] = array_merge( (array) $attribute, array(
+			'operator'     => 'or',
+			'limit'	       => 8,
+			'show_more'    => true,
+			'sort_by'	   => array( 'isRefined:desc', 'count:desc', 'name:asc' ),
+			'is_enabled'   => true, // Todo: find a better default for this.
+			'weight'	   => 0,
+		) );
+	}
+
+	// Let users filter attributes for faceting.
+	$attributes_for_faceting = (array) apply_filters( 'algolia_wc_attributes_for_faceting', $attributes_for_faceting );
+	
+	// Remove all attributes that are not public.
+	$attributes_for_faceting = array_filter( $attributes_for_faceting, function( $attribute ) {
+		return (bool) $attribute['is_enabled'];
+	} );
+
+	// Order attributes based on weight.
+	usort( $attributes_for_faceting, function ( $a, $b ) {
+		return $a['weight'] > $b['weight'];
+	} );
+
+	$config['woocommerce']['attributes_for_faceting'] = $attributes_for_faceting;
+
 
 	$algolia = Algolia_Plugin::get_instance();
 	$index = $algolia->get_index( 'posts_product' );
