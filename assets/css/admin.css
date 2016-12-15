@@ -441,7 +441,8 @@
     margin: 0;
     padding: 0;
     position: relative;
-    overflow: hidden; }
+    overflow: hidden;
+    text-align: center; }
     .alg-hit figure img {
       margin: 0;
       padding: 0;

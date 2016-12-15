@@ -55,7 +55,8 @@
     margin: 0;
     padding: 0;
     position: relative;
-    overflow: hidden; }
+    overflow: hidden;
+    text-align: center; }
     .alg-hit figure img {
       margin: 0;
       padding: 0;
@@ -432,7 +433,8 @@
 
 /* Facets */
 .ais-facets {
-  padding-right: 2em; }
+  padding-right: 2em;
+  text-align: left; }
   .ais-facets .ais-header h4 {
     font-size: 16px;
     font-weight: bold;
