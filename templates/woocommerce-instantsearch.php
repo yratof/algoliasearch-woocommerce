@@ -253,7 +253,7 @@
 					},
 					render: function(results) {
 						if(algolia.woocommerce.page === 'other') {
-;							if(results.state.query.length > 0) {
+							if(results.state.query.length > 0) {
 								container.hide();
 								search_container.show();
 								update_container_class();
