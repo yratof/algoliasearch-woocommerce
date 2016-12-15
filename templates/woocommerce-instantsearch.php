@@ -74,7 +74,7 @@
 							}
 							product_cats = product_cats.join(', ');
 						#>
-						{{{product_cats}}}
+						{{{product_cats}}} &nbsp;
 						</p>
 						<p class="alg-hit__priceholder">
 							<# if(data.is_on_sale === true && data.product_type !== 'variable') { #>
