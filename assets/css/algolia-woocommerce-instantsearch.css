@@ -60,7 +60,8 @@
       left: 0;
       top: 0;
       overflow: hidden;
-      position: absolute; }
+      position: absolute;
+      text-align: left; }
   .alg-hit figure {
     height: 200px;
     margin: 0;
