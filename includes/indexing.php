@@ -42,6 +42,7 @@ function aw_product_shared_attributes( array $attributes, WP_Post $post ) {
 	$attributes['dimensions'] = (string) $product->get_dimensions();
 	$attributes['variations_count'] = $variations_count;
 	$attributes['is_featured'] = $product->is_featured() ? 1 : 0;
+	$attributes['sku'] = $product->get_sku();
 
 	// TODO: Not sure how this behaves with variants.
 	$attributes['total_sales'] = (int) get_post_meta( $post->ID, 'total_sales', true );
@@ -89,6 +90,10 @@ function aw_products_settings( array $settings ) {
 	$custom_ranking = array_unique( $custom_ranking );
 
 	$settings['customRanking'] = $custom_ranking;
+
+
+	$settings['attributesToIndex'][] = 'sku';
+	$settings['attributesToIndex'] = array_unique( $settings['attributesToIndex'] );
 
 	return $settings;
 }
