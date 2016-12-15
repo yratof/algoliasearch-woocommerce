@@ -129,7 +129,7 @@
 
 
 			if($('#algolia-search-box').length === 0) {
-				alert('Unable to find the node to add instantsearch.');
+				console.log('Unable to find the node to add instantsearch.');
 				return;
 			}
 
