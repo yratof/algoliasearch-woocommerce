@@ -76,6 +76,9 @@
 						#>
 						{{{product_cats}}} &nbsp;
 						</p>
+
+
+
 						<p class="alg-hit__priceholder">
 							<# if(data.is_on_sale === true && data.product_type !== 'variable') { #>
 								<span class="alg-hit__previousprice">
@@ -87,6 +90,17 @@
 								<# } #>
 							</span>
 						</p>
+						<# var rating_percentage = Math.round(data.average_rating * 2 * 10); #>
+
+						<div class="alg-stars">
+							<# if(data.rating_count > 0) { #>
+							&#x2606&#x2606&#x2606&#x2606&#x2606
+								<span class="alg-rating" style="width:{{rating_percentage}}%;">&#x2605&#x2605&#x2605&#x2605&#x2605</span>
+							<# } else { #>
+								&nbsp;
+							<# } #>
+						</div>
+
 					</div>
 				</div>
 			</article>
