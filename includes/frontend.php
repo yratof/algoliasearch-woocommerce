@@ -193,11 +193,7 @@ add_filter( 'algolia_default_template', 'aw_default_template', 9, 2 );
  * @return array
  */
 function aw_woocommerce_config( array $config ) {
-	global $wp_query;
-
-	$config['woocommerce']['products_per_page'] = $wp_query->get( 'posts_per_page' );
-
-
+	$config['woocommerce']['products_per_page'] = (int) apply_filters( 'loop_shop_per_page', function() { return 24; } );
 	$config['woocommerce']['selector'] = aw_get_selector();
 
 	// WooCommerce settings.
