@@ -1,3 +1,15 @@
+# 0.4.0
+- Add a filter hook to allow filtering attributes used in faceting
+- Make the number of products displayed consistent across all the pages
+- Add stars rating to the products display
+- Make sure product block height is consistent even if the product has no category
+- Fix upper bound price positioning on the range slider widget
+- Make sure everything is always aligned left on the faceting sidebar
+- Index product skus and make them searchable
+- Remove javascript notification in frontend on pages where the instantsearch container didn't match anything
+- Avoid the default theme being displayed on page initial load
+- Index the fact that products are featured or not and use it in the custom ranking as first rule
+
 # 0.3.0
 - Reserve 2 lines for displaying the product title
 - Update the default styles of the search
