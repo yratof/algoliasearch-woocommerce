@@ -535,6 +535,13 @@
 
 .ais-range-slider--body {
   padding: 0 10px; }
+  .ais-range-slider--body .ais-range-slider--origin:nth-child(2) .ais-range-slider--tooltip {
+    right: 0px; }
+  .ais-range-slider--body .ais-range-slider--tooltip {
+    position: absolute;
+    top: 22px;
+    font-size: .8em;
+    color: #697782; }
 
 .ais-range-slider--background {
   background-color: #F3F3F3; }
@@ -588,12 +595,6 @@
 .ais-range-slider--handle-upper {
   right: 10px;
   bottom: 7px; }
-
-.ais-range-slider--tooltip {
-  position: absolute;
-  top: 22px;
-  font-size: .8em;
-  color: #697782; }
 
 .ais-range-slider--pips {
   box-sizing: border-box;

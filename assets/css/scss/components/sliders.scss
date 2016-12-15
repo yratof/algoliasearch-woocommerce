@@ -1,5 +1,17 @@
 .ais-range-slider--body {
   padding: 0 10px;
+
+  .ais-range-slider--origin:nth-child(2) {
+    .ais-range-slider--tooltip {
+      right: 0px;
+    }
+  }
+  .ais-range-slider--tooltip {
+    position: absolute;
+    top: 22px;
+    font-size: .8em;
+    color:#697782;
+  }
 }
 
 .ais-range-slider--background {
@@ -65,12 +77,7 @@
   bottom: 7px;
 }
 
-.ais-range-slider--tooltip {
-  position: absolute;
-  top: 22px;
-  font-size: .8em;
-  color:#697782;
-}
+
 
 .ais-range-slider--pips {
   box-sizing: border-box;
