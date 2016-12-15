@@ -436,6 +436,17 @@
   box-shadow: 0 1px 1px 0 rgba(85, 95, 110, 0.2);
   border-radius: 3px;
   border: solid 1px #d4d8e3; }
+  .alg-hit .alg-stars {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    color: #FFC168; }
+    .alg-hit .alg-stars .alg-rating {
+      display: inline-block;
+      left: 0;
+      top: 0;
+      overflow: hidden;
+      position: absolute; }
   .alg-hit figure {
     height: 200px;
     margin: 0;
