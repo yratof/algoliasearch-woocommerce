@@ -319,14 +319,14 @@
 			);
 
 			var $attributes_container = $('#ais-wc-attributes');
-			for ( var i in algolia.woocommerce.attributes ) {
-				var attribute_name = algolia.woocommerce.attributes[i]['attribute_name'];
-				var attribute_label = algolia.woocommerce.attributes[i]['attribute_label'];
-				var attribute_type = algolia.woocommerce.attributes[i]['attribute_type'];
-
-				if ( attribute_type !== 'select' ) {
-					continue;
-				}
+			for ( var i in algolia.woocommerce.attributes_for_faceting ) {
+				var attribute_name = algolia.woocommerce.attributes_for_faceting[i]['attribute_name'];
+				var attribute_label = algolia.woocommerce.attributes_for_faceting[i]['attribute_label'];
+				var attribute_type = algolia.woocommerce.attributes_for_faceting[i]['attribute_type'];
+				var attribute_operator = algolia.woocommerce.attributes_for_faceting[i]['operator'];
+				var attribute_limit = algolia.woocommerce.attributes_for_faceting[i]['limit'];
+				var attribute_show_more = algolia.woocommerce.attributes_for_faceting[i]['show_more'];
+				var attribute_sort_by = algolia.woocommerce.attributes_for_faceting[i]['sort_by'];
 
 				$attributes_container.append( '<section class="ais-facets" id="facet-attribute-' + attribute_name + '"></section>' );
 
@@ -334,10 +334,10 @@
 					instantsearch.widgets.refinementList({
 						container: '#facet-attribute-' + attribute_name,
 						attributeName: 'taxonomies.pa_' + attribute_name,
-						operator: 'or',
-						limit: 8,
-						showMore: true,
-						sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
+						operator: attribute_operator,
+						limit: attribute_limit,
+						showMore: attribute_show_more,
+						sortBy: attribute_sort_by,
 						templates: {
 							header: '<h4>Filter by ' + attribute_label + '</h4>'
 						}
