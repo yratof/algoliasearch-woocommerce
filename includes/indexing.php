@@ -99,3 +99,4 @@ function aw_products_settings( array $settings ) {
 }
 
 add_filter( 'algolia_posts_product_index_settings', 'aw_products_settings' );
+

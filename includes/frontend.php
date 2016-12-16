@@ -37,7 +37,15 @@ function aw_enqueue_script() {
 		wp_add_inline_style( 'algolia-woocommerce-instantsearch', aw_get_user_styles() );
 
 		// Avoid flickering. In JS so that if JS is turned off, page displays nicely.
-		wp_add_inline_script( 'algolia-instantsearch', 'document.write(\'<style type="text/css"> ' . aw_get_selector() . '{display:none}</style>\');' );
+		// Only use this trick on pages where instantsearch.js is not displayed by default.
+		$pages = aw_get_pages();
+		if (
+			( is_product_category() && in_array( 'category', $pages ) ) ||
+			( is_product_tag() && in_array( 'tag', $pages ) ) ||
+			( is_search() && in_array( 'search', $pages ) && isset( $_GET['post_type'] ) && $_GET['post_type'] === 'product' )
+		) {
+			wp_add_inline_script( 'algolia-instantsearch', 'document.write(\'<style type="text/css"> ' . aw_get_selector() . '{display:none}</style>\');' );
+		}
 	}
 }
 
