@@ -44,7 +44,9 @@ function aw_enqueue_script() {
 			( is_product_tag() && in_array( 'tag', $pages ) ) ||
 			( is_search() && in_array( 'search', $pages ) && isset( $_GET['post_type'] ) && $_GET['post_type'] === 'product' )
 		) {
-			wp_add_inline_script( 'algolia-instantsearch', 'document.write(\'<style type="text/css"> ' . aw_get_selector() . '{display:none}</style>\');' );
+			$selector = aw_get_selector();
+			$selector = str_replace( array( ':first', ':last' ), array( ':first-child', ':last-child' ), $selector );
+			wp_add_inline_script( 'algolia-instantsearch', 'document.write(\'<style type="text/css"> ' . $selector . '{display:none}</style>\');' );
 		}
 	}
 }
