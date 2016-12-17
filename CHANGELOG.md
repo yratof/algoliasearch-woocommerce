@@ -1,3 +1,13 @@
+# 0.5.0
+- Reduce price font size on mobile
+- Make search statistics fit on mobile device
+- Make sure slider price tooltips do not break to multiple lines
+- Only replace page with instantsearch.js according to configuration
+- Avoid flickering when using :first or :last in zoning selector
+- Only avoid flickering on pages where instantsearch.js should replace the whole page
+- Disable typo tolerance on SKUs
+- Ensure rating stars display correctly even if aligned in center or right
+
 # 0.4.0
 - Add a filter hook to allow filtering attributes used in faceting
 - Make the number of products displayed consistent across all the pages
