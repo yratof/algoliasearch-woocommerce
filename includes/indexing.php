@@ -91,9 +91,15 @@ function aw_products_settings( array $settings ) {
 
 	$settings['customRanking'] = $custom_ranking;
 
-
-	$settings['attributesToIndex'][] = 'sku';
+	$settings['attributesToIndex'][] = 'unordered(sku)';
 	$settings['attributesToIndex'] = array_unique( $settings['attributesToIndex'] );
+
+	if ( ! isset( $settings['disableTypoToleranceOnAttributes'] ) ) {
+		$settings['disableTypoToleranceOnAttributes'] = array();
+	}
+
+	$settings['disableTypoToleranceOnAttributes'][] = 'sku';
+	$settings['disableTypoToleranceOnAttributes'] = array_unique( $settings['disableTypoToleranceOnAttributes'] );
 
 	return $settings;
 }
