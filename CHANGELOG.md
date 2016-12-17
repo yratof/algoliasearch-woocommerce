@@ -1,3 +1,6 @@
+# 0.5.1
+- Adapt design of the pagination
+
 # 0.5.0
 - Reduce price font size on mobile
 - Make search statistics fit on mobile device
