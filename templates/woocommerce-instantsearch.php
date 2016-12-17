@@ -108,7 +108,8 @@
 
 	<script type="text/html" id="tmpl-stats">
 		<div class="alg-stats">
-			We found {{ data.nbHits }} products
+			<span class="alg-hide-on-xs">We found</span>
+			{{ data.nbHits }} products
 			<# if(data.query.length > 0) { #>
 			matching "<span class="alg-primary-color">{{ data.query }}</span>"
 			<# } #>
