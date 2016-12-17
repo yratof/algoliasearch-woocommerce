@@ -37,7 +37,17 @@ function aw_enqueue_script() {
 		wp_add_inline_style( 'algolia-woocommerce-instantsearch', aw_get_user_styles() );
 
 		// Avoid flickering. In JS so that if JS is turned off, page displays nicely.
-		wp_add_inline_script( 'algolia-instantsearch', 'document.write(\'<style type="text/css"> ' . aw_get_selector() . '{display:none}</style>\');' );
+		// Only use this trick on pages where instantsearch.js is not displayed by default.
+		$pages = aw_get_pages();
+		if (
+			( is_product_category() && in_array( 'category', $pages ) ) ||
+			( is_product_tag() && in_array( 'tag', $pages ) ) ||
+			( is_search() && in_array( 'search', $pages ) && isset( $_GET['post_type'] ) && $_GET['post_type'] === 'product' )
+		) {
+			$selector = aw_get_selector();
+			$selector = str_replace( array( ':first', ':last' ), array( ':first-child', ':last-child' ), $selector );
+			wp_add_inline_script( 'algolia-instantsearch', 'document.write(\'<style type="text/css"> ' . $selector . '{display:none}</style>\');' );
+		}
 	}
 }
 
@@ -204,6 +214,9 @@ function aw_woocommerce_config( array $config ) {
 	$config['woocommerce']['number_decimals'] = (int) get_option( 'woocommerce_price_num_decimals', '2' );
 	$config['woocommerce']['thousands_separator'] = get_option( 'woocommerce_price_thousand_sep', ',' );
 
+	$config['woocommerce']['replace_page'] = false;
+
+	$pages = aw_get_pages();
 	if(is_product_category()) {
 		$config['woocommerce']['page'] = 'category';
 
@@ -211,12 +224,24 @@ function aw_woocommerce_config( array $config ) {
 		$category_full_path = Algolia_Utils::get_taxonomy_tree( array( $category ), 'product_cat' );
 		$deepest_level = array_pop( $category_full_path );
 		$config['woocommerce']['category'] = html_entity_decode( $deepest_level[0] );
+
+		if ( in_array( 'category', $pages ) ) {
+			$config['woocommerce']['replace_page'] = true;
+		}
 	} elseif(is_product_tag()) {
 		$config['woocommerce']['page'] = 'tag';
 		$tag = get_queried_object();
 		$config['woocommerce']['tag'] = html_entity_decode( $tag->name );
+
+		if ( in_array( 'tag', $pages ) ) {
+			$config['woocommerce']['replace_page'] = true;
+		}
 	} elseif(is_search()) {
 		$config['woocommerce']['page'] = 'search';
+
+		if ( in_array( 'search', $pages ) ) {
+			$config['woocommerce']['replace_page'] = true;
+		}
 	} else {
 		$config['woocommerce']['page'] = 'other';
 	}
@@ -311,47 +336,6 @@ function aw_woocommerce_config( array $config ) {
 }
 
 add_filter( 'algolia_config', 'aw_woocommerce_config', 5 );
-
-/**
- * @param array         $replicas
- * @param Algolia_Index $index
- *
- * @return array
- */
-function aw_products_index_replicas( array $replicas, Algolia_Index $index ) {
-	if ( 'posts_product' !== $index->get_id() ) {
-		return $replicas;
-	}
-
-	$mapping = aw_get_sort_by_mapping();
-	foreach ( $mapping as $sort ) {
-		if ( ! isset( $sort['attribute'] ) ) {
-			// No attribute means we are dealing with the master index.
-			continue;
-		}
-
-		$order = isset( $sort['order'] ) ? $sort['order'] : 'desc';
-		$replicas[] = new Algolia_Index_Replica( $sort['attribute'], $order );
-	}
-
-	return $replicas;
-}
-
-add_filter( 'algolia_index_replicas', 'aw_products_index_replicas', 10, 2 );
-
-/**
- * @param array $settings
- *
- * @return array
- */
-function aw_product_index_settings( array $settings ) {
-
-	$settings['attributesForFaceting'][] = 'price';
-
-	return $settings;
-}
-
-add_filter( 'algolia_posts_product_index_settings', 'aw_product_index_settings' );
 
 /**
  * @return array
