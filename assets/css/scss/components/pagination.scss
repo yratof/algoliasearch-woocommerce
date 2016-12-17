@@ -19,24 +19,20 @@
     &__active {
 
       .ais-pagination--link {
-        background: $blue;
-        color: #FFF;
-        box-shadow: 0px 5px 16px 0px rgba(27, 54, 86, 0.15);
-        
-        &:hover {
-          color:white;
-        }
+        box-shadow: 0 1px 1px 0 rgba(85, 95, 110, 0.2);
+        border:1px solid #D4D8E3;
       }
     }
   }
 
   .ais-pagination--link {
-    padding: 10px 18px;
-    font-weight: normal;
     display: block;
     outline: none;
-    border: none;
-    color: #43454b;
+    padding: 10px 18px;
+    font-weight: normal;
+    color: $font-light;
+    border-radius: 4px;
+    border: 1px solid transparent;
 
     &:hover{
       color:$blue; 
