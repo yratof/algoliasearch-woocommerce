@@ -214,6 +214,9 @@ function aw_woocommerce_config( array $config ) {
 	$config['woocommerce']['number_decimals'] = (int) get_option( 'woocommerce_price_num_decimals', '2' );
 	$config['woocommerce']['thousands_separator'] = get_option( 'woocommerce_price_thousand_sep', ',' );
 
+	$config['woocommerce']['replace_page'] = false;
+
+	$pages = aw_get_pages();
 	if(is_product_category()) {
 		$config['woocommerce']['page'] = 'category';
 
@@ -221,12 +224,24 @@ function aw_woocommerce_config( array $config ) {
 		$category_full_path = Algolia_Utils::get_taxonomy_tree( array( $category ), 'product_cat' );
 		$deepest_level = array_pop( $category_full_path );
 		$config['woocommerce']['category'] = html_entity_decode( $deepest_level[0] );
+
+		if ( in_array( 'category', $pages ) ) {
+			$config['woocommerce']['replace_page'] = true;
+		}
 	} elseif(is_product_tag()) {
 		$config['woocommerce']['page'] = 'tag';
 		$tag = get_queried_object();
 		$config['woocommerce']['tag'] = html_entity_decode( $tag->name );
+
+		if ( in_array( 'tag', $pages ) ) {
+			$config['woocommerce']['replace_page'] = true;
+		}
 	} elseif(is_search()) {
 		$config['woocommerce']['page'] = 'search';
+
+		if ( in_array( 'search', $pages ) ) {
+			$config['woocommerce']['replace_page'] = true;
+		}
 	} else {
 		$config['woocommerce']['page'] = 'other';
 	}

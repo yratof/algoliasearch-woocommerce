@@ -133,7 +133,7 @@
 				return;
 			}
 
-			if (algolia.woocommerce.page === 'other') {
+			if (algolia.woocommerce.replace_page === false) {
 				/* Search will not be displayed by default so we need to keep a reference to the original content. */
 				var search_container = container.clone().html(wp.template('instantsearch'));
 				search_container.hide();
@@ -236,7 +236,7 @@
 			}
 
 			/* Search box widget */
-			if ( $theme_search_inputs.length === 0 || algolia.woocommerce.page !== 'other' ) {
+			if ( $theme_search_inputs.length === 0 || algolia.woocommerce.replace_page === true ) {
 				search.addWidget(
 					instantsearch.widgets.searchBox({
 						container: '#algolia-search-box',
@@ -253,7 +253,7 @@
 						$theme_search_inputs.val(search.helper.state.query);
 					},
 					render: function(results) {
-						if(algolia.woocommerce.page === 'other') {
+						if(algolia.woocommerce.replace_page === false) {
 							if(results.state.query.length > 0) {
 								container.hide();
 								search_container.show();
@@ -419,7 +419,7 @@
 
 			/* Start */
 			search.start();
-			if (algolia.woocommerce.page !== 'other') {
+			if (algolia.woocommerce.replace_page === true) {
 				container.show();
 			}
 
