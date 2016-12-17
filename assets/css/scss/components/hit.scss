@@ -200,7 +200,9 @@
 			margin:0 8px 0 0;
 			padding:0;
 			text-decoration: line-through;
-
+			@media (max-width:550px) {
+				font-size: 12px;
+			}
 		}
 
 		@include component('hit','currentprice') {
@@ -210,6 +212,10 @@
 			line-height: 100%;
 			margin:0;
 			padding:0;
+
+			@media (max-width:550px) {
+				font-size: 14px;
+			}
 		}
 
 		p {

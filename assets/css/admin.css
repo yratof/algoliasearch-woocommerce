@@ -587,6 +587,9 @@
       margin: 0 8px 0 0;
       padding: 0;
       text-decoration: line-through; }
+      @media (max-width: 550px) {
+        .alg-hit .alg-hit__details .alg-hit__previousprice {
+          font-size: 12px; } }
     .alg-hit .alg-hit__details .alg-hit__currentprice {
       color: #31c0f8;
       font-size: 18px;
@@ -594,6 +597,9 @@
       line-height: 100%;
       margin: 0;
       padding: 0; }
+      @media (max-width: 550px) {
+        .alg-hit .alg-hit__details .alg-hit__currentprice {
+          font-size: 14px; } }
     .alg-hit .alg-hit__details p {
       white-space: nowrap; }
   .alg-hit:hover img {
