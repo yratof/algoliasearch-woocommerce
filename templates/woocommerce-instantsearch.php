@@ -419,10 +419,10 @@
 
 			/* Start */
 			search.start();
-			if (algolia.woocommerce.replace_page === true) {
+			if (algolia.woocommerce.replace_page === true || window.location.hash.length > 0) {
 				container.show();
 			}
-			
+
 			/* Handle swipe */
 			var $facets = $('#ais-facets');
 			var $wrapper = $('.ais-facets__wrapper');
