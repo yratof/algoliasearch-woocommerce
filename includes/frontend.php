@@ -69,7 +69,6 @@ function aw_get_user_styles() {
 		'.ais-range-slider--connect',
 		'.alg-hit .alg-hit__ribbon',
 		'.alg-hit .alg-hit__overlay .alg-cta--blue',
-		'.ais-pagination .ais-pagination--item__active .ais-pagination--link',
 		'.ais-hierarchical-menu--item.ais-hierarchical-menu--item__active > div > a .ais-hierarchical-menu--count',
 		'#ais-facets .ais-facets__wrapper .ais-hierarchical-menu--item__active > div > a .ais-hierarchical-menu--count',
 		'#ais-facets .ais-facets__wrapper .ais-hierarchical-menu--list__lvl1 .ais-hierarchical-menu--item__active > div > a .ais-hierarchical-menu--count',
@@ -79,6 +78,7 @@ function aw_get_user_styles() {
 	$styles  = implode( ', ', $background_colors ) . ' { background-color : ' .  $primary_color . '}';
 
 	$color_selectors = array(
+		'.ais-pagination .ais-pagination--item__active .ais-pagination--link',
 		'.alg-primary-color',
 		'.ais-hierarchical-menu--item.ais-hierarchical-menu--item__active > div > a',
 		'.ais-facets a:hover',
