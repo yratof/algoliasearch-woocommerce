@@ -338,47 +338,6 @@ function aw_woocommerce_config( array $config ) {
 add_filter( 'algolia_config', 'aw_woocommerce_config', 5 );
 
 /**
- * @param array         $replicas
- * @param Algolia_Index $index
- *
- * @return array
- */
-function aw_products_index_replicas( array $replicas, Algolia_Index $index ) {
-	if ( 'posts_product' !== $index->get_id() ) {
-		return $replicas;
-	}
-
-	$mapping = aw_get_sort_by_mapping();
-	foreach ( $mapping as $sort ) {
-		if ( ! isset( $sort['attribute'] ) ) {
-			// No attribute means we are dealing with the master index.
-			continue;
-		}
-
-		$order = isset( $sort['order'] ) ? $sort['order'] : 'desc';
-		$replicas[] = new Algolia_Index_Replica( $sort['attribute'], $order );
-	}
-
-	return $replicas;
-}
-
-add_filter( 'algolia_index_replicas', 'aw_products_index_replicas', 10, 2 );
-
-/**
- * @param array $settings
- *
- * @return array
- */
-function aw_product_index_settings( array $settings ) {
-
-	$settings['attributesForFaceting'][] = 'price';
-
-	return $settings;
-}
-
-add_filter( 'algolia_posts_product_index_settings', 'aw_product_index_settings' );
-
-/**
  * @return array
  */
 function aw_get_catalog_order_by_options() {

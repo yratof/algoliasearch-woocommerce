@@ -422,8 +422,7 @@
 			if (algolia.woocommerce.replace_page === true) {
 				container.show();
 			}
-
-
+			
 			/* Handle swipe */
 			var $facets = $('#ais-facets');
 			var $wrapper = $('.ais-facets__wrapper');
