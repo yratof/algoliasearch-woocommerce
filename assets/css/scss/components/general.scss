@@ -3,6 +3,10 @@
   max-width: 1440px;
   margin: 0 auto;
   position: relative;
+  
+  #algolia-hits {
+    overflow:auto;
+  }
 
   @supports (display: flex) {
     display: flex;
@@ -21,6 +25,7 @@
 		#ais-facets {
 			float: left;
 		}
+
 		#ais-main {
 			float: left;
 			width: 70%;

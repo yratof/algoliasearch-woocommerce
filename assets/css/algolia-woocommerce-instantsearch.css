@@ -12,6 +12,8 @@
   max-width: 1440px;
   margin: 0 auto;
   position: relative; }
+  #ais-wrapper #algolia-hits {
+    overflow: auto; }
   @supports (display: flex) {
     #ais-wrapper {
       display: flex; }
@@ -792,6 +794,13 @@
       margin-top: 4px;
       padding: 0 40px 1px 40px; }
 
+.alg-container--xs #ais-main {
+  float: none;
+  width: 100%; }
+
+.alg-container--xs #ais-facets {
+  float: none; }
+
 .alg-container--xs .alg-show-on-xs {
   display: initial !important; }
 
@@ -902,6 +911,13 @@
     .alg-container--xs #ais-facets .ais-facets__wrapper .ais-range-slider--body {
       margin-top: 4px;
       padding: 0 40px 1px 40px; }
+
+.alg-container--xs #ais-main {
+  float: none;
+  width: 100%; }
+
+.alg-container--xs #ais-facets {
+  float: none; }
 
 .alg-container--xs .alg-show-on-xs {
   display: initial !important; }
@@ -1014,6 +1030,13 @@
       margin-top: 4px;
       padding: 0 40px 1px 40px; }
 
+.alg-container--xs #ais-main {
+  float: none;
+  width: 100%; }
+
+.alg-container--xs #ais-facets {
+  float: none; }
+
 .alg-container--xs .alg-show-on-xs {
   display: initial !important; }
 
@@ -1125,6 +1148,13 @@
       margin-top: 4px;
       padding: 0 40px 1px 40px; }
 
+.alg-container--xs #ais-main {
+  float: none;
+  width: 100%; }
+
+.alg-container--xs #ais-facets {
+  float: none; }
+
 .alg-container--xs .alg-show-on-xs {
   display: initial !important; }
 
@@ -1235,6 +1265,13 @@
     .alg-container--xs #ais-facets .ais-facets__wrapper .ais-range-slider--body {
       margin-top: 4px;
       padding: 0 40px 1px 40px; }
+
+.alg-container--xs #ais-main {
+  float: none;
+  width: 100%; }
+
+.alg-container--xs #ais-facets {
+  float: none; }
 
 .alg-container--xs .alg-show-on-xs {
   display: initial !important; }
@@ -1350,6 +1387,13 @@
       margin-top: 4px;
       padding: 0 40px 1px 40px; }
 
+.alg-container--sm #ais-main {
+  float: none;
+  width: 100%; }
+
+.alg-container--sm #ais-facets {
+  float: none; }
+
 .alg-container--sm .alg-show-on-sm {
   display: initial !important; }
 
@@ -1460,6 +1504,13 @@
     .alg-container--sm #ais-facets .ais-facets__wrapper .ais-range-slider--body {
       margin-top: 4px;
       padding: 0 40px 1px 40px; }
+
+.alg-container--sm #ais-main {
+  float: none;
+  width: 100%; }
+
+.alg-container--sm #ais-facets {
+  float: none; }
 
 .alg-container--sm .alg-show-on-sm {
   display: initial !important; }
@@ -1572,6 +1623,13 @@
       margin-top: 4px;
       padding: 0 40px 1px 40px; }
 
+.alg-container--sm #ais-main {
+  float: none;
+  width: 100%; }
+
+.alg-container--sm #ais-facets {
+  float: none; }
+
 .alg-container--sm .alg-show-on-sm {
   display: initial !important; }
 
@@ -1682,6 +1740,13 @@
     .alg-container--sm #ais-facets .ais-facets__wrapper .ais-range-slider--body {
       margin-top: 4px;
       padding: 0 40px 1px 40px; }
+
+.alg-container--sm #ais-main {
+  float: none;
+  width: 100%; }
+
+.alg-container--sm #ais-facets {
+  float: none; }
 
 .alg-container--sm .alg-show-on-sm {
   display: initial !important; }
@@ -1794,6 +1859,13 @@
       margin-top: 4px;
       padding: 0 40px 1px 40px; }
 
+.alg-container--sm #ais-main {
+  float: none;
+  width: 100%; }
+
+.alg-container--sm #ais-facets {
+  float: none; }
+
 .alg-container--sm .alg-show-on-sm {
   display: initial !important; }
 
@@ -1811,6 +1883,14 @@
 .alg-container--md .alg-hide-on-md {
   display: none; }
 
+.alg-container--md #ais-main {
+  float: left;
+  width: 70%; }
+
+.alg-container--md #ais-facets {
+  width: 30%;
+  float: left; }
+
 .alg-container--md .alg-show-on-md {
   display: initial !important; }
 
@@ -1824,6 +1904,14 @@
 
 .alg-container--md .alg-hide-on-md {
   display: none; }
+
+.alg-container--md #ais-main {
+  float: left;
+  width: 70%; }
+
+.alg-container--md #ais-facets {
+  width: 30%;
+  float: left; }
 
 .alg-container--md .alg-show-on-md {
   display: initial !important; }
@@ -1839,6 +1927,14 @@
 .alg-container--md .alg-hide-on-md {
   display: none; }
 
+.alg-container--md #ais-main {
+  float: left;
+  width: 70%; }
+
+.alg-container--md #ais-facets {
+  width: 30%;
+  float: left; }
+
 .alg-container--md .alg-show-on-md {
   display: initial !important; }
 
@@ -1853,6 +1949,14 @@
 .alg-container--md .alg-hide-on-md {
   display: none; }
 
+.alg-container--md #ais-main {
+  float: left;
+  width: 70%; }
+
+.alg-container--md #ais-facets {
+  width: 30%;
+  float: left; }
+
 .alg-container--md .alg-show-on-md {
   display: initial !important; }
 
@@ -1866,6 +1970,14 @@
 
 .alg-container--md .alg-hide-on-md {
   display: none; }
+
+.alg-container--md #ais-main {
+  float: left;
+  width: 70%; }
+
+.alg-container--md #ais-facets {
+  width: 30%;
+  float: left; }
 
 .alg-container--md .alg-show-on-md {
   display: initial !important; }
@@ -1884,6 +1996,14 @@
 .alg-container--lg .alg-hide-on-lg {
   display: none; }
 
+.alg-container--lg #ais-main {
+  float: left;
+  width: 70%; }
+
+.alg-container--lg #ais-facets {
+  width: 30%;
+  float: left; }
+
 .alg-container--lg .alg-show-on-lg {
   display: initial !important; }
 
@@ -1897,6 +2017,14 @@
 
 .alg-container--lg .alg-hide-on-lg {
   display: none; }
+
+.alg-container--lg #ais-main {
+  float: left;
+  width: 70%; }
+
+.alg-container--lg #ais-facets {
+  width: 30%;
+  float: left; }
 
 .alg-container--lg .alg-show-on-lg {
   display: initial !important; }
@@ -1912,6 +2040,14 @@
 .alg-container--lg .alg-hide-on-lg {
   display: none; }
 
+.alg-container--lg #ais-main {
+  float: left;
+  width: 70%; }
+
+.alg-container--lg #ais-facets {
+  width: 30%;
+  float: left; }
+
 .alg-container--lg .alg-show-on-lg {
   display: initial !important; }
 
@@ -1926,6 +2062,14 @@
 .alg-container--lg .alg-hide-on-lg {
   display: none; }
 
+.alg-container--lg #ais-main {
+  float: left;
+  width: 70%; }
+
+.alg-container--lg #ais-facets {
+  width: 30%;
+  float: left; }
+
 .alg-container--lg .alg-show-on-lg {
   display: initial !important; }
 
@@ -1939,6 +2083,14 @@
 
 .alg-container--lg .alg-hide-on-lg {
   display: none; }
+
+.alg-container--lg #ais-main {
+  float: left;
+  width: 70%; }
+
+.alg-container--lg #ais-facets {
+  width: 30%;
+  float: left; }
 
 .alg-container--lg .alg-show-on-lg {
   display: initial !important; }
@@ -1957,6 +2109,14 @@
 .alg-container--xl .alg-hide-on-xl {
   display: none; }
 
+.alg-container--xl #ais-main {
+  float: left;
+  width: 70%; }
+
+.alg-container--xl #ais-facets {
+  width: 30%;
+  float: left; }
+
 .alg-container--xl .alg-show-on-xl {
   display: initial !important; }
 
@@ -1970,6 +2130,14 @@
 
 .alg-container--xl .alg-hide-on-xl {
   display: none; }
+
+.alg-container--xl #ais-main {
+  float: left;
+  width: 70%; }
+
+.alg-container--xl #ais-facets {
+  width: 30%;
+  float: left; }
 
 .alg-container--xl .alg-show-on-xl {
   display: initial !important; }
@@ -1985,6 +2153,14 @@
 .alg-container--xl .alg-hide-on-xl {
   display: none; }
 
+.alg-container--xl #ais-main {
+  float: left;
+  width: 70%; }
+
+.alg-container--xl #ais-facets {
+  width: 30%;
+  float: left; }
+
 .alg-container--xl .alg-show-on-xl {
   display: initial !important; }
 
@@ -1999,6 +2175,14 @@
 .alg-container--xl .alg-hide-on-xl {
   display: none; }
 
+.alg-container--xl #ais-main {
+  float: left;
+  width: 70%; }
+
+.alg-container--xl #ais-facets {
+  width: 30%;
+  float: left; }
+
 .alg-container--xl .alg-show-on-xl {
   display: initial !important; }
 
@@ -2012,6 +2196,14 @@
 
 .alg-container--xl .alg-hide-on-xl {
   display: none; }
+
+.alg-container--xl #ais-main {
+  float: left;
+  width: 70%; }
+
+.alg-container--xl #ais-facets {
+  width: 30%;
+  float: left; }
 
 .alg-container--xl .alg-show-on-xl {
   display: initial !important; }
