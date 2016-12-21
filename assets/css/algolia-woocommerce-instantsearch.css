@@ -16,7 +16,7 @@
     #ais-wrapper {
       display: flex; }
       #ais-wrapper #ais-main {
-        width: 100%; }
+        width: 70%; }
       #ais-wrapper .ais-hits:after {
         content: "";
         display: block;
