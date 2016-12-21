@@ -114,6 +114,11 @@ $layoutMap : (
 }
 
 @mixin mobileFilters() {
+	
+	#ais-wrapper #ais-main {
+		width: 100%;
+	}
+
 	#ais-main {
 		
 		#algolia-search-box {

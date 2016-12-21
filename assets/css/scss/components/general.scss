@@ -12,7 +12,7 @@
     display: flex;
 
     #ais-main {
-    	width:100%;
+      width:70%;
     }
 
     .ais-hits {
@@ -24,6 +24,7 @@
 
 		#ais-facets {
 			float: left;
+      width: 30%;
 		}
 
 		#ais-main {

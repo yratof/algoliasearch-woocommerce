@@ -18,14 +18,15 @@
     #ais-wrapper {
       display: flex; }
       #ais-wrapper #ais-main {
-        width: 100%; }
+        width: 70%; }
       #ais-wrapper .ais-hits:after {
         content: "";
         display: block;
         clear: both; } }
   @supports not (display: flex) {
     #ais-wrapper #ais-facets {
-      float: left; }
+      float: left;
+      width: 30%; }
     #ais-wrapper #ais-main {
       float: left;
       width: 70%; }
@@ -701,6 +702,9 @@
 .alg-container--xs .alg-hide-on-xs {
   display: none; }
 
+.alg-container--xs #ais-wrapper #ais-main {
+  width: 100%; }
+
 .alg-container--xs #ais-main #algolia-search-box {
   margin-bottom: 0.25em; }
 
@@ -818,6 +822,9 @@
 
 .alg-container--xs .alg-hide-on-xs {
   display: none; }
+
+.alg-container--xs #ais-wrapper #ais-main {
+  width: 100%; }
 
 .alg-container--xs #ais-main #algolia-search-box {
   margin-bottom: 0.25em; }
@@ -937,6 +944,9 @@
 .alg-container--xs .alg-hide-on-xs {
   display: none; }
 
+.alg-container--xs #ais-wrapper #ais-main {
+  width: 100%; }
+
 .alg-container--xs #ais-main #algolia-search-box {
   margin-bottom: 0.25em; }
 
@@ -1055,6 +1065,9 @@
 .alg-container--xs .alg-hide-on-xs {
   display: none; }
 
+.alg-container--xs #ais-wrapper #ais-main {
+  width: 100%; }
+
 .alg-container--xs #ais-main #algolia-search-box {
   margin-bottom: 0.25em; }
 
@@ -1172,6 +1185,9 @@
 
 .alg-container--xs .alg-hide-on-xs {
   display: none; }
+
+.alg-container--xs #ais-wrapper #ais-main {
+  width: 100%; }
 
 .alg-container--xs #ais-main #algolia-search-box {
   margin-bottom: 0.25em; }
@@ -1294,6 +1310,9 @@
 .alg-container--sm .alg-hide-on-sm {
   display: none; }
 
+.alg-container--sm #ais-wrapper #ais-main {
+  width: 100%; }
+
 .alg-container--sm #ais-main #algolia-search-box {
   margin-bottom: 0.25em; }
 
@@ -1411,6 +1430,9 @@
 
 .alg-container--sm .alg-hide-on-sm {
   display: none; }
+
+.alg-container--sm #ais-wrapper #ais-main {
+  width: 100%; }
 
 .alg-container--sm #ais-main #algolia-search-box {
   margin-bottom: 0.25em; }
@@ -1530,6 +1552,9 @@
 .alg-container--sm .alg-hide-on-sm {
   display: none; }
 
+.alg-container--sm #ais-wrapper #ais-main {
+  width: 100%; }
+
 .alg-container--sm #ais-main #algolia-search-box {
   margin-bottom: 0.25em; }
 
@@ -1648,6 +1673,9 @@
 .alg-container--sm .alg-hide-on-sm {
   display: none; }
 
+.alg-container--sm #ais-wrapper #ais-main {
+  width: 100%; }
+
 .alg-container--sm #ais-main #algolia-search-box {
   margin-bottom: 0.25em; }
 
@@ -1765,6 +1793,9 @@
 
 .alg-container--sm .alg-hide-on-sm {
   display: none; }
+
+.alg-container--sm #ais-wrapper #ais-main {
+  width: 100%; }
 
 .alg-container--sm #ais-main #algolia-search-box {
   margin-bottom: 0.25em; }
