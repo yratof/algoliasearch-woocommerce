@@ -17,6 +17,7 @@ $layoutMap : (
 );
 
 
+
 @function str-replace($string, $search, $replace: '') {
   $index: str-index($string, $search);
   @if $index {
@@ -305,8 +306,29 @@ $layoutMap : (
 			display: none;
 		}
 
+		@if not (nth($map,5)){
+			 #ais-main {
+		    float: left;
+		    width: 70%;
+		  }
+
+		  #ais-facets {
+		    width:30%;
+		    float: left;
+		  }
+		}
+
 		@if(nth($map,5)){
 			@include mobileFilters();
+
+			  #ais-main {
+			    float: none;
+			    width: 100%;
+			  }
+
+			  #ais-facets {
+			    float: none;
+			  }
 		}
 
 		.alg-show-on-#{nth($map,3)} {
