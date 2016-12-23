@@ -23,7 +23,7 @@
 				</div>
 			</div>
 			<div class="alg-main__chrome">
-				<img class="alg-main__chromeimage" src="/wp-content/plugins/algoliasearch-woocommerce/assets/img/chrome-browser.png">
+				<img class="alg-main__chromeimage" src="<?php echo ALGOLIA_WOOCOMMERCE_URL; ?>assets/img/chrome-browser.png">
 				<iframe class="alg-main__iframe" src="<?php echo esc_url( $iframe_url ); ?>"></iframe>
 			</div>
 		</div>
