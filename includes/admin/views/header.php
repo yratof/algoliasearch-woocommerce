@@ -1,5 +1,3 @@
-
-
 <div class="alg-wrap">
 	<?php if ( isset( $message ) ): ?>
 		<div class="updated notice is-dismissible">
@@ -9,7 +7,7 @@
 	<aside class="alg-sidebar">
 		<div class="alg-sidebar__brand">
 			<div class="alg-sidebar__brandwrapper">
-				<img src="/wp-content/plugins/algoliasearch-woocommerce/assets/img/algolia-logo.png">
+				<img src="<?php echo ALGOLIA_WOOCOMMERCE_URL; ?>assets/img/algolia-logo.png">
 				<span>For WooCommerce</span>
 			</div>
 		</div>
