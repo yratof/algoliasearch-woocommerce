@@ -1,3 +1,8 @@
+# 0.6.0
+- Ensure admin images work in subdirectory installs
+- Ensure filters sidebar has always the same width
+- Ensure IE 10+ support
+
 # 0.5.1
 - Adapt design of the pagination
 
