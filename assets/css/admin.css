@@ -488,22 +488,18 @@
     background-color: rgba(0, 0, 0, 0.4);
     pointer-events: none;
     transition: .3s ease;
-    text-align: center; }
+    text-align: center;
+    display: table; }
     @supports (display: flex) {
       .alg-hit .alg-hit__overlay {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column; } }
-    @supports not (display: flex) {
-      .alg-hit .alg-hit__overlay {
-        display: table; } }
     .alg-hit .alg-hit__overlay .alg-hit__actions {
-      width: 100%; }
-      @supports not (display: flex) {
-        .alg-hit .alg-hit__overlay .alg-hit__actions {
-          display: table-cell;
-          vertical-align: middle; } }
+      width: 100%;
+      display: table-cell;
+      vertical-align: middle; }
     .alg-hit .alg-hit__overlay a {
       display: inline-block;
       text-decoration: none;
