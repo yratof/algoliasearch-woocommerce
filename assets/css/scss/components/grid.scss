@@ -17,6 +17,12 @@ $layoutMap : (
 );
 
 
+//
+// Width of filters and hits parent containers
+// on desktop,
+//
+$filterWidth: 30%;
+$hitsContainerWidth: 70%;
 
 @function str-replace($string, $search, $replace: '') {
   $index: str-index($string, $search);
@@ -314,11 +320,11 @@ $layoutMap : (
 		@if not (nth($map,5)){
 			 #ais-main {
 		    float: left;
-		    width: 70%;
+		    width: $hitsContainerWidth;
 		  }
 
 		  #ais-facets {
-		    width:30%;
+		    width: $filterWidth;
 		    float: left;
 		  }
 		}

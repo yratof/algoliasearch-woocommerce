@@ -70,6 +70,7 @@
 		pointer-events:none;
 		transition: .3s ease;
 		text-align: center;
+		display: table;
 
 		@supports (display:flex){
 			display: flex;
@@ -78,17 +79,10 @@
 			flex-direction: column;
 		}
 
-		@supports not(display:flex){
-			display: table;
-		}
-
 		@include component('hit', 'actions'){
 			width:100%;
-
-			@supports not(display:flex){
-				display: table-cell;
-				vertical-align: middle;
-			}
+			display: table-cell;
+			vertical-align: middle;
 		}
 
 		a {
