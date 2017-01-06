@@ -189,12 +189,14 @@
 				});
 			}
 
-			search.addWidget(
-				instantsearch.widgets.sortBySelector({
-					container: '#algolia-sort-by',
-					indices: sort_by_indices
-				})
-			);
+			if (sort_by_indices.length > 1) {
+				search.addWidget(
+					instantsearch.widgets.sortBySelector({
+						container: '#algolia-sort-by',
+						indices: sort_by_indices
+					})
+				);
+			}
 
 			search.addWidget({
 				init: function(options) {
