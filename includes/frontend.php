@@ -292,15 +292,22 @@ function aw_woocommerce_config( array $config ) {
 		return $config;
 	}
 
-	$replicas = $index->get_replicas();
 
 	$mapping = aw_get_sort_by_mapping();
+	$replicas = $index->get_replicas();
+
+	$master_index_replica = new Algolia_Index_Replica( $mapping['menu_order']['attribute'], $mapping['menu_order']['order'] );
+	array_unshift($replicas, $master_index_replica);
 
 	$default_option = aw_get_current_order_by_option();
 
 	foreach ( $replicas as $replica ) {
 		/** @var Algolia_Index_Replica $replica */
-		$replica_index_name = $replica->get_replica_index_name( $index );
+		if ( 'menu_order' === $replica->get_attribute_name() ) {
+			$replica_index_name = $index->get_name();
+		} else {
+			$replica_index_name = $replica->get_replica_index_name( $index );
+		}
 		$replica_attribute_name = $replica->get_attribute_name();
 		$replica_order = $replica->get_order();
 
@@ -313,6 +320,8 @@ function aw_woocommerce_config( array $config ) {
 			if ( $entry['attribute'] !== $replica_attribute_name ) {
 				continue;
 			}
+
+
 
 			if ( $replica_order === $entry['order'] ) {
 				$config['woocommerce']['sort_by'][] = array(
@@ -330,6 +339,10 @@ function aw_woocommerce_config( array $config ) {
 				break;
 			}
 		}
+	}
+
+	if ( ! isset( $config['woocommerce']['default_index_name'] ) ) {
+		$config['woocommerce']['default_index_name'] = $index->get_name();
 	}
 
 	return $config;
@@ -350,8 +363,14 @@ function aw_get_catalog_order_by_options() {
 		'price-desc' => __( 'Sort by price: high to low', 'woocommerce' )
 	) );
 
-	if ( 'menu_order' !== aw_get_default_order_by_option() ) {
-		unset( $options['menu_order'] );
+	// Here WooCommerce is used to remove `menu_order` if not the default ordering option.
+	// In our case we always keep it as it is the default index.
+	// We even for its presence.
+	if ( ! isset( $options['menu_order'] ) ) {
+		// Make sure `menu_order` is the first entry which makes more sense.
+		$options = array_merge( array(
+			'menu_order' => __( 'Default sorting', 'woocommerce' ),
+		), $options );
 	}
 
 	if ( 'no' === get_option( 'woocommerce_enable_review_rating' ) ) {

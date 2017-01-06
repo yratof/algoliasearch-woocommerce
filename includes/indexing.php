@@ -91,6 +91,12 @@ function aw_products_settings( array $settings ) {
 
 	$settings['customRanking'] = $custom_ranking;
 
+	// Here we use the Algolia_Index_Replica just to get the correct ranking.
+	// In the end we do not deal with a replica but with the master index here.
+	$mapping = aw_get_sort_by_mapping();
+	$master_index_replica = new Algolia_Index_Replica( $mapping['menu_order']['attribute'], $mapping['menu_order']['order'] );
+	$settings['ranking'] = $master_index_replica->get_ranking();
+
 	$settings['attributesToIndex'][] = 'unordered(sku)';
 	$settings['attributesToIndex'] = array_unique( $settings['attributesToIndex'] );
 
@@ -118,9 +124,9 @@ function aw_products_index_replicas( array $replicas, Algolia_Index $index ) {
 	}
 
 	$mapping = aw_get_sort_by_mapping();
-	foreach ( $mapping as $sort ) {
-		if ( ! isset( $sort['attribute'] ) ) {
-			// No attribute means we are dealing with the master index.
+	foreach ( $mapping as $key => $sort ) {
+		if ( $key === 'menu_order' ) {
+			// We are dealing with the master index.
 			continue;
 		}
 
