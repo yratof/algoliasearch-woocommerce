@@ -1,3 +1,6 @@
+# 0.7.0
+- Transformed the replica based on `menu_order` to the master index
+
 # 0.6.0
 - Ensure admin images work in subdirectory installs
 - Ensure filters sidebar has always the same width

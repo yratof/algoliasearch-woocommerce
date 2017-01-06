@@ -330,7 +330,7 @@ function aw_woocommerce_config( array $config ) {
 					'order'        => $replica_order,
 					'attribute'    => $replica_attribute_name,
 				);
-
+`
 				if ( $default_option === $wc_key ) {
 					$config['woocommerce']['default_index_name'] = $replica_index_name;
 				}
