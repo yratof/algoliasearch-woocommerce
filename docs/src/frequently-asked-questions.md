@@ -44,9 +44,11 @@ Yes; here is the code you should add to your `functions.php` file of your theme 
 add_filter( 'algolia_wc_should_display_instantsearch', '__return_true' );
 ```
 
+<div class="alert alert-info">If you choose to enable instantsearch.js on every page, you will have to make sure that the selector on `Algolia Search -> WooCommerce -> Zoning` has a match on every page.</div>
+
 ## Can I customize the search experience?
 
-Yes and no; Currently you can only override the CSS by applying your current rules on top of ours directly in your theme.
+Yes and no; Currently you can only override the CSS by applying your rules on top of ours directly in your theme.
 
 The HTML can not be overridden yet, and won't be until we release V1 of the plugin.
 
