@@ -44,6 +44,15 @@ Yes; here is the code you should add to your `functions.php` file of your theme 
 add_filter( 'algolia_wc_should_display_instantsearch', '__return_true' );
 ```
 
+## Can I customize the search experience?
+
+Yes and no; Currently you can only override the CSS by applying your current rules on top of ours directly in your theme.
+
+The HTML can not be overridden yet, and won't be until we release V1 of the plugin.
+
+While the Beta takes place, we don't want our users to struggle updating the plugin. Letting our users override the HTML would make the updating process harder.
+
+
 
 
 
