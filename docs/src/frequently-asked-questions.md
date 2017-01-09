@@ -34,6 +34,18 @@ add_filter( 'woocommerce_catalog_orderby', function( $wc_options ) {
 <div class="alert alert-warning">Once this code has been injected, you will need to manually delete the indices that are no longer used from the Algolia dashboard.</div>
 <div class="alert alert-warning">If you include a sorting option that was previously excluded, you will need to do a full re-index to ensure de sorting index replicas are created properly in Algolia.</div>
 
+## Can I make it so that the search replaces the content dynamically on every page?
+
+Yes; here is the code you should add to your `functions.php` file of your theme or in a plugin:
+
+```php
+// Ensures instantsearch.js search experience is injected on every page regardless
+// of the configuration on the 'Algolia Search -> WooCommerce -> Pages' admin page.
+add_filter( 'algolia_wc_should_display_instantsearch', '__return_true' );
+```
+
+
+
 
 
 
