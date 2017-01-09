@@ -1,6 +1,6 @@
 ---
-title: Algolia search for WooCommerce quick start
-description: Getting started guide to get you up and running.
+title: Frequently asked questions
+description: Common questions and answers about the Algolia plugin for WooCommerce.
 layout: page.html
 ---
 ## Remove some sorting options
