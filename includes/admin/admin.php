@@ -111,7 +111,11 @@ function aw_admin_notices() {
 	if ( ! class_exists('Algolia_Plugin') ) {
 		return;
 	}
-	$products_index = Algolia_Plugin::get_instance()->get_index( 'posts_product' );
+	$algolia = Algolia_Plugin::get_instance();
+	if ( ! $algolia->get_api()->is_reachable() ) {
+		return;
+	}
+	$products_index = $algolia->get_index( 'posts_product' );
 
 	if ( ! $products_index->is_enabled() ) {
 		echo '<div class="error notice is-dismissible"><p>' .
