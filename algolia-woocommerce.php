@@ -56,11 +56,15 @@ function aw_load_plugin_textdomain() {
 
 add_action( 'init', 'aw_load_plugin_textdomain' );
 
+// Makes sure the plugin is defined before trying to use it
+if ( ! function_exists( 'is_plugin_active' ) ) {
+	require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
+}
+
+
 function aw_is_algolia_plugin_active() {
-	$active_plugins = apply_filters( 'active_plugins', get_option( 'active_plugins' ) );
-	// Check for both the official dir name and the GitHub repository name.
-	return in_array( 'search-by-algolia-instant-relevant-results/algolia.php', $active_plugins ) ||
-		   in_array( 'algoliasearch-wordpress/algolia.php', $active_plugins );
+	return is_plugin_active( 'search-by-algolia-instant-relevant-results/algolia.php' ) ||
+	       is_plugin_active( 'algoliasearch-wordpress/algolia.php' );
 }
 
 /**
@@ -93,7 +97,7 @@ add_action( 'plugins_loaded', function() {
 /**
  * If WooCommerce is not active, let users know.
  **/
-if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+if ( ! is_plugin_active('woocommerce/woocommerce.php') ) {
 	add_action( 'admin_notices', function() {
 		echo '<div class="error notice">
 			  	<p>' . esc_html__( 'Algolia Search for WooCommerce: WooCommerce plugin should be enabled.', 'algolia-woocommerce' ) . '</p>
