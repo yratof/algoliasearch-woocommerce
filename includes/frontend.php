@@ -46,7 +46,14 @@ function aw_enqueue_script() {
 		) {
 			$selector = aw_get_selector();
 			$selector = str_replace( array( ':first', ':last' ), array( ':first-child', ':last-child' ), $selector );
-			wp_add_inline_script( 'algolia-instantsearch', 'document.write(\'<style type="text/css"> ' . $selector . '{display:none}</style>\');' );
+
+			if ( function_exists( 'wp_add_inline_script' ) ) {
+				// This approach is better because if JS is disabled we are able to display the original content properly.
+				// Only supported on WordPress 4.5+ so we provide a CSS fallback.
+				wp_add_inline_script( 'algolia-instantsearch', 'document.write(\'<style type="text/css"> ' . $selector . '{display:none}</style>\');' );
+			} else {
+				wp_add_inline_style( 'algolia-woocommerce-instantsearch', $selector . '{display:none}' );
+			}
 		}
 	}
 }
