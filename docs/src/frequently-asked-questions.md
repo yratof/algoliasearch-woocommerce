@@ -94,6 +94,24 @@ This code will make sure only attributes with ids `10, 8, 15` are displayed as a
 
 There is no need to re-index your data to apply this change.
 
+## My search input doesn't redirect to the products search page
+
+By default, the product search page should by available via the following URL: `/s=&post_type=product`.
+
+Often, themes ship a search input that actually submits the query to `/s=`, in which case the Algolia search for WooCommerce isn't triggered.
+
+**If the input is injected in the theme with a widget**
+
+You can replace the `Search` widget with the `WooCommerce Product Search` widget.
+
+**If the input is built-into your theme**
+
+You need to find and edit the file where the input is declared, and add the following line just after the input and before the `</form>` tag:
+
+```html
+<input type="hidden" name="post_type" value="product">
+```
+
 
 
 
