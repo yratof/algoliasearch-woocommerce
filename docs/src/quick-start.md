@@ -9,6 +9,19 @@ This plugin relies on the Algolia service which requires you to create an accoun
 
 <div class="alert alert-info">Note that there isn’t a direct correlation between the number of posts or products in WordPress and the number of records in Algolia. Also note that we only offer support to paying plans. On average, you can expect to have about 10 times more records than you have posts, though this is not a golden rule and you could end up with more records.</div>
 
+## Requirements
+
+Algolia Search plugin for WooCommerce has a few system requirements to be able to work properly.
+
+You will need to make sure your server meets the following requirements:
+
+- WordPress 4.4+
+- [WooCommerce plugin](https://wordpress.org/plugins/woocommerce/) 2.6+
+- [Algolia plugin for WordPress](https://wordpress.org/plugins/search-by-algolia-instant-relevant-results/) 1.6+
+- PHP 5.6 or greater
+- MySQL 5.6 or greater
+- cURL PHP extension
+- mbstring PHP extension
 
 ## Installation
 
