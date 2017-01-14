@@ -40,11 +40,11 @@ You should now be able to reach your Wordpress installation by visiting [local.w
 
 You can login to Wordpress admin dashboard please do that through the [login](http://local.wordpress.dev/wp-login) page using the following 
 
-##### LOGIN CREDENTIALS :
+**LOGIN CREDENTIALS :**
 **username** : admin
 **password** : password
 
-##. Enabling Algolia for Wordpress
+## Enabling Algolia for Wordpress
 
 1. Change directory from `vagrant-local` to be inside `vagrant-local/www/wordpress-default/public_html/wp-content/plugins`
 
