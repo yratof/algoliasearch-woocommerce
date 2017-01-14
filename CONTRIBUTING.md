@@ -28,9 +28,12 @@ Please follow these steps
 You should now be able to reach your Wordpress installation by visiting [local.wordpress.dev](http://local.wordpress.dev)
 
 You can login to Wordpress admin dashboard please do that through the [login](http://local.wordpress.dev/wp-login) page using the following 
-**LOGIN CREDENTIALS** :
+
+### LOGIN CREDENTIALS :
 **username** : admin
 **password** : password
+
+>! This is a spoiler
 
 ##. Enabling Algolia for Wordpress
 
@@ -40,11 +43,14 @@ You can login to Wordpress admin dashboard please do that through the [login](ht
 
 3. Clone Algolia for WooCommerce inside your plugins directory by running `git clone git@github.com:algolia/algoliasearch-woocommerce.git`
 	
-4. After installation of both plugins please visit the `Plugins` tab of your Wordpress dashboard where you should see both `Algolia Search for WooCommerce` and `Search by Algolia – Instant & Relevant results
+4. After cloning or downloading both plugins please visit the `Plugins` tab of your Wordpress dashboard where you should see both `Algolia Search for WooCommerce` and `Search by Algolia – Instant & Relevant results
+	* if you did not use git please make sure that each plugin directory is correctly named. E.g the Algolia WooCommerce plugin folder has to be named `algoliasearch-woocommerce` and Algolia Wordpress plugin folder has to be named `algoliasearch-wordpress` 
 
-4. Enable Algolia for Wordpress and Algolia for WooCommerce plugins
+5. Install and enable `WooCommerce` plugin through the Wordpress Plugins dashboard
 
-5. Follow the instructions of setting up Algolia for Wordpress and Algolia for WooCommerce
+6. Enable Algolia for Wordpress and Algolia for WooCommerce plugins
+
+7. Follow the instructions of setting up Algolia for Wordpress and Algolia for WooCommerce
 
 ### Need Help?
 
