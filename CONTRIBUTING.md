@@ -21,15 +21,16 @@ Please follow these steps
 4. Change directory throught the command line interface to be inside the `vagrant-local` directory
 
 5. Run your vagrant machine by running `vagrant up` through the command line
-		* this will setup your vagrant machine, please be patient as this step may take some time as vagrant will download and install all of the required files 
+		* this will setup your vagrant machine. Please be patient as this step may take some time as vagrant will download and install all of the required files 
 
 6. Add an `192.168.50.4 local.wordpress.dev` entry to your `hosts` file
 
 You should now be able to reach your Wordpress installation by visiting [local.wordpress.dev](http://local.wordpress.dev)
 
-You can login to Wordpress admin dashboard please do that through the [login](http://local.wordpress.dev/wp-login) page using the following *login credentials* :
-*username* : admin
-*password* : password
+You can login to Wordpress admin dashboard please do that through the [login](http://local.wordpress.dev/wp-login) page using the following 
+**LOGIN CREDENTIALS** :
+**username** : admin
+**password** : password
 
 ##. Enabling Algolia for Wordpress
 
