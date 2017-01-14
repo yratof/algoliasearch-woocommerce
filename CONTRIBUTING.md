@@ -16,6 +16,17 @@ Please follow these steps
 2. Install [Vagrant 1.8.x](https://www.vagrantup.com/downloads.html)
 		* `vagrant`command should now be available through your CLI (you can try running `vagrant -v` to check your installed version)
 
+3. We recommend you to also install these Vagrant plugins which will ease your development process and manage your vagrant configuration
+	1. Install the [vagrant-hostsupdater](https://github.com/cogitatio/vagrant-hostsupdater) plugin with `vagrant plugin install vagrant-hostsupdater`
+        * Note: This step is not a requirement, though it does make the process of starting up a virtual machine nicer by automating the entries needed in your local machine's `hosts` file to access the provisioned VVV domains in your browser.
+        * If you choose not to install this plugin, a manual entry should be added to your local `hosts` file that looks like this: `192.168.50.4  vvv.dev local.wordpress.dev src.wordpress-develop.dev build.wordpress-develop.dev`
+  1. Install the [vagrant-triggers](https://github.com/emyl/vagrant-triggers) plugin with `vagrant plugin install vagrant-triggers`
+      * Note: This step is not a requirement. When installed, it allows for various scripts to fire when issuing commands such as `vagrant halt` and `vagrant destroy`.
+      * By default, if vagrant-triggers is installed, a `db_backup` script will run on halt, suspend, and destroy that backs up each database to a `dbname.sql` file in the `{vvv}/database/backups/` directory. These will then be imported automatically if starting from scratch. Custom scripts can be added to override this default behavior.
+      * If vagrant-triggers is not installed, VVV will not provide automated database backups.
+  1. Install the [vagrant-vbguest](https://github.com/dotless-de/vagrant-vbguest) plugin with `vagrant plugin install vagrant-vbguest`.
+      * Note: This step is not a requirement. When installed, it keeps the [VirtualBox Guest Additions](https://www.virtualbox.org/manual/ch04.html) kernel modules of your guest 
+
 3. Clone or download the [Varying Vagrant Vagrants](https://github.com/Varying-Vagrant-Vagrants/VVV) project into a local directory by running `git clone git://github.com/Varying-Vagrant-Vagrants/VVV.git vagrant-local`
 
 4. Change directory throught the command line interface to be inside the `vagrant-local` directory
@@ -23,17 +34,15 @@ Please follow these steps
 5. Run your vagrant machine by running `vagrant up` through the command line
 		* this will setup your vagrant machine. Please be patient as this step may take some time as vagrant will download and install all of the required files 
 
-6. Add an `192.168.50.4 local.wordpress.dev` entry to your `hosts` file
+6. In case you haven't installed the vagrant-hostsupdate plugin then please add an `192.168.50.4 local.wordpress.dev` entry to your `hosts` file in order to be able to access the development environment
 
 You should now be able to reach your Wordpress installation by visiting [local.wordpress.dev](http://local.wordpress.dev)
 
 You can login to Wordpress admin dashboard please do that through the [login](http://local.wordpress.dev/wp-login) page using the following 
 
-### LOGIN CREDENTIALS :
+##### LOGIN CREDENTIALS :
 **username** : admin
 **password** : password
-
->! This is a spoiler
 
 ##. Enabling Algolia for Wordpress
 
