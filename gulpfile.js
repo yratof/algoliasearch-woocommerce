@@ -5,6 +5,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var wpPot = require('gulp-wp-pot');
 var sort = require('gulp-sort');
+var autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('makepot', function () {
   return gulp.src(['algolia-woocommerce.php', 'includes/*.php', 'templates/*.php'])
@@ -22,7 +23,11 @@ gulp.task('makepot', function () {
 
 gulp.task('sass', function () {
   return gulp.src(['./assets/css/scss/admin.scss', './assets/css/scss/algolia-woocommerce-instantsearch.scss'])
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass())
+    .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+    }))
     .pipe(gulp.dest('./assets/css'));
 });
 

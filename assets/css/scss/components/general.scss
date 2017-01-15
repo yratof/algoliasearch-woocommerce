@@ -17,6 +17,8 @@
     }
 
     .ais-hits {
+      display: flex;
+      flex-wrap: wrap;
       @include clearfix();
     }
   }

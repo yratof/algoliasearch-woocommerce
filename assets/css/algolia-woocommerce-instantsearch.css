@@ -17,13 +17,19 @@
     overflow: auto; }
   @supports (display: flex) {
     #ais-wrapper {
+      display: -ms-flexbox;
       display: flex; }
       #ais-wrapper #ais-main {
         width: 70%; }
-      #ais-wrapper .ais-hits:after {
-        content: "";
-        display: block;
-        clear: both; } }
+      #ais-wrapper .ais-hits {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+        #ais-wrapper .ais-hits:after {
+          content: "";
+          display: block;
+          clear: both; } }
   @supports not (display: flex) {
     #ais-wrapper #ais-facets {
       float: left;
@@ -110,9 +116,13 @@
     display: table; }
     @supports (display: flex) {
       .alg-hit .alg-hit__overlay {
+        display: -ms-flexbox;
         display: flex;
+        -ms-flex-align: center;
         align-items: center;
+        -ms-flex-pack: center;
         justify-content: center;
+        -ms-flex-direction: column;
         flex-direction: column; } }
     .alg-hit .alg-hit__overlay .alg-hit__actions {
       width: 100%;
@@ -810,7 +820,7 @@
   display: initial !important; }
 
 .alg-container--xs .alg-hits--1-col-xs .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 100%;
   margin-right: 0%;
   margin-bottom: 15px; }
@@ -931,7 +941,7 @@
   display: initial !important; }
 
 .alg-container--xs .alg-hits--2-col-xs .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 48%;
   margin-right: 4%;
   margin-bottom: 4%; }
@@ -1052,7 +1062,7 @@
   display: initial !important; }
 
 .alg-container--xs .alg-hits--3-col-xs .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 31.33333%;
   margin-right: 3%;
   margin-bottom: 3%; }
@@ -1173,7 +1183,7 @@
   display: initial !important; }
 
 .alg-container--xs .alg-hits--4-col-xs .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 23%;
   margin-right: 2.66667%;
   margin-bottom: 2.66667%; }
@@ -1294,7 +1304,7 @@
   display: initial !important; }
 
 .alg-container--xs .alg-hits--5-col-xs .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 18%;
   margin-right: 2.5%;
   margin-bottom: 2.5%; }
@@ -1418,7 +1428,7 @@
   display: initial !important; }
 
 .alg-container--sm .alg-hits--1-col-sm .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 100%;
   margin-right: 0%;
   margin-bottom: 15px; }
@@ -1539,7 +1549,7 @@
   display: initial !important; }
 
 .alg-container--sm .alg-hits--2-col-sm .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 48%;
   margin-right: 4%;
   margin-bottom: 4%; }
@@ -1660,7 +1670,7 @@
   display: initial !important; }
 
 .alg-container--sm .alg-hits--3-col-sm .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 31.33333%;
   margin-right: 3%;
   margin-bottom: 3%; }
@@ -1781,7 +1791,7 @@
   display: initial !important; }
 
 .alg-container--sm .alg-hits--4-col-sm .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 23%;
   margin-right: 2.66667%;
   margin-bottom: 2.66667%; }
@@ -1902,7 +1912,7 @@
   display: initial !important; }
 
 .alg-container--sm .alg-hits--5-col-sm .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 18%;
   margin-right: 2.5%;
   margin-bottom: 2.5%; }
@@ -1927,7 +1937,7 @@
   display: initial !important; }
 
 .alg-container--md .alg-hits--1-col-md .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 100%;
   margin-right: 0%;
   margin-bottom: 15px; }
@@ -1949,7 +1959,7 @@
   display: initial !important; }
 
 .alg-container--md .alg-hits--2-col-md .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 48%;
   margin-right: 4%;
   margin-bottom: 4%; }
@@ -1971,7 +1981,7 @@
   display: initial !important; }
 
 .alg-container--md .alg-hits--3-col-md .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 31.33333%;
   margin-right: 3%;
   margin-bottom: 3%; }
@@ -1993,7 +2003,7 @@
   display: initial !important; }
 
 .alg-container--md .alg-hits--4-col-md .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 23%;
   margin-right: 2.66667%;
   margin-bottom: 2.66667%; }
@@ -2015,7 +2025,7 @@
   display: initial !important; }
 
 .alg-container--md .alg-hits--5-col-md .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 18%;
   margin-right: 2.5%;
   margin-bottom: 2.5%; }
@@ -2040,7 +2050,7 @@
   display: initial !important; }
 
 .alg-container--lg .alg-hits--1-col-lg .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 100%;
   margin-right: 0%;
   margin-bottom: 15px; }
@@ -2062,7 +2072,7 @@
   display: initial !important; }
 
 .alg-container--lg .alg-hits--2-col-lg .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 48%;
   margin-right: 4%;
   margin-bottom: 4%; }
@@ -2084,7 +2094,7 @@
   display: initial !important; }
 
 .alg-container--lg .alg-hits--3-col-lg .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 31.33333%;
   margin-right: 3%;
   margin-bottom: 3%; }
@@ -2106,7 +2116,7 @@
   display: initial !important; }
 
 .alg-container--lg .alg-hits--4-col-lg .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 23%;
   margin-right: 2.66667%;
   margin-bottom: 2.66667%; }
@@ -2128,7 +2138,7 @@
   display: initial !important; }
 
 .alg-container--lg .alg-hits--5-col-lg .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 18%;
   margin-right: 2.5%;
   margin-bottom: 2.5%; }
@@ -2153,7 +2163,7 @@
   display: initial !important; }
 
 .alg-container--xl .alg-hits--1-col-xl .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 100%;
   margin-right: 0%;
   margin-bottom: 15px; }
@@ -2175,7 +2185,7 @@
   display: initial !important; }
 
 .alg-container--xl .alg-hits--2-col-xl .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 48%;
   margin-right: 4%;
   margin-bottom: 4%; }
@@ -2197,7 +2207,7 @@
   display: initial !important; }
 
 .alg-container--xl .alg-hits--3-col-xl .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 31.33333%;
   margin-right: 3%;
   margin-bottom: 3%; }
@@ -2219,7 +2229,7 @@
   display: initial !important; }
 
 .alg-container--xl .alg-hits--4-col-xl .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 23%;
   margin-right: 2.66667%;
   margin-bottom: 2.66667%; }
@@ -2241,7 +2251,7 @@
   display: initial !important; }
 
 .alg-container--xl .alg-hits--5-col-xl .ais-hits--item {
-  float: left;
+  display: inline-block;
   width: 18%;
   margin-right: 2.5%;
   margin-bottom: 2.5%; }
