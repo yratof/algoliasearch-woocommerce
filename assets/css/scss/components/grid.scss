@@ -176,6 +176,11 @@ $hitsContainerWidth: 70%;
     z-index: 999999;
     outline: 9999px solid rgba(0,0,0,0.5);
 
+	.ais-show-more {
+		padding-left: 8px;
+		padding-right: 8px;
+	}
+
     .ais-hierarchical-menu--link,
 		.ais-refinement-list--label{
 			margin-bottom: 0;
