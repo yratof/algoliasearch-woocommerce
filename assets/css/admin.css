@@ -169,7 +169,9 @@
   text-align: center; }
   @supports (display: flex) {
     .alg-main__container--pages {
+      display: -ms-flexbox;
       display: flex;
+      -ms-flex-pack: justify;
       justify-content: space-between; } }
   @supports not (display: flex) {
     .alg-main__container--pages {
@@ -492,9 +494,13 @@
     display: table; }
     @supports (display: flex) {
       .alg-hit .alg-hit__overlay {
+        display: -ms-flexbox;
         display: flex;
+        -ms-flex-align: center;
         align-items: center;
+        -ms-flex-pack: center;
         justify-content: center;
+        -ms-flex-direction: column;
         flex-direction: column; } }
     .alg-hit .alg-hit__overlay .alg-hit__actions {
       width: 100%;

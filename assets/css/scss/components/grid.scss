@@ -349,7 +349,7 @@ $hitsContainerWidth: 70%;
 		.#{str-replace($normal, "--n-col", "--#{$j}-col-#{nth($map,3)}")} {
 
 				.ais-hits--item {
-					float: left;
+					display: inline-block;
 					width: getItemWidth($j, 2)#{"%"};
 					margin-right: getPreciseGutter($j, 2)#{"%"};
 					@if $j > 1 {
