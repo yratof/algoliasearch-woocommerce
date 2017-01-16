@@ -343,7 +343,7 @@
 .ais-show-more {
   font-size: 14px;
   cursor: pointer;
-  padding: 8px 10px;
+  padding: 8px 0px;
   display: block; }
 
 .ais-hierarchical-menu--link,
@@ -737,6 +737,9 @@
   position: fixed;
   z-index: 999999;
   outline: 9999px solid rgba(0, 0, 0, 0.5); }
+  .alg-container--xs #ais-facets .ais-show-more {
+    padding-left: 8px;
+    padding-right: 8px; }
   .alg-container--xs #ais-facets .ais-hierarchical-menu--link,
   .alg-container--xs #ais-facets .ais-refinement-list--label {
     margin-bottom: 0; }
@@ -858,6 +861,9 @@
   position: fixed;
   z-index: 999999;
   outline: 9999px solid rgba(0, 0, 0, 0.5); }
+  .alg-container--xs #ais-facets .ais-show-more {
+    padding-left: 8px;
+    padding-right: 8px; }
   .alg-container--xs #ais-facets .ais-hierarchical-menu--link,
   .alg-container--xs #ais-facets .ais-refinement-list--label {
     margin-bottom: 0; }
@@ -979,6 +985,9 @@
   position: fixed;
   z-index: 999999;
   outline: 9999px solid rgba(0, 0, 0, 0.5); }
+  .alg-container--xs #ais-facets .ais-show-more {
+    padding-left: 8px;
+    padding-right: 8px; }
   .alg-container--xs #ais-facets .ais-hierarchical-menu--link,
   .alg-container--xs #ais-facets .ais-refinement-list--label {
     margin-bottom: 0; }
@@ -1100,6 +1109,9 @@
   position: fixed;
   z-index: 999999;
   outline: 9999px solid rgba(0, 0, 0, 0.5); }
+  .alg-container--xs #ais-facets .ais-show-more {
+    padding-left: 8px;
+    padding-right: 8px; }
   .alg-container--xs #ais-facets .ais-hierarchical-menu--link,
   .alg-container--xs #ais-facets .ais-refinement-list--label {
     margin-bottom: 0; }
@@ -1221,6 +1233,9 @@
   position: fixed;
   z-index: 999999;
   outline: 9999px solid rgba(0, 0, 0, 0.5); }
+  .alg-container--xs #ais-facets .ais-show-more {
+    padding-left: 8px;
+    padding-right: 8px; }
   .alg-container--xs #ais-facets .ais-hierarchical-menu--link,
   .alg-container--xs #ais-facets .ais-refinement-list--label {
     margin-bottom: 0; }
@@ -1345,6 +1360,9 @@
   position: fixed;
   z-index: 999999;
   outline: 9999px solid rgba(0, 0, 0, 0.5); }
+  .alg-container--sm #ais-facets .ais-show-more {
+    padding-left: 8px;
+    padding-right: 8px; }
   .alg-container--sm #ais-facets .ais-hierarchical-menu--link,
   .alg-container--sm #ais-facets .ais-refinement-list--label {
     margin-bottom: 0; }
@@ -1466,6 +1484,9 @@
   position: fixed;
   z-index: 999999;
   outline: 9999px solid rgba(0, 0, 0, 0.5); }
+  .alg-container--sm #ais-facets .ais-show-more {
+    padding-left: 8px;
+    padding-right: 8px; }
   .alg-container--sm #ais-facets .ais-hierarchical-menu--link,
   .alg-container--sm #ais-facets .ais-refinement-list--label {
     margin-bottom: 0; }
@@ -1587,6 +1608,9 @@
   position: fixed;
   z-index: 999999;
   outline: 9999px solid rgba(0, 0, 0, 0.5); }
+  .alg-container--sm #ais-facets .ais-show-more {
+    padding-left: 8px;
+    padding-right: 8px; }
   .alg-container--sm #ais-facets .ais-hierarchical-menu--link,
   .alg-container--sm #ais-facets .ais-refinement-list--label {
     margin-bottom: 0; }
@@ -1708,6 +1732,9 @@
   position: fixed;
   z-index: 999999;
   outline: 9999px solid rgba(0, 0, 0, 0.5); }
+  .alg-container--sm #ais-facets .ais-show-more {
+    padding-left: 8px;
+    padding-right: 8px; }
   .alg-container--sm #ais-facets .ais-hierarchical-menu--link,
   .alg-container--sm #ais-facets .ais-refinement-list--label {
     margin-bottom: 0; }
@@ -1829,6 +1856,9 @@
   position: fixed;
   z-index: 999999;
   outline: 9999px solid rgba(0, 0, 0, 0.5); }
+  .alg-container--sm #ais-facets .ais-show-more {
+    padding-left: 8px;
+    padding-right: 8px; }
   .alg-container--sm #ais-facets .ais-hierarchical-menu--link,
   .alg-container--sm #ais-facets .ais-refinement-list--label {
     margin-bottom: 0; }
