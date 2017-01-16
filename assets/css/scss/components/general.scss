@@ -10,12 +10,6 @@
   }
 
   @supports (display: flex) {
-    display: flex;
-
-    #ais-main {
-      width:70%;
-    }
-
     .ais-hits {
       display: flex;
       flex-wrap: wrap;

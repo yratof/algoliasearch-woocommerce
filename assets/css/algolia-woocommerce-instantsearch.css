@@ -16,20 +16,15 @@
   #ais-wrapper #algolia-hits {
     overflow: auto; }
   @supports (display: flex) {
-    #ais-wrapper {
+    #ais-wrapper .ais-hits {
       display: -ms-flexbox;
-      display: flex; }
-      #ais-wrapper #ais-main {
-        width: 70%; }
-      #ais-wrapper .ais-hits {
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap; }
-        #ais-wrapper .ais-hits:after {
-          content: "";
-          display: block;
-          clear: both; } }
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+      #ais-wrapper .ais-hits:after {
+        content: "";
+        display: block;
+        clear: both; } }
   @supports not (display: flex) {
     #ais-wrapper #ais-facets {
       float: left;
