@@ -223,6 +223,34 @@ function aw_woocommerce_config( array $config ) {
 
 	$config['woocommerce']['replace_page'] = false;
 
+	$config['woocommerce']['i18n'] = [
+		'filter_by'                   => __('Filter by', 'algolia-woocommerce'),
+		'sale'                        => __('SALE', 'algolia-woocommerce'),
+		'view_details'                => __('VIEW DETAILS', 'algolia-woocommerce'),
+		'add_to_cart'                 => __('ADD TO CART', 'algolia-woocommerce'),
+		'we_found'                    => __('We found', 'algolia-woocommerce'),
+		'products'                    => __('products', 'algolia-woocommerce'),
+		'matching'                    => __('matching', 'algolia-woocommerce'),
+		'in'                          => __('in', 'algolia-woocommerce'),
+		'with'                        => __('with', 'algolia-woocommerce'),
+		'invalid_selector_notice'     => __(
+			'You need to configure a valid selector in the "Zoning" tab of the "WooCommerce" settings inside the "Algolia" plugin.',
+			'algolia-woocommerce'
+		),
+		'products_not_indexed_notice' => __(
+			'It looks like you haven\'t indexed the posts_product index . Please head to the Indexing page of the Algolia Search plugin and index it .',
+			'algolia-woocommerce'
+		),
+		'search_input_placeholder'    => __('Search Products, Categories...', 'algolia-woocommerce'),
+		'no_results_template'         => __(
+			'No results were found for "<strong>{{query}}</strong>".',
+			'algolia-woocommerce'
+		),
+		'product_categories'          => __('Product categories', 'algolia-woocommerce'),
+		'filter_by_tag'               => __('Filter by tag', 'algolia-woocommerce'),
+		'filter_by_price'             => __('Filter by price', 'algolia-woocommerce'),
+	];
+
 	$pages = aw_get_pages();
 	if(is_product_category()) {
 		$config['woocommerce']['page'] = 'category';

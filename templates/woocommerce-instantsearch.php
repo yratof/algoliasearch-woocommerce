@@ -25,7 +25,7 @@
 					<div id="algolia-stats"></div>
 					<div id="algolia-sort-by" class="algolia-filters"></div>
 					<div id="algolia-mobile-filters" class="alg-show-on-xs alg-show-on-sm algolia-filters">
-						<button>Filter by</button>
+						<button>{{ algolia.woocommerce.i18n.filter_by }}</button>
 					</div>
 				</div>
 
@@ -49,13 +49,14 @@
 						<# if ( data.is_on_sale === true ) { #>
 							<div class="alg-hit__ribbon">
 								SALE
+								{{ algolia.woocommerce.i18n.sale }}
 							</div>
 						<# } #>
 						<div class="alg-hit__overlay">
 							<div class="alg-hit__actions">
-								<a href="{{ data.permalink }}" class="alg-cta--transparent alg-button--small">VIEW DETAILS</a>
+								<a href="{{ data.permalink }}" class="alg-cta--transparent alg-button--small">{{ algolia.woocommerce.i18n.view_details }}</a>
 								<# if(data.product_type !== 'variable') { #>
-								<a href="?add-to-cart={{ data.post_id }}" class="alg-cta--blue alg-button--small alg-button--themebutton">ADD TO CART</a>
+								<a href="?add-to-cart={{ data.post_id }}" class="alg-cta--blue alg-button--small alg-button--themebutton">{{ algolia.woocommerce.i18n.add_to_cart }}</a>
 								<# } #>
 							</div>
 						</div>
@@ -108,16 +109,16 @@
 
 	<script type="text/html" id="tmpl-stats">
 		<div class="alg-stats">
-			<span class="alg-hide-on-xs">We found</span>
-			{{ data.nbHits }} products
+			<span class="alg-hide-on-xs">{{ algolia.woocommerce.i18n.we_found }}</span>
+			{{ data.nbHits }} {{ algolia.woocommerce.i18n.products }}
 			<# if(data.query.length > 0) { #>
-			matching "<span class="alg-primary-color">{{ data.query }}</span>"
+			{{ algolia.woocommerce.i18n.matching }} "<span class="alg-primary-color">{{ data.query }}</span>"
 			<# } #>
 
-			in <span class="alg-primary-color">{{ data.processingTimeMS }} ms</span>
+			{{ algolia.woocommerce.i18n.in }} <span class="alg-primary-color">{{ data.processingTimeMS }} ms</span>
 
 			<# if(algolia.powered_by_enabled === true) { #>
-			with <span class="alg-powered-by">Algolia</span>
+			{{ algolia.woocommerce.i18n.with }} <span class="alg-powered-by">Algolia</span>
 			<# } #>
 
 		</div>
@@ -129,7 +130,7 @@
 			var container = $(algolia.woocommerce.selector);
 
 			if(container.length === 0 && $('.admin-bar').length > 0) {
-				alert('You need to configure a valid selector in the "Zoning" tab of the "WooCommerce" settings inside the "Algolia" plugin.');
+				alert(algolia.woocommerce.i18n.invalid_selector_notice);
 				return;
 			}
 
@@ -149,7 +150,7 @@
 			}
 
 			if (algolia.indices.posts_product === undefined && $('.admin-bar').length > 0) {
-				alert('It looks like you haven\'t indexed the posts_product index. Please head to the Indexing page of the Algolia Search plugin and index it.');
+				alert(algolia.woocommerce.i18n.products_not_indexed_notice);
 			}
 
 			/* Instantiate instantsearch.js */
@@ -242,7 +243,7 @@
 				search.addWidget(
 					instantsearch.widgets.searchBox({
 						container: '#algolia-search-box',
-						placeholder: 'Search Products, Categories...',
+						placeholder: algolia.woocommerce.i18n.search_input_placeholder,
 						wrapInput: false
 					})
 				);
@@ -286,7 +287,7 @@
 					container: '#algolia-hits',
 					hitsPerPage: algolia.woocommerce.products_per_page,
 					templates: {
-						empty: 'No results were found for "<strong>{{query}}</strong>".',
+						empty: algolia.woocommerce.i18n.no_results_template,
 						item: wp.template('instantsearch-hit')
 					},
 					transformData: {
@@ -316,7 +317,7 @@
 					sortBy: ['count:desc', 'name:asc'],
 					attributes: ['taxonomies_hierarchical.product_cat.lvl0', 'taxonomies_hierarchical.product_cat.lvl1', 'taxonomies_hierarchical.product_cat.lvl2'],
 					templates: {
-						header: '<h4>Product categories</h4>'
+						header: '<h4>' + algolia.woocommerce.i18n.product_categories + '</h4>'
 					}
 				})
 			);
@@ -342,7 +343,7 @@
 						showMore: attribute_show_more,
 						sortBy: attribute_sort_by,
 						templates: {
-							header: '<h4>Filter by ' + attribute_label + '</h4>'
+							header: '<h4>' + algolia.woocommerce.i18n.filter_by + ' ' + attribute_label + '</h4>'
 						}
 					})
 				);
@@ -358,7 +359,7 @@
 					showMore: true,
 					sortBy: ['isRefined:desc', 'count:desc', 'name:asc'],
 					templates: {
-						header: '<h4>Filter by tag</h4>'
+						header: '<h4>' + algolia.woocommerce.i18n.filter_by_tag + '</h4>'
 					}
 				})
 			);
@@ -369,7 +370,7 @@
 					container: '#facet-price',
 					attributeName: 'price',
 					templates: {
-						header: '<h4>Filter by price</h4>'
+						header: '<h4>' + algolia.woocommerce.i18n.filter_by_price + '</h4>'
 					},
 					tooltips: {
 						format: function (rawValue) {

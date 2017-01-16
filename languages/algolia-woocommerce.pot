@@ -1,12 +1,12 @@
-# Copyright (C) 2016 Algolia for WooCommerce 0.0.1
-# This file is distributed under the same license as the Algolia for WooCommerce 0.0.1 package.
+# Copyright (C) 2017 Algolia for WooCommerce 0.7.0
+# This file is distributed under the same license as the Algolia for WooCommerce 0.7.0 package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Algolia for WooCommerce 0.0.1\n"
+"Project-Id-Version: Algolia for WooCommerce 0.7.0\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
@@ -14,16 +14,80 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: algolia-woocommerce.php:72
+#: algolia-woocommerce.php:76
 msgid "Algolia Search for WooCommerce: <a href=\".admin_urlplugin-install.php?s=Search+by+Algolia+–+Instant+%26+Relevant+results&tab=search&type=term.\">Search by Algolia – Instant & Relevant results</a> plugin should be enabled."
 msgstr ""
 
-#: algolia-woocommerce.php:84
-msgid "Algolia Search for WooCommerce: Search by Algolia – Instant & Relevant should be updated to at least version 1.5.0."
+#: algolia-woocommerce.php:88
+msgid "Algolia Search for WooCommerce: Search by Algolia – Instant & Relevant should be updated to at least version 1.6.0."
 msgstr ""
 
-#: algolia-woocommerce.php:99
+#: algolia-woocommerce.php:103
 msgid "Algolia Search for WooCommerce: WooCommerce plugin should be enabled."
+msgstr ""
+
+#: includes/frontend.php:227
+msgid "Filter by"
+msgstr ""
+
+#: includes/frontend.php:228
+msgid "SALE"
+msgstr ""
+
+#: includes/frontend.php:229
+msgid "VIEW DETAILS"
+msgstr ""
+
+#: includes/frontend.php:230
+msgid "ADD TO CART"
+msgstr ""
+
+#: includes/frontend.php:231
+msgid "We found"
+msgstr ""
+
+#: includes/frontend.php:232
+msgid "products"
+msgstr ""
+
+#: includes/frontend.php:233
+msgid "matching"
+msgstr ""
+
+#: includes/frontend.php:234
+msgid "in"
+msgstr ""
+
+#: includes/frontend.php:235
+msgid "with"
+msgstr ""
+
+#: includes/frontend.php:236
+msgid "You need to configure a valid selector in the \"Zoning\" tab of the \"WooCommerce\" settings inside the \"Algolia\" plugin."
+msgstr ""
+
+#: includes/frontend.php:240
+msgid "It looks like you haven't indexed the posts_product index . Please head to the Indexing page of the Algolia Search plugin and index it ."
+msgstr ""
+
+#: includes/frontend.php:244
+msgid "Search Products, Categories..."
+msgstr ""
+
+#: includes/frontend.php:245
+msgid "No results were found for \"<strong>{{query}}</strong>\"."
+msgstr ""
+
+#: includes/frontend.php:249
+msgid "Product categories"
+msgstr ""
+
+#: includes/frontend.php:250
+msgid "Filter by tag"
+msgstr ""
+
+#: includes/frontend.php:251
+msgid "Filter by price"
 msgstr ""
 
 #: templates/autocomplete.php:79
