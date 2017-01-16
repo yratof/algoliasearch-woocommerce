@@ -476,6 +476,7 @@
   color: #31c0f8; }
 
 .ais-refinement-list--label .ais-refinement-list--checkbox {
+  display: inline-block;
   background-color: #FFF;
   margin: 0 10px 0 0; }
 
