@@ -1,3 +1,11 @@
+# 0.8.0
+- Made all frontend strings translatable
+- Fixed some CSS rules that would make the checkboxes take an entire line
+- Fixed an issue that would cause the grid display to break
+- Make sure the plugin does not break the admin if the API Client is not configured properly
+- Improve the detection of existing plugins: WooCommerce & Algolia search for WordPress
+- Made sure we use the "items per page" provided by WooCommerce natively
+
 # 0.7.0
 - Transformed the replica based on `menu_order` to the master index
 
