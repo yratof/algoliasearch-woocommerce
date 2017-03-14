@@ -1,3 +1,6 @@
+# 0.8.1
+- Remove Algolia API query on page load when results are not displayed
+
 # 0.8.0
 - Made all frontend strings translatable
 - Fixed some CSS rules that would make the checkboxes take an entire line
