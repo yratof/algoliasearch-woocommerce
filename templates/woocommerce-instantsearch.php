@@ -177,8 +177,15 @@
 						search.helper.setQueryParameter('filters', '');
 					}
 					search.helper.setPage(savedPage);
-					helper.search();
-				}
+
+                    if (search.helper.state.query.length > 0 || algolia.woocommerce.replace_page !== false) {
+                        helper.search();
+                    } else {
+                        search_container.hide();
+                        container.show();
+                        update_container_class();
+                    }
+                }
 			});
 
 			var sort_by_indices = [];
