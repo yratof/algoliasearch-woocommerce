@@ -1,0 +1,37 @@
+{
+  "menu": {
+    "project": {
+      "label": "WooCommerce plugin",
+      "url": "/woocommerce/"
+    }
+  },
+  "sideMenu": [{
+    "name": "Documentation",
+    "url": "https://github.com/algolia/algoliasearch-woocommerce/",
+    "target": ""
+  }, {
+    "name": "",
+    "image": "",
+    "url": "/wordpress/installation.html"
+  }],
+  "mobileMenu": [{
+    "name": "Install",
+    "url": "https://wordpress.org/plugins/search-by-algolia-instant-relevant-results/"
+  }, {
+    "name": "Documentation",
+    "url": "/wordpress/installation.html"
+  }, {
+    "name": "Discourse",
+    "target": "_blank",
+    "url": "https://discourse.algolia.com/c/wordpress"
+  },{
+    "name": "Blog",
+    "url": "http://blog.algolia.com/",
+    "target": "_blank",
+    "image": "<img src='img/algolia-mark-blue.svg'/>"
+  }, {
+    "name": "FAQ",
+    "url": "/wordpress/frequently-asked-questions.html"
+  }],
+  "docSearch": null
+}
