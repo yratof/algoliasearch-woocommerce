@@ -6,6 +6,9 @@
   }
  }
 
+var header = new communityHeader()
+console.log(header);
+
 $(function () {
 
     var ACTIONS = {

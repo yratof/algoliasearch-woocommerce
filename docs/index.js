@@ -12,7 +12,10 @@ var helpers     = require('metalsmith-register-helpers');
 var headingsid  = require('metalsmith-headings-identifier');
 var file        = require('./plugins/file/index.js');
 var imagemin    = require('metalsmith-imagemin');
+var algoliaComponents = require('algolia-frontend-components');
+var fs = require('fs');
 
+var communityHeaderData = JSON.parse(fs.readFileSync('./component_data/communityHeader.json').toString());
 
 var sassPaths = [
     'node_modules/foundation-sites/scss'
@@ -25,7 +28,8 @@ var siteBuild = Metalsmith(__dirname)
         url: 'https://github.com/algolia/algoliasearch-woocommerce',
         version: '0.8.2',
         time: new Date().getTime(),
-        tweets:['666409672006606848','675635141713248256','684325213329305600','669552193419259904','672084577805012992','714625225359425536','669555344725696512','688027404741308417','783838738791227392','782584336323227648','787040561215582208','698839453469544448','687060441881796608','705467858961223680','665028633048821760','654785137272459265','661567388983279617','708574926962294784','707863195025858560']
+        tweets:['666409672006606848','675635141713248256','684325213329305600','669552193419259904','672084577805012992','714625225359425536','669555344725696512','688027404741308417','783838738791227392','782584336323227648','787040561215582208','698839453469544448','687060441881796608','705467858961223680','665028633048821760','654785137272459265','661567388983279617','708574926962294784','707863195025858560'],
+        header: algoliaComponents.communityHeader(communityHeaderData)
     })
 
     .source('./src')
@@ -40,6 +44,10 @@ var siteBuild = Metalsmith(__dirname)
     }))
 
     // Copy vendor assets to the build.
+    .use(asset({
+        src: './node_modules/algolia-frontend-components/dist/_communityHeader.js',
+        dest: './js/communityHeader.js'
+    }))
     .use(asset({
         src: './node_modules/jquery/dist',
         dest: './deps/jquery'
