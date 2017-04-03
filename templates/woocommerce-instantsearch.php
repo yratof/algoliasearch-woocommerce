@@ -48,7 +48,6 @@
 
 						<# if ( data.is_on_sale === true ) { #>
 							<div class="alg-hit__ribbon">
-								SALE
 								{{ algolia.woocommerce.i18n.sale }}
 							</div>
 						<# } #>
