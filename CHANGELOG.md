@@ -1,3 +1,6 @@
+# 0.8.2
+- Remove duplicate "Sale" from instantsearch template
+
 # 0.8.1
 - Remove Algolia API query on page load when results are not displayed
 
