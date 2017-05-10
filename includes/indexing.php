@@ -158,3 +158,10 @@ add_filter( 'algolia_post_images_sizes', function( $sizes ) {
 
     return array_unique( $sizes );
 });
+
+
+add_filter( 'algolia_get_synced_indices_ids', function( $ids ) {
+    $ids[] = 'posts_product';
+
+    return array_unique( $ids );
+} );
