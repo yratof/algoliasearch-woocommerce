@@ -5,12 +5,6 @@
 	<?php endif; ?>
 
 	<aside class="alg-sidebar">
-		<div class="alg-sidebar__brand">
-			<div class="alg-sidebar__brandwrapper">
-				<img src="<?php echo ALGOLIA_WOOCOMMERCE_URL; ?>assets/img/algolia-logo.png">
-				<span>For WooCommerce</span>
-			</div>
-		</div>
 		<ul class="alg-sidebar__list">
 			<li class="alg-sidebar__link <?php if ( ! isset( $_GET['tab'] ) || $_GET['tab'] === 'pages'): ?>alg-sidebar__link--active<?php endif; ?>">
 				<a href="admin.php?page=algolia-woocommerce">
