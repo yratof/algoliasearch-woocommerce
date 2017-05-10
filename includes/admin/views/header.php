@@ -44,6 +44,8 @@
 				</a>
 			</li>
 		</ul>
+
+    <button class="algolia-reindex-button button button-primary" style="margin: 18px; width: 84%;" data-index="posts_product"><?php _e('Re-index products', 'algolia-woocommerce'); ?></button>
 	</aside>
 
 	<main class="alg-main">
