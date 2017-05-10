@@ -4,7 +4,7 @@
  * Plugin Name: Algolia Search for WooCommerce
  * Plugin URI: https://community.algolia.com/woocommerce
  * Description: Todo
- * Version: 0.8.1
+ * Version: 0.9.0
  * Author: Algolia
  * Author URI: https://www.algolia.com
  *
@@ -13,7 +13,7 @@
  */
 
 // The Algolia Search for WooCommerce plugin version.
-define( 'ALGOLIA_WOOCOMMERCE_VERSION', '0.8.1' );
+define( 'ALGOLIA_WOOCOMMERCE_VERSION', '0.9.0' );
 define( 'ALGOLIA_WOOCOMMERCE_PLUGIN_BASENAME', plugin_basename(__FILE__) );
 
 if ( ! defined( 'ALGOLIA_WOOCOMMERCE_PATH' ) ) {
@@ -82,11 +82,11 @@ if ( ! aw_is_algolia_plugin_active() ) {
  * If Algolia version is lower than what is expected invite users to update.
  **/
 add_action( 'plugins_loaded', function() {
-	if ( defined( 'ALGOLIA_VERSION' ) && version_compare( ALGOLIA_VERSION, '1.6.0', '<' ) ) {
+	if ( defined( 'ALGOLIA_VERSION' ) && version_compare( ALGOLIA_VERSION, '2.1.0', '<' ) ) {
 		add_action( 'admin_notices', function () {
 				echo '<div class="error notice">
 					<p>' . __(
-						'Algolia Search for WooCommerce: Search by Algolia – Instant & Relevant should be updated to at least version 1.6.0.',
+						'Algolia Search for WooCommerce: Search by Algolia – Instant & Relevant should be updated to at least version 2.1.0.',
 						'algolia-woocommerce'
 					) . '</p>
 				</div>';

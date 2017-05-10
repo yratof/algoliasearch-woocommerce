@@ -1,3 +1,8 @@
+# 0.9.0
+- Make compatible with WooCommerce 3
+- Make compatible with Algolia plugin in version 2.1.0
+- Remove deprecated logo
+
 # 0.8.2
 - Remove duplicate "Sale" from instantsearch template
 
