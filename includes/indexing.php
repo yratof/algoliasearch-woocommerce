@@ -153,3 +153,8 @@ function aw_product_index_settings( array $settings ) {
 
 add_filter( 'algolia_posts_product_index_settings', 'aw_product_index_settings' );
 
+add_filter( 'algolia_post_images_sizes', function( $sizes ) {
+    $sizes[] = 'shop_catalog';
+
+    return array_unique( $sizes );
+});
