@@ -1,3 +1,6 @@
+# 0.10.1
+- fix: do not allow to checkout grouped products
+
 # 0.10.0
 - feat: allow to refine on "text" attributes
 - feat: support Grouped products
