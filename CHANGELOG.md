@@ -1,3 +1,9 @@
+# 0.10.0
+- feat: allow to refine on "text" attributes
+- feat: support Grouped products
+- refactor: remove deprecated WooCommerce 2 methods
+- BREAKING CHANGE: Drop support of WooCommerce 2
+
 # 0.9.0
 - Make compatible with WooCommerce 3
 - Make compatible with Algolia plugin in version 2.1.0
