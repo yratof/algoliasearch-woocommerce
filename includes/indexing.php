@@ -71,8 +71,10 @@ function aw_should_index_post( $should_index, WP_Post $post ) {
 	}
 
 	$product = wc_get_product( $post );
+
 	// We extracted this check because `is_visible` will not detect searchable products if not in a loop.
-	if ( 'search' === $product->visibility ) {
+	if ( 'search' === $product->get_catalog_visibility() ) {
+		
 		return true;
 	}
 
