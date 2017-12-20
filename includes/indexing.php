@@ -24,9 +24,10 @@ function aw_product_shared_attributes( array $attributes, WP_Post $post ) {
         $children         = array_filter( array_map( 'wc_get_product', $product->get_children() ), 'wc_products_array_filter_visible_grouped' );
 
         foreach ( $children as $child ) {
+            /* @var $child WC_Product */
             if ( '' !== $child->get_price() ) {
                 $child_prices[] = 'incl' === $tax_display_mode ? wc_get_price_including_tax( $child ) : wc_get_price_excluding_tax( $child );
-            }
+			}
         }
 
         if ( ! empty( $child_prices ) ) {
@@ -41,9 +42,9 @@ function aw_product_shared_attributes( array $attributes, WP_Post $post ) {
 		$regular_price = $min_price;
 		$sale_price = $min_price;
 	} else {
-		$price = $max_price = $product->get_display_price();
-		$regular_price = $product->get_display_price( $product->get_regular_price() );
-		$sale_price = $product->get_display_price( $product->get_sale_price() );
+		$price = $max_price = wc_get_price_to_display( $product );
+		$regular_price = wc_get_price_to_display( $product, array( 'price' => $product->get_regular_price() ) );
+		$sale_price = wc_get_price_to_display( $product, array( 'price' => $product->get_sale_price() ) );
 	}
 
 	$attributes['product_type'] = (string) $product->get_type();
