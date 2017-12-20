@@ -18,12 +18,33 @@ function aw_product_shared_attributes( array $attributes, WP_Post $post ) {
 		$sale_price = $product->get_variation_sale_price( 'min', true );
 		$max_price = $product->get_variation_price( 'max', true );
 		$variations_count = count( $product->get_available_variations() );
+	} else if ( $product instanceof WC_Product_Grouped ) {
+        $tax_display_mode = get_option( 'woocommerce_tax_display_shop' );
+        $child_prices     = array();
+        $children         = array_filter( array_map( 'wc_get_product', $product->get_children() ), 'wc_products_array_filter_visible_grouped' );
+
+        foreach ( $children as $child ) {
+            if ( '' !== $child->get_price() ) {
+                $child_prices[] = 'incl' === $tax_display_mode ? wc_get_price_including_tax( $child ) : wc_get_price_excluding_tax( $child );
+            }
+        }
+
+        if ( ! empty( $child_prices ) ) {
+            $min_price = min( $child_prices );
+            $max_price = max( $child_prices );
+        } else {
+            $min_price = '';
+            $max_price = '';
+		}
+		
+		$price = $min_price;
+		$regular_price = $min_price;
+		$sale_price = $min_price;
 	} else {
 		$price = $max_price = $product->get_display_price();
 		$regular_price = $product->get_display_price( $product->get_regular_price() );
 		$sale_price = $product->get_display_price( $product->get_sale_price() );
 	}
-	// Todo: deal with grouped products.
 
 	$attributes['product_type'] = (string) $product->get_type();
 	$attributes['price'] = (float) $price;

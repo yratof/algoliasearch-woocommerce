@@ -80,13 +80,13 @@
 
 
 						<p class="alg-hit__priceholder">
-							<# if(data.is_on_sale === true && data.product_type !== 'variable') { #>
+							<# if(data.is_on_sale === true && data.product_type !== 'variable' && data.product_type !== 'grouped') { #>
 								<span class="alg-hit__previousprice">
 									{{data.formatted_regular_price}}
 								</span>
 							<# } #>
 							<span class="alg-hit__currentprice">
-								{{data.formatted_price}}<# if(data.product_type === 'variable' && data.price !== data.max_price) { #>-{{data.formatted_max_price}}
+								{{data.formatted_price}}<# if((data.product_type === 'variable' || data.product_type === 'grouped') && data.price !== data.max_price) { #>-{{data.formatted_max_price}}
 								<# } #>
 							</span>
 						</p>
