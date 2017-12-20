@@ -28,6 +28,40 @@ function aw_product_shared_attributes( array $attributes, WP_Post $post ) {
             if ( '' !== $child->get_price() ) {
                 $child_prices[] = 'incl' === $tax_display_mode ? wc_get_price_including_tax( $child ) : wc_get_price_excluding_tax( $child );
 			}
+
+			// Get child taxonomies to merge in the grouped product.
+            $child_post = get_post( $child->get_id() );
+            if ( ! $child_post instanceof WP_Post ) {
+                continue;
+            }
+
+            $taxonomy_objects = get_object_taxonomies( $child_post->post_type, 'objects' );
+
+            foreach ( $taxonomy_objects as $taxonomy ) {
+                /* @var $taxonomy WP_Taxonomy */
+                if ( $taxonomy->hierarchical ) {
+                    // Skip hierarchical taxonomies.
+                    // Product attributes "select" & "text" are non hierarchical.
+                    continue;
+                }
+                $terms = wp_get_object_terms( $child->get_id(), $taxonomy->name );
+
+                $terms = is_array( $terms ) ? $terms : array();
+
+                $taxonomy_values = wp_list_pluck( $terms, 'name' );
+                if ( empty( $taxonomy_values ) ) {
+                    continue;
+                }
+
+                if ( isset( $attributes['taxonomies'][ $taxonomy->name ] ) ) {
+                    $attributes['taxonomies'][ $taxonomy->name ] = array_merge( $attributes['taxonomies'][ $taxonomy->name ], $taxonomy_values );
+                } else {
+                    $attributes['taxonomies'][ $taxonomy->name ] = $taxonomy_values;
+                }
+
+                // Ensure there are no duplicate values.
+                $attributes['taxonomies'][ $taxonomy->name ] = array_unique( $attributes['taxonomies'][ $taxonomy->name ] );
+            }
         }
 
         if ( ! empty( $child_prices ) ) {
