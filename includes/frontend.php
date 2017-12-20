@@ -286,10 +286,6 @@ function aw_woocommerce_config( array $config ) {
 	$attributes_for_faceting = array();
 	foreach ( $attributes as $attribute ) {
 		$attribute = (array) $attribute;
-		if ( $attribute['attribute_type'] !== 'select' ) {
-			continue;
-		}
-
 		$attribute['attribute_id'] = (int) $attribute['attribute_id'];
 		$attribute['attribute_public'] = (bool) $attribute['attribute_public'];
 
