@@ -54,7 +54,7 @@
 						<div class="alg-hit__overlay">
 							<div class="alg-hit__actions">
 								<a href="{{ data.permalink }}" class="alg-cta--transparent alg-button--small">{{ algolia.woocommerce.i18n.view_details }}</a>
-								<# if(data.product_type !== 'variable') { #>
+								<# if(data.product_type !== 'variable' && data.product_type !== 'grouped') { #>
 								<a href="?add-to-cart={{ data.post_id }}" class="alg-cta--blue alg-button--small alg-button--themebutton">{{ algolia.woocommerce.i18n.add_to_cart }}</a>
 								<# } #>
 							</div>
