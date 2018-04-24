@@ -1,6 +1,6 @@
 ## Documentation
 
-[Follow this link to access the documentation](https://community.algolia.com/woocommerce/quick-start.html)
+[Follow this link to access the documentation](https://community.algolia.com/wordpress/woocommerce.html)
 
 ## Development
 
