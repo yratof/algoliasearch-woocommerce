@@ -38,72 +38,26 @@
 	</script>
 
 	<script type="text/html" id="tmpl-instantsearch-hit">
-
-			<article class="alg-hit">
-				<div class="alg-hit__content">
-					<figure>
-						<# if ( data.images.shop_catalog ) { #>
-						<img src="{{ data.images.shop_catalog.url }}" alt="{{ data.post_title }}" title="{{ data.post_title }}" itemprop="image" />
-						<# } #>
-
-						<# if ( data.is_on_sale === true ) { #>
-							<div class="alg-hit__ribbon">
-								{{ algolia.woocommerce.i18n.sale }}
-							</div>
-						<# } #>
-						<div class="alg-hit__overlay">
-							<div class="alg-hit__actions">
-								<a href="{{ data.permalink }}" class="alg-cta--transparent alg-button--small">{{ algolia.woocommerce.i18n.view_details }}</a>
-								<# if(data.product_type !== 'variable' && data.product_type !== 'grouped') { #>
-								<a href="?add-to-cart={{ data.post_id }}" class="alg-cta--blue alg-button--small alg-button--themebutton">{{ algolia.woocommerce.i18n.add_to_cart }}</a>
-								<# } #>
-							</div>
-						</div>
-					</figure>
-					<div class="alg-hit__details">
-						<h2 class="alg-hit__title" itemprop="name headline">
-							<a href="{{ data.permalink }}" title="{{ data.post_title }}" itemprop="url">{{{ data._highlightResult.post_title.value }}}</a>
-						</h2>
-						<p class="alg-hit__description">
-							<#
-							var product_cats = [];
-							if(data._highlightResult !== undefined && data._highlightResult.taxonomies !== undefined && data._highlightResult.taxonomies.product_cat !== undefined) {
-								for (var index in data._highlightResult.taxonomies.product_cat) {
-									product_cats.push(data._highlightResult.taxonomies.product_cat[index].value);
-								}
-							}
-							product_cats = product_cats.join(', ');
-						#>
-						{{{product_cats}}} &nbsp;
-						</p>
-
-
-
-						<p class="alg-hit__priceholder">
-							<# if(data.is_on_sale === true && data.product_type !== 'variable' && data.product_type !== 'grouped') { #>
-								<span class="alg-hit__previousprice">
-									{{data.formatted_regular_price}}
-								</span>
-							<# } #>
-							<span class="alg-hit__currentprice">
-								{{data.formatted_price}}<# if((data.product_type === 'variable' || data.product_type === 'grouped') && data.price !== data.max_price) { #>-{{data.formatted_max_price}}
-								<# } #>
-							</span>
-						</p>
-						<# var rating_percentage = Math.round(data.average_rating * 2 * 10); #>
-
-						<div class="alg-stars">
-							<# if(data.rating_count > 0) { #>
-							&#x2606&#x2606&#x2606&#x2606&#x2606
-								<span class="alg-rating" style="width:{{rating_percentage}}%;">&#x2605&#x2605&#x2605&#x2605&#x2605</span>
-							<# } else { #>
-								&nbsp;
-							<# } #>
-						</div>
-
-					</div>
-				</div>
-			</article>
+	  <a href="{{ data.permalink }}" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+	    <div class="rig"><b class="show-me-some-more-information"></b>
+	      <div class="woocommerce-product-details__short-description">{{{data.post_excerpt.value}}}</div>
+	      <# if ( data.images.shop_catalog ) { #>
+	      <img src="{{ data.images.shop_catalog.url }}" alt="{{ data.post_title }}" title="{{ data.post_title }}" itemprop="image" />
+	      <# } #>
+	    </div>
+	    <h3>{{{ data._highlightResult.post_title.value }}}</h3>
+	    <# if((data.product_type === 'variable' || data.product_type === 'grouped')) { #>
+	      <strong class="colours--available">Flere fargevalg</strong>
+	    <# } #>
+	    <# var rating_percentage = Math.round(data.average_rating * 2 * 10); #>
+	    <# if(data.rating_count > 0) { #>
+	    <div class="star-rating">
+	      &#x2606&#x2606&#x2606&#x2606&#x2606
+	        <span class="star-overlay" style="width:{{rating_percentage}}%; position: absolute;">&#x2605&#x2605&#x2605&#x2605&#x2605</span>
+	    </div>
+	    <# } #>
+	    <span class="price"><span class="woocommerce-Price-amount amount">{{data.formatted_price}}</span></span>
+	  </a>
 	</script>
 
 	<script type="text/html" id="tmpl-stats">
@@ -556,7 +510,7 @@
 			var thousands_sep = algolia.woocommerce.thousands_separator;
 			var currency_symbol = algolia.woocommerce.currency_symbol;
 			var currency_position = algolia.woocommerce.currency_position;
-			
+
 			var n = !isFinite(+number) ? 0 : +number,
 				prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
 				sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,

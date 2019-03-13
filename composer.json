@@ -1,0 +1,11 @@
+{
+    "version": "0.10.4",
+    "name": "drivdigital\/algolia-woocommerce",
+    "homepage": "algolia.com",
+    "description": "Woocommerce integration for Algolia",
+    "type": "wordpress-plugin",
+    "dist": {
+        "url": "https:\/\/satis.driv.digital\/zips\/",
+        "type": "artifact"
+    }
+}
