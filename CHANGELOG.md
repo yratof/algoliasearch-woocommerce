@@ -1,3 +1,6 @@
+# 0.11.0
+- Updated EXIST
+
 # 0.10.1
 - fix: do not allow to checkout grouped products
 

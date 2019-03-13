@@ -42,7 +42,7 @@
 	    <div class="rig"><b class="show-me-some-more-information"></b>
 	      <div class="woocommerce-product-details__short-description">{{{data.post_excerpt.value}}}</div>
 	      <# if ( data.images.shop_catalog ) { #>
-	      <img src="{{ data.images.shop_catalog.url }}" alt="{{ data.post_title }}" title="{{ data.post_title }}" itemprop="image" />
+	      <img class="wp-post-image" src="{{ data.images.shop_catalog.url }}" alt="{{ data.post_title }}" title="{{ data.post_title }}" itemprop="image" />
 	      <# } #>
 	    </div>
 	    <h3>{{{ data._highlightResult.post_title.value }}}</h3>
